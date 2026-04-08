@@ -40,7 +40,7 @@ export default function Restaurant() {
         </p>
         <p>
           Venez déguster notre spécialité toute l’année :
-          le <strong className="text-brown font-semibold">Stockfish</strong>.
+          le <strong className="text-black font-normal">Stockfish</strong>.
         </p>
         <p>
           Nous contacter pour les repas de famille, anniversaires, banquets,
@@ -48,20 +48,20 @@ export default function Restaurant() {
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 mt-2 text-brown font-semibold text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-gold pb-0.5"
+          className="inline-flex items-center gap-2 mt-2 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
         >
           Nous contacter <span className="text-gold">→</span>
         </Link>
       </SectionBlock>
 
       {/* Horaires & infos */}
-      <section className="py-16 md:py-24 bg-warm">
+      <section className="py-20 md:py-28 bg-beige section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div>
-              <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Horaires</p>
-              <h2 className="text-2xl md:text-3xl text-brown mb-5">Quand nous rendre visite ?</h2>
-              <div className="w-10 h-px bg-gold mb-7" />
+              <p className="overline text-gold mb-4">Horaires</p>
+              <h2 className="text-2xl md:text-[32px] text-black mb-5">Quand nous rendre visite ?</h2>
+              <div className="w-12 h-px bg-black mb-7" />
               <ul className="space-y-4">
                 {[
                   { label: 'Ouverture', value: 'Toute l’année, du lundi au samedi soir' },
@@ -72,17 +72,17 @@ export default function Restaurant() {
                   <li key={item.label} className="flex gap-4 text-sm">
                     <span className="w-4 h-px bg-gold block shrink-0 mt-2.5" />
                     <div>
-                      <span className="font-semibold text-brown">{item.label} — </span>
-                      <span className="text-gray-500">{item.value}</span>
+                      <span className="font-normal text-black">{item.label} — </span>
+                      <span className="text-gray-mid">{item.value}</span>
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Nos menus</p>
-              <h2 className="text-2xl md:text-3xl text-brown mb-5">Menus & carte</h2>
-              <div className="w-10 h-px bg-gold mb-7" />
+              <p className="overline text-gold mb-4">Nos menus</p>
+              <h2 className="text-2xl md:text-[32px] text-black mb-5">Menus & carte</h2>
+              <div className="w-12 h-px bg-black mb-7" />
               <ul className="space-y-4">
                 {[
                   { title: 'Menu du Terroir & Gastronomique', desc: 'Servi le soir ou le samedi sur réservation, à base de produits du terroir aveyronnais.' },
@@ -90,8 +90,8 @@ export default function Restaurant() {
                   { title: 'Menu du Jour', desc: 'Servi uniquement le midi du lundi au vendredi, renouvelé selon les arrivées et la saison.' },
                 ].map((item) => (
                   <li key={item.title} className="">
-                    <h4 className="text-sm font-semibold text-brown mb-1">{item.title}</h4>
-                    <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                    <h4 className="text-sm font-normal text-black mb-1" style={{ fontFamily: 'var(--font-body)', textTransform: 'none' }}>{item.title}</h4>
+                    <p className="text-gray-mid text-sm leading-relaxed">{item.desc}</p>
                   </li>
                 ))}
               </ul>
@@ -101,7 +101,7 @@ export default function Restaurant() {
       </section>
 
       {/* ===== BANDE PHOTOS ===== */}
-      <section className="overflow-hidden">
+      <section className="overflow-hidden section-border">
         <div className="grid grid-cols-2 lg:grid-cols-4 h-56 md:h-72">
           <div className="relative overflow-hidden group">
             <img
@@ -139,18 +139,17 @@ export default function Restaurant() {
       </section>
 
       {/* ===== CARROUSEL NOS PLATS ===== */}
-      <section className="py-20 md:py-28 bg-brown" id="galerie-plats">
+      <section className="py-24 md:py-32 bg-deepbrown section-border" id="galerie-plats">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Les Carillons</p>
+            <p className="overline text-gold mb-4">Les Carillons</p>
             <h2
-              className="text-4xl md:text-5xl text-[#E3DED1] mb-5"
-              style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+              className="text-4xl md:text-5xl text-offwhite mb-5"
             >
               Nos Créations
             </h2>
             <div className="w-16 h-px bg-gold mx-auto mb-5" />
-            <p className="text-[#E3DED1]/60 text-sm italic max-w-md mx-auto leading-relaxed">
+            <p className="text-offwhite/50 text-sm max-w-md mx-auto leading-relaxed font-light">
               Des assiettes soignées, composées selon les saisons et les arrivées du marché.
             </p>
           </div>
@@ -165,15 +164,15 @@ export default function Restaurant() {
       </section>
 
       {/* ===== NOS MENUS ===== */}
-      <section className="py-20 md:py-28 bg-warm" id="menus">
+      <section className="py-24 md:py-32 bg-beige section-border" id="menus">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Les Carillons</p>
-            <h2 className="text-4xl md:text-5xl text-brown mb-5" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+            <p className="overline text-gold mb-4">Les Carillons</p>
+            <h2 className="text-4xl md:text-5xl text-black mb-5">
               Nos Menus
             </h2>
-            <div className="w-16 h-px bg-gold mx-auto mb-5" />
-            <p className="text-gray-400 text-sm italic max-w-xl mx-auto leading-relaxed">
+            <div className="w-16 h-px bg-black mx-auto mb-5" />
+            <p className="text-gray-mid text-sm max-w-xl mx-auto leading-relaxed font-light">
               Ceci est un exemple de menu susceptible d&apos;évoluer en fonction des arrivages et de la saison.
             </p>
           </div>
@@ -182,8 +181,8 @@ export default function Restaurant() {
 
             {/* Menu Terroir & Gastronomique */}
             <div className="bg-white">
-              <div className="bg-brown px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <h3 className="text-white text-base tracking-[0.1em] uppercase" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+              <div className="bg-deepbrown px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <h3 className="text-white text-base tracking-[0.1em]">
                   Menu du Terroir &amp; Gastronomique
                 </h3>
                 <span className="text-gold font-light text-sm tracking-widest">à partir de 26 €</span>
@@ -258,7 +257,7 @@ export default function Restaurant() {
             {/* Menu Stockfish */}
             <div className="bg-white">
               <div className="bg-gold px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <h3 className="text-white text-base tracking-[0.1em] uppercase" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+                <h3 className="text-white text-base tracking-[0.1em]">
                   Menu Stockfish
                 </h3>
                 <span className="text-white/80 font-light text-sm tracking-widest">30 € · vin &amp; café compris</span>
@@ -279,8 +278,8 @@ export default function Restaurant() {
 
             {/* Menu du Jour */}
             <div className="bg-white">
-              <div className="bg-sage px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <h3 className="text-white text-base tracking-[0.1em] uppercase" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+              <div className="bg-deepbrown px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <h3 className="text-white text-base tracking-[0.1em]">
                   Menu du Jour
                 </h3>
                 <span className="text-white/80 font-light text-sm tracking-widest">17 € · ¼ vin &amp; café compris</span>
@@ -313,14 +312,14 @@ export default function Restaurant() {
       </section>
 
       {/* ===== NOS PLATS A LA CARTE ===== */}
-      <section className="py-20 md:py-28 bg-white" id="carte">
+      <section className="py-24 md:py-32 bg-white section-border" id="carte">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Les Carillons</p>
-            <h2 className="text-4xl md:text-5xl text-brown mb-5" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+            <p className="overline text-gold mb-4">Les Carillons</p>
+            <h2 className="text-4xl md:text-5xl text-black mb-5">
               Nos Plats à la Carte
             </h2>
-            <div className="w-16 h-px bg-gold mx-auto" />
+            <div className="w-16 h-px bg-black mx-auto" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <div>
@@ -389,7 +388,7 @@ export default function Restaurant() {
           <div className="text-center mt-14">
             <Link
               to="/contact"
-              className="inline-block bg-gold hover:bg-gold-dark text-white font-bold text-xs px-10 py-4 tracking-[0.2em] uppercase transition-colors no-underline"
+              className="inline-block bg-gold hover:bg-gold-dark text-white font-normal text-xs px-10 py-4 tracking-[0.2em] uppercase transition-colors no-underline"
             >
               Réserver une table
             </Link>

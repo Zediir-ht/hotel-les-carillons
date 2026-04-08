@@ -36,16 +36,16 @@ export default function Hotel() {
         <p>
           Que vous soyez en cure thermale, en déplacement professionnel ou en
           vacances, vous apprécierez le calme et la sérénité de notre
-          établissement, labellisé <strong className="text-brown font-semibold">Logis Hôtels</strong>.
+          établissement, labellisé <strong className="text-black font-normal">Logis Hôtels</strong>.
         </p>
       </SectionBlock>
 
-      <section className="py-16 md:py-24 bg-warm">
+      <section className="py-20 md:py-28 bg-beige section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Équipements</p>
-            <h2 className="text-3xl text-brown">Nos services & équipements</h2>
-            <div className="w-10 h-px bg-gold mx-auto mt-5" />
+            <p className="overline text-gold mb-4">Équipements</p>
+            <h2 className="text-3xl text-black">Nos services & équipements</h2>
+            <div className="w-16 h-px bg-black mx-auto mt-5" />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
@@ -60,11 +60,11 @@ export default function Hotel() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="bg-white p-5 text-center group hover:shadow-sm transition-shadow"
+                className="bg-white p-5 text-center group border border-black/5 hover:border-gold/30 transition-colors"
               >
-                <div className="text-sage mb-3">{item.icon}</div>
+                <div className="text-gold mb-3">{item.icon}</div>
                 <div className="w-5 h-px bg-gold mx-auto mb-2" />
-                <span className="text-xs font-semibold text-gray-600 tracking-wide">{item.label}</span>
+                <span className="text-xs font-normal text-black/70 tracking-wide">{item.label}</span>
               </div>
             ))}
           </div>
@@ -72,7 +72,7 @@ export default function Hotel() {
       </section>
 
       {/* Bande photos : piscine, bar, accueil */}
-      <section className="overflow-hidden">
+      <section className="overflow-hidden section-border">
         <div className="grid grid-cols-3 h-56 md:h-72">
           {[
             { src: `${IMG}/logis-hotel-les-carillons-piscine-cransac-444210.jpg`, alt: 'Piscine extérieure de l\'hôtel Les Carillons' },
@@ -92,7 +92,7 @@ export default function Hotel() {
       </section>
 
       {/* Petit-déjeuner */}
-      <section className="flex flex-col md:flex-row-reverse" style={{ minHeight: '460px' }}>
+      <section className="flex flex-col md:flex-row-reverse section-border" style={{ minHeight: '460px' }}>
         <div className="md:w-1/2 h-56 md:h-auto">
           <Carousel
             slides={petitDejSlides}
@@ -102,11 +102,11 @@ export default function Hotel() {
             className="h-full"
           />
         </div>
-        <div className="md:w-1/2 bg-warm flex flex-col justify-center px-8 py-12 md:px-16 md:py-16">
-          <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Chaque matin</p>
-          <h2 className="text-2xl md:text-3xl text-brown mb-4 leading-tight">Le Petit-Déjeuner</h2>
-          <div className="w-8 h-px bg-gold mb-6" />
-          <div className="text-gray-500 leading-relaxed space-y-3 text-[15px] max-w-sm">
+        <div className="md:w-1/2 bg-beige flex flex-col justify-center px-8 py-14 md:px-16 md:py-20">
+          <p className="overline text-gold mb-4">Chaque matin</p>
+          <h2 className="text-2xl md:text-[32px] text-black mb-4 leading-tight">Le Petit-Déjeuner</h2>
+          <div className="w-12 h-px bg-black mb-6" />
+          <div className="text-gray-mid leading-relaxed space-y-3 text-base max-w-sm">
             <p>
               Commencez votre journée avec notre buffet gourmand : viennoiseries fraîches,
               confitures maison, fromages, charcuteries, jus de fruits et boissons chaudes.
@@ -133,7 +133,7 @@ export default function Hotel() {
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 mt-6 text-brown font-semibold text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-gold pb-0.5"
+          className="inline-flex items-center gap-2 mt-6 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
         >
           Nous contacter <span className="text-gold">→</span>
         </Link>

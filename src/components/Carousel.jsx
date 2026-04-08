@@ -68,7 +68,7 @@ export default function Carousel({
         <>
           <button
             onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center bg-black/25 hover:bg-black/50 backdrop-blur-sm text-white ring-1 ring-white/25 hover:ring-[#a67b5b] transition-all duration-200"
+            className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white border border-white/20 hover:border-gold transition-all duration-200`}
             aria-label="Image précédente"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -77,7 +77,7 @@ export default function Carousel({
           </button>
           <button
             onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center bg-black/25 hover:bg-black/50 backdrop-blur-sm text-white ring-1 ring-white/25 hover:ring-[#a67b5b] transition-all duration-200"
+            className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white border border-white/20 hover:border-gold transition-all duration-200`}
             aria-label="Image suivante"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -94,10 +94,10 @@ export default function Carousel({
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`rounded-full transition-all duration-300 ${
+              className={`transition-all duration-300 ${
                 i === current
-                  ? 'w-6 h-2 bg-[#a67b5b]'
-                  : 'w-2 h-2 bg-white/55 hover:bg-white/85'
+                  ? 'w-6 h-[3px] bg-gold'
+                  : 'w-2 h-[3px] bg-white/40 hover:bg-white/70'
               }`}
               aria-label={`Image ${i + 1}`}
             />

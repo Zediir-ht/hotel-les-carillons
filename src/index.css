@@ -1,37 +1,65 @@
 ﻿@import "tailwindcss";
 
+/* ── Gotham (body) ── */
 @font-face {
-  font-family: "Classy Vogue";
-  src: url("/fonts/Classy Vogue Stylish Serif Font.otf") format("opentype");
-  font-weight: normal;
+  font-family: "Gotham";
+  src: url("/fonts/Gotham/Gotham-XLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/fonts/Gotham/Gotham-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/fonts/Gotham/Gotham-Book.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+/* ── Goudy Titling (headlines) ── */
 @font-face {
-  font-family: "Peristiwa";
-  src: url("/fonts/Peristiwa.otf") format("opentype");
-  font-weight: normal;
+  font-family: "Goudy Titling";
+  src: url("/fonts/GoudyTitling/GoudyTitling-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Classy Vogue (logo) ── */
+@font-face {
+  font-family: "ClassyVogue";
+  src: url("/fonts/Classy%20Vogue%20Stylish%20Serif%20Font.otf") format("opentype");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
-  /* Nouvelle palette — Hôtel Les Carillons */
-  --color-cream: #F8F5F0;
-  --color-warm: #E3DED1;       /* Sable / Beige lin — fond */
-  --color-brown: #2D2D2D;      /* Anthracite doux — textes foncés, footer, nav top */
-  --color-brown-light: #484848;
-  --color-sage: #707767;       /* Vert Sauge fumé — couleur principale */
-  --color-sage-light: #8A9170;
-  --color-beige: #D5CEBE;
-  --color-beige-dark: #C4BBB0;
-  --color-gold: #A67B5B;       /* Cuivre / Terre de Sienne — accent */
-  --color-gold-dark: #8D6347;
+  /* Nordic Luxury palette */
+  --color-gold: #8c6e47;
+  --color-gold-dark: #7a5c3a;
+  --color-offwhite: #f5f2ee;
+  --color-deepbrown: #4b382e;
+  --color-beige: #e5ddd2;
+  --color-gold-faded: #d2c6b7;
+  --color-gray-mid: #777777;
 
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-body: "Lato", system-ui, sans-serif;
-  --font-logo: "Peristiwa", cursive;
+  /* Legacy aliases for Tailwind utilities */
+  --color-warm: #e5ddd2;
+  --color-cream: #f5f2ee;
+  --color-brown: #4b382e;
+  --color-brown-light: #5a4a3e;
+
+  --font-display: "Goudy Titling", Georgia, serif;
+  --font-body: "Gotham", system-ui, sans-serif;
+  --font-logo: "ClassyVogue", Georgia, serif;
 }
 
 html {
@@ -42,22 +70,31 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  color: #2D2D2D;
-  background-color: #E3DED1;
+  font-weight: 300;
+  color: #000000;
+  background-color: #f5f2ee;
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
 }
 
-/* ── Ken Burns effect ── */
-@keyframes kenBurns {
-  from { transform: scale(1.08); }
-  to   { transform: scale(1); }
+/* ── Section divider — thin structural border ── */
+.section-border {
+  border-top: 1px solid #000000;
 }
-.ken-burns {
-  animation: kenBurns 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+
+/* ── fadeInUp scroll animation ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 /* ── Hero text slide-up on mount ── */
@@ -69,39 +106,39 @@ h1, h2, h3 {
   animation: heroReveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-/* ── Gold divider shimmer on hover ── */
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position:  200% center; }
+/* ── Ken Burns for hero images ── */
+@keyframes kenBurns {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1); }
 }
-.gold-shimmer:hover {
-  background: linear-gradient(90deg, #A67B5B 0%, #e0b97e 50%, #A67B5B 100%);
-  background-size: 200% auto;
-  animation: shimmer 1.4s linear infinite;
+.ken-burns {
+  animation: kenBurns 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-/* ── CTA button subtle pulse ── */
-@keyframes ctaPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(166,123,91,0.35); }
-  50%       { box-shadow: 0 0 0 8px rgba(166,123,91,0); }
+/* ── Image card hover — scale down from 1.05 to 1.0 ── */
+.img-card img {
+  transform: scale(1.05);
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.cta-pulse {
-  animation: ctaPulse 2.8s ease-in-out infinite;
+.img-card:hover img {
+  transform: scale(1.0);
 }
 
-/* ── Water shimmer animations ── */
-@keyframes waterBlob1 {
-  0%,  100% { transform: translate(0%,    0%   ); opacity: 0.55; }
-  33%        { transform: translate(9%,   -7%   ); opacity: 0.35; }
-  66%        { transform: translate(-6%,   8%   ); opacity: 0.65; }
+/* ── Interactive layer shadow (sub-menus) ── */
+.interactive-shadow {
+  box-shadow: rgba(149,157,165,0.2) 0 2px 10px;
 }
-@keyframes waterBlob2 {
-  0%,  100% { transform: translate(0%,    0%   ); opacity: 0.35; }
-  40%        { transform: translate(-8%,   6%   ); opacity: 0.55; }
-  75%        { transform: translate(7%,   -9%   ); opacity: 0.25; }
+
+/* ── Overline style ── */
+.overline {
+  font-family: var(--font-body);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 400;
 }
-@keyframes waterScan {
-  0%         { transform: translateX(-160%) skewX(-22deg); opacity: 0;   }
-  15%, 85%   {                                              opacity: 1;   }
-  100%       { transform: translateX(260%)  skewX(-22deg); opacity: 0;   }
+
+/* ── No rounded corners anywhere ── */
+img, .card, button, input, textarea, a {
+  border-radius: 0 !important;
 }

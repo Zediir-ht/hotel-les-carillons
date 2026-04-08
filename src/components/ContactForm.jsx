@@ -26,7 +26,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="nom" className="block text-sm font-normal text-black mb-1">
             Nom *
           </label>
           <input
@@ -36,11 +36,11 @@ export default function ContactForm() {
             required
             value={form.nom}
             onChange={handleChange}
-            className="w-full border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
+            className="w-full border border-black/15 px-4 py-2.5 text-sm focus:outline-none focus:border-gold transition bg-white"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="email" className="block text-sm font-normal text-black mb-1">
             Email *
           </label>
           <input
@@ -50,14 +50,14 @@ export default function ContactForm() {
             required
             value={form.email}
             onChange={handleChange}
-            className="w-full border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
+            className="w-full border border-black/15 px-4 py-2.5 text-sm focus:outline-none focus:border-gold transition bg-white"
           />
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="telephone" className="block text-sm font-normal text-black mb-1">
             Téléphone
           </label>
           <input
@@ -66,11 +66,11 @@ export default function ContactForm() {
             name="telephone"
             value={form.telephone}
             onChange={handleChange}
-            className="w-full border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
+            className="w-full border border-black/15 px-4 py-2.5 text-sm focus:outline-none focus:border-gold transition bg-white"
           />
         </div>
         <div>
-          <label htmlFor="dates" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="dates" className="block text-sm font-normal text-black mb-1">
             Dates souhaitées
           </label>
           <input
@@ -80,13 +80,13 @@ export default function ContactForm() {
             placeholder="ex : 15 au 20 juillet"
             value={form.dates}
             onChange={handleChange}
-            className="w-full border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition"
+            className="w-full border border-black/15 px-4 py-2.5 text-sm focus:outline-none focus:border-gold transition bg-white"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="message" className="block text-sm font-normal text-black mb-1">
           Message *
         </label>
         <textarea
@@ -96,13 +96,13 @@ export default function ContactForm() {
           rows={5}
           value={form.message}
           onChange={handleChange}
-          className="w-full border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"
+          className="w-full border border-black/15 px-4 py-2.5 text-sm focus:outline-none focus:border-gold transition resize-y bg-white"
         />
       </div>
 
       <button
         type="submit"
-        className="bg-gold hover:bg-gold-dark text-white font-bold text-xs px-8 py-3 tracking-[0.15em] uppercase transition-colors cursor-pointer"
+        className="bg-gold hover:bg-gold-dark text-white font-normal text-xs px-8 py-3.5 tracking-[0.15em] uppercase transition-colors cursor-pointer"
       >
         Envoyer le message
       </button>

@@ -63,17 +63,17 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="py-20 md:py-28 bg-warm">
+    <section className="py-24 md:py-32 bg-beige section-border">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-5">
+          <p className="overline text-gold mb-5">
             Nos Services
           </p>
-          <h2 className="text-3xl md:text-4xl text-brown">
+          <h2 className="text-3xl md:text-[44px] text-black">
             Un établissement complet
           </h2>
-          <div className="w-10 h-px bg-gold mx-auto mt-5" />
+          <div className="w-16 h-px bg-black mx-auto mt-5" />
         </div>
 
         {/* Grid */}
@@ -81,14 +81,14 @@ export default function ServicesGrid() {
           {services.map((service, i) => (
             <Reveal key={service.title} from="fade" delay={i * 80}>
               <div
-                className="bg-white p-6 md:p-8 text-center group hover:shadow-md transition-shadow h-full"
+                className="bg-white p-6 md:p-8 text-center group transition-colors h-full border border-black/5 hover:border-gold/30"
               >
-                <div className="text-sage mb-4 transition-transform duration-300 group-hover:-translate-y-1">{service.icon}</div>
-                <h3 className="text-sm md:text-base font-semibold text-brown mb-2 tracking-wide">
+                <div className="text-gold mb-4 transition-transform duration-300 group-hover:-translate-y-1">{service.icon}</div>
+                <h3 className="text-sm md:text-base font-normal text-black mb-2 tracking-wide" style={{ fontFamily: 'var(--font-body)', textTransform: 'none' }}>
                   {service.title}
                 </h3>
                 <div className="w-6 h-px bg-gold mx-auto mb-3 group-hover:w-10 transition-all duration-300" />
-                <p className="text-gray-400 text-sm leading-relaxed">{service.description}</p>
+                <p className="text-gray-mid text-sm leading-relaxed font-light">{service.description}</p>
               </div>
             </Reveal>
           ))}

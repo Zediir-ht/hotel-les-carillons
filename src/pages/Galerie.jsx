@@ -74,7 +74,7 @@ export default function Galerie() {
       {themes.map((theme, idx) => (
         <section
           key={theme.id}
-          className={`py-20 md:py-28 ${idx % 2 === 0 ? 'bg-warm' : 'bg-white'}`}
+          className={`py-24 md:py-32 ${idx % 2 === 0 ? 'bg-beige' : 'bg-white'} section-border`}
         >
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
             <div className={`flex flex-col md:flex-row gap-12 md:gap-16 items-center ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
@@ -90,17 +90,16 @@ export default function Galerie() {
 
               {/* Text */}
               <div className="w-full md:w-2/5">
-                <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">
+                <p className="overline text-gold mb-4">
                   {theme.label}
                 </p>
                 <h2
-                  className="text-3xl md:text-4xl text-brown mb-5 leading-tight"
-                  style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+                  className="text-3xl md:text-[44px] text-black mb-5 leading-tight"
                 >
                   {theme.title}
                 </h2>
-                <div className="w-10 h-px bg-gold mb-6" />
-                <p className="text-gray-500 text-[15px] leading-relaxed">
+                <div className="w-12 h-px bg-black mb-6" />
+                <p className="text-gray-mid text-base leading-relaxed font-light">
                   {theme.desc}
                 </p>
               </div>
@@ -110,16 +109,16 @@ export default function Galerie() {
       ))}
 
       {/* Façade plein largeur */}
-      <section className="overflow-hidden h-64 md:h-80 relative">
+      <section className="overflow-hidden h-64 md:h-80 relative section-border">
         <img
           src={`${IMG}/logis-hotel-les-carillons-facade-cransac-735654.jpg`}
           alt="Façade de l'hôtel Les Carillons à Cransac-les-Thermes"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <p
-            className="text-[#E3DED1] text-3xl md:text-5xl tracking-[0.15em]"
-            style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+            className="text-offwhite text-3xl md:text-5xl tracking-[0.08em] uppercase"
+            style={{ fontFamily: 'var(--font-display)' }}
           >
             Les Carillons
           </p>

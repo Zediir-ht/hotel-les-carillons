@@ -11,25 +11,24 @@ const footerNav = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brown text-white">
-      {/* Top gold divider */}
-      <div className="h-px bg-gold/40" />
+    <footer className="bg-deepbrown text-white">
+      {/* Top structural border */}
+      <div className="h-px bg-black" />
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-14 md:py-20">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           {/* Col 1 — Brand */}
           <div>
             <Link to="/" className="no-underline">
               <span
-                className="text-3xl text-white block mb-4"
+                className="text-2xl text-white block mb-4 uppercase tracking-[0.08em]"
                 style={{ fontFamily: 'var(--font-logo)' }}
               >
                 Les Carillons
-                <span className="text-sm align-super ml-1" style={{ fontFamily: 'sans-serif', fontWeight: 400 }}>★★</span>
               </span>
             </Link>
-            <div className="w-8 h-px bg-gold mb-5" />
-            <p className="text-white/65 text-sm leading-relaxed">
+            <div className="w-12 h-px bg-gold mb-5" />
+            <p className="text-white/50 text-sm leading-relaxed font-light">
               Hôtel-restaurant familial au cœur de l'Aveyron.<br />
               Un accueil chaleureux par Nathalie, Florian et Assia.
             </p>
@@ -37,7 +36,7 @@ export default function Footer() {
 
           {/* Col 2 — Navigation */}
           <div>
-            <h4 className="text-[11px] tracking-[0.25em] uppercase text-gold font-semibold mb-6">
+            <h4 className="text-[11px] tracking-[0.25em] uppercase text-gold font-normal mb-6" style={{ fontFamily: 'var(--font-body)' }}>
               Navigation
             </h4>
             <ul className="list-none p-0 m-0 space-y-3">
@@ -45,7 +44,7 @@ export default function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-white/65 hover:text-white text-sm no-underline transition-colors"
+                    className="text-white/50 hover:text-white text-sm no-underline transition-colors font-light"
                   >
                     {link.label}
                   </Link>
@@ -56,13 +55,13 @@ export default function Footer() {
 
           {/* Col 3 — Coordonnées */}
           <div>
-            <h4 className="text-[11px] tracking-[0.25em] uppercase text-gold font-semibold mb-6">
+            <h4 className="text-[11px] tracking-[0.25em] uppercase text-gold font-normal mb-6" style={{ fontFamily: 'var(--font-body)' }}>
               Coordonnées
             </h4>
-            <address className="not-italic text-sm text-white/65 leading-relaxed space-y-3">
+            <address className="not-italic text-sm text-white/50 leading-relaxed space-y-3 font-light">
               <p>Route de Figeac<br />12110 Cransac-les-Thermes</p>
               <p>
-                <a href="tel:+33565631475" className="text-white/65 hover:text-white no-underline transition-colors">
+                <a href="tel:+33565631475" className="text-white/50 hover:text-white no-underline transition-colors">
                   05 65 63 14 75
                 </a>
               </p>
@@ -72,18 +71,18 @@ export default function Footer() {
                 href="https://www.logishotels.com/fr/hotel/logis-hotel-les-carillons-4588"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border border-gold/50 text-gold text-xs font-semibold px-4 py-2 tracking-wider uppercase no-underline hover:bg-gold hover:text-white transition-colors"
+                className="inline-block border border-gold/40 text-gold text-xs font-normal px-5 py-2.5 tracking-[0.15em] uppercase no-underline hover:bg-gold hover:text-white transition-colors"
               >
-                ★ Logis Hôtels
+                Réserver
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
+        <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30 font-light">
           <p>&copy; {new Date().getFullYear()} Hôtel Restaurant Les Carillons — Tous droits réservés.</p>
-          <Link to="/mentions-legales" className="text-white/40 hover:text-white/70 no-underline transition-colors">
+          <Link to="/mentions-legales" className="text-white/30 hover:text-white/60 no-underline transition-colors">
             Mentions légales
           </Link>
         </div>

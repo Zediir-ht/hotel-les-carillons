@@ -80,24 +80,24 @@ export default function Tourisme() {
       />
 
       {/* Intro Cransac */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div>
-              <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-5">Bienvenue</p>
-              <h2 className="text-3xl md:text-4xl text-brown leading-tight mb-5">
+              <p className="overline text-gold mb-5">Bienvenue</p>
+              <h2 className="text-3xl md:text-[44px] text-black leading-tight mb-5">
                 Bienvenue à<br />Cransac-les-Thermes
               </h2>
-              <div className="w-10 h-px bg-gold mb-7" />
-              <p className="text-gray-500 leading-relaxed mb-4 text-[15px]">
+              <div className="w-12 h-px bg-black mb-7" />
+              <p className="text-gray-mid leading-relaxed mb-4 text-base font-light">
                 Charmante petite station thermale ensoleillée, aux confins du Lot,
                 du Cantal et de l'Aveyron, au cœur d'une nature préservée et
                 généreuse, offrant des paysages d'une rare diversité, propice à la
                 pratique de nombreux sports et loisirs.
               </p>
-              <p className="text-gray-500 leading-relaxed mb-4 text-[15px]">
+              <p className="text-gray-mid leading-relaxed mb-4 text-base font-light">
                 Avec des thermes modernes gérés par la{' '}
-                <strong className="text-brown font-semibold">Chaîne Thermale du Soleil</strong>,
+                <strong className="text-black font-normal">Chaîne Thermale du Soleil</strong>,
                 des équipements adaptés et un thermalisme unique et original,
                 Cransac-les-Thermes entre dans le XXIème siècle sous le signe
                 d'une vitalité nouvelle.
@@ -106,7 +106,7 @@ export default function Tourisme() {
                 href="http://www.chainethermale.fr/cransac-les-thermes.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-brown font-semibold text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-gold pb-0.5"
+                className="inline-flex items-center gap-2 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
               >
                 Les thermes de Cransac <span className="text-gold">→</span>
               </a>
@@ -123,15 +123,15 @@ export default function Tourisme() {
       </section>
 
       {/* Sites touristiques */}
-      <section className="py-16 md:py-24 bg-warm">
+      <section className="py-20 md:py-28 bg-beige section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">À proximité</p>
-            <h2 className="text-3xl md:text-4xl text-brown mb-5">
+            <p className="overline text-gold mb-4">À proximité</p>
+            <h2 className="text-3xl md:text-[44px] text-black mb-5">
               Sites touristiques exceptionnels
             </h2>
-            <div className="w-10 h-px bg-gold mx-auto mb-5" />
-            <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed text-sm">
+            <div className="w-12 h-px bg-black mx-auto mb-5" />
+            <p className="text-gray-mid max-w-2xl mx-auto leading-relaxed text-sm font-light">
               Point de départ idéal pour la visite d'une multitude de sites
               touristiques exceptionnels — villages classés, villes d'art,
               gorges et paysages d'Aveyron.
@@ -142,7 +142,7 @@ export default function Tourisme() {
             {sites.map((site) => (
               <div
                 key={site.name}
-                className="bg-white overflow-hidden hover:shadow-sm transition-shadow"
+                className="bg-white overflow-hidden border border-black/5 hover:border-gold/30 transition-colors"
               >
                 <img
                   src="/images/placeholder.jpg"
@@ -151,11 +151,11 @@ export default function Tourisme() {
                 />
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-sm font-semibold text-brown tracking-wide leading-tight">{site.name}</h3>
+                    <h3 className="text-sm font-normal text-black tracking-wide leading-tight" style={{ fontFamily: 'var(--font-body)', textTransform: 'none' }}>{site.name}</h3>
                     <span className="text-xs text-gold font-light shrink-0 ml-2">{site.distance}</span>
                   </div>
                   <div className="w-5 h-px bg-gold mb-3" />
-                  <p className="text-gray-500 text-sm leading-relaxed">{site.desc}</p>
+                  <p className="text-gray-mid text-sm leading-relaxed font-light">{site.desc}</p>
                   {site.url && (
                     <a
                       href={site.url}
@@ -174,19 +174,19 @@ export default function Tourisme() {
       </section>
 
       {/* Agenda local */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Animations</p>
-            <h2 className="text-3xl text-brown mb-5">Vie locale & animations</h2>
-            <div className="w-10 h-px bg-gold mx-auto" />
+            <p className="overline text-gold mb-4">Animations</p>
+            <h2 className="text-3xl text-black mb-5">Vie locale & animations</h2>
+            <div className="w-12 h-px bg-black mx-auto" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {agenda.map((item) => (
-              <div key={item.title} className="bg-warm p-6 md:p-8">
-                <h3 className="text-sm font-semibold text-brown mb-4 tracking-wide uppercase">{item.title}</h3>
+              <div key={item.title} className="bg-beige p-6 md:p-8 border border-black/5">
+                <h3 className="text-sm font-normal text-black mb-4 tracking-wide uppercase" style={{ fontFamily: 'var(--font-body)' }}>{item.title}</h3>
                 <div className="w-8 h-px bg-gold mb-4" />
-                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-gray-mid text-sm leading-relaxed font-light">{item.desc}</p>
                 {item.url && (
                   <a
                     href={item.url}
@@ -200,7 +200,7 @@ export default function Tourisme() {
               </div>
             ))}
           </div>
-          <p className="text-center text-gray-400 text-xs mt-10">
+          <p className="text-center text-gray-mid text-xs mt-10 font-light">
             Plus d'infos :{' '}
             <a href="http://www.aveyron-tourisme.fr" target="_blank" rel="noopener noreferrer" className="text-gold no-underline hover:text-gold-dark">aveyron-tourisme.fr</a>
             {' · '}

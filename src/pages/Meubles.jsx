@@ -38,18 +38,18 @@ export default function Meubles() {
         </p>
         <p>
           La piscine de l'hôtel est à votre disposition, ainsi que le magnifique
-          parc des <strong className="text-brown font-semibold">« 3 Cèdres »</strong>, planté de cèdres centenaires.
+          parc des <strong className="text-black font-normal">« 3 Cèdres »</strong>, planté de cèdres centenaires.
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 mt-2 text-brown font-semibold text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-gold pb-0.5"
+          className="inline-flex items-center gap-2 mt-2 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
         >
           Nous contacter <span className="text-gold">→</span>
         </Link>
       </SectionBlock>
 
       {/* Carrousel extérieurs */}
-      <section className="py-20 md:py-28 bg-brown">
+      <section className="py-24 md:py-32 bg-deepbrown section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
             <Reveal className="w-full md:w-3/5" from="left">
@@ -61,19 +61,18 @@ export default function Meubles() {
               />
             </Reveal>
             <Reveal className="w-full md:w-2/5" from="right" delay={150}>
-              <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Cadre d'exception</p>
+              <p className="overline text-gold mb-4">Cadre d'exception</p>
               <h2
-                className="text-3xl md:text-4xl text-[#E3DED1] mb-5 leading-tight"
-                style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+                className="text-3xl md:text-[44px] text-offwhite mb-5 leading-tight"
               >
                 Parc, piscine & terrasse
               </h2>
-              <div className="w-10 h-px bg-gold mb-6" />
-              <p className="text-[#E3DED1]/70 text-[15px] leading-relaxed mb-3">
+              <div className="w-12 h-px bg-gold mb-6" />
+              <p className="text-offwhite/60 text-base leading-relaxed mb-3 font-light">
                 Profitez d'un cadre verdoyant avec un parc planté de cèdres centenaires,
                 une piscine extérieure et une terrasse ombragée.
               </p>
-              <p className="text-[#E3DED1]/70 text-[15px] leading-relaxed">
+              <p className="text-offwhite/60 text-base leading-relaxed font-light">
                 Un environnement idéal pour se ressourcer à Cransac-les-Thermes.
               </p>
             </Reveal>
@@ -82,14 +81,14 @@ export default function Meubles() {
       </section>
 
       {/* Tarifs */}
-      <section className="py-16 md:py-24 bg-warm">
+      <section className="py-20 md:py-28 bg-beige section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
-              <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-4">Tarification</p>
-              <h2 className="text-3xl text-brown mb-5">Nos tarifs <span className="text-lg font-light">(à la semaine)</span></h2>
-              <div className="w-10 h-px bg-gold mx-auto mb-3" />
-              <p className="text-gray-400 text-xs tracking-wide">* Taxe de séjour en sus</p>
+              <p className="overline text-gold mb-4">Tarification</p>
+              <h2 className="text-3xl text-black mb-5">Nos tarifs <span className="text-lg font-light" style={{ fontFamily: 'var(--font-body)', textTransform: 'none' }}>(à la semaine)</span></h2>
+              <div className="w-12 h-px bg-black mx-auto mb-3" />
+              <p className="text-gray-mid text-xs tracking-wide font-light">* Taxe de séjour en sus</p>
             </div>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-2xl mx-auto">
@@ -99,16 +98,16 @@ export default function Meubles() {
               { label: '2ème étage', prix: '185 €' },
             ].map((item, i) => (
               <Reveal key={item.label} from="fade" delay={i * 100}>
-                <div className="bg-white p-6 text-center">
+                <div className="bg-white p-6 text-center border border-black/5">
                   <div className="w-8 h-px bg-gold mx-auto mb-4" />
-                  <p className="text-xs font-semibold tracking-[0.15em] uppercase text-brown mb-3">{item.label}</p>
+                  <p className="text-xs font-normal tracking-[0.15em] uppercase text-black mb-3" style={{ fontFamily: 'var(--font-body)' }}>{item.label}</p>
                   <p className="text-2xl text-gold font-light">{item.prix}</p>
                   <p className="text-xs text-gray-400 mt-1">/ semaine</p>
                 </div>
               </Reveal>
             ))}
           </div>
-          <p className="text-center text-gray-400 text-xs mt-8">
+          <p className="text-center text-gray-mid text-xs mt-8 font-light">
             N'hésitez pas à nous contacter pour tout renseignement.
           </p>
         </div>
@@ -141,7 +140,7 @@ export default function Meubles() {
         </ul>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 mt-4 text-brown font-semibold text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-gold pb-0.5"
+          className="inline-flex items-center gap-2 mt-4 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
         >
           Vérifier les disponibilités <span className="text-gold">→</span>
         </Link>

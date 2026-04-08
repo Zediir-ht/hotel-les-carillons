@@ -7,7 +7,7 @@ const sites = [
 
 export default function TourismeTeaser() {
   return (
-    <section className="relative flex items-center justify-center text-white text-center py-28 md:py-36">
+    <section className="relative flex items-center justify-center text-white text-center py-32 md:py-40 section-border">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -15,19 +15,19 @@ export default function TourismeTeaser() {
           alt="Extérieurs et jardins de l'hôtel Les Carillons"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(45,45,45,0.70)' }} />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(75,56,46,0.75)' }} />
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl px-6">
-        <p className="text-[11px] tracking-[0.3em] uppercase text-gold font-semibold mb-6">
+        <p className="overline text-gold mb-6">
           Tourisme
         </p>
         <h2 className="text-3xl md:text-5xl text-white mb-5 leading-tight">
           Aux confins du Lot,<br />du Cantal et de l'Aveyron
         </h2>
-        <div className="w-10 h-px bg-gold mx-auto mb-7" />
-        <p className="text-white/80 max-w-xl mx-auto mb-10 leading-relaxed text-[15px] font-light">
+        <div className="w-16 h-px bg-gold mx-auto mb-7" />
+        <p className="text-white/70 max-w-xl mx-auto mb-10 leading-relaxed text-base font-light">
           Cransac-les-Thermes est idéalement situé pour découvrir les plus beaux
           sites du sud-ouest. Entre causses, vallées et villages classés, l'Aveyron
           regorge de trésors à explorer.
@@ -37,7 +37,7 @@ export default function TourismeTeaser() {
           {sites.map((site) => (
             <span
               key={site}
-              className="border border-white/30 text-white/80 text-xs px-4 py-1.5 tracking-wide"
+              className="border border-white/20 text-white/70 text-xs px-4 py-1.5 tracking-wide font-light"
             >
               {site}
             </span>
@@ -46,7 +46,7 @@ export default function TourismeTeaser() {
 
         <Link
           to="/tourisme"
-          className="inline-flex items-center gap-2 border border-gold text-gold font-semibold text-xs tracking-[0.2em] uppercase no-underline hover:bg-gold hover:text-white transition-colors px-8 py-3.5"
+          className="inline-flex items-center gap-2 border border-gold/60 text-gold font-normal text-xs tracking-[0.2em] uppercase no-underline hover:bg-gold hover:text-white transition-colors px-10 py-4"
         >
           Découvrir la région <span>→</span>
         </Link>

@@ -22,10 +22,10 @@ export default function Navbar() {
   }, []);
 
   const linkClass = ({ isActive }) =>
-    `text-xs font-semibold tracking-[0.15em] uppercase no-underline transition-colors whitespace-nowrap ${
+    `text-xs font-normal tracking-[0.15em] uppercase no-underline transition-colors whitespace-nowrap ${
       isActive
-        ? scrolled ? 'text-brown border-b border-gold pb-0.5' : 'text-white border-b border-white/60 pb-0.5'
-        : scrolled ? 'text-gray-500 hover:text-brown' : 'text-white/80 hover:text-white'
+        ? scrolled ? 'text-gold border-b border-gold pb-0.5' : 'text-white border-b border-white/60 pb-0.5'
+        : scrolled ? 'text-black/60 hover:text-black' : 'text-white/80 hover:text-white'
     }`;
 
   return (
@@ -34,7 +34,7 @@ export default function Navbar() {
       <nav
         className={`transition-all duration-400 ${
           scrolled
-            ? 'bg-white/75 shadow-sm backdrop-blur-sm'
+            ? 'bg-offwhite/90 backdrop-blur-sm border-b border-black/10'
             : 'bg-white/5 backdrop-blur-[2px]'
         }`}
       >
@@ -46,13 +46,13 @@ export default function Navbar() {
             <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none px-10">
               <Link to="/" className="no-underline pointer-events-auto" onClick={() => setMenuOpen(false)}>
                 <span
-                  className={`text-3xl md:text-4xl whitespace-nowrap transition-colors duration-300 ${scrolled ? 'text-brown' : 'text-white'}`}
+                  className={`text-2xl md:text-3xl whitespace-nowrap transition-colors duration-300 uppercase tracking-[0.08em] italic ${scrolled ? 'text-black' : 'text-white'}`}
                   style={{ fontFamily: 'var(--font-logo)' }}
                 >
                   Les Carillons
                 </span>
                 <span
-                  className={`text-xs tracking-[0.15em] align-super ml-1 transition-colors duration-300 ${scrolled ? 'text-brown' : 'text-white'}`}
+                  className={`text-xs tracking-[0.15em] align-super ml-1 transition-colors duration-300 ${scrolled ? 'text-gold' : 'text-white/70'}`}
                   style={{ fontFamily: 'sans-serif' }}
                 >
                   ★★
@@ -80,10 +80,10 @@ export default function Navbar() {
                 href="https://www.logishotels.com/fr/hotel/logis-hotel-les-carillons-4588"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`shrink-0 text-xs font-bold px-5 py-2 tracking-[0.15em] uppercase transition-colors no-underline ${
+                className={`shrink-0 text-xs font-normal px-5 py-2 tracking-[0.15em] uppercase transition-colors no-underline ${
                   scrolled
                     ? 'bg-gold hover:bg-gold-dark text-white'
-                    : 'border border-white/60 text-white hover:bg-white/10'
+                    : 'border border-white/40 text-white hover:bg-white/10'
                 }`}
               >
                 Réserver
@@ -100,20 +100,20 @@ export default function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
-            <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-brown' : 'bg-white'} ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-brown' : 'bg-white'} ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-brown' : 'bg-white'} ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
 
           <Link to="/" className="no-underline absolute left-1/2 -translate-x-1/2" onClick={() => setMenuOpen(false)}>
             <span
-              className={`text-xl transition-colors duration-300 ${scrolled ? 'text-brown' : 'text-white'}`}
+              className={`text-xl uppercase tracking-[0.08em] italic transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'}`}
               style={{ fontFamily: 'var(--font-logo)' }}
             >
               Les Carillons
             </span>
             <span
-              className={`text-[10px] align-super ml-0.5 transition-colors duration-300 ${scrolled ? 'text-brown' : 'text-white'}`}
+              className={`text-[10px] align-super ml-0.5 transition-colors duration-300 ${scrolled ? 'text-gold' : 'text-white/70'}`}
               style={{ fontFamily: 'sans-serif' }}
             >
               ★★
@@ -134,7 +134,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
+          <div className="md:hidden bg-offwhite border-t border-black/10">
             <div className="flex flex-col py-6 px-6 gap-1">
               {navLinks.map((link) => (
                 <NavLink
@@ -142,8 +142,8 @@ export default function Navbar() {
                   to={link.to}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `text-sm font-semibold tracking-[0.12em] uppercase py-3 border-b border-gray-50 no-underline ${
-                      isActive ? 'text-brown' : 'text-gray-500'
+                    `text-sm font-normal tracking-[0.12em] uppercase py-3 border-b border-black/5 no-underline ${
+                      isActive ? 'text-gold' : 'text-black/60'
                     }`
                   }
                 >
