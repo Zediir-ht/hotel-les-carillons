@@ -11,7 +11,7 @@ import { useState, useEffect, useCallback } from 'react';
  */
 export default function Carousel({
   slides = [],
-  autoPlay = false,
+  autoPlay = true,
   interval = 4500,
   className = '',
   aspectRatio = '16/9',

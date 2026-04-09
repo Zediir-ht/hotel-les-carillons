@@ -1,0 +1,117 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Hero Hotel Les Carillons</title>
+  <desc id="desc">Illustration elegante d'un hotel de campagne avec parc, piscine et ambiance coucher de soleil.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="960" y1="0" x2="960" y2="690" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A1D2D"/>
+      <stop offset="0.42" stop-color="#304564"/>
+      <stop offset="0.74" stop-color="#6A5C52"/>
+      <stop offset="1" stop-color="#9B7A5E"/>
+    </linearGradient>
+
+    <radialGradient id="sun" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1430 290) rotate(90) scale(340)">
+      <stop offset="0" stop-color="#FFD9A7" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#FFD9A7" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="hill1" x1="960" y1="620" x2="960" y2="940" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5A5D47"/>
+      <stop offset="1" stop-color="#3A3E2F"/>
+    </linearGradient>
+
+    <linearGradient id="hill2" x1="960" y1="700" x2="960" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A3B2E"/>
+      <stop offset="1" stop-color="#252218"/>
+    </linearGradient>
+
+    <linearGradient id="pool" x1="960" y1="760" x2="960" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7AB1BE"/>
+      <stop offset="1" stop-color="#2D5666"/>
+    </linearGradient>
+
+    <linearGradient id="vignette" x1="960" y1="0" x2="960" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.32"/>
+      <stop offset="0.6" stop-color="#000000" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.56"/>
+    </linearGradient>
+
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="8"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.04"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#sun)"/>
+
+  <path d="M0 650C188 605 320 624 492 660C682 701 830 689 1008 642C1187 595 1331 595 1520 644C1673 684 1792 692 1920 666V1080H0V650Z" fill="url(#hill1)"/>
+  <path d="M0 724C205 668 344 688 540 732C725 774 893 774 1086 730C1276 687 1424 686 1612 731C1736 761 1824 765 1920 747V1080H0V724Z" fill="url(#hill2)"/>
+
+  <g opacity="0.35" stroke="#9FB18A" stroke-width="3">
+    <path d="M120 770C278 733 380 739 524 768"/>
+    <path d="M370 810C525 777 638 782 784 813"/>
+    <path d="M670 778C846 742 962 748 1139 781"/>
+    <path d="M980 812C1149 776 1271 784 1448 815"/>
+    <path d="M1280 775C1457 743 1586 749 1764 780"/>
+  </g>
+
+  <g transform="translate(420 350)">
+    <rect x="0" y="160" width="1080" height="280" fill="#2D2720"/>
+    <rect x="40" y="80" width="1000" height="220" fill="#3A3127"/>
+    <polygon points="20,160 540,20 1060,160" fill="#4A3D2F"/>
+
+    <g opacity="0.85">
+      <rect x="90" y="130" width="80" height="78" fill="#D8B47A"/>
+      <rect x="210" y="130" width="80" height="78" fill="#D8B47A"/>
+      <rect x="330" y="130" width="80" height="78" fill="#D8B47A"/>
+      <rect x="670" y="130" width="80" height="78" fill="#D8B47A"/>
+      <rect x="790" y="130" width="80" height="78" fill="#D8B47A"/>
+      <rect x="910" y="130" width="80" height="78" fill="#D8B47A"/>
+      <rect x="440" y="118" width="190" height="170" fill="#C6A56F"/>
+    </g>
+
+    <rect x="476" y="176" width="118" height="112" fill="#2B2620"/>
+    <rect x="0" y="432" width="1080" height="12" fill="#1E1A14"/>
+  </g>
+
+  <g transform="translate(0 0)">
+    <path d="M180 860H1740L1660 1080H260L180 860Z" fill="url(#pool)"/>
+    <path d="M210 880H1710" stroke="#CDE0DB" stroke-width="4" opacity="0.45"/>
+    <path d="M230 923H1690" stroke="#D5E8E2" stroke-width="2" opacity="0.32"/>
+    <path d="M250 968H1670" stroke="#E2F2EC" stroke-width="2" opacity="0.25"/>
+  </g>
+
+  <g fill="#253125" opacity="0.82">
+    <ellipse cx="220" cy="730" rx="72" ry="160"/>
+    <ellipse cx="286" cy="748" rx="58" ry="138"/>
+    <ellipse cx="1650" cy="725" rx="78" ry="170"/>
+    <ellipse cx="1718" cy="742" rx="56" ry="136"/>
+  </g>
+
+  <g stroke="#D5B57F" stroke-width="1.5" opacity="0.32">
+    <path d="M180 860L260 1080"/>
+    <path d="M270 860L350 1080"/>
+    <path d="M360 860L440 1080"/>
+    <path d="M450 860L530 1080"/>
+    <path d="M540 860L620 1080"/>
+    <path d="M630 860L710 1080"/>
+    <path d="M720 860L800 1080"/>
+    <path d="M810 860L890 1080"/>
+    <path d="M900 860L980 1080"/>
+    <path d="M990 860L1070 1080"/>
+    <path d="M1080 860L1160 1080"/>
+    <path d="M1170 860L1250 1080"/>
+    <path d="M1260 860L1340 1080"/>
+    <path d="M1350 860L1430 1080"/>
+    <path d="M1440 860L1520 1080"/>
+    <path d="M1530 860L1610 1080"/>
+    <path d="M1620 860L1700 1080"/>
+  </g>
+
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+  <rect width="1920" height="1080" filter="url(#grain)" opacity="0.3"/>
+</svg>

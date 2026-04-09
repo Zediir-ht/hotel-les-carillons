@@ -34,19 +34,19 @@ export default function Navbar() {
       <nav
         className={`transition-all duration-400 ${
           scrolled
-            ? 'bg-offwhite/90 backdrop-blur-sm border-b border-black/10'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5'
             : 'bg-white/5 backdrop-blur-[2px]'
         }`}
       >
         {/* Desktop */}
-        <div className="hidden md:block">
-          <div className="h-20 relative flex items-center px-8 lg:px-12">
+        <div className="hidden lg:block">
+          <div className="h-20 relative flex items-center px-6 xl:px-12">
 
-            {/* Logo — absolument centré sur la page, avec espace généreux */}
-            <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none px-10">
+            {/* Logo — absolument centré sur la page */}
+            <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none px-4 xl:px-10">
               <Link to="/" className="no-underline pointer-events-auto" onClick={() => setMenuOpen(false)}>
                 <span
-                  className={`text-2xl md:text-3xl whitespace-nowrap transition-colors duration-300 uppercase tracking-[0.08em] italic ${scrolled ? 'text-black' : 'text-white'}`}
+                  className={`text-2xl xl:text-3xl whitespace-nowrap transition-colors duration-300 uppercase tracking-[0.08em] italic ${scrolled ? 'text-black' : 'text-white'}`}
                   style={{ fontFamily: 'var(--font-logo)' }}
                 >
                   Les Carillons
@@ -61,7 +61,7 @@ export default function Navbar() {
             </div>
 
             {/* Gauche : liens poussés vers la gauche */}
-            <div className="flex-1 flex items-center justify-end gap-10 pr-40">
+            <div className="flex-1 flex items-center justify-end gap-4 xl:gap-8 pr-28 xl:pr-40">
               {navLinks.slice(0, 4).map((link) => (
                 <NavLink key={link.to} to={link.to} className={linkClass}>
                   {link.label}
@@ -70,7 +70,7 @@ export default function Navbar() {
             </div>
 
             {/* Droite : liens poussés vers la droite */}
-            <div className="flex-1 flex items-center justify-start gap-10 pl-40">
+            <div className="flex-1 flex items-center justify-start gap-4 xl:gap-8 pl-28 xl:pl-40">
               {navLinks.slice(4).map((link) => (
                 <NavLink key={link.to} to={link.to} className={linkClass}>
                   {link.label}
@@ -80,7 +80,7 @@ export default function Navbar() {
                 href="https://www.logishotels.com/fr/hotel/logis-hotel-les-carillons-4588"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`shrink-0 text-xs font-normal px-5 py-2 tracking-[0.15em] uppercase transition-colors no-underline ${
+                className={`shrink-0 text-xs font-normal px-4 py-2 tracking-[0.12em] uppercase transition-colors no-underline ${
                   scrolled
                     ? 'bg-gold hover:bg-gold-dark text-white'
                     : 'border border-white/40 text-white hover:bg-white/10'
@@ -94,7 +94,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile */}
-        <div className="flex md:hidden items-center justify-between h-16 px-4">
+        <div className="flex lg:hidden items-center justify-between h-16 px-4">
           <button
             className="flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -134,7 +134,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden bg-offwhite border-t border-black/10">
+          <div className="lg:hidden bg-offwhite border-t border-black/10">
             <div className="flex flex-col py-6 px-6 gap-1">
               {navLinks.map((link) => (
                 <NavLink

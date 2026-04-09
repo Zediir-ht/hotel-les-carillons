@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 
 export default function PageHero({ title, subtitle, image, breadcrumb = [] }) {
   return (
-    <section className="relative h-64 md:h-[380px] flex items-end text-white mt-16 md:mt-[72px]">
+    <section className="relative h-80 md:h-[450px] flex items-end text-white">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={image || '/images/placeholder.jpg'}
           alt={title}
           className="w-full h-full object-cover ken-burns"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/40" />
       </div>
 
       <div className="relative z-10 w-full pb-10 md:pb-14 px-6 md:px-16 max-w-6xl mx-auto hero-reveal" style={{ animationDelay: '0.1s' }}>

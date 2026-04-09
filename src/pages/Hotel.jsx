@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import SectionBlock from '../components/SectionBlock';
 import Carousel from '../components/Carousel';
+import RoomsSection from '../components/RoomsSection';
 
 const IMG = '/images/Restaurant%20les%20Carillons%20-%20Restaurant%20CRANSAC';
 
@@ -17,7 +18,7 @@ export default function Hotel() {
       <PageHero
         title="L'Hôtel"
         subtitle="17 chambres confortables, piscine, parc arboré — Logis Hôtels ★★"
-        image={`${IMG}/hotel-les-carillons-jardins-et-terrasses-cransac-247020%20(1).jpg`}
+        image={`${IMG}/logis-hotel-les-carillons-piscine-cransac-444210.jpg`}
         breadcrumb={[{ label: 'Hôtel' }]}
       />
 
@@ -39,6 +40,8 @@ export default function Hotel() {
           établissement, labellisé <strong className="text-black font-normal">Logis Hôtels</strong>.
         </p>
       </SectionBlock>
+
+      <RoomsSection />
 
       <section className="py-20 md:py-28 bg-beige section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
