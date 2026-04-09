@@ -5,46 +5,57 @@ const sites = [
     name: 'Conques',
     desc: 'Monument majeur du patrimoine sur le chemin de Saint-Jacques-de-Compostelle. Son abbatiale abrite un trésor incomparable de sculptures romanes.',
     distance: '30 km',
-    url: 'http://www.tourisme-conques.fr/',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Abbatiale_Sainte-Foy_de_Conques_(vue_g%C3%A9n%C3%A9rale).jpg?width=800',
+    url: 'https://www.tourisme-conques.fr/',
   },
   {
     name: 'Belcastel',
     desc: 'L\'un des plus beaux villages de France, lové au fond de la vallée de l\'Aveyron. Patrimoine médiéval d\'une richesse rare.',
     distance: '40 km',
-    url: 'http://www.mairie-belcastel.fr/',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Belcastel-panorama.jpg?width=800',
+    url: 'https://www.aveyron-tourisme.com/fr/decouvrir/villes-et-villages/belcastel',
   },
   {
     name: 'Rodez & Musée Soulages',
     desc: 'Fondée il y a plus de 2000 ans, Rodez et sa cathédrale vous accueillent. Le musée Soulages attire des visiteurs du monde entier.',
     distance: '50 km',
-    url: 'http://tourisme.grand-rodez.com/',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cathedral_of_Our_Lady_of_Rodez_79.jpg?width=800',
+    url: 'https://www.rodez-tourisme.fr/',
   },
   {
     name: 'Figeac — Cité de Champollion',
     desc: 'Labellisée Ville d\'art et d\'histoire, Figeac est la patrie de Champollion, déchiffreur des hiéroglyphes.',
     distance: '40 km',
-    url: 'http://www.tourisme-figeac.com/',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/5_Place_Champollion_in_Figeac_01.jpg?width=800',
+    url: 'https://www.tourisme-figeac.com/',
   },
   {
     name: 'Aubin',
     desc: 'L\'une des plus anciennes villes du Rouergue. Découvrez le site du Fort et du Vieil Aubin ainsi que le Musée de la Mine.',
     distance: '10 km',
-    url: 'http://www.aubin12.com/',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Vue_partielle_sur_Aubin.jpg?width=800',
+    url: 'https://www.tourisme-paysdecazevillois.fr/decouvrir/villes-villages/aubin/',
   },
   {
     name: 'Millau',
     desc: 'Porte d\'entrée des Gorges du Tarn, connue pour son viaduc spectaculaire et ses paysages grandioses.',
     distance: '100 km',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Viaduc_de_Millau_2015.jpg?width=800',
+    url: 'https://www.explore-millau.com/',
   },
   {
-    name: 'Vallées & Nature',
-    desc: 'Vallée du Lot, Gorges du Tarn et de l\'Aveyron, Laguiole, Aubrac… des paysages d\'une rare diversité.',
-    distance: 'Région',
+    name: 'Najac',
+    desc: 'Village perché dominé par sa forteresse royale, Najac offre des panoramas superbes et une atmosphère médiévale préservée.',
+    distance: '55 km',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Castle_of_Najac_04.jpg?width=800',
+    url: 'https://www.aveyron-tourisme.com/fr/decouvrir/villes-et-villages/najac',
   },
   {
-    name: 'Sites emblématiques',
-    desc: 'Caves de Roquefort, Rocamadour, Padirac, Saint-Cirq-Lapopie, Cahors… un patrimoine exceptionnel à portée de main.',
-    distance: 'Région',
+    name: 'Villefranche-de-Rouergue',
+    desc: 'Bastide majeure de l\'Aveyron, avec sa place Notre-Dame, ses arcades et son marché traditionnel incontournable.',
+    distance: '45 km',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Villefranche-de-Rouergue_place_Notre-Dame.jpg?width=800',
+    url: 'https://www.villefranche-tourisme.com/',
   },
 ];
 
@@ -140,14 +151,19 @@ export default function Tourisme() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {sites.map((site) => (
-              <div
+              <a
                 key={site.name}
-                className="bg-white overflow-hidden border border-black/5 hover:border-gold/30 transition-colors"
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-white overflow-hidden border border-black/5 hover:border-gold/30 transition-colors no-underline"
+                aria-label={`Découvrir ${site.name}`}
               >
                 <img
-                  src="/images/placeholder.jpg"
+                  src={site.image}
                   alt={`Vue de ${site.name}`}
-                  className="w-full h-40 object-cover"
+                  className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-3">
@@ -156,18 +172,11 @@ export default function Tourisme() {
                   </div>
                   <div className="w-5 h-px bg-gold mb-3" />
                   <p className="text-gray-mid text-sm leading-relaxed font-light">{site.desc}</p>
-                  {site.url && (
-                    <a
-                      href={site.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 mt-3 text-gold text-xs no-underline hover:text-gold-dark transition-colors"
-                    >
-                      Voir le site <span>→</span>
-                    </a>
-                  )}
+                  <span className="inline-flex items-center gap-1 mt-3 text-gold text-xs transition-colors group-hover:text-gold-dark">
+                    Voir le site <span>→</span>
+                  </span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
