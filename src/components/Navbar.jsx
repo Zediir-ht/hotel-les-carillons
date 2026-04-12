@@ -108,37 +108,40 @@ export default function Navbar() {
 
         {/* Mobile */}
         <div className="flex lg:hidden items-center justify-between h-16 px-4">
-          <button
-            className="relative z-10 flex flex-col gap-1.5 p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
-            aria-expanded={menuOpen}
-          >
-            <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-          </button>
-
-          <Link
-            to="/"
-            className="no-underline absolute left-1/2 -translate-x-1/2 max-w-[calc(100%-12rem)] text-center z-0 pointer-events-auto"
-            onClick={() => setMenuOpen(false)}
-          >
-            <span
-              className={`block truncate text-lg sm:text-xl uppercase tracking-[0.08em] italic transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'}`}
-              style={{ fontFamily: 'var(--font-logo)' }}
+          {/* Gauche : hamburger + logo collés */}
+          <div className="flex items-center gap-3">
+            <button
+              className="flex flex-col gap-1.5 p-2 shrink-0"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Menu"
+              aria-expanded={menuOpen}
             >
-              Les Carillons
-            </span>
-            <span
-              className={`hidden sm:inline text-[10px] align-super ml-0.5 transition-colors duration-300 ${scrolled ? 'text-gold' : 'text-white/70'}`}
-              style={{ fontFamily: 'sans-serif' }}
+              <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </button>
+            <Link
+              to="/"
+              className="no-underline flex items-baseline gap-1"
+              onClick={() => setMenuOpen(false)}
             >
-              ★★
-            </span>
-          </Link>
+              <span
+                className={`text-lg uppercase tracking-[0.08em] italic transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'}`}
+                style={{ fontFamily: 'var(--font-logo)' }}
+              >
+                Les Carillons
+              </span>
+              <span
+                className={`text-[10px] transition-colors duration-300 ${scrolled ? 'text-gold' : 'text-white/70'}`}
+                style={{ fontFamily: 'sans-serif' }}
+              >
+                ★★
+              </span>
+            </Link>
+          </div>
 
-          <div className="relative z-10 flex items-center gap-2">
+          {/* Droite : langue + réserver */}
+          <div className="flex items-center gap-2">
             <button
               onClick={() => switchLang(lang === 'fr' ? 'en' : 'fr')}
               className={`shrink-0 text-[11px] sm:text-xs font-bold px-2 py-2 tracking-wider uppercase cursor-pointer transition-colors ${
