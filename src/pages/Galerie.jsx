@@ -1,3 +1,4 @@
+import Seo from '../components/Seo';
 import PageHero from '../components/PageHero';
 import Carousel from '../components/Carousel';
 
@@ -64,6 +65,11 @@ const themes = [
 export default function Galerie() {
   return (
     <>
+      <Seo
+        title="Galerie Photos"
+        description="Découvrez en images l'Hôtel Restaurant Les Carillons : chambres, restaurant, cuisine, piscine, parc arboré et terrasses à Cransac-les-Thermes."
+        path="/galerie"
+      />
       <PageHero
         title="Galerie"
         subtitle="Découvrez l'hôtel, le restaurant et notre cadre verdoyant en images."
@@ -114,6 +120,7 @@ export default function Galerie() {
           src={`${IMG}/logis-hotel-les-carillons-facade-cransac-735654.jpg`}
           alt="Façade de l'hôtel Les Carillons à Cransac-les-Thermes"
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <p

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import PageHero from '../components/PageHero';
 import SectionBlock from '../components/SectionBlock';
 import Carousel from '../components/Carousel';
@@ -17,6 +18,11 @@ const extSlides = [
 export default function Meubles() {
   return (
     <>
+      <Seo
+        title="Meublés Les Cèdres — 11 Appartements"
+        description="Location meublée Les Cèdres à Cransac-les-Thermes. 11 appartements équipés avec piscine et parc arboré. Idéal curistes et séjours longue durée."
+        path="/meubles"
+      />
       <PageHero
         title="Meublés Les Cèdres"
         subtitle="11 appartements équipés avec piscine et parc"

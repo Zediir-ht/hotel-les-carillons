@@ -99,21 +99,26 @@ export default function Navbar() {
             className="flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
+            aria-expanded={menuOpen}
           >
             <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
             <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? 'opacity-0' : ''}`} />
             <span className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
 
-          <Link to="/" className="no-underline absolute left-1/2 -translate-x-1/2" onClick={() => setMenuOpen(false)}>
+          <Link
+            to="/"
+            className="no-underline absolute left-1/2 -translate-x-1/2 max-w-[calc(100%-10rem)] text-center"
+            onClick={() => setMenuOpen(false)}
+          >
             <span
-              className={`text-xl uppercase tracking-[0.08em] italic transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'}`}
+              className={`block truncate text-lg sm:text-xl uppercase tracking-[0.08em] italic transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'}`}
               style={{ fontFamily: 'var(--font-logo)' }}
             >
               Les Carillons
             </span>
             <span
-              className={`text-[10px] align-super ml-0.5 transition-colors duration-300 ${scrolled ? 'text-gold' : 'text-white/70'}`}
+              className={`hidden sm:inline text-[10px] align-super ml-0.5 transition-colors duration-300 ${scrolled ? 'text-gold' : 'text-white/70'}`}
               style={{ fontFamily: 'sans-serif' }}
             >
               ★★
@@ -124,7 +129,7 @@ export default function Navbar() {
             href="https://www.logishotels.com/fr/hotel/logis-hotel-les-carillons-4588"
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-xs font-bold px-3 py-2 tracking-wider uppercase no-underline transition-colors ${
+            className={`shrink-0 text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-2 tracking-wider uppercase no-underline transition-colors ${
               scrolled ? 'bg-gold text-white' : 'border border-white/60 text-white'
             }`}
           >

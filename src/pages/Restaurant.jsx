@@ -1,4 +1,5 @@
 ﻿import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import SectionBlock from '../components/SectionBlock';
 import Carousel from '../components/Carousel';
 
@@ -18,6 +19,11 @@ const platsSlides = [
 export default function Restaurant() {
   return (
     <>
+      <Seo
+        title="Restaurant — Cuisine du Terroir Aveyronnais"
+        description="Restaurant Les Carillons à Cransac-les-Thermes. Cuisine familiale faite maison, produits du terroir, menu du jour, carte gastronomique, spécialité Stockfish."
+        path="/restaurant"
+      />
       <section className="relative min-h-[520px] md:min-h-[680px] flex items-end overflow-hidden section-border">
         <div className="absolute inset-0">
           <img

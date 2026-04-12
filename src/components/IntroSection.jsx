@@ -43,6 +43,7 @@ export default function IntroSection() {
               src="/images/Restaurant%20les%20Carillons%20-%20Restaurant%20CRANSAC/logis-hotel-les-carillons-facade-cransac-735654.jpg"
               alt="Façade de l'hôtel Les Carillons à Cransac-les-Thermes"
               className="w-full object-cover"
+              loading="lazy"
               style={{ aspectRatio: '0.85' }}
             />
           </div>

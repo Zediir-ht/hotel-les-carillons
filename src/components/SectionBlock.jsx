@@ -16,6 +16,7 @@ export default function SectionBlock({ title, subtitle, children, image, imageAl
           src={image || '/images/placeholder.jpg'}
           alt={imageAlt || title}
           className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
         />
       </Reveal>
 

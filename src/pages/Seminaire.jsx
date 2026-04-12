@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import PageHero from '../components/PageHero';
 import SectionBlock from '../components/SectionBlock';
 import Carousel from '../components/Carousel';
@@ -16,6 +17,11 @@ const sallesSlides = [
 export default function Seminaire() {
   return (
     <>
+      <Seo
+        title="Séminaire & Réunions — Salle Équipée"
+        description="Salle de séminaire climatisée jusqu'à 40 personnes à Cransac-les-Thermes. Accès PMR, Wi-Fi, écran tactile, hébergement et restauration sur place."
+        path="/seminaire"
+      />
       <PageHero
         title="Séminaire & Réunions"
         subtitle="Une salle climatisée jusqu'à 40 personnes, accessible PMR"

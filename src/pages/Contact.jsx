@@ -1,3 +1,4 @@
+import Seo from '../components/Seo';
 import PageHero from '../components/PageHero';
 import ContactForm from '../components/ContactForm';
 import MapEmbed from '../components/MapEmbed';
@@ -5,6 +6,11 @@ import MapEmbed from '../components/MapEmbed';
 export default function Contact() {
   return (
     <>
+      <Seo
+        title="Contact & Réservation"
+        description="Contactez l'Hôtel Restaurant Les Carillons à Cransac-les-Thermes. Téléphone, email, formulaire de contact et réservation en ligne via Logis Hôtels."
+        path="/contact"
+      />
       <PageHero
         title="Contact"
         breadcrumb={[{ label: 'Contact' }]}

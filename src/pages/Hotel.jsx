@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import PageHero from '../components/PageHero';
 import SectionBlock from '../components/SectionBlock';
 import Carousel from '../components/Carousel';
@@ -15,6 +16,11 @@ const petitDejSlides = [
 export default function Hotel() {
   return (
     <>
+      <Seo
+        title="Hôtel — Chambres, Piscine & Parc"
+        description="Découvrez les 17 chambres confortables de l'Hôtel Les Carillons à Cransac-les-Thermes. Piscine extérieure, parc arboré, Wi-Fi, parking gratuit. Logis Hôtels."
+        path="/hotel"
+      />
       <PageHero
         title="L'Hôtel"
         subtitle="17 chambres confortables, piscine, parc arboré — Logis Hôtels ★★"
@@ -76,17 +82,18 @@ export default function Hotel() {
 
       {/* Bande photos : piscine, bar, accueil */}
       <section className="overflow-hidden section-border">
-        <div className="grid grid-cols-3 h-56 md:h-72">
+        <div className="grid grid-cols-2 md:grid-cols-3 h-56 md:h-72">
           {[
             { src: `${IMG}/logis-hotel-les-carillons-piscine-cransac-444210.jpg`, alt: 'Piscine extérieure de l\'hôtel Les Carillons' },
             { src: `${IMG}/logis-hotel-les-carillons-bar-reception-cransac-031503.jpg`, alt: 'Bar et accueil de l\'hôtel Les Carillons' },
             { src: `${IMG}/hotel-les-carillons-bar-reception-cransac-581553.jpg`, alt: 'Réception de l\'hôtel Les Carillons' },
           ].map((img) => (
-            <div key={img.src} className="relative overflow-hidden group">
+            <div key={img.src} className="relative overflow-hidden group last:hidden md:last:block">
               <img
                 src={img.src}
                 alt={img.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
             </div>

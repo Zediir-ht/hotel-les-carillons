@@ -1,3 +1,4 @@
+import Seo from '../components/Seo';
 import PageHero from '../components/PageHero';
 
 const sites = [
@@ -83,6 +84,11 @@ const agenda = [
 export default function Tourisme() {
   return (
     <>
+      <Seo
+        title="Tourisme en Aveyron — Sites & Activités"
+        description="Découvrez l'Aveyron depuis Cransac-les-Thermes : Conques, Belcastel, Rodez, Figeac, thermes. Point de départ idéal pour vos excursions."
+        path="/tourisme"
+      />
       <PageHero
         title="Tourisme en Aveyron"
         subtitle="Aux confins du Lot, du Cantal et de l'Aveyron"
