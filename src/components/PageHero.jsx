@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useLang } from '../i18n/LanguageContext';
 
 export default function PageHero({ title, subtitle, image, breadcrumb = [] }) {
+  const { t } = useLang();
   return (
     <section className="relative h-80 md:h-[450px] flex items-end text-white">
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -16,7 +18,7 @@ export default function PageHero({ title, subtitle, image, breadcrumb = [] }) {
         {breadcrumb.length > 0 && (
           <nav className="mb-3 text-xs text-white/45 tracking-[0.15em] uppercase flex items-center gap-2 font-light">
             <Link to="/" className="text-white/45 hover:text-white no-underline transition-colors">
-              Accueil
+              {t('nav.home')}
             </Link>
             {breadcrumb.map((item, i) => (
               <span key={i} className="flex items-center gap-2">

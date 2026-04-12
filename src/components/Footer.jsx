@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom';
+import { useLang } from '../i18n/LanguageContext';
 
-const footerNav = [
-  { to: '/hotel', label: 'Hôtel & Chambres' },
-  { to: '/restaurant', label: 'Restaurant' },
-  { to: '/meubles', label: 'Meublés Les Cèdres' },
-  { to: '/seminaire', label: 'Séminaire' },
-  { to: '/tourisme', label: 'Tourisme' },
-  { to: '/contact', label: 'Contact' },
+const footerNavKeys = [
+  { to: '/hotel', key: 'hotel' },
+  { to: '/restaurant', key: 'restaurant' },
+  { to: '/meubles', key: 'meubles' },
+  { to: '/seminaire', key: 'seminaire' },
+  { to: '/tourisme', key: 'tourisme' },
+  { to: '/contact', key: 'contact' },
 ];
 
 export default function Footer() {
+  const { t } = useLang();
+  const footerNav = footerNavKeys.map((n) => ({ to: n.to, label: t(`footer.navLinks.${n.key}`) }));
   return (
     <footer className="bg-deepbrown text-white">
       {/* Top structural border */}
@@ -29,15 +32,14 @@ export default function Footer() {
             </Link>
             <div className="w-12 h-px bg-gold mb-5" />
             <p className="text-white/50 text-sm leading-relaxed font-light">
-              Hôtel-restaurant familial au cœur de l'Aveyron.<br />
-              Un accueil chaleureux par Nathalie, Florian et Assia.
+              {t('footer.brand').split('\n').map((line, i) => <span key={i}>{line}{i === 0 && <br />}</span>)}
             </p>
           </div>
 
           {/* Col 2 — Navigation */}
           <div>
             <h4 className="text-[11px] tracking-[0.25em] uppercase text-gold font-normal mb-6" style={{ fontFamily: 'var(--font-body)' }}>
-              Navigation
+              {t('footer.navTitle')}
             </h4>
             <ul className="list-none p-0 m-0 space-y-3">
               {footerNav.map((link) => (
@@ -56,7 +58,7 @@ export default function Footer() {
           {/* Col 3 — Coordonnées */}
           <div>
             <h4 className="text-[11px] tracking-[0.25em] uppercase text-gold font-normal mb-6" style={{ fontFamily: 'var(--font-body)' }}>
-              Coordonnées
+              {t('footer.coordTitle')}
             </h4>
             <address className="not-italic text-sm text-white/50 leading-relaxed space-y-3 font-light">
               <p>Route de Figeac<br />12110 Cransac-les-Thermes</p>
@@ -81,9 +83,9 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30 font-light">
-          <p>&copy; {new Date().getFullYear()} Hôtel Restaurant Les Carillons — Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
           <Link to="/mentions-legales" className="text-white/30 hover:text-white/60 no-underline transition-colors">
-            Mentions légales
+            {t('footer.legal')}
           </Link>
         </div>
       </div>

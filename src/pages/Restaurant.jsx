@@ -1,7 +1,8 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import SectionBlock from '../components/SectionBlock';
 import Carousel from '../components/Carousel';
+import { useLang } from '../i18n/LanguageContext';
 
 const IMG = '/images/Restaurant%20les%20Carillons%20-%20Restaurant%20CRANSAC';
 
@@ -17,6 +18,9 @@ const platsSlides = [
 ];
 
 export default function Restaurant() {
+  const { t } = useLang();
+  const horaires = t('restaurantPage.horaires');
+  const menusList = t('restaurantPage.menus');
   return (
     <>
       <Seo
@@ -36,16 +40,15 @@ export default function Restaurant() {
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14 pb-14 md:pb-20 pt-28 md:pt-40">
-          <p className="text-[11px] tracking-[0.35em] uppercase text-offwhite/70 mb-5">Restaurant</p>
+          <p className="text-[11px] tracking-[0.35em] uppercase text-offwhite/70 mb-5">{t('restaurantPage.heroOverline')}</p>
           <h1 className="text-offwhite text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-5">
-            Le Restaurant
+            {t('restaurantPage.heroTitle1')}
             <br />
-            <span className="text-gold">Les Carillons</span>
+            <span className="text-gold">{t('restaurantPage.heroTitle2')}</span>
           </h1>
           <div className="w-24 h-px bg-gold mb-6" />
           <p className="text-offwhite/80 text-sm md:text-lg leading-relaxed max-w-xl">
-            Cuisine familiale faite maison, produits du terroir aveyronnais,
-            service chaleureux et ambiance de maison de famille.
+            {t('restaurantPage.heroDesc')}
           </p>
 
           <div className="hidden lg:block absolute right-14 bottom-12 w-[340px] xl:w-[380px]">
@@ -56,7 +59,7 @@ export default function Restaurant() {
                 className="w-full h-48 object-cover"
               />
               <p className="text-[10px] tracking-[0.28em] uppercase text-deepbrown/70 mt-3 text-center">
-                Saveurs du terroir
+                {t('restaurantPage.heroCaption')}
               </p>
             </div>
           </div>
@@ -64,30 +67,20 @@ export default function Restaurant() {
       </section>
 
       <SectionBlock
-        title="Cuisine familiale & terroir aveyronnais"
-        subtitle="Restaurant"
+        title={t('restaurantPage.section1Title')}
+        subtitle={t('restaurantPage.section1Sub')}
         image={`${IMG}/hotel-les-carillons-restaurant-cransac-678263.jpg`}
         imageAlt="Salle du restaurant Les Carillons"
         imageLeft
       >
-        <p>
-          Restaurant et terrasse climatisés. Cuisine familiale, faite maison,
-          préparée avec les produits de la région. Tête de veau, poule farcie,
-          stockfish… des plats authentiques cuisinés avec soin.
-        </p>
-        <p>
-          Venez déguster notre spécialité toute l’année :
-          le <strong className="text-black font-normal">Stockfish</strong>.
-        </p>
-        <p>
-          Nous contacter pour les repas de famille, anniversaires, banquets,
-          menu Stockfish.
-        </p>
+        <p>{t('restaurantPage.section1P1')}</p>
+        <p>{t('restaurantPage.section1P2')}</p>
+        <p>{t('restaurantPage.section1P3')}</p>
         <Link
           to="/contact"
           className="inline-flex items-center gap-2 mt-2 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
         >
-          Nous contacter <span className="text-gold">→</span>
+          {t('restaurantPage.section1Cta')} <span className="text-gold">&rarr;</span>
         </Link>
       </SectionBlock>
 
@@ -96,20 +89,15 @@ export default function Restaurant() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div>
-              <p className="overline text-gold mb-4">Horaires</p>
-              <h2 className="text-2xl md:text-[32px] text-black mb-5">Quand nous rendre visite ?</h2>
+              <p className="overline text-gold mb-4">{t('restaurantPage.horairesSub')}</p>
+              <h2 className="text-2xl md:text-[32px] text-black mb-5">{t('restaurantPage.horairesTitle')}</h2>
               <div className="w-12 h-px bg-black mb-7" />
               <ul className="space-y-4">
-                {[
-                  { label: 'Ouverture', value: 'Toute l’année, du lundi au samedi soir' },
-                  { label: 'Fermeture', value: 'Dimanche (hors curistes et marcheurs)' },
-                  { label: 'Menu du jour', value: 'Le midi uniquement, du lundi au vendredi (hors week-end et jours fériés)' },
-                  { label: 'Menu Terroir & carte', value: 'Le soir ou le samedi, sur réservation' },
-                ].map((item) => (
+                {horaires.map((item) => (
                   <li key={item.label} className="flex gap-4 text-sm">
                     <span className="w-4 h-px bg-gold block shrink-0 mt-2.5" />
                     <div>
-                      <span className="font-normal text-black">{item.label} — </span>
+                      <span className="font-normal text-black">{item.label} &mdash; </span>
                       <span className="text-gray-mid">{item.value}</span>
                     </div>
                   </li>
@@ -117,16 +105,12 @@ export default function Restaurant() {
               </ul>
             </div>
             <div>
-              <p className="overline text-gold mb-4">Nos menus</p>
-              <h2 className="text-2xl md:text-[32px] text-black mb-5">Menus & carte</h2>
+              <p className="overline text-gold mb-4">{t('restaurantPage.menusSub')}</p>
+              <h2 className="text-2xl md:text-[32px] text-black mb-5">{t('restaurantPage.menusTitle')}</h2>
               <div className="w-12 h-px bg-black mb-7" />
               <ul className="space-y-4">
-                {[
-                  { title: 'Menu du Terroir & Gastronomique', desc: 'Servi le soir ou le samedi sur réservation, à base de produits du terroir aveyronnais.' },
-                  { title: 'Menu Stockfish', desc: 'Notre spécialité maison, disponible toute l’année sur réservation.' },
-                  { title: 'Menu du Jour', desc: 'Servi uniquement le midi du lundi au vendredi, renouvelé selon les arrivées et la saison.' },
-                ].map((item) => (
-                  <li key={item.title} className="">
+                {menusList.map((item) => (
+                  <li key={item.title}>
                     <h4 className="text-sm font-normal text-black mb-1" style={{ fontFamily: 'var(--font-body)', textTransform: 'none' }}>{item.title}</h4>
                     <p className="text-gray-mid text-sm leading-relaxed">{item.desc}</p>
                   </li>
@@ -151,7 +135,7 @@ export default function Restaurant() {
           <div className="relative overflow-hidden group">
             <img
               src={`${IMG}/logis-hotel-les-carillons-salle-de-reception-cransac-094667.jpg`}
-              alt="Salle de réception Les Carillons"
+              alt="Salle de reception Les Carillons"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
@@ -179,15 +163,13 @@ export default function Restaurant() {
       <section className="py-24 md:py-32 bg-deepbrown section-border" id="galerie-plats">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="overline text-gold mb-4">Les Carillons</p>
-            <h2
-              className="text-4xl md:text-5xl text-offwhite mb-5"
-            >
-              Nos Créations
+            <p className="overline text-gold mb-4">{t('restaurantPage.galerieSub')}</p>
+            <h2 className="text-4xl md:text-5xl text-offwhite mb-5">
+              {t('restaurantPage.galerieTitle')}
             </h2>
             <div className="w-16 h-px bg-gold mx-auto mb-5" />
             <p className="text-offwhite/50 text-sm max-w-md mx-auto leading-relaxed font-light">
-              Des assiettes soignées, composées selon les saisons et les arrivées du marché.
+              {t('restaurantPage.galerieDesc')}
             </p>
           </div>
           <Carousel
@@ -202,27 +184,26 @@ export default function Restaurant() {
 
       {/* ===== NOS MENUS ===== */}
       <section className="py-24 md:py-32 bg-deepbrown section-border relative overflow-hidden" id="menus">
-        {/* Texture de fond subtile */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
 
         <div className="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
-            <p className="text-[10px] tracking-[0.4em] uppercase text-gold/70 mb-6 font-light">Restaurant Les Carillons</p>
+            <p className="text-[10px] tracking-[0.4em] uppercase text-gold/70 mb-6 font-light">{t('restaurantPage.nosMenusOverline')}</p>
             <div className="flex items-center justify-center gap-6 mb-6">
               <div className="w-20 h-px bg-gold/30" />
-              <span className="text-gold text-lg">✦</span>
+              <span className="text-gold text-lg">&starf;</span>
               <div className="w-20 h-px bg-gold/30" />
             </div>
             <h2 className="text-4xl md:text-6xl text-offwhite mb-6 leading-tight">
-              Nos Menus
+              {t('restaurantPage.nosMenusTitle')}
             </h2>
             <div className="flex items-center justify-center gap-6 mb-8">
               <div className="w-20 h-px bg-gold/30" />
-              <span className="text-gold text-lg">✦</span>
+              <span className="text-gold text-lg">&starf;</span>
               <div className="w-20 h-px bg-gold/30" />
             </div>
             <p className="text-offwhite/40 text-sm max-w-lg mx-auto leading-relaxed font-light italic">
-              Ceci est un exemple de menu susceptible d&apos;évoluer en fonction des arrivages et de la saison.
+              {t('restaurantPage.nosMenusDisclaimer')}
             </p>
           </div>
 
@@ -233,17 +214,17 @@ export default function Restaurant() {
               <div className="absolute -top-px -left-px -right-px -bottom-px border border-gold/10 m-2 pointer-events-none" />
               <div className="relative p-8 md:p-12">
                 <div className="text-center mb-10">
-                  <p className="text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-4 font-light">La Table</p>
+                  <p className="text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-4 font-light">{t('restaurantPage.terroirOverline')}</p>
                   <h3 className="text-2xl md:text-3xl text-offwhite tracking-wide mb-3">
-                    Menu du Terroir &amp; Gastronomique
+                    {t('restaurantPage.terroirTitle')}
                   </h3>
                   <div className="flex items-center justify-center gap-4 mb-4">
                     <div className="w-12 h-px bg-gold/40" />
-                    <span className="text-gold text-sm">à partir de 26 €</span>
+                    <span className="text-gold text-sm">{t('restaurantPage.terroirPrice')}</span>
                     <div className="w-12 h-px bg-gold/40" />
                   </div>
                   <p className="text-offwhite/30 text-xs italic max-w-md mx-auto leading-relaxed">
-                    Composez votre menu : entrée, plat, fromage et dessert. La carte peut varier suivant l&apos;humeur de Florian et Assia.
+                    {t('restaurantPage.terroirDisclaimer')}
                   </p>
                 </div>
 
@@ -251,23 +232,23 @@ export default function Restaurant() {
                   <div>
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-8 h-px bg-gold/40" />
-                      <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">Entrées</p>
+                      <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">{t('restaurantPage.entreesLabel')}</p>
                       <div className="flex-1 h-px bg-gold/15" />
                     </div>
                     <ul className="space-y-4">
                       {[
                         { label: "Assiette de charcuterie de l'Aveyron" },
                         { label: "Croustillant de Rocamadour aux noix" },
-                        { label: "Salade de gésiers d'oie" },
-                        { label: "Duo de foie gras mi-cuit et sa confiture", sup: "+4 €" },
+                        { label: "Salade de g\u00E9siers d'oie" },
+                        { label: "Duo de foie gras mi-cuit et sa confiture", sup: "+4 \u20AC" },
                         { label: "Carpaccio de saumon" },
-                        { label: "Escalope de foie gras et son chutney du moment", sup: "+6 €" },
+                        { label: "Escalope de foie gras et son chutney du moment", sup: "+6 \u20AC" },
                         { label: "Carpaccio de tomates au pesto et sa burrata" },
-                        { label: "Pressé de bœuf aux petits légumes sauce ravigote" },
-                        { label: "Nage de la mer et ses Saint-Jacques", sup: "+5 €" },
+                        { label: "Press\u00E9 de b\u0153uf aux petits l\u00E9gumes sauce ravigote" },
+                        { label: "Nage de la mer et ses Saint-Jacques", sup: "+5 \u20AC" },
                       ].map((item) => (
                         <li key={item.label} className="flex items-start gap-3 text-sm text-offwhite/60 leading-relaxed">
-                          <span className="text-gold/50 text-[8px] mt-1.5 shrink-0">◆</span>
+                          <span className="text-gold/50 text-[8px] mt-1.5 shrink-0">&diams;</span>
                           <span className="flex-1">{item.label}</span>
                           {item.sup && <span className="text-gold text-xs shrink-0 mt-0.5">{item.sup}</span>}
                         </li>
@@ -277,28 +258,28 @@ export default function Restaurant() {
                   <div>
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-8 h-px bg-gold/40" />
-                      <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">Plats</p>
+                      <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">{t('restaurantPage.platsLabel')}</p>
                       <div className="flex-1 h-px bg-gold/15" />
                     </div>
                     <ul className="space-y-4">
                       {[
-                        { label: "Pot au feu de canard et ses légumes" },
-                        { label: "Notre spécialité — Estofinade Aveyronnaise" },
-                        { label: "Filet mignon de porc, farce fine de veau au chorizo, crémeux de patate douce" },
-                        { label: "Ris de veau aux Morilles sauce madère et pommes grenailles confites", sup: "+8 €" },
-                        { label: "Magret de canard entier, sauce du moment et millefeuille de pomme de terre", sup: "+4 €" },
-                        { label: "Cabillaud sauce à l'ail vanillée et son risotto", sup: "+3 €" },
-                        { label: "Souris d'agneau confite au pain d'épice et légumes de saison", sup: "+4 €" },
-                        { label: "Tournedos Rossini, sauce madérisée au foie gras et légumes de saison", sup: "+10 €" },
+                        { label: "Pot au feu de canard et ses l\u00E9gumes" },
+                        { label: "Notre sp\u00E9cialit\u00E9 \u2014 Estofinade Aveyronnaise" },
+                        { label: "Filet mignon de porc, farce fine de veau au chorizo, cr\u00E9meux de patate douce" },
+                        { label: "Ris de veau aux Morilles sauce mad\u00E8re et pommes grenailles confites", sup: "+8 \u20AC" },
+                        { label: "Magret de canard entier, sauce du moment et millefeuille de pomme de terre", sup: "+4 \u20AC" },
+                        { label: "Cabillaud sauce \u00E0 l'ail vanill\u00E9e et son risotto", sup: "+3 \u20AC" },
+                        { label: "Souris d'agneau confite au pain d'\u00E9pice et l\u00E9gumes de saison", sup: "+4 \u20AC" },
+                        { label: "Tournedos Rossini, sauce mad\u00E9ris\u00E9e au foie gras et l\u00E9gumes de saison", sup: "+10 \u20AC" },
                       ].map((item) => (
                         <li key={item.label} className="flex items-start gap-3 text-sm text-offwhite/60 leading-relaxed">
-                          <span className="text-gold/50 text-[8px] mt-1.5 shrink-0">◆</span>
+                          <span className="text-gold/50 text-[8px] mt-1.5 shrink-0">&diams;</span>
                           <span className="flex-1">{item.label}</span>
                           {item.sup && <span className="text-gold text-xs shrink-0 mt-0.5">{item.sup}</span>}
                         </li>
                       ))}
                     </ul>
-                    <p className="text-xs text-offwhite/25 italic mt-5 pl-5">Tous nos plats sont accompagnés de légumes de saison ou aligot.</p>
+                    <p className="text-xs text-offwhite/25 italic mt-5 pl-5">{t('restaurantPage.platsNote')}</p>
                   </div>
                 </div>
 
@@ -306,21 +287,21 @@ export default function Restaurant() {
                   <div>
                     <div className="flex items-center gap-4 mb-5">
                       <div className="w-8 h-px bg-gold/40" />
-                      <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">Fromages</p>
+                      <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">{t('restaurantPage.fromagesLabel')}</p>
                       <div className="flex-1 h-px bg-gold/15" />
                     </div>
-                    <p className="text-sm text-offwhite/60 pl-5">Plateau de fromages du terroir</p>
+                    <p className="text-sm text-offwhite/60 pl-5">{t('restaurantPage.fromagesDesc')}</p>
                   </div>
                   <div>
                     <div className="flex items-center gap-4 mb-5">
                       <div className="w-8 h-px bg-gold/40" />
-                      <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">Desserts</p>
+                      <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">{t('restaurantPage.dessertsLabel')}</p>
                       <div className="flex-1 h-px bg-gold/15" />
                     </div>
                     <ul className="space-y-3">
-                      {["Salade de fruits frais","Fondant au chocolat et sa boule de glace","Nougat glacé","Dame blanche","Café ou chocolat liégeois","Pêche Melba","Large choix de glaces ou sorbets"].map((d) => (
+                      {["Salade de fruits frais","Fondant au chocolat et sa boule de glace","Nougat glac\u00E9","Dame blanche","Caf\u00E9 ou chocolat li\u00E9geois","P\u00EAche Melba","Large choix de glaces ou sorbets"].map((d) => (
                         <li key={d} className="flex items-center gap-3 text-sm text-offwhite/60">
-                          <span className="text-gold/50 text-[8px] shrink-0">◆</span>{d}
+                          <span className="text-gold/50 text-[8px] shrink-0">&diams;</span>{d}
                         </li>
                       ))}
                     </ul>
@@ -334,23 +315,23 @@ export default function Restaurant() {
               <div className="absolute -top-px -left-px -right-px -bottom-px border border-gold/10 m-2 pointer-events-none" />
               <div className="relative p-8 md:p-12">
                 <div className="text-center mb-10">
-                  <p className="text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-4 font-light">Spécialité Maison</p>
+                  <p className="text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-4 font-light">{t('restaurantPage.stockfishOverline')}</p>
                   <h3 className="text-2xl md:text-3xl text-offwhite tracking-wide mb-3">
-                    Menu Stockfish
+                    {t('restaurantPage.stockfishTitle')}
                   </h3>
                   <div className="flex items-center justify-center gap-4 mb-4">
                     <div className="w-12 h-px bg-gold/40" />
-                    <span className="text-gold text-sm">30 € · vin &amp; café compris</span>
+                    <span className="text-gold text-sm">{t('restaurantPage.stockfishPrice')}</span>
                     <div className="w-12 h-px bg-gold/40" />
                   </div>
                   <p className="text-offwhite/30 text-xs italic max-w-sm mx-auto leading-relaxed">
-                    Menu de groupe, sur réservation. Nous accueillons les cars.
+                    {t('restaurantPage.stockfishNote')}
                   </p>
                 </div>
                 <ul className="space-y-4 max-w-sm mx-auto">
-                  {["Kir","Potage","Poule farcie ou tête de veau ou charcuterie","Estofinade — notre spécialité","Plateau de fromages","Dessert","Vin et café compris"].map((item) => (
+                  {["Kir","Potage","Poule farcie ou t\u00EAte de veau ou charcuterie","Estofinade \u2014 notre sp\u00E9cialit\u00E9","Plateau de fromages","Dessert","Vin et caf\u00E9 compris"].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-sm text-offwhite/60">
-                      <span className="text-gold/50 text-[8px] shrink-0">◆</span>{item}
+                      <span className="text-gold/50 text-[8px] shrink-0">&diams;</span>{item}
                     </li>
                   ))}
                 </ul>
@@ -362,35 +343,35 @@ export default function Restaurant() {
               <div className="absolute -top-px -left-px -right-px -bottom-px border border-gold/10 m-2 pointer-events-none" />
               <div className="relative p-8 md:p-12">
                 <div className="text-center mb-10">
-                  <p className="text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-4 font-light">Chaque Midi</p>
+                  <p className="text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-4 font-light">{t('restaurantPage.jourOverline')}</p>
                   <h3 className="text-2xl md:text-3xl text-offwhite tracking-wide mb-3">
-                    Menu du Jour
+                    {t('restaurantPage.jourTitle')}
                   </h3>
                   <div className="flex items-center justify-center gap-4 mb-4">
                     <div className="w-12 h-px bg-gold/40" />
-                    <span className="text-gold text-sm">17 € · ¼ vin &amp; café compris</span>
+                    <span className="text-gold text-sm">{t('restaurantPage.jourPrice')}</span>
                     <div className="w-12 h-px bg-gold/40" />
                   </div>
                   <p className="text-offwhite/30 text-xs italic max-w-md mx-auto leading-relaxed">
-                    Servi chaque midi du lundi au vendredi · 3 entrées, 3 plats, fromage et desserts au choix.<br />
-                    Un potage vous sera proposé en hiver.
+                    {t('restaurantPage.jourNote')}<br />
+                    {t('restaurantPage.jourWinter')}
                   </p>
                 </div>
                 <div className="max-w-sm mx-auto">
                   <div className="flex items-center gap-4 mb-5">
                     <div className="w-8 h-px bg-gold/40" />
-                    <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">Thèmes du jeudi</p>
+                    <p className="text-[11px] tracking-[0.35em] uppercase text-gold font-normal">{t('restaurantPage.thursdayLabel')}</p>
                     <div className="flex-1 h-px bg-gold/15" />
                   </div>
                   <ul className="space-y-4">
                     {[
-                      "1er jeudi — Tête de veau",
-                      "2ème jeudi — Poule farcie",
-                      "3ème jeudi — Choux farcis",
-                      "4ème jeudi — Aligot saucisse à l'ail des ours",
+                      "1er jeudi \u2014 T\u00EAte de veau",
+                      "2\u00E8me jeudi \u2014 Poule farcie",
+                      "3\u00E8me jeudi \u2014 Choux farcis",
+                      "4\u00E8me jeudi \u2014 Aligot saucisse \u00E0 l'ail des ours",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3 text-sm text-offwhite/60">
-                        <span className="text-gold/50 text-[8px] shrink-0">◆</span>{item}
+                        <span className="text-gold/50 text-[8px] shrink-0">&diams;</span>{item}
                       </li>
                     ))}
                   </ul>
@@ -406,37 +387,37 @@ export default function Restaurant() {
       <section className="py-24 md:py-32 bg-offwhite section-border relative overflow-hidden" id="carte">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
-            <p className="text-[10px] tracking-[0.4em] uppercase text-gold/70 mb-6 font-light">À la Carte</p>
+            <p className="text-[10px] tracking-[0.4em] uppercase text-gold/70 mb-6 font-light">{t('restaurantPage.carteOverline')}</p>
             <div className="flex items-center justify-center gap-6 mb-6">
               <div className="w-20 h-px bg-gold/30" />
-              <span className="text-gold text-lg">✦</span>
+              <span className="text-gold text-lg">&starf;</span>
               <div className="w-20 h-px bg-gold/30" />
             </div>
             <h2 className="text-4xl md:text-6xl text-black mb-6 leading-tight">
-              Nos Plats à la Carte
+              {t('restaurantPage.carteTitle')}
             </h2>
             <div className="flex items-center justify-center gap-6">
               <div className="w-20 h-px bg-gold/30" />
-              <span className="text-gold text-lg">✦</span>
+              <span className="text-gold text-lg">&starf;</span>
               <div className="w-20 h-px bg-gold/30" />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-0 border border-black/10">
-            {/* Entrées */}
+            {/* Entrees */}
             <div className="p-8 md:p-10 border-b md:border-b-0 md:border-r border-black/10 bg-white">
               <div className="text-center mb-8">
-                <p className="text-[11px] tracking-[0.35em] uppercase text-gold mb-3 font-normal">Entrées</p>
+                <p className="text-[11px] tracking-[0.35em] uppercase text-gold mb-3 font-normal">{t('restaurantPage.entreesLabel')}</p>
                 <div className="w-10 h-px bg-gold/40 mx-auto" />
               </div>
               <ul className="space-y-5">
                 {[
-                  { label: "Duo de foie gras et sa confiture", prix: "15 €" },
-                  { label: "Carpaccio de saumon aux kiwis mangues", prix: "14 €" },
-                  { label: "Noix de Saint-Jacques flambées aux kiwis", prix: "17 €" },
-                  { label: "Assiette de charcuterie de l'Aveyron", prix: "11 €" },
-                  { label: "Os à moelle gratiné aux champignons et son escalope de foie gras", prix: "19 €" },
-                  { label: "Ris d'agneau à la crème d'ail", prix: "16 €" },
+                  { label: "Duo de foie gras et sa confiture", prix: "15 \u20AC" },
+                  { label: "Carpaccio de saumon aux kiwis mangues", prix: "14 \u20AC" },
+                  { label: "Noix de Saint-Jacques flamb\u00E9es aux kiwis", prix: "17 \u20AC" },
+                  { label: "Assiette de charcuterie de l'Aveyron", prix: "11 \u20AC" },
+                  { label: "Os \u00E0 moelle gratin\u00E9 aux champignons et son escalope de foie gras", prix: "19 \u20AC" },
+                  { label: "Ris d'agneau \u00E0 la cr\u00E8me d'ail", prix: "16 \u20AC" },
                 ].map((item) => (
                   <li key={item.label} className="group">
                     <div className="flex items-end gap-2 text-sm">
@@ -452,19 +433,19 @@ export default function Restaurant() {
             {/* Plats */}
             <div className="p-8 md:p-10 border-b md:border-b-0 md:border-r border-black/10 bg-white">
               <div className="text-center mb-8">
-                <p className="text-[11px] tracking-[0.35em] uppercase text-gold mb-3 font-normal">Plats</p>
+                <p className="text-[11px] tracking-[0.35em] uppercase text-gold mb-3 font-normal">{t('restaurantPage.platsLabel')}</p>
                 <div className="w-10 h-px bg-gold/40 mx-auto" />
               </div>
               <ul className="space-y-5">
                 {[
-                  { label: "Confit de canard, légumes ou aligot", prix: "16 €" },
-                  { label: "Pot au feu de canard et ses légumes", prix: "18 €" },
-                  { label: "Estofinade — notre spécialité", prix: "20 €" },
-                  { label: "Ris de veau sauce madère, légumes et aligot", prix: "28 €" },
-                  { label: "Entrecôte d'Aubrac ou Charolaise, légumes ou aligot", prix: "26 €" },
-                  { label: "Souris d'agneau confite au pain d'épice", prix: "24 €" },
-                  { label: "Tournedos Rossini sauce madérisée au foie gras", prix: "30 €" },
-                  { label: "Magret de canard entier et sa sauce du moment", prix: "24 €" },
+                  { label: "Confit de canard, l\u00E9gumes ou aligot", prix: "16 \u20AC" },
+                  { label: "Pot au feu de canard et ses l\u00E9gumes", prix: "18 \u20AC" },
+                  { label: "Estofinade \u2014 notre sp\u00E9cialit\u00E9", prix: "20 \u20AC" },
+                  { label: "Ris de veau sauce mad\u00E8re, l\u00E9gumes et aligot", prix: "28 \u20AC" },
+                  { label: "Entrec\u00F4te d'Aubrac ou Charolaise, l\u00E9gumes ou aligot", prix: "26 \u20AC" },
+                  { label: "Souris d'agneau confite au pain d'\u00E9pice", prix: "24 \u20AC" },
+                  { label: "Tournedos Rossini sauce mad\u00E9ris\u00E9e au foie gras", prix: "30 \u20AC" },
+                  { label: "Magret de canard entier et sa sauce du moment", prix: "24 \u20AC" },
                   { label: "Poisson du moment", prix: "carte" },
                 ].map((item) => (
                   <li key={item.label} className="group">
@@ -476,23 +457,23 @@ export default function Restaurant() {
                   </li>
                 ))}
               </ul>
-              <p className="text-[10px] text-black/30 italic mt-6 text-center">Tous nos plats sont accompagnés de légumes de saison ou aligot.</p>
+              <p className="text-[10px] text-black/30 italic mt-6 text-center">{t('restaurantPage.platsNote')}</p>
             </div>
 
             {/* Salades */}
             <div className="p-8 md:p-10 bg-white">
               <div className="text-center mb-8">
-                <p className="text-[11px] tracking-[0.35em] uppercase text-gold mb-3 font-normal">Salades</p>
+                <p className="text-[11px] tracking-[0.35em] uppercase text-gold mb-3 font-normal">{t('restaurantPage.saladesLabel')}</p>
                 <div className="w-10 h-px bg-gold/40 mx-auto" />
               </div>
               <ul className="space-y-5">
                 {[
-                  { label: "Salade de Rocamadour chaud", prix: "13 €" },
-                  { label: "Salade Aveyronnaise Roquefort", prix: "13 €" },
-                  { label: "Salade de charcuterie", prix: "15 €" },
-                  { label: "Salade de gésiers d'oie", prix: "13 €" },
-                  { label: "Salade baltique saumon", prix: "18 €" },
-                  { label: "Salade de duo de foie gras mi-cuit", prix: "21 €" },
+                  { label: "Salade de Rocamadour chaud", prix: "13 \u20AC" },
+                  { label: "Salade Aveyronnaise Roquefort", prix: "13 \u20AC" },
+                  { label: "Salade de charcuterie", prix: "15 \u20AC" },
+                  { label: "Salade de g\u00E9siers d'oie", prix: "13 \u20AC" },
+                  { label: "Salade baltique saumon", prix: "18 \u20AC" },
+                  { label: "Salade de duo de foie gras mi-cuit", prix: "21 \u20AC" },
                 ].map((item) => (
                   <li key={item.label} className="group">
                     <div className="flex items-end gap-2 text-sm">
@@ -503,7 +484,7 @@ export default function Restaurant() {
                   </li>
                 ))}
               </ul>
-              <p className="text-[10px] text-black/30 italic mt-6 text-center">Accompagnées suivant le thème et la saison.</p>
+              <p className="text-[10px] text-black/30 italic mt-6 text-center">{t('restaurantPage.saladesNote')}</p>
             </div>
           </div>
 
@@ -512,11 +493,11 @@ export default function Restaurant() {
               to="/contact"
               className="inline-block bg-deepbrown hover:bg-black text-offwhite font-normal text-xs px-12 py-5 tracking-[0.25em] uppercase transition-colors no-underline"
             >
-              Réserver une table
+              {t('restaurantPage.reserveCta')}
             </Link>
           </div>
         </div>
       </section>
     </>
   );
-}
+}

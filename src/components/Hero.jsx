@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
+import { useLang } from '../i18n/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLang();
   return (
     <section className="relative h-screen min-h-[600px] flex flex-col items-center justify-center text-center text-white overflow-x-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src="/images/placeholder.jpg"
-          alt="L'hôtel Les Carillons et son parc arboré à Cransac-les-Thermes"
+          alt={t('hero.imgAlt')}
           className="w-full h-full object-cover ken-burns"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
@@ -20,7 +22,7 @@ export default function Hero() {
           <div className="flex flex-col items-center">
             {/* Overline */}
             <p className="text-xs sm:text-sm tracking-[0.35em] uppercase mb-8 md:mb-12 font-light text-white/70" style={{ fontFamily: 'var(--font-body)' }}>
-              Cransac-les-Thermes · Aveyron · Logis Hôtels
+              {t('hero.overline')}
             </p>
 
             {/* Hotel name — Goudy Titling */}
@@ -37,7 +39,7 @@ export default function Hero() {
 
             {/* Tagline */}
             <p className="text-sm sm:text-base md:text-lg mb-10 max-w-xs sm:max-w-xl leading-relaxed font-light tracking-wide text-white/80" style={{ fontFamily: 'var(--font-body)' }}>
-              Hôtel restaurant familial · 17 chambres · Piscine & Parc
+              {t('hero.tagline')}
             </p>
 
             {/* CTA */}
@@ -45,7 +47,7 @@ export default function Hero() {
               to="/hotel"
               className="border border-white/40 text-white text-xs font-normal tracking-[0.2em] uppercase no-underline hover:bg-white/10 transition-colors px-10 py-4"
             >
-              Explorer
+              {t('hero.cta')}
             </Link>
           </div>
         </div>

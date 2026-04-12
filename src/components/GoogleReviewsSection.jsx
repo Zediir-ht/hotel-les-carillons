@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Reveal from './Reveal';
+import { useLang } from '../i18n/LanguageContext';
 
 const googleMapsUrl =
   'https://www.google.com/maps/search/?api=1&query=Hotel+Restaurant+Les+Carillons+Cransac-les-Thermes';
@@ -17,13 +18,7 @@ const fallbackReviews = [
   },
 ];
 
-const pillars = [
-  'Hôtel familial',
-  'Restaurant du terroir',
-  'Piscine et parc arboré',
-];
-
-function GoogleMark() {
+function GoogleMark({ label }) {
   return (
     <span className="inline-flex items-center gap-2 text-[11px] font-normal tracking-[0.22em] uppercase text-black/70">
       <span className="inline-flex items-center text-lg font-semibold" aria-hidden="true">
@@ -34,7 +29,7 @@ function GoogleMark() {
         <span style={{ color: '#34A853' }}>l</span>
         <span style={{ color: '#EA4335' }}>e</span>
       </span>
-      Avis
+      {label}
     </span>
   );
 }
@@ -73,6 +68,8 @@ function ReviewStars({ rating = 5 }) {
 export default function GoogleReviewsSection() {
   const [reviews, setReviews] = useState(fallbackReviews);
   const [ratingInfo, setRatingInfo] = useState({ rating: null, count: null });
+  const { t } = useLang();
+  const pillars = t('googleReviews.pillars');
 
   useEffect(() => {
     if (!GOOGLE_PLACES_API_KEY || !GOOGLE_PLACE_ID) {
@@ -144,22 +141,22 @@ export default function GoogleReviewsSection() {
               <div className="relative z-10 flex h-full flex-col justify-between p-7 md:p-10 lg:p-12 text-white/92">
                 <div>
                   <div className="mb-7 inline-flex items-center gap-3 border border-white/12 bg-white/6 px-4 py-2.5 backdrop-blur-sm">
-                    <GoogleMark />
+                    <GoogleMark label={t('googleReviews.reviewsLabel')} />
                     <span className="h-5 w-px bg-white/15" />
                     <span className="text-[10px] uppercase tracking-[0.2em] text-white/60">
-                      Bien en vue dès l'accueil
+                      {t('googleReviews.badgeLabel')}
                     </span>
                   </div>
 
-                  <p className="overline mb-3 text-[#d4b792]/90">Réputation en ligne</p>
-                  <h2 className="max-w-xl text-2xl md:text-[36px] leading-tight text-offwhite">Les avis Google rassurent avant même la réservation.</h2>
+                  <p className="overline mb-3 text-[#d4b792]/90">{t('googleReviews.overline')}</p>
+                  <h2 className="max-w-xl text-2xl md:text-[36px] leading-tight text-offwhite">{t('googleReviews.title')}</h2>
                   <div className="mt-5 h-px w-14 bg-[#d4b792]/80" />
                   <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/70 font-light">
-                    Les voyageurs y retrouvent ce qui fait l'identité des Carillons : un accueil sincère, une table appréciée et un cadre apaisant à Cransac-les-Thermes.
+                    {t('googleReviews.desc')}
                   </p>
                   {ratingInfo.rating && ratingInfo.count ? (
                     <p className="mt-3 text-xs uppercase tracking-[0.16em] text-white/62">
-                      Note globale {ratingInfo.rating.toFixed(1)} sur 5, basée sur {ratingInfo.count} avis Google
+                      {t('googleReviews.ratingNote')} {ratingInfo.rating.toFixed(1)} {t('googleReviews.ratingOf')} {ratingInfo.count} {t('googleReviews.ratingReviews')}
                     </p>
                   ) : null}
                 </div>
@@ -176,9 +173,9 @@ export default function GoogleReviewsSection() {
 
                   <div className="border border-white/14 bg-white/8 p-[18px] backdrop-blur-sm">
                     <StarRow />
-                    <p className="mt-3 text-base text-offwhite/92">Consulter les retours Google</p>
+                    <p className="mt-3 text-base text-offwhite/92">{t('googleReviews.consultTitle')}</p>
                     <p className="mt-1.5 text-[13px] leading-relaxed text-white/65 font-light">
-                      Un accès direct vers la fiche Google Maps pour lire les avis et publier le vôtre.
+                      {t('googleReviews.consultDesc')}
                     </p>
                   </div>
                 </div>
@@ -190,7 +187,7 @@ export default function GoogleReviewsSection() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center border border-[#d4b792]/90 bg-[#d4b792]/90 px-6 py-3 text-[10px] font-normal uppercase tracking-[0.2em] text-deepbrown no-underline transition-colors hover:bg-[#e1c9ab]"
                   >
-                    Lire les avis Google
+                    {t('googleReviews.readCta')}
                   </a>
                   <a
                     href={`${googleMapsUrl}&entry=ttu`}
@@ -198,7 +195,7 @@ export default function GoogleReviewsSection() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center border border-white/18 px-6 py-3 text-[10px] font-normal uppercase tracking-[0.2em] text-white/92 no-underline transition-colors hover:bg-white/8"
                   >
-                    Laisser un avis
+                    {t('googleReviews.writeCta')}
                   </a>
                 </div>
               </div>
@@ -218,7 +215,7 @@ export default function GoogleReviewsSection() {
                       </div>
                       <div className="flex items-center gap-2.5 md:justify-end opacity-85">
                         <ReviewStars rating={review.rating} />
-                        <GoogleMark />
+                        <GoogleMark label={t('googleReviews.reviewsLabel')} />
                       </div>
                     </div>
 

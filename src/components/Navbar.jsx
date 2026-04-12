@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useLang } from '../i18n/LanguageContext';
 
-const navLinks = [
-  { to: '/hotel', label: 'Hôtel' },
-  { to: '/restaurant', label: 'Restaurant' },
-  { to: '/meubles', label: 'Meublés' },
-  { to: '/galerie', label: 'Galerie' },
-  { to: '/seminaire', label: 'Séminaire' },
-  { to: '/tourisme', label: 'Tourisme' },
-  { to: '/contact', label: 'Contact' },
+const navKeys = [
+  { to: '/hotel', key: 'hotel' },
+  { to: '/restaurant', key: 'restaurant' },
+  { to: '/meubles', key: 'meubles' },
+  { to: '/galerie', key: 'galerie' },
+  { to: '/seminaire', key: 'seminaire' },
+  { to: '/tourisme', key: 'tourisme' },
+  { to: '/contact', key: 'contact' },
 ];
 
 export default function Navbar() {
+  const { lang, switchLang, t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navLinks = navKeys.map((n) => ({ to: n.to, label: t(`nav.${n.key}`) }));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -86,8 +89,18 @@ export default function Navbar() {
                     : 'border border-white/40 text-white hover:bg-white/10'
                 }`}
               >
-                Réserver
+                {t('nav.book')}
               </a>
+              <button
+                onClick={() => switchLang(lang === 'fr' ? 'en' : 'fr')}
+                className={`shrink-0 text-xs font-normal px-3 py-2 tracking-[0.12em] uppercase transition-colors cursor-pointer ${
+                  scrolled
+                    ? 'text-black/60 hover:text-black border border-black/15'
+                    : 'text-white/80 hover:text-white border border-white/30'
+                }`}
+              >
+                {lang === 'fr' ? 'EN' : 'FR'}
+              </button>
             </div>
 
           </div>
@@ -125,16 +138,26 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <a
-            href="https://www.logishotels.com/fr/hotel/logis-hotel-les-carillons-4588"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`shrink-0 text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-2 tracking-wider uppercase no-underline transition-colors ${
-              scrolled ? 'bg-gold text-white' : 'border border-white/60 text-white'
-            }`}
-          >
-            Réserver
-          </a>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => switchLang(lang === 'fr' ? 'en' : 'fr')}
+              className={`shrink-0 text-[11px] sm:text-xs font-bold px-2 py-2 tracking-wider uppercase cursor-pointer transition-colors ${
+                scrolled ? 'text-black/60 border border-black/15' : 'text-white/80 border border-white/40'
+              }`}
+            >
+              {lang === 'fr' ? 'EN' : 'FR'}
+            </button>
+            <a
+              href="https://www.logishotels.com/fr/hotel/logis-hotel-les-carillons-4588"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`shrink-0 text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-2 tracking-wider uppercase no-underline transition-colors ${
+                scrolled ? 'bg-gold text-white' : 'border border-white/60 text-white'
+              }`}
+            >
+              {t('nav.book')}
+            </a>
+          </div>
         </div>
 
         {/* Mobile menu */}

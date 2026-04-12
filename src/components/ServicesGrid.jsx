@@ -8,6 +8,7 @@ const IconBed = () => (
   </svg>
 );
 import Reveal from './Reveal';
+import { useLang } from '../i18n/LanguageContext';
 const IconFork = () => (
   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-9 h-9 mx-auto">
     <path d="M16 6v10a6 6 0 0 0 6 6v20"/>
@@ -52,26 +53,21 @@ const IconBriefcase = () => (
   </svg>
 );
 
-const services = [
-  { icon: <IconBed />, title: '17 Chambres', description: 'Chambres confortables et calmes, toutes équipées pour un séjour agréable.' },
-  { icon: <IconFork />, title: 'Restaurant', description: 'Cuisine maison généreuse, produits du terroir aveyronnais, menus et carte.' },
-  { icon: <IconPool />, title: 'Piscine & Parc', description: 'Piscine extérieure et parc arboré pour se détendre en pleine nature.' },
-  { icon: <IconHome />, title: 'Meublés Les Cèdres', description: '11 appartements meublés avec piscine partagée et parc aux trois cèdres.' },
-  { icon: <IconMeeting />, title: 'Séminaire', description: "Salle équipée pour vos réunions, formations et événements d'entreprise." },
-  { icon: <IconBriefcase />, title: 'Soirée étape VRP', description: 'Formule soirée étape : dîner, nuit et petit-déjeuner à tarif préférentiel.' },
-];
+const icons = [<IconBed />, <IconFork />, <IconPool />, <IconHome />, <IconMeeting />, <IconBriefcase />];
 
 export default function ServicesGrid() {
+  const { t } = useLang();
+  const services = t('services.items').map((item, i) => ({ ...item, icon: icons[i] }));
   return (
     <section className="py-24 md:py-32 bg-beige section-border">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
           <p className="overline text-gold mb-5">
-            Nos Services
+            {t('services.overline')}
           </p>
           <h2 className="text-3xl md:text-[44px] text-black">
-            Un établissement complet
+            {t('services.title')}
           </h2>
           <div className="w-16 h-px bg-black mx-auto mt-5" />
         </div>
@@ -88,7 +84,7 @@ export default function ServicesGrid() {
                   {service.title}
                 </h3>
                 <div className="w-6 h-px bg-gold mx-auto mb-3 group-hover:w-10 transition-all duration-300" />
-                <p className="text-gray-mid text-sm leading-relaxed font-light">{service.description}</p>
+                <p className="text-gray-mid text-sm leading-relaxed font-light">{service.desc}</p>
               </div>
             </Reveal>
           ))}

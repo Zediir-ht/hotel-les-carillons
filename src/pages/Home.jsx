@@ -7,11 +7,13 @@ import HotelSection from '../components/HotelSection';
 import RestaurantSection from '../components/RestaurantSection';
 import MeublesSection from '../components/MeublesSection';
 import TourismeTeaser from '../components/TourismeTeaser';
+import { useLang } from '../i18n/LanguageContext';
 
 const googleMapsUrl =
   'https://www.google.com/maps/search/?api=1&query=Hotel+Restaurant+Les+Carillons+Cransac-les-Thermes';
 
 export default function Home() {
+  const { t } = useLang();
   return (
     <>
       <Seo
@@ -28,7 +30,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 border border-black/10 bg-white/80 px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-black/70 no-underline transition-colors hover:bg-white"
           >
-            <span>Avis Google</span>
+            <span>{t('googleWidget.label')}</span>
             <span className="text-[#d8a93b]" aria-label="4,4 sur 5">★★★★☆</span>
             <span className="text-black/60">4,4/5</span>
           </a>

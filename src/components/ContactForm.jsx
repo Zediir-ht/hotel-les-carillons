@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useLang } from '../i18n/LanguageContext';
 
 export default function ContactForm() {
+  const { t } = useLang();
   const [form, setForm] = useState({
     nom: '',
     email: '',
@@ -27,7 +29,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="nom" className="block text-sm font-normal text-black mb-1">
-            Nom *
+            {t('contactPage.formName')} *
           </label>
           <input
             type="text"
@@ -41,7 +43,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-normal text-black mb-1">
-            Email *
+            {t('contactPage.formEmail')} *
           </label>
           <input
             type="email"
@@ -58,7 +60,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="telephone" className="block text-sm font-normal text-black mb-1">
-            Téléphone
+            {t('contactPage.formPhone')}
           </label>
           <input
             type="tel"
@@ -71,13 +73,13 @@ export default function ContactForm() {
         </div>
         <div>
           <label htmlFor="dates" className="block text-sm font-normal text-black mb-1">
-            Dates souhaitées
+            {t('contactPage.formDates')}
           </label>
           <input
             type="text"
             id="dates"
             name="dates"
-            placeholder="ex : 15 au 20 juillet"
+            placeholder={t('contactPage.formDatesPlaceholder')}
             value={form.dates}
             onChange={handleChange}
             className="w-full border border-black/15 px-4 py-2.5 text-sm focus:outline-none focus:border-gold transition bg-white"
@@ -87,7 +89,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-normal text-black mb-1">
-          Message *
+          {t('contactPage.formMessage')} *
         </label>
         <textarea
           id="message"
@@ -104,7 +106,7 @@ export default function ContactForm() {
         type="submit"
         className="bg-gold hover:bg-gold-dark text-white font-normal text-xs px-8 py-3.5 tracking-[0.15em] uppercase transition-colors cursor-pointer"
       >
-        Envoyer le message
+        {t('contactPage.formSubmit')}
       </button>
     </form>
   );

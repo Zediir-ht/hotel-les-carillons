@@ -3,6 +3,7 @@ import Seo from '../components/Seo';
 import PageHero from '../components/PageHero';
 import SectionBlock from '../components/SectionBlock';
 import Carousel from '../components/Carousel';
+import { useLang } from '../i18n/LanguageContext';
 
 const IMG = '/images/Restaurant%20les%20Carillons%20-%20Restaurant%20CRANSAC';
 
@@ -15,6 +16,8 @@ const sallesSlides = [
 ];
 
 export default function Seminaire() {
+  const { t } = useLang();
+  const equipBlocks = t('seminairePage.equipBlocks');
   return (
     <>
       <Seo
@@ -23,66 +26,39 @@ export default function Seminaire() {
         path="/seminaire"
       />
       <PageHero
-        title="Séminaire & Réunions"
-        subtitle="Une salle climatisée jusqu'à 40 personnes, accessible PMR"
-        breadcrumb={[{ label: 'Séminaire' }]}
+        title={t('seminairePage.heroTitle')}
+        subtitle={t('seminairePage.heroSub')}
+        breadcrumb={[{ label: t('nav.seminaire') }]}
       />
 
       <SectionBlock
-        title="Une salle à votre disposition"
-        subtitle="Entreprises & Associations"
+        title={t('seminairePage.section1Title')}
+        subtitle={t('seminairePage.section1Sub')}
         image="/images/Restaurant%20les%20Carillons%20-%20Restaurant%20CRANSAC/logis-hotel-les-carillons-salles-de-seminaires-reception-cra.jpg"
         imageAlt="Salle de séminaire de l'hôtel Les Carillons"
         imageLeft
       >
+        <p>{t('seminairePage.section1P1')}</p>
         <p>
-          Pour les entreprises et les associations, notre salle de séminaire
-          située en rez-de-chaussée permet d'accueillir les personnes à
-          mobilité réduite.
-        </p>
-        <p>
-          Climatisée, elle dispose d'un accès Wi-Fi et d'un <strong className="text-black font-normal">écran tactile</strong>,
-          et peut recevoir jusqu'à <strong className="text-black font-normal">40 personnes</strong>.
+          {t('seminairePage.section1P2')}
         </p>
         <Link
           to="/contact"
           className="inline-flex items-center gap-2 mt-2 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
         >
-          Demander un devis <span className="text-gold">→</span>
+          {t('seminairePage.section1Cta')} <span className="text-gold">→</span>
         </Link>
       </SectionBlock>
 
       <section className="py-20 md:py-28 bg-beige section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="overline text-gold mb-4">Équipements & services</p>
-            <h2 className="text-3xl text-black mb-5">Tout pour votre séminaire</h2>
+            <p className="overline text-gold mb-4">{t('seminairePage.equipSub')}</p>
+            <h2 className="text-3xl text-black mb-5">{t('seminairePage.equipTitle')}</h2>
             <div className="w-12 h-px bg-black mx-auto" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {[
-              {
-                title: 'Salle équipée',
-                items: [
-                  'Écran tactile',
-                  'Accès Wi-Fi haut débit',
-                  'Climatisation',
-                  'Accessible PMR (rez-de-chaussée)',
-                  'Jusqu\'à 40 personnes',
-                  'Disposition modulable',
-                ],
-              },
-              {
-                title: 'Hébergement & restauration',
-                items: [
-                  '17 chambres confortables sur place',
-                  'Pension complète possible',
-                  'Pauses café & collations',
-                  'Dîner de gala sur demande',
-                  'Accès piscine & parc arboré',
-                ],
-              },
-            ].map((block) => (
+            {equipBlocks.map((block) => (
               <div key={block.title} className="bg-white p-6 md:p-8 border border-black/5">
                 <h3 className="text-sm font-normal text-black mb-5 tracking-wide uppercase" style={{ fontFamily: 'var(--font-body)' }}>{block.title}</h3>
                 <div className="w-8 h-px bg-gold mb-5" />
@@ -102,7 +78,7 @@ export default function Seminaire() {
               to="/contact"
               className="inline-block bg-gold hover:bg-gold-dark text-white font-normal text-xs px-8 py-3.5 tracking-[0.15em] uppercase transition-colors no-underline"
             >
-              Nous contacter pour tout renseignement
+              {t('seminairePage.equipCta')}
             </Link>
           </div>
         </div>
@@ -121,26 +97,24 @@ export default function Seminaire() {
               />
             </div>
             <div className="w-full md:w-2/5">
-              <p className="overline text-gold mb-4">Nos espaces</p>
+              <p className="overline text-gold mb-4">{t('seminairePage.carouselSub')}</p>
               <h2
                 className="text-3xl md:text-[44px] text-black mb-5 leading-tight"
               >
-                Des salles adaptées à chaque événement
+                {t('seminairePage.carouselTitle')}
               </h2>
               <div className="w-12 h-px bg-black mb-6" />
               <p className="text-gray-mid text-base leading-relaxed mb-4 font-light">
-                Séminaire d'entreprise, réunion d'association, repas de famille,
-                anniversaire ou banquet — nos salles s'adaptent à votre projet.
+                {t('seminairePage.carouselP1')}
               </p>
               <p className="text-gray-mid text-base leading-relaxed font-light">
-                La grande salle de réception peut accueillir des groupes pour
-                des repas de gala ou des cérémonies.
+                {t('seminairePage.carouselP2')}
               </p>
               <Link
                 to="/contact"
                 className="inline-flex items-center gap-2 mt-6 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
               >
-                Demander un devis <span className="text-gold">→</span>
+                {t('seminairePage.carouselCta')} <span className="text-gold">→</span>
               </Link>
             </div>
           </div>

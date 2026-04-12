@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLang } from '../i18n/LanguageContext';
 
 const BOOKING_URL =
   'https://premium.logishotels.com/fo/booking/233/93628/availability?specialMode=default&hotelid=93628&numnight=1&m=booking&langcode=FR&custid=233';
@@ -79,6 +80,7 @@ const rooms = [
 ];
 
 function RoomCard({ room }) {
+  const { t } = useLang();
   const [imgError, setImgError] = useState(false);
   const priceLabel = room.priceTo ? `${room.price}€ – ${room.priceTo}€` : `${room.price}€`;
 
@@ -94,12 +96,12 @@ function RoomCard({ room }) {
           />
         ) : (
           <div className="w-full h-full bg-beige flex items-center justify-center">
-            <span className="text-gold text-sm tracking-wide">Photo à venir</span>
+            <span className="text-gold text-sm tracking-wide">{t('rooms.photoPlaceholder')}</span>
           </div>
         )}
         <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5">
           <span className="text-gold font-normal text-sm tracking-wide">
-            à partir de {room.price}€
+            {t('rooms.fromPrice')} {room.price}€
           </span>
         </div>
       </div>
@@ -113,26 +115,26 @@ function RoomCard({ room }) {
         <p className="text-gray-mid text-sm leading-relaxed mb-5">{room.description}</p>
 
         <div className="mb-6">
-          <p className="text-xs text-black/50 uppercase tracking-wide mb-2">Tarifs chambre / nuit</p>
+          <p className="text-xs text-black/50 uppercase tracking-wide mb-2">{t('rooms.ratesLabel')}</p>
           <p className="text-black text-sm font-normal">{priceLabel}</p>
           {room.demiPension && (
             <p className="text-black/70 text-sm mt-1">
-              Demi-pension 1 pers. : {room.demiPension}€
+              {t('rooms.halfBoard1')} : {room.demiPension}€
             </p>
           )}
           {room.demiPension2 && (
             <p className="text-black/70 text-sm mt-0.5">
-              Demi-pension 2 pers. : {room.demiPension2}€
+              {t('rooms.halfBoard2')} : {room.demiPension2}€
             </p>
           )}
           {room.demiPension3 && (
             <p className="text-black/70 text-sm mt-0.5">
-              Demi-pension 3 pers. : {room.demiPension3}€
+              {t('rooms.halfBoard3')} : {room.demiPension3}€
             </p>
           )}
           {room.demiPension4 && (
             <p className="text-black/70 text-sm mt-0.5">
-              Demi-pension 4 pers. : {room.demiPension4}€
+              {t('rooms.halfBoard4')} : {room.demiPension4}€
             </p>
           )}
         </div>
@@ -151,7 +153,7 @@ function RoomCard({ room }) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
         >
-          Réserver <span className="text-gold">→</span>
+          {t('rooms.book')} <span className="text-gold">→</span>
         </a>
       </div>
     </div>
@@ -159,16 +161,16 @@ function RoomCard({ room }) {
 }
 
 export default function RoomsSection() {
+  const { t } = useLang();
   return (
     <section className="py-20 md:py-28 bg-offwhite section-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-14">
-          <p className="overline text-gold mb-4">Hébergement</p>
-          <h2 className="text-3xl md:text-[40px] text-black mb-4 leading-tight">Les Chambres</h2>
+          <p className="overline text-gold mb-4">{t('rooms.overline')}</p>
+          <h2 className="text-3xl md:text-[40px] text-black mb-4 leading-tight">{t('rooms.title')}</h2>
           <div className="w-16 h-px bg-black mx-auto mt-5 mb-6" />
           <p className="text-gray-mid text-base max-w-xl mx-auto leading-relaxed">
-            17 chambres climatisées de 1 à 5 personnes, avec salle de bain et WC privé.
-            Tarifs 2026 par jour et par chambre.
+            {t('rooms.subtitle')}
           </p>
         </div>
 
@@ -181,10 +183,10 @@ export default function RoomsSection() {
         <div className="mt-14 text-center">
           <div className="bg-beige p-6 md:p-8 max-w-2xl mx-auto">
             <p className="text-black text-sm mb-2">
-              <strong>Petit-déjeuner :</strong> 10€ par personne
+              <strong>{t('rooms.breakfast')}</strong>
             </p>
             <p className="text-black/60 text-xs leading-relaxed">
-              Tarifs demi-pension applicables à partir de 2 nuits. Nos tarifs n'incluent pas la taxe de séjour (0,90€ par nuitée et par personne) ni les boissons.
+              {t('rooms.ratesNote')}
             </p>
           </div>
         </div>

@@ -1,87 +1,24 @@
 import Seo from '../components/Seo';
 import PageHero from '../components/PageHero';
+import { useLang } from '../i18n/LanguageContext';
 
-const sites = [
-  {
-    name: 'Conques',
-    desc: 'Monument majeur du patrimoine sur le chemin de Saint-Jacques-de-Compostelle. Son abbatiale abrite un trésor incomparable de sculptures romanes.',
-    distance: '30 km',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Abbatiale_Sainte-Foy_de_Conques_(vue_g%C3%A9n%C3%A9rale).jpg?width=800',
-    url: 'https://www.tourisme-conques.fr/',
-  },
-  {
-    name: 'Belcastel',
-    desc: 'L\'un des plus beaux villages de France, lové au fond de la vallée de l\'Aveyron. Patrimoine médiéval d\'une richesse rare.',
-    distance: '40 km',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Belcastel-panorama.jpg?width=800',
-    url: 'https://www.aveyron-tourisme.com/fr/decouvrir/villes-et-villages/belcastel',
-  },
-  {
-    name: 'Rodez & Musée Soulages',
-    desc: 'Fondée il y a plus de 2000 ans, Rodez et sa cathédrale vous accueillent. Le musée Soulages attire des visiteurs du monde entier.',
-    distance: '50 km',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cathedral_of_Our_Lady_of_Rodez_79.jpg?width=800',
-    url: 'https://www.rodez-tourisme.fr/',
-  },
-  {
-    name: 'Figeac — Cité de Champollion',
-    desc: 'Labellisée Ville d\'art et d\'histoire, Figeac est la patrie de Champollion, déchiffreur des hiéroglyphes.',
-    distance: '40 km',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/5_Place_Champollion_in_Figeac_01.jpg?width=800',
-    url: 'https://www.tourisme-figeac.com/',
-  },
-  {
-    name: 'Aubin',
-    desc: 'L\'une des plus anciennes villes du Rouergue. Découvrez le site du Fort et du Vieil Aubin ainsi que le Musée de la Mine.',
-    distance: '10 km',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Vue_partielle_sur_Aubin.jpg?width=800',
-    url: 'https://www.tourisme-paysdecazevillois.fr/decouvrir/villes-villages/aubin/',
-  },
-  {
-    name: 'Millau',
-    desc: 'Porte d\'entrée des Gorges du Tarn, connue pour son viaduc spectaculaire et ses paysages grandioses.',
-    distance: '100 km',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Viaduc_de_Millau_2015.jpg?width=800',
-    url: 'https://www.explore-millau.com/',
-  },
-  {
-    name: 'Najac',
-    desc: 'Village perché dominé par sa forteresse royale, Najac offre des panoramas superbes et une atmosphère médiévale préservée.',
-    distance: '55 km',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Castle_of_Najac_04.jpg?width=800',
-    url: 'https://www.aveyron-tourisme.com/fr/decouvrir/villes-et-villages/najac',
-  },
-  {
-    name: 'Villefranche-de-Rouergue',
-    desc: 'Bastide majeure de l\'Aveyron, avec sa place Notre-Dame, ses arcades et son marché traditionnel incontournable.',
-    distance: '45 km',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Villefranche-de-Rouergue_place_Notre-Dame.jpg?width=800',
-    url: 'https://www.villefranche-tourisme.com/',
-  },
+const sitesMeta = [
+  { distance: '30 km', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Abbatiale_Sainte-Foy_de_Conques_(vue_g%C3%A9n%C3%A9rale).jpg?width=800', url: 'https://www.tourisme-conques.fr/' },
+  { distance: '40 km', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Belcastel-panorama.jpg?width=800', url: 'https://www.aveyron-tourisme.com/fr/decouvrir/villes-et-villages/belcastel' },
+  { distance: '50 km', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cathedral_of_Our_Lady_of_Rodez_79.jpg?width=800', url: 'https://www.rodez-tourisme.fr/' },
+  { distance: '40 km', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/5_Place_Champollion_in_Figeac_01.jpg?width=800', url: 'https://www.tourisme-figeac.com/' },
+  { distance: '10 km', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Vue_partielle_sur_Aubin.jpg?width=800', url: 'https://www.tourisme-paysdecazevillois.fr/decouvrir/villes-villages/aubin/' },
+  { distance: '100 km', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Viaduc_de_Millau_2015.jpg?width=800', url: 'https://www.explore-millau.com/' },
+  { distance: '55 km', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Castle_of_Najac_04.jpg?width=800', url: 'https://www.aveyron-tourisme.com/fr/decouvrir/villes-et-villages/najac' },
+  { distance: '45 km', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Villefranche-de-Rouergue_place_Notre-Dame.jpg?width=800', url: 'https://www.villefranche-tourisme.com/' },
 ];
 
-const agenda = [
-  {
-    title: 'Marché hebdomadaire',
-    desc: 'Le samedi de 13h à 15h30, Place Jean Jaurès — primeurs, fromagers, bouchers, vêtements, fleurs…',
-  },
-  {
-    title: 'Marchés de producteurs de pays',
-    desc: 'De juin à septembre, le mardi tous les 15 jours à 18h, Place Jean Jaurès. Producteurs fermiers et artisanaux.',
-  },
-  {
-    title: 'Festival de feux d\'artifice',
-    desc: 'Au cœur de l\'ancienne mine à ciel ouvert de Decazeville, les meilleurs artificiers du monde s\'affrontent.',
-    url: 'http://festival-decazeville.com/',
-  },
-  {
-    title: 'Hier un village à Flagnac',
-    desc: 'Spectacle vivant retraçant la vie rurale aveyronnaise du siècle dernier, porté par le personnage de Jeannou.',
-    url: 'http://www.hierunvillage.com/fr/',
-  },
-];
+const agendaUrls = [null, null, 'http://festival-decazeville.com/', 'http://www.hierunvillage.com/fr/'];
 
 export default function Tourisme() {
+  const { t } = useLang();
+  const sitesData = t('tourismePage.sites');
+  const agendaData = t('tourismePage.agenda');
   return (
     <>
       <Seo
@@ -90,10 +27,10 @@ export default function Tourisme() {
         path="/tourisme"
       />
       <PageHero
-        title="Tourisme en Aveyron"
-        subtitle="Aux confins du Lot, du Cantal et de l'Aveyron"
+        title={t('tourismePage.heroTitle')}
+        subtitle={t('tourismePage.heroSub')}
         image="/images/Restaurant%20les%20Carillons%20-%20Restaurant%20CRANSAC/logis-hotel-les-carillons-facade-cransac-957618.jpg"
-        breadcrumb={[{ label: 'Tourisme' }]}
+        breadcrumb={[{ label: t('nav.tourisme') }]}
       />
 
       {/* Intro Cransac */}
@@ -101,23 +38,18 @@ export default function Tourisme() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div>
-              <p className="overline text-gold mb-5">Bienvenue</p>
+              <p className="overline text-gold mb-5">{t('tourismePage.introSub')}</p>
               <h2 className="text-3xl md:text-[44px] text-black leading-tight mb-5">
-                Bienvenue à<br />Cransac-les-Thermes
+                {t('tourismePage.introTitle').split('\n').map((line, i) => (
+                  <span key={i}>{line}{i === 0 && <br />}</span>
+                ))}
               </h2>
               <div className="w-12 h-px bg-black mb-7" />
               <p className="text-gray-mid leading-relaxed mb-4 text-base font-light">
-                Charmante petite station thermale ensoleillée, aux confins du Lot,
-                du Cantal et de l'Aveyron, au cœur d'une nature préservée et
-                généreuse, offrant des paysages d'une rare diversité, propice à la
-                pratique de nombreux sports et loisirs.
+                {t('tourismePage.introP1')}
               </p>
               <p className="text-gray-mid leading-relaxed mb-4 text-base font-light">
-                Avec des thermes modernes gérés par la{' '}
-                <strong className="text-black font-normal">Chaîne Thermale du Soleil</strong>,
-                des équipements adaptés et un thermalisme unique et original,
-                Cransac-les-Thermes entre dans le XXIème siècle sous le signe
-                d'une vitalité nouvelle.
+                {t('tourismePage.introP2')}
               </p>
               <a
                 href="http://www.chainethermale.fr/cransac-les-thermes.html"
@@ -125,7 +57,7 @@ export default function Tourisme() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-black font-normal text-xs tracking-[0.15em] uppercase no-underline hover:text-gold transition-colors border-b border-black pb-0.5"
               >
-                Les thermes de Cransac <span className="text-gold">→</span>
+                {t('tourismePage.introCta')} <span className="text-gold">→</span>
               </a>
             </div>
             <div>
@@ -143,43 +75,41 @@ export default function Tourisme() {
       <section className="py-20 md:py-28 bg-beige section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="overline text-gold mb-4">À proximité</p>
+            <p className="overline text-gold mb-4">{t('tourismePage.sitesSub')}</p>
             <h2 className="text-3xl md:text-[44px] text-black mb-5">
-              Sites touristiques exceptionnels
+              {t('tourismePage.sitesTitle')}
             </h2>
             <div className="w-12 h-px bg-black mx-auto mb-5" />
             <p className="text-gray-mid max-w-2xl mx-auto leading-relaxed text-sm font-light">
-              Point de départ idéal pour la visite d'une multitude de sites
-              touristiques exceptionnels — villages classés, villes d'art,
-              gorges et paysages d'Aveyron.
+              {t('tourismePage.sitesDesc')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {sites.map((site) => (
+            {sitesData.map((site, i) => (
               <a
                 key={site.name}
-                href={site.url}
+                href={sitesMeta[i].url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block bg-white overflow-hidden border border-black/5 hover:border-gold/30 transition-colors no-underline"
-                aria-label={`Découvrir ${site.name}`}
+                aria-label={`${t('tourismePage.discover')} ${site.name}`}
               >
                 <img
-                  src={site.image}
-                  alt={`Vue de ${site.name}`}
+                  src={sitesMeta[i].image}
+                  alt={site.name}
                   className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-sm font-normal text-black tracking-wide leading-tight" style={{ fontFamily: 'var(--font-body)', textTransform: 'none' }}>{site.name}</h3>
-                    <span className="text-xs text-gold font-light shrink-0 ml-2">{site.distance}</span>
+                    <span className="text-xs text-gold font-light shrink-0 ml-2">{sitesMeta[i].distance}</span>
                   </div>
                   <div className="w-5 h-px bg-gold mb-3" />
                   <p className="text-gray-mid text-sm leading-relaxed font-light">{site.desc}</p>
                   <span className="inline-flex items-center gap-1 mt-3 text-gold text-xs transition-colors group-hover:text-gold-dark">
-                    Voir le site <span>→</span>
+                    {t('tourismePage.seeMore')} <span>→</span>
                   </span>
                 </div>
               </a>
@@ -192,31 +122,31 @@ export default function Tourisme() {
       <section className="py-20 md:py-28 bg-white section-border">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="overline text-gold mb-4">Animations</p>
-            <h2 className="text-3xl text-black mb-5">Vie locale & animations</h2>
+            <p className="overline text-gold mb-4">{t('tourismePage.agendaSub')}</p>
+            <h2 className="text-3xl text-black mb-5">{t('tourismePage.agendaTitle')}</h2>
             <div className="w-12 h-px bg-black mx-auto" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-            {agenda.map((item) => (
+            {agendaData.map((item, i) => (
               <div key={item.title} className="bg-beige p-6 md:p-8 border border-black/5">
                 <h3 className="text-sm font-normal text-black mb-4 tracking-wide uppercase" style={{ fontFamily: 'var(--font-body)' }}>{item.title}</h3>
                 <div className="w-8 h-px bg-gold mb-4" />
                 <p className="text-gray-mid text-sm leading-relaxed font-light">{item.desc}</p>
-                {item.url && (
+                {agendaUrls[i] && (
                   <a
-                    href={item.url}
+                    href={agendaUrls[i]}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 mt-3 text-gold text-xs no-underline hover:text-gold-dark transition-colors"
                   >
-                    Voir le site <span>→</span>
+                    {t('tourismePage.seeMore')} <span>→</span>
                   </a>
                 )}
               </div>
             ))}
           </div>
           <p className="text-center text-gray-mid text-xs mt-10 font-light">
-            Plus d'infos :{' '}
+            {t('tourismePage.moreInfo')} :{' '}
             <a href="http://www.aveyron-tourisme.fr" target="_blank" rel="noopener noreferrer" className="text-gold no-underline hover:text-gold-dark">aveyron-tourisme.fr</a>
             {' · '}
             <a href="http://www.cransac-les-thermes.fr" target="_blank" rel="noopener noreferrer" className="text-gold no-underline hover:text-gold-dark">cransac-les-thermes.fr</a>
