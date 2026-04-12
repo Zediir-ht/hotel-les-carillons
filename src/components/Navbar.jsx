@@ -109,7 +109,7 @@ export default function Navbar() {
         {/* Mobile */}
         <div className="flex lg:hidden items-center justify-between h-16 px-4">
           <button
-            className="flex flex-col gap-1.5 p-2"
+            className="relative z-10 flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
             aria-expanded={menuOpen}
@@ -121,7 +121,7 @@ export default function Navbar() {
 
           <Link
             to="/"
-            className="no-underline absolute left-1/2 -translate-x-1/2 max-w-[calc(100%-10rem)] text-center"
+            className="no-underline absolute left-1/2 -translate-x-1/2 max-w-[calc(100%-12rem)] text-center z-0 pointer-events-auto"
             onClick={() => setMenuOpen(false)}
           >
             <span
@@ -138,7 +138,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <div className="flex items-center gap-2">
+          <div className="relative z-10 flex items-center gap-2">
             <button
               onClick={() => switchLang(lang === 'fr' ? 'en' : 'fr')}
               className={`shrink-0 text-[11px] sm:text-xs font-bold px-2 py-2 tracking-wider uppercase cursor-pointer transition-colors ${
