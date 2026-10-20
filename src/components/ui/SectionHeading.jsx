@@ -1,13 +1,14 @@
 import MultiLine from './MultiLine';
+import { OrnamentDivider } from './Ornaments';
 
 const sizes = {
   xl: 'text-4xl md:text-6xl',
   lg: 'text-3xl md:text-[44px]',
-  md: 'text-2xl md:text-[32px]',
+  md: 'text-2xl md:text-[34px]',
 };
 
 /**
- * En-tête de section standard : sur-titre doré, titre, filet, description optionnelle.
+ * En-tête de section : sur-titre doré, titre, filet orné à cloche, description optionnelle.
  * tone="light" pour les fonds sombres.
  */
 export default function SectionHeading({
@@ -28,13 +29,9 @@ export default function SectionHeading({
       <Heading className={`${sizes[size]} leading-tight ${light ? 'text-offwhite' : 'text-black'}`}>
         <MultiLine text={title} />
       </Heading>
-      <div className={`w-14 h-px mt-5 ${light ? 'bg-gold-light/70' : 'bg-black'} ${centered ? 'mx-auto' : ''}`} />
+      <OrnamentDivider className={`mt-5 ${light ? 'text-gold-light' : 'text-gold'} ${centered ? 'mx-auto' : ''}`} width={centered ? 'w-48' : 'w-40'} align={centered ? 'center' : 'left'} />
       {children && (
-        <div
-          className={`mt-6 leading-relaxed ${light ? 'text-offwhite/65' : 'text-gray-mid'} ${
-            centered ? 'max-w-2xl mx-auto' : 'max-w-md'
-          }`}
-        >
+        <div className={`mt-6 leading-relaxed ${light ? 'text-offwhite/75' : 'text-gray-mid'} ${centered ? 'max-w-2xl mx-auto' : 'max-w-md'}`}>
           {children}
         </div>
       )}

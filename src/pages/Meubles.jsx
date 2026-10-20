@@ -88,7 +88,7 @@ export default function Meubles() {
       </SplitSection>
 
       {/* Cadre : terrasse, jardin, piscine */}
-      <section className="py-20 md:py-28 bg-forest">
+      <section className="py-20 md:py-28 bg-forest pattern-belle">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <SectionHeading overline={t('meublesPage.extSub')} title={t('meublesPage.extTitle')} tone="light" className="mb-12">
             {t('meublesPage.extP1')} {t('meublesPage.extP2')}

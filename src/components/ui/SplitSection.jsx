@@ -26,7 +26,7 @@ export default function SplitSection({
   const imageLeft = imageSide === 'left';
   return (
     <section id={id} className={`flex flex-col ${imageLeft ? 'md:flex-row' : 'md:flex-row-reverse'} overflow-hidden md:min-h-[520px]`}>
-      <div className="md:w-1/2 relative h-64 sm:h-80 md:h-auto overflow-hidden img-card">
+      <div className="md:w-1/2 relative h-64 sm:h-80 md:h-auto overflow-hidden img-card photo-liseret">
         {media ?? (
           <Photo
             name={photo}

@@ -3,6 +3,7 @@ import { useLang } from '../../i18n/LanguageContext';
 import { SITE, LINKS, bookingUrl, logisPageUrl } from '../../config/site';
 import { NAV_ITEMS } from '../../config/navigation';
 import MultiLine from '../ui/MultiLine';
+import { Monogram, OrnamentDivider } from '../ui/Ornaments';
 
 function ColumnTitle({ children }) {
   return (
@@ -17,7 +18,11 @@ export default function Footer() {
   const linkClass = 'text-white/60 hover:text-white no-underline transition-colors';
 
   return (
-    <footer className="bg-deepbrown text-white pb-20 lg:pb-0">
+    <footer className="bg-deepbrown pattern-belle text-white pb-20 lg:pb-0">
+      <div className="flex flex-col items-center pt-14 -mb-4">
+        <Monogram className="w-20 h-20" tone="light" />
+        <OrnamentDivider className="mt-5 text-gold-light" width="w-64" />
+      </div>
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
           <div>
@@ -26,7 +31,7 @@ export default function Footer() {
                 {SITE.shortName} <span className="not-italic text-sm text-gold-light align-super" style={{ fontFamily: 'sans-serif' }}>★★</span>
               </span>
             </Link>
-            <div className="w-12 h-px bg-gold-light/70 mb-5" />
+            <OrnamentDivider className="mb-5 text-gold-light" width="w-28" align="left" />
             <p className="text-white/60 text-sm leading-relaxed">
               <MultiLine text={t('footer.brand')} />
             </p>

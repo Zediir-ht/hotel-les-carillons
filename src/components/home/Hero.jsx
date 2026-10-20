@@ -2,6 +2,7 @@ import { useLang } from '../../i18n/LanguageContext';
 import { SITE } from '../../config/site';
 import Photo from '../ui/Photo';
 import { ButtonLink } from '../ui/Links';
+import { OrnamentDivider } from '../ui/Ornaments';
 
 export default function Hero() {
   const { t } = useLang();
@@ -24,7 +25,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        <div className="w-20 h-px mb-6 bg-gold-light" />
+        <OrnamentDivider className="mb-6 text-gold-light" width="w-56" />
 
         <p className="text-lg md:text-2xl mb-9 max-w-xl leading-snug text-white">{t('hero.tagline')}</p>
 

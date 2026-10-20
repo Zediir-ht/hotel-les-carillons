@@ -9,6 +9,7 @@ import { useLang } from '../i18n/LanguageContext';
 import { SITE } from '../config/site';
 import { MENU_TERROIR, MENU_STOCKFISH, THURSDAY_SPECIALS, CARTE } from '../data/menus';
 import { formatEuro } from '../lib/format';
+import { OrnateFrame, OrnamentDivider } from '../components/ui/Ornaments';
 
 const PLATS_PHOTOS = ['plat-1', 'plat-2', 'plat-4', 'plat-6', 'plat-7', 'plat-8', 'plat-3', 'plat-5'];
 
@@ -49,9 +50,8 @@ function DishList({ dishes, className = '' }) {
 
 function MenuCard({ overline, title, price, note, children }) {
   return (
-    <article className="relative bg-white border border-gold/30">
-      <div className="absolute inset-2 border border-gold/10 pointer-events-none" />
-      <div className="relative p-7 md:p-12">
+    <OrnateFrame as="article" className="bg-white">
+      <div className="relative px-7 py-12 md:p-14">
         <header className="text-center mb-10">
           <p className="text-xs text-gold/70 mb-4">{overline}</p>
           <h3 className="text-2xl md:text-3xl text-black tracking-wide mb-3">{title}</h3>
@@ -64,7 +64,7 @@ function MenuCard({ overline, title, price, note, children }) {
         </header>
         {children}
       </div>
-    </article>
+    </OrnateFrame>
   );
 }
 
@@ -76,7 +76,7 @@ function CarteColumn({ label, dishes, note }) {
         <h3 className="text-xs text-gold mb-3 font-normal" style={{ fontFamily: 'var(--font-body)' }}>
           {label}
         </h3>
-        <div className="w-10 h-px bg-gold/40 mx-auto" />
+        <OrnamentDivider className="mx-auto text-gold" width="w-28" />
       </div>
       <ul className="space-y-5 list-none p-0 m-0">
         {dishes.map((dish) => (

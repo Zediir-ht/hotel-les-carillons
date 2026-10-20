@@ -3,6 +3,7 @@ import SectionHeading from '../ui/SectionHeading';
 import { ButtonLink } from '../ui/Links';
 import { useLang } from '../../i18n/LanguageContext';
 import { SITE, LINKS } from '../../config/site';
+import { OrnateFrame } from '../ui/Ornaments';
 
 function Stars({ rating, size = 'h-4 w-4' }) {
   const rounded = Math.round(rating);
@@ -35,7 +36,8 @@ export default function GoogleReviewsSection({ data }) {
           {t('googleReviews.desc')}
         </SectionHeading>
 
-        <div className="mt-10 flex flex-col items-center gap-3">
+        <OrnateFrame className="mt-10 mx-auto w-fit bg-white px-12 md:px-16 py-10">
+        <div className="flex flex-col items-center gap-3">
           <p className="flex items-center gap-3">
             <span className="text-5xl text-black" style={{ fontFamily: 'var(--font-display)' }}>
               {ratingText}
@@ -56,6 +58,7 @@ export default function GoogleReviewsSection({ data }) {
             ))}
           </ul>
         </div>
+        </OrnateFrame>
 
         {reviews.length > 0 && (
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLang } from '../../i18n/LanguageContext';
 import { SITE, bookingUrl } from '../../config/site';
+import { Bell } from '../ui/Ornaments';
 
 const NIGHT_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 10, 14, 18, 21]; // 18 / 21 nuits : durée d'une cure thermale
 
@@ -30,9 +31,13 @@ export default function BookingBar() {
     <section className="relative z-20 px-4 sm:px-6 -mt-16 md:-mt-14">
       <form
         onSubmit={submit}
-        className="max-w-4xl mx-auto bg-white shadow-[0_20px_50px_rgba(43,32,25,0.18)] p-5 md:p-6 grid grid-cols-2 md:grid-cols-[1.3fr_1fr_auto] gap-x-5 gap-y-4 items-end"
+        className="relative max-w-4xl mx-auto bg-white shadow-[0_20px_50px_rgba(43,32,25,0.18)] p-6 md:p-8 pt-9 md:pt-10 grid grid-cols-2 md:grid-cols-[1.3fr_1fr_auto] gap-x-5 gap-y-4 items-end"
         aria-label={t('booking.title')}
       >
+        <span className="pointer-events-none absolute inset-1.5 border border-gold/30" aria-hidden="true" />
+        <span className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border border-gold/40 flex items-center justify-center text-gold" aria-hidden="true">
+          <Bell className="w-5 h-5" />
+        </span>
         <label className="col-span-1 block">
           <span className="block text-sm text-gray-mid mb-1">{t('booking.arrival')}</span>
           <input type="date" min={today} value={arrival} onChange={(e) => setArrival(e.target.value)} className={fieldClass} required={false} />

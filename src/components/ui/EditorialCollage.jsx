@@ -16,7 +16,7 @@ export default function EditorialCollage({ photos, overline, title, children, bg
         </div>
 
         <div className="relative order-1 lg:order-2 grid grid-cols-6 grid-rows-6 gap-3 md:gap-4 aspect-[5/4]">
-          <div className="col-span-4 row-span-6 overflow-hidden">
+          <div className="col-span-4 row-span-6 overflow-hidden rounded-t-[999px] outline outline-1 outline-offset-[10px] outline-gold/50">
             <Photo name={big.name} alt={big.alt} sizes="(min-width: 1024px) 40vw, 66vw" className="w-full h-full object-cover" />
           </div>
           <div className="col-span-2 row-span-3 row-start-1 mt-8 md:mt-12 overflow-hidden">

@@ -159,3 +159,35 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ── Belle Époque : textures & ornements ── */
+
+/* Grain de papier très léger sur les fonds crème et beige */
+.bg-offwhite,
+.bg-beige {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .29 0 0 0 0 .22 0 0 0 0 .16 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Motif discret de cloches et losanges pour les fonds sombres (vert, brun) */
+.pattern-belle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' fill='none' stroke='%23d4b792' stroke-opacity='.09'%3E%3Cpath d='M32 22v-2M27 33v-4a5 5 0 0 1 10 0v4l1.5 2h-13zM30.5 37a1.6 1.6 0 0 0 3 0'/%3E%3Cpath d='M0 0l4 4-4 4M64 56l-4 4 4 4M0 64l4-4M64 0l-4 4'/%3E%3C/svg%3E");
+}
+
+/* Lettrine Belle Époque sur le premier paragraphe */
+.dropcap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.6em;
+  line-height: 0.85;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--color-gold);
+}
+
+/* Liseré intérieur doré sur les grandes photos (effet « passe-partout ») */
+.photo-liseret::after {
+  content: '';
+  position: absolute;
+  inset: 0.9rem;
+  border: 1px solid rgb(255 255 255 / 0.55);
+  pointer-events: none;
+}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLang } from '../../i18n/LanguageContext';
 import Photo from './Photo';
+import { OrnamentDivider } from './Ornaments';
 
 /** En-tête des pages intérieures : grande photo, fil d'Ariane, titre. */
 export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb = [], children }) {
@@ -42,7 +43,7 @@ export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb 
         )}
         <h1 className="text-3xl md:text-5xl font-normal text-white leading-tight">{title}</h1>
         {subtitle && <p className="text-white/80 text-sm md:text-base mt-4 max-w-xl normal-case tracking-normal">{subtitle}</p>}
-        <div className="w-16 h-px bg-gold mt-5" />
+        <OrnamentDivider className="mt-5 text-gold-light" width="w-40" align="left" />
         {children}
       </div>
     </section>
