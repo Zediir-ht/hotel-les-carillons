@@ -1,37 +1,34 @@
 ﻿import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import { ROUTES } from './config/routes';
 
-const Home = lazy(() => import('./pages/Home'));
-const Hotel = lazy(() => import('./pages/Hotel'));
-const Restaurant = lazy(() => import('./pages/Restaurant'));
-const Meubles = lazy(() => import('./pages/Meubles'));
-const Seminaire = lazy(() => import('./pages/Seminaire'));
-const Tourisme = lazy(() => import('./pages/Tourisme'));
-const Contact = lazy(() => import('./pages/Contact'));
-const Galerie = lazy(() => import('./pages/Galerie'));
-const MentionsLegales = lazy(() => import('./pages/MentionsLegales'));
+const pages = {
+  home: lazy(() => import('./pages/Home')),
+  hotel: lazy(() => import('./pages/Hotel')),
+  restaurant: lazy(() => import('./pages/Restaurant')),
+  meubles: lazy(() => import('./pages/Meubles')),
+  galerie: lazy(() => import('./pages/Galerie')),
+  seminaire: lazy(() => import('./pages/Seminaire')),
+  tourisme: lazy(() => import('./pages/Tourisme')),
+  contact: lazy(() => import('./pages/Contact')),
+  mentions: lazy(() => import('./pages/MentionsLegales')),
+};
 const NotFound = lazy(() => import('./pages/NotFound'));
 
+/** Le routeur (navigateur ou statique) est fourni par main.jsx / entry-server.jsx. */
 export default function App() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<div className="min-h-screen" />}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/hotel" element={<Hotel />} />
-            <Route path="/restaurant" element={<Restaurant />} />
-            <Route path="/meubles" element={<Meubles />} />
-            <Route path="/seminaire" element={<Seminaire />} />
-            <Route path="/tourisme" element={<Tourisme />} />
-            <Route path="/galerie" element={<Galerie />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/mentions-legales" element={<MentionsLegales />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <Suspense fallback={<div className="min-h-screen" />}>
+      <Routes>
+        <Route element={<Layout />}>
+          {ROUTES.map(({ path, page }) => {
+            const Page = pages[page];
+            return <Route key={path} path={path} element={<Page />} />;
+          })}
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }

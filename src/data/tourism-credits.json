@@ -1,0 +1,42 @@
+{
+  "conques": {
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:View_of_Conques_04.jpg"
+  },
+  "belcastel": {
+    "author": "Pierre Bona",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Belcastel-panorama.jpg"
+  },
+  "rodez": {
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cathedral_of_Our_Lady_of_Rodez_79.jpg"
+  },
+  "figeac": {
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:5_Place_Champollion_in_Figeac_01.jpg"
+  },
+  "aubin": {
+    "author": "Daniel CULSAN",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vue_partielle_sur_Aubin.jpg"
+  },
+  "millau": {
+    "author": "Richard Leeming from London, UK",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Millau_Viaduct_(2724128971).jpg"
+  },
+  "najac": {
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Castle_of_Najac_04.jpg"
+  },
+  "villefranche": {
+    "author": "Ludovic Courtès",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Villefranche-de-Rouergue_place_Notre-Dame.jpg"
+  }
+}

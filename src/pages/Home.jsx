@@ -1,48 +1,89 @@
 import Seo from '../components/Seo';
-import Hero from '../components/Hero';
-import GoogleReviewsSection from '../components/GoogleReviewsSection';
-import IntroSection from '../components/IntroSection';
-import ServicesGrid from '../components/ServicesGrid';
-import HotelSection from '../components/HotelSection';
-import RestaurantSection from '../components/RestaurantSection';
-import MeublesSection from '../components/MeublesSection';
-import TourismeTeaser from '../components/TourismeTeaser';
+import Hero from '../components/home/Hero';
+import TrustBar from '../components/home/TrustBar';
+import IntroSection from '../components/home/IntroSection';
+import ServicesGrid from '../components/home/ServicesGrid';
+import CuristesSection from '../components/home/CuristesSection';
+import TourismeTeaser from '../components/home/TourismeTeaser';
+import GoogleReviewsSection from '../components/home/GoogleReviewsSection';
+import SplitSection from '../components/ui/SplitSection';
+import { ArrowLink } from '../components/ui/Links';
 import { useLang } from '../i18n/LanguageContext';
-
-const googleMapsUrl =
-  'https://www.google.com/maps/search/?api=1&query=Hotel+Restaurant+Les+Carillons+Cransac-les-Thermes';
+import { useGoogleReviews } from '../lib/useGoogleReviews';
+import { ROOMS } from '../data/rooms';
+import { formatEuro } from '../lib/format';
 
 export default function Home() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const reviews = useGoogleReviews(lang);
+  const minRoomPrice = Math.min(...ROOMS.map((r) => r.price.from));
+
   return (
     <>
-      <Seo
-        title="Hôtel Restaurant à Cransac-les-Thermes"
-        description="Hôtel Restaurant Les Carillons à Cransac-les-Thermes, Aveyron. 17 chambres, restaurant du terroir, piscine, parc arboré. Logis Hôtels ★★."
-        path="/"
-      />
+      <Seo page="home" path="/" />
       <Hero />
-      <section className="bg-offwhite py-5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-center">
-          <a
-            href={googleMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 border border-black/10 bg-white/80 px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-black/70 no-underline transition-colors hover:bg-white"
-          >
-            <span>{t('googleWidget.label')}</span>
-            <span className="text-[#d8a93b]" aria-label="4,4 sur 5">★★★★☆</span>
-            <span className="text-black/60">4,4/5</span>
-          </a>
-        </div>
-      </section>
+      <TrustBar rating={reviews?.rating} />
       <IntroSection />
       <ServicesGrid />
-      <HotelSection />
-      <RestaurantSection />
-      <MeublesSection />
+
+      <SplitSection
+        photo="chambre-double"
+        photoAlt={t('hotelSection.imgAlt')}
+        overline={t('hotelSection.overline')}
+        title={t('hotelSection.title')}
+      >
+        <p>{t('hotelSection.p1')}</p>
+        <p>{t('hotelSection.p2')}</p>
+        <p className="text-black">
+          {t('hotelSection.fromPrice')} <span className="text-gold text-2xl font-light">{formatEuro(minRoomPrice, lang)}</span>
+        </p>
+        <ArrowLink to="/hotel#chambres" className="mt-2">
+          {t('hotelSection.cta')}
+        </ArrowLink>
+      </SplitSection>
+
+      <SplitSection
+        photo="plat-7"
+        photoAlt={t('restaurantSection.imgAlt')}
+        imageSide="right"
+        bg="beige"
+        overline={t('restaurantSection.overline')}
+        title={t('restaurantSection.title')}
+      >
+        <p>{t('restaurantSection.p1')}</p>
+        <p>{t('restaurantSection.p2')}</p>
+        <p className="text-black text-sm uppercase tracking-[0.12em]">
+          <span className="text-gold">◆</span> {t('restaurantSection.highlight')} — {formatEuro(17, lang)}
+        </p>
+        <ArrowLink to="/restaurant#menus" className="mt-2">
+          {t('restaurantSection.cta')}
+        </ArrowLink>
+      </SplitSection>
+
+      <CuristesSection />
+
+      <SplitSection
+        photo="jardin-3"
+        photoAlt={t('meublesSection.imgAlt')}
+        overline={t('meublesSection.overline')}
+        title={t('meublesSection.title')}
+      >
+        <p>{t('meublesSection.p1')}</p>
+        <ul className="space-y-2.5 list-none p-0">
+          {t('meublesSection.features').map((item) => (
+            <li key={item} className="flex items-center gap-3 text-sm">
+              <span className="w-4 h-px bg-gold block shrink-0" />
+              {item}
+            </li>
+          ))}
+        </ul>
+        <ArrowLink to="/meubles" className="mt-4">
+          {t('meublesSection.cta')}
+        </ArrowLink>
+      </SplitSection>
+
       <TourismeTeaser />
-      <GoogleReviewsSection />
+      <GoogleReviewsSection data={reviews} />
     </>
   );
 }

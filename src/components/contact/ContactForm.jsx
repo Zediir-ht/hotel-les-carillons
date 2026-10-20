@@ -1,0 +1,173 @@
+import { useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { useLang } from '../../i18n/LanguageContext';
+import { SITE } from '../../config/site';
+
+const SUBJECTS = ['chambre', 'table', 'meubles', 'groupe', 'autre'];
+
+// Clé gratuite à créer sur https://web3forms.com (avec l'adresse de réception contact@…),
+// puis à déclarer dans Vercel : VITE_WEB3FORMS_KEY. Sans clé → repli sur le logiciel de messagerie.
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+
+const inputClass =
+  'w-full border border-black/15 px-4 py-3 text-sm bg-white transition-colors focus:outline-none focus:border-gold focus-visible:ring-2 focus-visible:ring-gold/30';
+
+function Field({ id, label, required, requiredLabel, children }) {
+  return (
+    <div>
+      <label htmlFor={id} className="block text-sm text-black mb-1.5">
+        {label}
+        {required && (
+          <span className="text-gold" aria-hidden="true">
+            {' '}*
+          </span>
+        )}
+        {required && <span className="sr-only"> ({requiredLabel})</span>}
+      </label>
+      {children}
+    </div>
+  );
+}
+
+export default function ContactForm() {
+  const { t } = useLang();
+  const [params] = useSearchParams();
+  const initialSubject = SUBJECTS.includes(params.get('sujet')) ? params.get('sujet') : 'chambre';
+  const [form, setForm] = useState({ subject: initialSubject, name: '', email: '', phone: '', dates: '', guests: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+
+  const f = (key) => t(`contactPage.form.${key}`);
+  const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const subjectLabel = t(`contactPage.form.subjects.${form.subject}`);
+  const needsDates = form.subject !== 'autre';
+
+  const body = [
+    `${f('subject')} : ${subjectLabel}`,
+    `${f('name')} : ${form.name}`,
+    `${f('email')} : ${form.email}`,
+    form.phone && `${f('phone')} : ${form.phone}`,
+    form.dates && `${f('dates')} : ${form.dates}`,
+    form.guests && `${f('guests')} : ${form.guests}`,
+  ]
+    .filter(Boolean)
+    .join('\n')
+    .concat(`\n\n${form.message}`);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const subject = `[Site] ${subjectLabel} — ${form.name}`;
+
+    if (!WEB3FORMS_KEY) {
+      window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      return;
+    }
+
+    setStatus('sending');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject,
+          from_name: form.name,
+          replyto: form.email,
+          botcheck: e.target.botcheck.checked,
+          message: body,
+        }),
+      });
+      const json = await res.json();
+      if (!json.success) throw new Error(json.message);
+      setStatus('sent');
+    } catch {
+      setStatus('error');
+    }
+  }
+
+  if (status === 'sent') {
+    return (
+      <div role="status" className="border border-gold/40 bg-white p-8 text-center">
+        <div className="text-gold text-3xl mb-3" aria-hidden="true">
+          ✓
+        </div>
+        <p className="text-black leading-relaxed">{f('sent')}</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <Field id="subject" label={f('subject')}>
+        <select id="subject" name="subject" value={form.subject} onChange={update} className={`${inputClass} cursor-pointer`}>
+          {SUBJECTS.map((s) => (
+            <option key={s} value={s}>
+              {t(`contactPage.form.subjects.${s}`)}
+            </option>
+          ))}
+        </select>
+      </Field>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field id="name" label={f('name')} required requiredLabel={f('required')}>
+          <input type="text" id="name" name="name" required autoComplete="name" value={form.name} onChange={update} className={inputClass} />
+        </Field>
+        <Field id="email" label={f('email')} required requiredLabel={f('required')}>
+          <input type="email" id="email" name="email" required autoComplete="email" value={form.email} onChange={update} className={inputClass} />
+        </Field>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field id="phone" label={f('phone')}>
+          <input type="tel" id="phone" name="phone" autoComplete="tel" value={form.phone} onChange={update} className={inputClass} />
+        </Field>
+        {needsDates && (
+          <Field id="dates" label={f('dates')}>
+            <input type="text" id="dates" name="dates" placeholder={f('datesPlaceholder')} value={form.dates} onChange={update} className={inputClass} />
+          </Field>
+        )}
+      </div>
+
+      {needsDates && (
+        <Field id="guests" label={f('guests')}>
+          <input type="number" min="1" max="200" id="guests" name="guests" value={form.guests} onChange={update} className={`${inputClass} sm:max-w-40`} />
+        </Field>
+      )}
+
+      <Field id="message" label={f('message')} required requiredLabel={f('required')}>
+        <textarea id="message" name="message" required rows={5} value={form.message} onChange={update} className={`${inputClass} resize-y`} />
+      </Field>
+
+      {/* Piège à robots : invisible pour les visiteurs */}
+      <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+
+      {status === 'error' && (
+        <p role="alert" className="text-sm text-red-700">
+          {f('error')}{' '}
+          <a href={SITE.phone.href} className="underline">
+            {SITE.phone.display}
+          </a>
+          .
+        </p>
+      )}
+
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        <button
+          type="submit"
+          disabled={status === 'sending'}
+          className="bg-gold hover:bg-gold-dark disabled:opacity-60 text-white text-xs px-8 py-4 tracking-[0.15em] uppercase transition-colors cursor-pointer"
+        >
+          {status === 'sending' ? f('sending') : f('submit')}
+        </button>
+        {!WEB3FORMS_KEY && <p className="text-xs text-gray-mid">{f('mailtoNote')}</p>}
+      </div>
+
+      <p className="text-xs text-gray-mid leading-relaxed">
+        {f('privacy')}{' '}
+        <Link to="/mentions-legales" className="text-gold">
+          {f('privacyLink')}
+        </Link>
+        .
+      </p>
+    </form>
+  );
+}

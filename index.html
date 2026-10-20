@@ -2,71 +2,77 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Hôtel Restaurant Les Carillons à Cransac-les-Thermes, Aveyron. Accueil familial, 17 chambres, restaurant, piscine, parc. Label Logis Hôtels." />
     <meta name="theme-color" content="#4b382e" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="Hôtel Restaurant Les Carillons" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://places.googleapis.com" />
-    <link rel="preconnect" href="https://www.google.com" />
-    <link rel="preconnect" href="https://lescarillons.fr" />
-    <title>Hôtel Restaurant Les Carillons — Cransac-les-Thermes, Aveyron</title>
+    <link rel="preload" href="/fonts/GoudyTitling/GoudyTitling-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Gotham/Gotham-Light.woff2" as="font" type="font/woff2" crossorigin />
+    <!--app-head-->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Hotel",
-      "name": "Hôtel Restaurant Les Carillons",
-      "description": "Hôtel restaurant familial labellisé Logis Hôtels à Cransac-les-Thermes, Aveyron. 17 chambres, restaurant du terroir, piscine et parc arboré.",
-      "url": "https://www.lescarillons.fr",
-      "telephone": "+33565631475",
-      "email": "contact@lescarillons.fr",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Route de Figeac",
-        "addressLocality": "Cransac-les-Thermes",
-        "postalCode": "12110",
-        "addressRegion": "Aveyron",
-        "addressCountry": "FR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 44.5225,
-        "longitude": 2.2814
-      },
-      "starRating": {
-        "@type": "Rating",
-        "ratingValue": "2"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.4",
-        "reviewCount": "100",
-        "bestRating": "5"
-      },
-      "amenityFeature": [
-        {"@type": "LocationFeatureSpecification", "name": "Piscine extérieure"},
-        {"@type": "LocationFeatureSpecification", "name": "Restaurant"},
-        {"@type": "LocationFeatureSpecification", "name": "Parking gratuit"},
-        {"@type": "LocationFeatureSpecification", "name": "Wi-Fi gratuit"},
-        {"@type": "LocationFeatureSpecification", "name": "Climatisation"},
-        {"@type": "LocationFeatureSpecification", "name": "Accès PMR"}
-      ],
-      "numberOfRooms": 17,
-      "priceRange": "54€ - 110€",
-      "checkinTime": "15:00",
-      "checkoutTime": "11:00",
-      "sameAs": [
-        "https://www.logishotels.com/fr/hotel/logis-hotel-les-carillons-4588"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Hotel",
+            "@id": "https://www.lescarillons.fr/#hotel",
+            "name": "Hôtel Restaurant Les Carillons",
+            "description": "Hôtel-restaurant familial labellisé Logis Hôtels à Cransac-les-Thermes, Aveyron. 17 chambres climatisées, restaurant du terroir, piscine, meublés et salle de séminaire.",
+            "url": "https://www.lescarillons.fr/",
+            "image": "https://www.lescarillons.fr/images/og-default.jpg",
+            "telephone": "+33565631475",
+            "email": "contact@lescarillons.fr",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Route de Figeac",
+              "addressLocality": "Cransac-les-Thermes",
+              "postalCode": "12110",
+              "addressRegion": "Aveyron",
+              "addressCountry": "FR"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": 44.5225, "longitude": 2.2814 },
+            "starRating": { "@type": "Rating", "ratingValue": "2" },
+            "numberOfRooms": 17,
+            "priceRange": "54 € – 110 €",
+            "checkinTime": "15:00",
+            "checkoutTime": "11:00",
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Piscine extérieure", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Parking gratuit", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi gratuit", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Climatisation", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Accès PMR", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Salle de réunion", "value": true }
+            ],
+            "sameAs": ["https://www.logishotels.com/fr/hotel/logis-hotel-les-carillons-93628"]
+          },
+          {
+            "@type": "Restaurant",
+            "@id": "https://www.lescarillons.fr/#restaurant",
+            "name": "Restaurant Les Carillons",
+            "url": "https://www.lescarillons.fr/restaurant",
+            "image": "https://www.lescarillons.fr/images/photos/salle-restaurant-1-1600.webp",
+            "telephone": "+33565631475",
+            "servesCuisine": ["Cuisine française", "Cuisine aveyronnaise", "Cuisine du terroir"],
+            "priceRange": "17 € – 30 €",
+            "acceptsReservations": true,
+            "hasMenu": "https://www.lescarillons.fr/restaurant#menus",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Route de Figeac",
+              "addressLocality": "Cransac-les-Thermes",
+              "postalCode": "12110",
+              "addressCountry": "FR"
+            },
+            "containedInPlace": { "@id": "https://www.lescarillons.fr/#hotel" }
+          }
+        ]
+      }
     </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript><style>[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
