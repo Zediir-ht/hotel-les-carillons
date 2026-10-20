@@ -72,7 +72,7 @@ export default function Lightbox({ items, index, onClose, onIndexChange }) {
         onClick={(e) => e.stopPropagation()}
       />
 
-      <p className="absolute bottom-5 left-0 right-0 text-center text-white/70 text-xs tracking-[0.2em] uppercase px-16">
+      <p className="absolute bottom-5 left-0 right-0 text-center text-white/70 text-xs px-16">
         {item.alt} · {index + 1} / {count}
       </p>
 

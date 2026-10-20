@@ -1,5 +1,4 @@
 import Photo from '../ui/Photo';
-import Reveal from '../ui/Reveal';
 import SectionHeading from '../ui/SectionHeading';
 import { ArrowLink } from '../ui/Links';
 import { useLang } from '../../i18n/LanguageContext';
@@ -7,14 +6,14 @@ import { bookingUrl } from '../../config/site';
 import { ROOMS } from '../../data/rooms';
 import { formatEuro } from '../../lib/format';
 
-function RoomCard({ room, index }) {
+function RoomCard({ room }) {
   const { t, pick, lang } = useLang();
   const { from, to } = room.price;
   const priceLabel = to ? `${formatEuro(from, lang)} – ${formatEuro(to, lang)}` : formatEuro(from, lang);
   const halfBoard = Object.entries(room.halfBoard);
 
   return (
-    <Reveal as="article" from="up" delay={(index % 3) * 100} className="bg-white border border-black/5 overflow-hidden group hover:border-gold/30 transition-colors flex flex-col">
+    <article className="bg-white border border-black/5 overflow-hidden group hover:border-gold/30 transition-colors flex flex-col">
       <div className="relative aspect-[16/10] overflow-hidden bg-beige">
         <Photo
           name={room.photo}
@@ -29,7 +28,7 @@ function RoomCard({ room, index }) {
 
       <div className="p-6 md:p-8 flex flex-col flex-1">
         <h3 className="text-lg md:text-xl text-black leading-tight">{pick(room.name)}</h3>
-        <p className="text-xs text-gold tracking-wide uppercase mt-2 mb-4">{pick(room.capacity)}</p>
+        <p className="text-xs text-gold tracking-wide mt-2 mb-4">{pick(room.capacity)}</p>
         <div className="w-10 h-px bg-gold mb-4" />
         <p className="text-gray-mid text-sm leading-relaxed mb-5">{pick(room.description)}</p>
 
@@ -62,22 +61,22 @@ function RoomCard({ room, index }) {
           <span className="sr-only"> — {pick(room.name)}</span>
         </ArrowLink>
       </div>
-    </Reveal>
+    </article>
   );
 }
 
 export default function RoomsSection() {
   const { t } = useLang();
   return (
-    <section id="chambres" className="py-20 md:py-28 bg-offwhite section-border">
+    <section id="chambres" className="py-20 md:py-28 bg-offwhite">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionHeading overline={t('rooms.overline')} title={t('rooms.title')} className="mb-14">
           {t('rooms.subtitle')}
         </SectionHeading>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {ROOMS.map((room, i) => (
-            <RoomCard key={room.id} room={room} index={i} />
+          {ROOMS.map((room) => (
+            <RoomCard key={room.id} room={room} />
           ))}
         </div>
 

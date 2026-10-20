@@ -42,7 +42,7 @@ export default function Hotel() {
         breadcrumb={[{ label: t('nav.hotel') }]}
       />
 
-      <SplitSection photo="bar-2" photoAlt={t('hotelPage.introImgAlt')} overline={t('hotelPage.section1Sub')} title={t('hotelPage.section1Title')}>
+      <SplitSection photo="chambre-double-2" photoAlt={t('rooms.title')} overline={t('hotelPage.section1Sub')} title={t('hotelPage.section1Title')}>
         <p>{t('hotelPage.section1P1')}</p>
         <p>{t('hotelPage.section1P2')}</p>
       </SplitSection>
@@ -50,7 +50,7 @@ export default function Hotel() {
       <RoomsSection />
 
       {/* Équipements + infos pratiques */}
-      <section className="py-20 md:py-28 bg-beige section-border">
+      <section className="py-20 md:py-28 bg-beige">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-14 lg:gap-16">
           <div>
             <SectionHeading overline={t('hotelPage.equipSub')} title={t('hotelPage.equipTitle')} align="left" size="md" className="mb-10" />

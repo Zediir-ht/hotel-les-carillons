@@ -16,7 +16,7 @@ export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb 
 
       <div className="relative z-10 w-full pt-28 pb-10 md:pb-14 px-6 md:px-16 max-w-6xl mx-auto hero-reveal">
         {breadcrumb.length > 0 && (
-          <nav aria-label="Fil d'Ariane" className="mb-3 text-xs text-white/60 tracking-[0.15em] uppercase font-light">
+          <nav aria-label="Fil d'Ariane" className="mb-3 text-xs text-white/60">
             <ol className="flex items-center gap-2 list-none p-0 m-0">
               <li>
                 <Link to="/" className="text-white/60 hover:text-white no-underline transition-colors">
@@ -41,7 +41,7 @@ export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb 
           </nav>
         )}
         <h1 className="text-3xl md:text-5xl font-normal text-white leading-tight">{title}</h1>
-        {subtitle && <p className="text-white/80 text-sm md:text-base font-light mt-4 max-w-xl normal-case tracking-normal">{subtitle}</p>}
+        {subtitle && <p className="text-white/80 text-sm md:text-base mt-4 max-w-xl normal-case tracking-normal">{subtitle}</p>}
         <div className="w-16 h-px bg-gold mt-5" />
         {children}
       </div>

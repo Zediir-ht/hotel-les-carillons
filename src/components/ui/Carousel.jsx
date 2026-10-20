@@ -64,7 +64,7 @@ export default function Carousel({ slides = [], autoPlay = true, interval = 4500
           <Photo name={slide.photo} alt={slide.alt || ''} sizes={sizes} className="w-full h-full object-cover" />
           {slide.caption && (
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent px-6 pt-10 pb-10">
-              <p className="text-white/90 text-sm font-light tracking-[0.2em] uppercase">{slide.caption}</p>
+              <p className="text-white/90 text-sm">{slide.caption}</p>
             </div>
           )}
         </div>

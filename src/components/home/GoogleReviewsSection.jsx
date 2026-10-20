@@ -29,7 +29,7 @@ export default function GoogleReviewsSection({ data }) {
   const ratingText = rating.toLocaleString(lang === 'en' ? 'en-GB' : 'fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return (
-    <section className="section-border bg-offwhite py-20 md:py-28">
+    <section className="bg-offwhite py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <SectionHeading overline={t('googleReviews.overline')} title={t('googleReviews.title')}>
           {t('googleReviews.desc')}
@@ -37,12 +37,12 @@ export default function GoogleReviewsSection({ data }) {
 
         <div className="mt-10 flex flex-col items-center gap-3">
           <p className="flex items-center gap-3">
-            <span className="text-5xl text-black font-light" style={{ fontFamily: 'var(--font-display)' }}>
+            <span className="text-5xl text-black" style={{ fontFamily: 'var(--font-display)' }}>
               {ratingText}
             </span>
             <span className="flex flex-col items-start">
               <Stars rating={rating} />
-              <span className="text-xs text-gray-mid mt-1 uppercase tracking-[0.15em]">
+              <span className="text-xs text-gray-mid mt-1">
                 {t('googleReviews.ratingOf')}
                 {data?.count ? ` · ${data.count} ${t('googleReviews.basedOn')}` : ` · ${t('googleReviews.reviewsLabel')}`}
               </span>
@@ -62,7 +62,7 @@ export default function GoogleReviewsSection({ data }) {
             {reviews.map((review, i) => (
               <Reveal key={`${review.author}-${i}`} from="up" delay={i * 120} as="article" className="bg-white border border-black/5 p-6 md:p-7 flex flex-col">
                 <Stars rating={review.rating} size="h-3.5 w-3.5" />
-                <p className="mt-4 text-sm leading-relaxed text-gray-mid font-light flex-1 line-clamp-[8]">« {review.text} »</p>
+                <p className="mt-4 text-sm leading-relaxed text-gray-mid flex-1 line-clamp-[8]">« {review.text} »</p>
                 <footer className="mt-5 pt-4 border-t border-black/5 flex items-center gap-3">
                   {review.photo && <img src={review.photo} alt="" width="32" height="32" className="w-8 h-8 rounded-full! object-cover" loading="lazy" referrerPolicy="no-referrer" />}
                   <div className="text-xs">

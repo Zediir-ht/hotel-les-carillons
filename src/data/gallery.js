@@ -3,11 +3,14 @@
 
 const p = (photo, cat, fr, en) => ({ photo, cat, alt: { fr, en } });
 
-export const GALLERY_CATEGORIES = ['all', 'chambres', 'restaurant', 'exterieurs', 'evenements'];
+export const GALLERY_CATEGORIES = ['all', 'chambres', 'restaurant', 'exterieurs', 'meubles', 'evenements'];
 
 export const GALLERY = [
   p('piscine-terrasse', 'exterieurs', 'La piscine et ses transats', 'The pool and its sun loungers'),
   p('chambre-double', 'chambres', 'Chambre double', 'Double room'),
+  p('cedres-terrasse', 'meubles', 'La terrasse fleurie des 3 Cèdres', 'The flowered terrace of Les 3 Cèdres'),
+  p('chambre-familiale-2', 'chambres', 'Chambre familiale', 'Family room'),
+  p('meuble-cuisine-1', 'meubles', 'Cuisine équipée d’un meublé', 'Fitted kitchen in an apartment'),
   p('plat-1', 'restaurant', 'Noix de Saint-Jacques', 'Scallops'),
   p('jardin-3', 'exterieurs', 'Le jardin', 'The garden'),
   p('salle-restaurant-1', 'restaurant', 'La salle du restaurant', 'The restaurant dining room'),
@@ -23,6 +26,16 @@ export const GALLERY = [
   p('petit-dejeuner-1', 'restaurant', 'Le buffet du petit-déjeuner', 'The breakfast buffet'),
   p('suite-familiale', 'chambres', 'Suite familiale — lits superposés', 'Family suite — bunk beds'),
   p('piscine', 'exterieurs', 'La piscine extérieure', 'The outdoor pool'),
+  p('piscine-fleurs', 'exterieurs', 'La piscine fleurie', 'The pool with flowers'),
+  p('meuble-chambre-1', 'meubles', 'Chambre d’un meublé', 'Apartment bedroom'),
+  p('seminaire-reunion', 'evenements', 'La salle de réunion', 'The meeting room'),
+  p('suite-familiale-2', 'chambres', 'Suite familiale', 'Family suite'),
+  p('meuble-sejour-1', 'meubles', 'Séjour et coin cuisine', 'Living room and kitchenette'),
+  p('cedres-facade', 'meubles', 'La résidence Les Cèdres', 'The Les Cèdres residence'),
+  p('chambre-double-2', 'chambres', 'Chambre double', 'Double room'),
+  p('seminaire-cafe', 'evenements', 'Coin café de la salle de réunion', 'Meeting room coffee corner'),
+  p('meuble-salon-2', 'meubles', 'Salon d’un meublé', 'Apartment lounge'),
+  p('cedres-jardin', 'meubles', 'Le jardin de la résidence', 'The residence garden'),
   p('plat-8', 'restaurant', "Côtelettes d'agneau et aligot", 'Lamb chops with aligot'),
   p('seminaire-1', 'evenements', 'Salle dressée pour un repas de groupe', 'Room set for a group meal'),
   p('salle-restaurant-3', 'restaurant', 'Table dressée au restaurant', 'A table set in the restaurant'),

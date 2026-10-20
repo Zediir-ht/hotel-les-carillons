@@ -6,7 +6,7 @@ import MultiLine from '../ui/MultiLine';
 
 function ColumnTitle({ children }) {
   return (
-    <h2 className="text-[11px] tracking-[0.25em] uppercase text-gold-light font-normal mb-6" style={{ fontFamily: 'var(--font-body)' }}>
+    <h2 className="text-xs text-gold-light font-normal mb-6" style={{ fontFamily: 'var(--font-body)' }}>
       {children}
     </h2>
   );
@@ -27,17 +27,17 @@ export default function Footer() {
               </span>
             </Link>
             <div className="w-12 h-px bg-gold-light/70 mb-5" />
-            <p className="text-white/60 text-sm leading-relaxed font-light">
+            <p className="text-white/60 text-sm leading-relaxed">
               <MultiLine text={t('footer.brand')} />
             </p>
-            <a href={logisPageUrl(lang)} target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-block mt-5 text-xs tracking-[0.15em] uppercase`}>
+            <a href={logisPageUrl(lang)} target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-block mt-5 text-xs`}>
               {t('footer.logis')} ↗
             </a>
           </div>
 
           <nav aria-label={t('footer.navTitle')}>
             <ColumnTitle>{t('footer.navTitle')}</ColumnTitle>
-            <ul className="list-none p-0 m-0 space-y-3 text-sm font-light">
+            <ul className="list-none p-0 m-0 space-y-3 text-sm">
               {NAV_ITEMS.map((item) => (
                 <li key={item.to}>
                   <Link to={item.to} className={linkClass}>
@@ -50,7 +50,7 @@ export default function Footer() {
 
           <div>
             <ColumnTitle>{t('footer.coordTitle')}</ColumnTitle>
-            <address className="not-italic text-sm leading-relaxed space-y-3 font-light text-white/60">
+            <address className="not-italic text-sm leading-relaxed space-y-3 text-white/60">
               <p>
                 {SITE.address.street}
                 <br />
@@ -66,7 +66,7 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                <a href={LINKS.directions} target="_blank" rel="noopener noreferrer" className={`${linkClass} text-xs tracking-[0.15em] uppercase`}>
+                <a href={LINKS.directions} target="_blank" rel="noopener noreferrer" className={`${linkClass} text-xs`}>
                   {t('footer.directions')} ↗
                 </a>
               </p>
@@ -75,21 +75,21 @@ export default function Footer() {
 
           <div>
             <ColumnTitle>{t('footer.hoursTitle')}</ColumnTitle>
-            <p className="text-sm text-white/60 leading-relaxed font-light mb-6">
+            <p className="text-sm text-white/60 leading-relaxed mb-6">
               <MultiLine text={t('footer.hours')} />
             </p>
             <a
               href={bookingUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border border-gold-light/50 text-gold-light text-xs font-normal px-5 py-2.5 tracking-[0.15em] uppercase no-underline hover:bg-gold-light hover:text-deepbrown transition-colors"
+              className="inline-block border border-gold-light/50 text-gold-light text-xs font-normal px-5 py-2.5 no-underline hover:bg-gold-light hover:text-deepbrown transition-colors"
             >
               {t('footer.book')}
             </a>
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40 font-light">
+        <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
           <p>
             &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </p>

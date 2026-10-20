@@ -35,6 +35,39 @@
       1244
     ]
   },
+  "cedres-facade": {
+    "w": 800,
+    "h": 600,
+    "widths": [
+      480,
+      800
+    ]
+  },
+  "cedres-jardin": {
+    "w": 800,
+    "h": 600,
+    "widths": [
+      480,
+      800
+    ]
+  },
+  "cedres-terrasse": {
+    "w": 800,
+    "h": 600,
+    "widths": [
+      480,
+      800
+    ]
+  },
+  "chambre-double-2": {
+    "w": 1073,
+    "h": 673,
+    "widths": [
+      480,
+      960,
+      1073
+    ]
+  },
   "chambre-double": {
     "w": 1024,
     "h": 642,
@@ -42,6 +75,15 @@
       480,
       960,
       1024
+    ]
+  },
+  "chambre-familiale-2": {
+    "w": 1004,
+    "h": 625,
+    "widths": [
+      480,
+      960,
+      1004
     ]
   },
   "chambre-familiale": {
@@ -134,6 +176,73 @@
       1600
     ]
   },
+  "meuble-chambre-1": {
+    "w": 4032,
+    "h": 3024,
+    "widths": [
+      480,
+      960,
+      1600
+    ]
+  },
+  "meuble-chambre-2": {
+    "w": 800,
+    "h": 598,
+    "widths": [
+      480,
+      800
+    ]
+  },
+  "meuble-cuisine-1": {
+    "w": 4032,
+    "h": 3024,
+    "widths": [
+      480,
+      960,
+      1600
+    ]
+  },
+  "meuble-cuisine-2": {
+    "w": 800,
+    "h": 600,
+    "widths": [
+      480,
+      800
+    ]
+  },
+  "meuble-repas": {
+    "w": 800,
+    "h": 598,
+    "widths": [
+      480,
+      800
+    ]
+  },
+  "meuble-salon-2": {
+    "w": 800,
+    "h": 600,
+    "widths": [
+      480,
+      800
+    ]
+  },
+  "meuble-salon-3": {
+    "w": 800,
+    "h": 600,
+    "widths": [
+      480,
+      800
+    ]
+  },
+  "meuble-sejour-1": {
+    "w": 1024,
+    "h": 768,
+    "widths": [
+      480,
+      960,
+      1024
+    ]
+  },
   "petit-dejeuner-1": {
     "w": 1920,
     "h": 1440,
@@ -146,6 +255,15 @@
   "petit-dejeuner-2": {
     "w": 1920,
     "h": 1440,
+    "widths": [
+      480,
+      960,
+      1600
+    ]
+  },
+  "piscine-fleurs": {
+    "w": 3024,
+    "h": 4032,
     "widths": [
       480,
       960,
@@ -323,6 +441,23 @@
       1600
     ]
   },
+  "seminaire-cafe": {
+    "w": 800,
+    "h": 600,
+    "widths": [
+      480,
+      800
+    ]
+  },
+  "seminaire-reunion": {
+    "w": 4032,
+    "h": 3024,
+    "widths": [
+      480,
+      960,
+      1600
+    ]
+  },
   "site-aubin": {
     "w": 1920,
     "h": 1282,
@@ -395,6 +530,15 @@
       1600
     ]
   },
+  "suite-familiale-2": {
+    "w": 1073,
+    "h": 673,
+    "widths": [
+      480,
+      960,
+      1073
+    ]
+  },
   "suite-familiale": {
     "w": 1024,
     "h": 642,
@@ -411,6 +555,14 @@
       480,
       960,
       1600
+    ]
+  },
+  "vallee-cransac": {
+    "w": 800,
+    "h": 598,
+    "widths": [
+      480,
+      800
     ]
   },
   "veranda-banquet": {

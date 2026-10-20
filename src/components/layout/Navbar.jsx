@@ -14,7 +14,7 @@ function Logo({ scrolled, size = 'lg' }) {
         {SITE.shortName}
       </span>
       <span
-        className={`${size === 'lg' ? 'text-xs ml-1' : 'text-[10px] ml-0.5'} align-super tracking-[0.15em] transition-colors duration-300 ${scrolled ? 'text-gold' : 'text-white/70'}`}
+        className={`${size === 'lg' ? 'text-xs ml-1' : 'text-xs ml-0.5'} align-super transition-colors duration-300 ${scrolled ? 'text-gold' : 'text-white/70'}`}
         style={{ fontFamily: 'sans-serif' }}
       >
         ★★
@@ -31,7 +31,7 @@ export default function Navbar() {
   const [menuOpenOn, setMenuOpenOn] = useState(null);
   const menuOpen = menuOpenOn === pathname;
   const setMenuOpen = (open) => setMenuOpenOn(open ? pathname : null);
-  const links = NAV_ITEMS.map((n) => ({ to: n.to, label: t(`nav.${n.key}`) }));
+  const links = NAV_ITEMS.map((n) => ({ to: n.to, label: t(`nav.${n.key}`), desktop: n.desktop }));
   const otherLang = lang === 'fr' ? 'en' : 'fr';
 
   // Les pages sans grande photo d'en-tête (mentions légales, 404) ont toujours la barre claire.
@@ -58,7 +58,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   const linkClass = ({ isActive }) =>
-    `text-xs font-normal tracking-[0.15em] uppercase no-underline transition-colors whitespace-nowrap pb-0.5 border-b ${
+    `text-[0.9375rem] no-underline transition-colors whitespace-nowrap pb-0.5 border-b ${
       isActive
         ? scrolled
           ? 'text-gold border-gold'
@@ -72,7 +72,7 @@ export default function Navbar() {
     <button
       type="button"
       onClick={() => switchLang(otherLang)}
-      className={`shrink-0 text-xs font-normal px-3 py-2 tracking-[0.12em] uppercase transition-colors cursor-pointer border ${
+      className={`shrink-0 text-sm px-3 py-2 transition-colors cursor-pointer border ${
         scrolled ? 'text-black/60 hover:text-black border-black/15' : 'text-white/85 hover:text-white border-white/30'
       } ${extra}`}
       aria-label={t('nav.switchLang')}
@@ -92,8 +92,8 @@ export default function Navbar() {
       >
         {/* Bureau */}
         <div className="hidden lg:flex h-20 items-center px-6 xl:px-12">
-          <div className="flex-1 flex items-center justify-end gap-4 xl:gap-8 pr-28 xl:pr-40">
-            {links.slice(0, 4).map((link) => (
+          <div className="flex-1 flex items-center justify-end gap-6 xl:gap-10 pr-32 xl:pr-44">
+            {links.filter((l) => l.desktop === 'left').map((link) => (
               <NavLink key={link.to} to={link.to} className={linkClass}>
                 {link.label}
               </NavLink>
@@ -104,8 +104,8 @@ export default function Navbar() {
             <Logo scrolled={scrolled} />
           </Link>
 
-          <div className="flex-1 flex items-center justify-start gap-4 xl:gap-8 pl-28 xl:pl-40">
-            {links.slice(4).map((link) => (
+          <div className="flex-1 flex items-center justify-start gap-6 xl:gap-10 pl-32 xl:pl-44">
+            {links.filter((l) => l.desktop === 'right').map((link) => (
               <NavLink key={link.to} to={link.to} className={linkClass}>
                 {link.label}
               </NavLink>
@@ -114,7 +114,7 @@ export default function Navbar() {
               href={bookingUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className={`shrink-0 text-xs font-normal px-4 py-2 tracking-[0.12em] uppercase transition-colors no-underline border ${
+              className={`shrink-0 text-[0.9375rem] px-5 py-2 transition-colors no-underline border ${
                 scrolled ? 'bg-gold border-gold hover:bg-gold-dark text-white' : 'border-white/50 text-white hover:bg-white/10'
               }`}
             >
@@ -155,7 +155,7 @@ export default function Navbar() {
                   to={link.to}
                   end
                   className={({ isActive }) =>
-                    `text-sm font-normal tracking-[0.12em] uppercase py-3.5 border-b border-black/5 no-underline ${isActive ? 'text-gold' : 'text-black/70'}`
+                    `text-lg py-3.5 border-b border-black/5 no-underline ${isActive ? 'text-gold' : 'text-black/70'}`
                   }
                 >
                   {link.label}

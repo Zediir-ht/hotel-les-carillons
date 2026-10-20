@@ -4,7 +4,7 @@ import Photo from './Photo';
 export default function PhotoStrip({ photos }) {
   const cols = photos.length >= 4 ? 'lg:grid-cols-4' : 'md:grid-cols-3';
   return (
-    <section className="overflow-hidden section-border">
+    <section className="overflow-hidden">
       <div className={`grid grid-cols-2 ${cols} h-56 md:h-72`}>
         {photos.map((p, i) => (
           <div

@@ -92,6 +92,17 @@ export default {
     scroll: 'Scroll down',
   },
 
+  booking: {
+    title: 'Check availability',
+    arrival: 'Arrival',
+    nights: 'Length of stay',
+    nightSingular: 'night',
+    nightsPlural: 'nights',
+    cure: 'spa cure',
+    submit: 'Check availability',
+    orCall: 'Any questions? Call us on',
+  },
+
   trust: {
     logis: 'Logis Hotels ★★',
     google: 'on Google',
@@ -365,7 +376,13 @@ export default {
     detailP: 'The apartments (ground floor, no. 2 to no. 10) are spread over three levels. Each has everything you need for a comfortable, independent stay.',
     detailItems: ['Fitted kitchen (hob, fridge, crockery)', 'Bathroom with shower', 'Living room with dining area', 'Bedroom', 'Household linen provided'],
     detailCta: 'Check availability',
-    detailImgAlt: 'The residence garden',
+    detailImgAlt: 'Bedroom in a self-catering apartment',
+    heroImgAlt: 'Fitted kitchen in a self-catering apartment',
+    apartmentsSub: 'The apartments',
+    apartmentsTitle: 'A real home from home',
+    apartmentsDesc: 'Living room, fitted kitchen, bedroom: a few of the residence’s 11 apartments. Click to enlarge.',
+    photos: ['Fitted kitchen', 'Bedroom', 'Living room and kitchenette', 'Lounge', 'Kitchen', 'Bedroom', 'Lounge', 'Dining area'],
+    residenceAlts: ['The Les Cèdres residence', 'The flowered terrace of Les 3 Cèdres', 'The residence garden'],
   },
 
   // ── Gallery page ──
@@ -378,6 +395,7 @@ export default {
       chambres: 'Rooms',
       restaurant: 'Restaurant & bar',
       exterieurs: 'Pool & grounds',
+      meubles: 'Apartments',
       evenements: 'Function rooms',
     },
     count: 'photos',
@@ -405,7 +423,7 @@ export default {
     carouselP1: 'Corporate seminar, association meeting, family meal, birthday or banquet — our rooms adapt to your project.',
     carouselP2: 'The large hall and the veranda host groups for celebrations and ceremonies. We also welcome coach groups, notably for our stockfish menu.',
     carouselCta: 'Plan my event',
-    slides: ['Meeting room', 'Meeting layout', 'Group meal', 'Banquet layout', 'Banquet under fairy lights', 'The veranda set for dinner'],
+    slides: ['Meeting room', 'Touchscreen', 'Coffee corner', 'Meeting layout', 'Group meal', 'Banquet under fairy lights', 'The veranda set for dinner'],
   },
 
   // ── Explore page ──
@@ -417,7 +435,7 @@ export default {
     introP1: 'A charming, sunny little spa town where Lot, Cantal and Aveyron meet, surrounded by unspoilt nature and remarkably varied landscapes, perfect for many sports and outdoor activities.',
     introP2: 'With modern thermal baths run by the Chaîne Thermale du Soleil and a unique form of spa treatment, Cransac-les-Thermes is a well-known spa destination.',
     introCta: 'Cransac thermal spa',
-    introImgAlt: 'The outdoor terrace of Hotel Les Carillons',
+    introImgAlt: 'The green valley around Cransac-les-Thermes',
     sitesSub: 'Nearby',
     sitesTitle: 'Outstanding places to visit',
     sitesDesc: 'The ideal base for visiting a wealth of outstanding sites — listed villages, historic towns, gorges and Aveyron landscapes. Approximate distances from the hotel.',

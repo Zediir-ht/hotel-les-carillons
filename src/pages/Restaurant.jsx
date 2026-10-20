@@ -17,11 +17,11 @@ const PLATS_PHOTOS = ['plat-1', 'plat-2', 'plat-4', 'plat-6', 'plat-7', 'plat-8'
 function Label({ children }) {
   return (
     <div className="flex items-center gap-4 mb-6">
-      <div className="w-8 h-px bg-gold-light/40" />
-      <h4 className="text-[11px] tracking-[0.35em] uppercase font-normal text-gold-light" style={{ fontFamily: 'var(--font-body)' }}>
+      <div className="w-8 h-px bg-gold/40" />
+      <h4 className="text-xs font-normal text-gold" style={{ fontFamily: 'var(--font-body)' }}>
         {children}
       </h4>
-      <div className="flex-1 h-px bg-gold-light/15" />
+      <div className="flex-1 h-px bg-gold/15" />
     </div>
   );
 }
@@ -31,13 +31,13 @@ function DishList({ dishes, className = '' }) {
   return (
     <ul className={`space-y-4 list-none p-0 m-0 ${className}`}>
       {dishes.map((dish) => (
-        <li key={dish.name.fr} className="flex items-start gap-3 text-sm text-offwhite/75 leading-relaxed">
-          <span className="text-gold-light/60 text-[8px] mt-1.5 shrink-0" aria-hidden="true">
+        <li key={dish.name.fr} className="flex items-start gap-3 text-sm text-gray-mid leading-relaxed">
+          <span className="text-gold/60 text-[8px] mt-1.5 shrink-0" aria-hidden="true">
             ◆
           </span>
           <span className="flex-1">{pick(dish.name)}</span>
           {dish.supplement && (
-            <span className="text-gold-light text-xs shrink-0 mt-0.5" title={t('restaurantPage.supplement')}>
+            <span className="text-gold text-xs shrink-0 mt-0.5" title={t('restaurantPage.supplement')}>
               +{formatEuro(dish.supplement, lang)}
             </span>
           )}
@@ -49,18 +49,18 @@ function DishList({ dishes, className = '' }) {
 
 function MenuCard({ overline, title, price, note, children }) {
   return (
-    <article className="relative border border-gold-light/25">
-      <div className="absolute inset-2 border border-gold-light/10 pointer-events-none" />
+    <article className="relative bg-white border border-gold/30">
+      <div className="absolute inset-2 border border-gold/10 pointer-events-none" />
       <div className="relative p-7 md:p-12">
         <header className="text-center mb-10">
-          <p className="text-[10px] tracking-[0.4em] uppercase text-gold-light/70 mb-4 font-light">{overline}</p>
-          <h3 className="text-2xl md:text-3xl text-offwhite tracking-wide mb-3">{title}</h3>
+          <p className="text-xs text-gold/70 mb-4">{overline}</p>
+          <h3 className="text-2xl md:text-3xl text-black tracking-wide mb-3">{title}</h3>
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-12 h-px bg-gold-light/40" />
-            <span className="text-gold-light text-sm">{price}</span>
-            <div className="w-12 h-px bg-gold-light/40" />
+            <div className="w-12 h-px bg-gold/40" />
+            <span className="text-gold text-sm">{price}</span>
+            <div className="w-12 h-px bg-gold/40" />
           </div>
-          {note && <p className="text-offwhite/50 text-xs italic max-w-md mx-auto leading-relaxed">{note}</p>}
+          {note && <p className="text-gray-mid text-xs italic max-w-md mx-auto leading-relaxed">{note}</p>}
         </header>
         {children}
       </div>
@@ -73,7 +73,7 @@ function CarteColumn({ label, dishes, note }) {
   return (
     <div className="p-7 md:p-10 bg-white">
       <div className="text-center mb-8">
-        <h3 className="text-[11px] tracking-[0.35em] uppercase text-gold mb-3 font-normal" style={{ fontFamily: 'var(--font-body)' }}>
+        <h3 className="text-xs text-gold mb-3 font-normal" style={{ fontFamily: 'var(--font-body)' }}>
           {label}
         </h3>
         <div className="w-10 h-px bg-gold/40 mx-auto" />
@@ -87,7 +87,7 @@ function CarteColumn({ label, dishes, note }) {
           </li>
         ))}
       </ul>
-      {note && <p className="text-[11px] text-black/45 italic mt-6 text-center">{note}</p>}
+      {note && <p className="text-xs text-black/45 italic mt-6 text-center">{note}</p>}
     </div>
   );
 }
@@ -112,7 +112,7 @@ export default function Restaurant() {
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14 pb-14 md:pb-20 pt-32 md:pt-40 hero-reveal">
-          <p className="text-[11px] tracking-[0.35em] uppercase text-offwhite/75 mb-5">{t('restaurantPage.heroOverline')}</p>
+          <p className="text-xs text-offwhite/75 mb-5">{t('restaurantPage.heroOverline')}</p>
           <h1 className="text-offwhite text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-5">
             {t('restaurantPage.heroTitle1')}
             <br />
@@ -132,7 +132,7 @@ export default function Restaurant() {
           <figure className="hidden lg:block absolute right-14 bottom-12 w-[340px] xl:w-[380px] m-0">
             <div className="bg-offwhite/95 p-3 shadow-2xl border border-gold/30">
               <Photo name="plat-1" alt={t('restaurantPage.heroCaption')} sizes="380px" className="w-full h-48 object-cover" />
-              <figcaption className="text-[10px] tracking-[0.28em] uppercase text-deepbrown/70 mt-3 text-center">{t('restaurantPage.heroCaption')}</figcaption>
+              <figcaption className="text-xs text-deepbrown/70 mt-3 text-center">{t('restaurantPage.heroCaption')}</figcaption>
             </div>
           </figure>
         </div>
@@ -149,7 +149,7 @@ export default function Restaurant() {
             ['photos', subnav.photos],
           ].map(([id, label]) => (
             <li key={id}>
-              <a href={`#${id}`} className="block px-4 py-3.5 text-[11px] tracking-[0.18em] uppercase text-black/60 hover:text-gold no-underline">
+              <a href={`#${id}`} className="block px-4 py-3.5 text-xs text-black/60 hover:text-gold no-underline">
                 {label}
               </a>
             </li>
@@ -173,7 +173,7 @@ export default function Restaurant() {
       </SplitSection>
 
       {/* Horaires & formules */}
-      <section id="horaires" className="py-20 md:py-28 bg-beige section-border">
+      <section id="horaires" className="py-20 md:py-28 bg-beige">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-16">
           <div>
             <SectionHeading overline={t('restaurantPage.horairesSub')} title={t('restaurantPage.horairesTitle')} align="left" size="md" className="mb-8" />
@@ -215,9 +215,9 @@ export default function Restaurant() {
       />
 
       {/* Menus */}
-      <section id="menus" className="py-20 md:py-32 bg-deepbrown section-border">
+      <section id="menus" className="py-20 md:py-28 bg-beige">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={t('restaurantPage.nosMenusOverline')} title={t('restaurantPage.nosMenusTitle')} tone="light" size="xl" className="mb-16">
+          <SectionHeading overline={t('restaurantPage.nosMenusOverline')} title={t('restaurantPage.nosMenusTitle')} size="xl" className="mb-16">
             <em>{t('restaurantPage.nosMenusDisclaimer')}</em>
           </SectionHeading>
 
@@ -248,13 +248,13 @@ export default function Restaurant() {
                 <div>
                   <Label>{t('restaurantPage.platsLabel')}</Label>
                   <DishList dishes={MENU_TERROIR.mains} />
-                  <p className="text-xs text-offwhite/45 italic mt-5 pl-5">{t('restaurantPage.platsNote')}</p>
+                  <p className="text-sm text-gray-mid italic mt-5 pl-5">{t('restaurantPage.platsNote')}</p>
                 </div>
               </div>
               <div className="border-t border-gold/15 mt-10 pt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
                 <div>
                   <Label>{t('restaurantPage.fromagesLabel')}</Label>
-                  <p className="text-sm text-offwhite/75 pl-5">{t('restaurantPage.fromagesDesc')}</p>
+                  <p className="text-gray-mid pl-5">{t('restaurantPage.fromagesDesc')}</p>
                 </div>
                 <div>
                   <Label>{t('restaurantPage.dessertsLabel')}</Label>
@@ -276,7 +276,7 @@ export default function Restaurant() {
       </section>
 
       {/* Carte */}
-      <section id="carte" className="py-20 md:py-32 bg-offwhite section-border">
+      <section id="carte" className="py-20 md:py-32 bg-offwhite">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <SectionHeading overline={t('restaurantPage.carteOverline')} title={t('restaurantPage.carteTitle')} size="xl" className="mb-16" />
           <div className="grid grid-cols-1 md:grid-cols-3 border border-black/10 divide-y md:divide-y-0 md:divide-x divide-black/10">
@@ -288,9 +288,9 @@ export default function Restaurant() {
       </section>
 
       {/* Photos des plats */}
-      <section id="photos" className="py-20 md:py-28 bg-deepbrown section-border">
+      <section id="photos" className="py-20 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={t('restaurantPage.galerieSub')} title={t('restaurantPage.galerieTitle')} tone="light" className="mb-12">
+          <SectionHeading overline={t('restaurantPage.galerieSub')} title={t('restaurantPage.galerieTitle')} className="mb-12">
             {t('restaurantPage.galerieDesc')}
           </SectionHeading>
           <Carousel
@@ -303,7 +303,7 @@ export default function Restaurant() {
       </section>
 
       {/* Réservation */}
-      <section className="py-16 md:py-20 bg-beige section-border text-center px-6">
+      <section className="py-16 md:py-20 bg-beige text-center px-6">
         <SectionHeading title={t('restaurantPage.reserveTitle')} size="md">
           {t('restaurantPage.reserveDesc')}
         </SectionHeading>

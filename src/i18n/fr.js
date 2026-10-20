@@ -92,6 +92,17 @@ export default {
     scroll: 'Faire défiler',
   },
 
+  booking: {
+    title: 'Vérifier les disponibilités',
+    arrival: 'Arrivée',
+    nights: 'Durée',
+    nightSingular: 'nuit',
+    nightsPlural: 'nuits',
+    cure: 'cure',
+    submit: 'Voir les disponibilités',
+    orCall: 'Une question ? Appelez-nous au',
+  },
+
   trust: {
     logis: 'Label Logis Hôtels ★★',
     google: 'sur Google',
@@ -365,7 +376,13 @@ export default {
     detailP: 'Les appartements (RDC, n° 2 à n° 10) sont répartis sur trois niveaux. Chacun dispose de tout le nécessaire pour un séjour confortable en toute autonomie.',
     detailItems: ['Cuisine équipée (plaques, réfrigérateur, vaisselle)', 'Salle de bain avec douche', 'Salon avec coin repas', 'Chambre', 'Linge de maison fourni'],
     detailCta: 'Vérifier les disponibilités',
-    detailImgAlt: 'Le jardin de la résidence',
+    detailImgAlt: 'Chambre d’un appartement meublé',
+    heroImgAlt: 'Cuisine équipée d’un appartement meublé',
+    apartmentsSub: 'Les appartements',
+    apartmentsTitle: 'Un vrai chez-soi pendant votre séjour',
+    apartmentsDesc: 'Séjour, cuisine équipée, chambre : quelques-uns des 11 appartements de la résidence. Cliquez pour agrandir.',
+    photos: ['Cuisine équipée', 'Chambre', 'Séjour et coin cuisine', 'Salon', 'Cuisine', 'Chambre', 'Salon', 'Coin repas'],
+    residenceAlts: ['La résidence Les Cèdres', 'La terrasse fleurie des 3 Cèdres', 'Le jardin de la résidence'],
   },
 
   // ── Page Galerie ──
@@ -378,6 +395,7 @@ export default {
       chambres: 'Chambres',
       restaurant: 'Restaurant & bar',
       exterieurs: 'Piscine & extérieurs',
+      meubles: 'Meublés',
       evenements: 'Salles & banquets',
     },
     count: 'photos',
@@ -405,7 +423,7 @@ export default {
     carouselP1: "Séminaire d'entreprise, réunion d'association, repas de famille, anniversaire ou banquet — nos salles s'adaptent à votre projet.",
     carouselP2: 'La grande salle et la véranda accueillent les groupes pour les repas de fête et les cérémonies. Nous recevons aussi les groupes en car, notamment pour notre menu stockfish.',
     carouselCta: 'Organiser mon événement',
-    slides: ['Salle de réunion', 'Configuration réunion', 'Repas de groupe', 'Configuration banquet', 'Banquet sous les guirlandes', 'La véranda dressée'],
+    slides: ['Salle de réunion', 'Écran tactile', 'Coin café de la salle', 'Configuration réunion', 'Repas de groupe', 'Banquet sous les guirlandes', 'La véranda dressée'],
   },
 
   // ── Page Tourisme ──
@@ -417,7 +435,7 @@ export default {
     introP1: "Charmante petite station thermale ensoleillée, aux confins du Lot, du Cantal et de l'Aveyron, au cœur d'une nature préservée offrant des paysages d'une rare diversité, propice à de nombreux sports et loisirs.",
     introP2: "Avec des thermes modernes gérés par la Chaîne Thermale du Soleil et un thermalisme unique et original, Cransac-les-Thermes est une destination de cure reconnue.",
     introCta: 'Les thermes de Cransac',
-    introImgAlt: "La terrasse extérieure de l'hôtel Les Carillons",
+    introImgAlt: 'La vallée verdoyante autour de Cransac-les-Thermes',
     sitesSub: 'À proximité',
     sitesTitle: 'Sites touristiques exceptionnels',
     sitesDesc: "Point de départ idéal pour visiter une multitude de sites exceptionnels — villages classés, villes d'art, gorges et paysages d'Aveyron. Distances approximatives depuis l'hôtel.",

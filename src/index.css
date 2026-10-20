@@ -46,7 +46,16 @@
   --color-offwhite: #f5f2ee;
   --color-deepbrown: #4b382e;
   --color-beige: #e5ddd2;
-  --color-gray-mid: #6b6b6b; /* assombri (#777 → #6b6b6b) pour un contraste AA sur fond beige */
+  --color-gray-mid: #4f4843; /* gris chaud foncé : texte courant bien lisible (contraste ≈ 9:1) */
+  --color-forest: #2f4636; /* vert profond, rappel de la nature aveyronnaise */
+
+  /* Échelle de texte agrandie : clientèle souvent senior (curistes) */
+  --text-xs: 0.8125rem; /* 13 px — plus petite taille autorisée */
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.9375rem; /* 15 px */
+  --text-sm--line-height: 1.6;
+  --text-base: 1.0625rem; /* 17 px — texte courant */
+  --text-base--line-height: 1.7;
 
   --font-display: "Goudy Titling", Georgia, serif;
   --font-body: "Gotham", system-ui, sans-serif;
@@ -63,8 +72,10 @@
   body {
     margin: 0;
     font-family: var(--font-body);
-    font-weight: 300;
-    color: #000;
+    font-weight: 400;
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: #1c1917;
     background-color: var(--color-offwhite);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -96,16 +107,22 @@
 }
 
 /* ── Composants ── */
-.section-border {
-  border-top: 1px solid rgb(0 0 0 / 0.85);
-}
-
+/* Sur-titre de section : en minuscules, doré, discret (les capitales sont réservées aux titres) */
 .overline {
   font-family: var(--font-body);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+  font-size: 0.9375rem;
   font-weight: 400;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.overline::before {
+  content: '';
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
 }
 
 /* ── Animations ── */

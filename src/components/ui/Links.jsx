@@ -32,7 +32,7 @@ export function ArrowLink({ tone = 'dark', className = '', children, ...props })
   return (
     <SmartLink
       {...props}
-      className={`self-start inline-flex items-center gap-2 font-normal text-xs tracking-[0.15em] uppercase no-underline transition-colors border-b pb-0.5 ${color} ${className}`}
+      className={`self-start inline-flex items-center gap-2 text-base no-underline transition-colors border-b pb-0.5 ${color} ${className}`}
     >
       {children} <span className={tone === 'light' ? 'text-gold-light' : 'text-gold'} aria-hidden="true">→</span>
     </SmartLink>
@@ -49,11 +49,11 @@ const variants = {
 
 /** Bouton-lien (CTA). */
 export function ButtonLink({ variant = 'gold', size = 'md', className = '', children, ...props }) {
-  const pad = size === 'lg' ? 'px-10 py-4' : 'px-7 py-3.5';
+  const pad = size === 'lg' ? 'px-9 py-4' : 'px-7 py-3';
   return (
     <SmartLink
       {...props}
-      className={`inline-flex items-center justify-center gap-2 text-xs font-normal tracking-[0.18em] uppercase no-underline transition-colors ${pad} ${variants[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 text-base no-underline transition-colors ${pad} ${variants[variant]} ${className}`}
     >
       {children}
     </SmartLink>

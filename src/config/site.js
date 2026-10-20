@@ -50,15 +50,22 @@ export function logisPageUrl(lang = 'fr') {
  * Moteur de réservation Logis (disponibilités en direct), dans la langue du visiteur.
  * Utilisé par tous les boutons « Réserver » du site.
  */
-export function bookingUrl(lang = 'fr') {
+export function bookingUrl(lang = 'fr', { arrival, nights = 1 } = {}) {
   const params = new URLSearchParams({
     specialMode: 'default',
     hotelid: '93628',
-    numnight: '1',
+    numnight: String(nights),
     m: 'booking',
     langcode: lang === 'en' ? 'EN' : 'FR',
     custid: '233',
   });
+  // Date d'arrivée pré-remplie (format « AAAA-MM-JJ » du champ date) — paramètres Reservit vérifiés
+  if (arrival) {
+    const [y, m, d] = arrival.split('-');
+    params.set('fday', String(+d));
+    params.set('fmonth', String(+m));
+    params.set('fyear', y);
+  }
   return `https://premium.logishotels.com/fo/booking/233/93628/availability?${params}`;
 }
 

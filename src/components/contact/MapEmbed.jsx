@@ -29,7 +29,7 @@ export default function MapEmbed({ title }) {
             <button
               type="button"
               onClick={() => setLoaded(true)}
-              className="bg-deepbrown hover:bg-black text-offwhite text-xs px-6 py-3 tracking-[0.15em] uppercase cursor-pointer"
+              className="bg-deepbrown hover:bg-black text-offwhite text-xs px-6 py-3 cursor-pointer"
             >
               {label}
             </button>
@@ -37,7 +37,7 @@ export default function MapEmbed({ title }) {
               href={LINKS.googleMaps}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-black/20 text-black text-xs px-6 py-3 tracking-[0.15em] uppercase no-underline hover:border-gold hover:text-gold"
+              className="border border-black/20 text-black text-xs px-6 py-3 no-underline hover:border-gold hover:text-gold"
             >
               Google Maps ↗
             </a>

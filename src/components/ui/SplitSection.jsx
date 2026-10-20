@@ -1,4 +1,3 @@
-import Reveal from './Reveal';
 import Photo from './Photo';
 import SectionHeading from './SectionHeading';
 
@@ -26,8 +25,8 @@ export default function SplitSection({
 }) {
   const imageLeft = imageSide === 'left';
   return (
-    <section id={id} className={`flex flex-col ${imageLeft ? 'md:flex-row' : 'md:flex-row-reverse'} section-border overflow-hidden md:min-h-[520px]`}>
-      <Reveal className="md:w-1/2 relative h-64 sm:h-80 md:h-auto overflow-hidden img-card" from="fade">
+    <section id={id} className={`flex flex-col ${imageLeft ? 'md:flex-row' : 'md:flex-row-reverse'} overflow-hidden md:min-h-[520px]`}>
+      <div className="md:w-1/2 relative h-64 sm:h-80 md:h-auto overflow-hidden img-card">
         {media ?? (
           <Photo
             name={photo}
@@ -36,16 +35,15 @@ export default function SplitSection({
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
-      </Reveal>
+      </div>
 
-      <Reveal
+      <div
         className={`md:w-1/2 flex flex-col justify-center px-6 sm:px-10 py-14 md:px-16 md:py-20 ${backgrounds[bg]}`}
         from={imageLeft ? 'left' : 'right'}
-        delay={120}
       >
         <SectionHeading overline={overline} title={title} align="left" size="md" />
         <div className="mt-7 text-gray-mid leading-relaxed space-y-4 text-base max-w-md flex flex-col">{children}</div>
-      </Reveal>
+      </div>
     </section>
   );
 }

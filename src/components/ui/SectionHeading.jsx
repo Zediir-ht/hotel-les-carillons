@@ -31,7 +31,7 @@ export default function SectionHeading({
       <div className={`w-14 h-px mt-5 ${light ? 'bg-gold-light/70' : 'bg-black'} ${centered ? 'mx-auto' : ''}`} />
       {children && (
         <div
-          className={`mt-6 leading-relaxed font-light ${light ? 'text-offwhite/65' : 'text-gray-mid'} ${
+          className={`mt-6 leading-relaxed ${light ? 'text-offwhite/65' : 'text-gray-mid'} ${
             centered ? 'max-w-2xl mx-auto' : 'max-w-md'
           }`}
         >

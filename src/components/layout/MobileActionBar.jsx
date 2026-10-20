@@ -21,7 +21,7 @@ function Icon({ d }) {
  */
 export default function MobileActionBar() {
   const { t, lang } = useLang();
-  const item = 'flex-1 flex flex-col items-center justify-center gap-1 py-2.5 text-[10px] tracking-[0.15em] uppercase no-underline';
+  const item = 'flex-1 flex flex-col items-center justify-center gap-1 py-2.5 text-xs no-underline';
 
   return (
     <div
