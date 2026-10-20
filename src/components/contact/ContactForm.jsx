@@ -2,32 +2,10 @@ import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLang } from '../../i18n/LanguageContext';
 import { SITE } from '../../config/site';
+import Field, { inputClass } from '../ui/FormField';
+import { sendMessage, canSendDirectly } from '../../lib/sendMessage';
 
 const SUBJECTS = ['chambre', 'table', 'meubles', 'groupe', 'autre'];
-
-// Clé gratuite à créer sur https://web3forms.com (avec l'adresse de réception contact@…),
-// puis à déclarer dans Vercel : VITE_WEB3FORMS_KEY. Sans clé → repli sur le logiciel de messagerie.
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
-
-const inputClass =
-  'w-full border border-black/15 px-4 py-3 text-sm bg-white transition-colors focus:outline-none focus:border-gold focus-visible:ring-2 focus-visible:ring-gold/30';
-
-function Field({ id, label, required, requiredLabel, children }) {
-  return (
-    <div>
-      <label htmlFor={id} className="block text-sm text-black mb-1.5">
-        {label}
-        {required && (
-          <span className="text-gold" aria-hidden="true">
-            {' '}*
-          </span>
-        )}
-        {required && <span className="sr-only"> ({requiredLabel})</span>}
-      </label>
-      {children}
-    </div>
-  );
-}
 
 export default function ContactForm() {
   const { t } = useLang();
@@ -55,30 +33,12 @@ export default function ContactForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const subject = `[Site] ${subjectLabel} — ${form.name}`;
-
-    if (!WEB3FORMS_KEY) {
-      window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      return;
-    }
-
+    const isBot = e.target.botcheck.checked;
     setStatus('sending');
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject,
-          from_name: form.name,
-          replyto: form.email,
-          botcheck: e.target.botcheck.checked,
-          message: body,
-        }),
-      });
-      const json = await res.json();
-      if (!json.success) throw new Error(json.message);
-      setStatus('sent');
+      const subject = `[Site] ${subjectLabel} — ${form.name}`;
+      const result = await sendMessage({ subject, name: form.name, email: form.email, body, isBot });
+      setStatus(result === 'sent' ? 'sent' : 'idle');
     } catch {
       setStatus('error');
     }
@@ -158,7 +118,7 @@ export default function ContactForm() {
         >
           {status === 'sending' ? f('sending') : f('submit')}
         </button>
-        {!WEB3FORMS_KEY && <p className="text-xs text-gray-mid">{f('mailtoNote')}</p>}
+        {!canSendDirectly && <p className="text-xs text-gray-mid">{f('mailtoNote')}</p>}
       </div>
 
       <p className="text-xs text-gray-mid leading-relaxed">
