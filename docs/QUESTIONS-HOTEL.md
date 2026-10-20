@@ -76,7 +76,7 @@ Dès qu'un champ est rempli, il apparaît dans « Infos pratiques » et, si une 
 | E1 | Portrait de Nathalie, Florian et Assia ? | `photos-src/famille.jpg` → section `IntroSection` (accueil) à la place de la façade, ou à côté | ☐ |
 | E2 | Séance photo professionnelle envisagée ? | Remplacer les photos dans `photos-src/` (mêmes noms) puis `npm run images` | ☐ |
 | E3 | Logo officiel en haute qualité (vectoriel) | `public/` + favicon + JSON-LD `logo` | ☐ |
-| E4 | Polices Classy Vogue (logo) et Gotham (texte) : licences achetées ? | Si non : remplacer dans `src/index.css` (@font-face) par des polices libres (ex. Sorts Mill Goudy / Jost) | ☐ |
+| E4 | Polices Classy Vogue / Gotham / Goudy Titling : licences ? | **Réglé** : pas de licence → remplacées par Bodoni Moda / Montserrat / Sorts Mill Goudy (OFL, paquets @fontsource). Question retirée du questionnaire. | ☑ 20/10/2026 |
 
 ## F. Comptes en ligne & accès
 

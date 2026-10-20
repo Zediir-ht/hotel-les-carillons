@@ -1,42 +1,7 @@
 @import "tailwindcss";
 
-/* ── Polices ──
-   unicode-range : les fichiers Gotham ont un glyphe d'espace insécable (U+00A0, U+202F) défectueux
-   (≈ 600 px de large), utilisé par le formatage des prix « 54 € ». On le laisse à la police système. */
-@font-face {
-  font-family: "Gotham";
-  src: url("/fonts/Gotham/Gotham-XLight.woff2") format("woff2");
-  unicode-range: U+0000-009F, U+00A1-202E, U+2030-FFFF;
-  font-weight: 200;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gotham";
-  src: url("/fonts/Gotham/Gotham-Light.woff2") format("woff2");
-  unicode-range: U+0000-009F, U+00A1-202E, U+2030-FFFF;
-  font-weight: 300;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gotham";
-  src: url("/fonts/Gotham/Gotham-Book.woff2") format("woff2");
-  unicode-range: U+0000-009F, U+00A1-202E, U+2030-FFFF;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Goudy Titling";
-  src: url("/fonts/GoudyTitling/GoudyTitling-SemiBold.woff2") format("woff2");
-  unicode-range: U+0000-002C, U+002E-009F, U+00A1-FFFF; /* trait d'union et espace insécable défectueux → police de secours */
-  font-weight: 600;
-  font-display: swap;
-}
-@font-face {
-  font-family: "ClassyVogue";
-  src: url("/fonts/Classyvogueregular.ttf") format("truetype");
-  font-weight: 400;
-  font-display: swap;
-}
+/* Polices : chargées dans main.jsx (paquets @fontsource, licence SIL OFL).
+   Logo : Bodoni Moda italique · Titres : Sorts Mill Goudy · Texte : Montserrat. */
 
 /* ── Charte graphique (utilisable en classes Tailwind : bg-gold, text-deepbrown…) ── */
 @theme {
@@ -57,9 +22,9 @@
   --text-base: 1.0625rem; /* 17 px — texte courant */
   --text-base--line-height: 1.7;
 
-  --font-display: "Goudy Titling", Georgia, serif;
-  --font-body: "Gotham", system-ui, sans-serif;
-  --font-logo: "ClassyVogue", Georgia, serif;
+  --font-display: "Sorts Mill Goudy", "Goudy Old Style", Georgia, serif;
+  --font-body: "Montserrat", "Segoe UI", system-ui, sans-serif;
+  --font-logo: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
 }
 
 /* Styles de base dans la couche « base » : les classes Tailwind peuvent les surcharger */
@@ -83,7 +48,7 @@
 
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     line-height: 1.15;
