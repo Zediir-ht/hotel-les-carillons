@@ -111,3 +111,6 @@ export const CARTE = {
     d('Salade de duo de foie gras mi-cuit', 'Semi-cooked foie gras duo salad', { price: 21 }),
   ],
 };
+
+// Onglets de la carte (page Restaurant), dans l'ordre d'affichage
+export const MENU_TABS = ['jour', 'terroir', 'stockfish', 'carte'];

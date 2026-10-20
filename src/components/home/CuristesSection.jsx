@@ -15,7 +15,7 @@ export default function CuristesSection() {
   const { t, lang } = useLang();
   const cards = t('curistes.cards');
   const minWeek = Math.min(...MEUBLES_RATES.map((r) => r.price));
-  const targets = ['/hotel#chambres', '/meubles', '/restaurant#horaires'];
+  const targets = ['/hotel#chambres', '/meubles', '/restaurant#infos'];
 
   return (
     <section className="py-20 md:py-28 bg-forest pattern-belle">

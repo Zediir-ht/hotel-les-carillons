@@ -1,319 +1,200 @@
+import { useState } from 'react';
 import Seo from '../components/Seo';
 import Photo from '../components/ui/Photo';
-import SplitSection from '../components/ui/SplitSection';
 import SectionHeading from '../components/ui/SectionHeading';
-import Carousel from '../components/ui/Carousel';
-import PhotoStrip from '../components/ui/PhotoStrip';
+import PhotoGrid from '../components/ui/PhotoGrid';
 import { ArrowLink, ButtonLink } from '../components/ui/Links';
+import { ArchFrame, Bell, OrnateFrame } from '../components/ui/Ornaments';
+import TodayBanner from '../components/restaurant/TodayBanner';
+import MenuBook from '../components/restaurant/MenuBook';
 import { useLang } from '../i18n/LanguageContext';
 import { SITE } from '../config/site';
-import { MENU_TERROIR, MENU_STOCKFISH, THURSDAY_SPECIALS, CARTE } from '../data/menus';
-import { formatEuro } from '../lib/format';
-import { OrnateFrame, OrnamentDivider } from '../components/ui/Ornaments';
 
+// Photo de chaque formule (même ordre que restaurantPage.formules)
+const FORMULE_PHOTOS = { jour: 'plat-8', terroir: 'plat-2', stockfish: 'salle-reception-2' };
 const PLATS_PHOTOS = ['plat-1', 'plat-2', 'plat-4', 'plat-6', 'plat-7', 'plat-8', 'plat-3', 'plat-5'];
-
-/* ── Petits composants de mise en forme des menus ── */
-
-function Label({ children }) {
-  return (
-    <div className="flex items-center gap-4 mb-6">
-      <div className="w-8 h-px bg-gold/40" />
-      <h4 className="text-xs font-normal text-gold" style={{ fontFamily: 'var(--font-body)' }}>
-        {children}
-      </h4>
-      <div className="flex-1 h-px bg-gold/15" />
-    </div>
-  );
-}
-
-function DishList({ dishes, className = '' }) {
-  const { pick, t, lang } = useLang();
-  return (
-    <ul className={`space-y-4 list-none p-0 m-0 ${className}`}>
-      {dishes.map((dish) => (
-        <li key={dish.name.fr} className="flex items-start gap-3 text-sm text-gray-mid leading-relaxed">
-          <span className="text-gold/60 text-[8px] mt-1.5 shrink-0" aria-hidden="true">
-            ◆
-          </span>
-          <span className="flex-1">{pick(dish.name)}</span>
-          {dish.supplement && (
-            <span className="text-gold text-xs shrink-0 mt-0.5" title={t('restaurantPage.supplement')}>
-              +{formatEuro(dish.supplement, lang)}
-            </span>
-          )}
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function MenuCard({ overline, title, price, note, children }) {
-  return (
-    <OrnateFrame as="article" className="bg-white">
-      <div className="relative px-7 py-12 md:p-14">
-        <header className="text-center mb-10">
-          <p className="text-xs text-gold/70 mb-4">{overline}</p>
-          <h3 className="text-2xl md:text-3xl text-black tracking-wide mb-3">{title}</h3>
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-12 h-px bg-gold/40" />
-            <span className="text-gold text-sm">{price}</span>
-            <div className="w-12 h-px bg-gold/40" />
-          </div>
-          {note && <p className="text-gray-mid text-xs italic max-w-md mx-auto leading-relaxed">{note}</p>}
-        </header>
-        {children}
-      </div>
-    </OrnateFrame>
-  );
-}
-
-function CarteColumn({ label, dishes, note }) {
-  const { pick, t, lang } = useLang();
-  return (
-    <div className="p-7 md:p-10 bg-white">
-      <div className="text-center mb-8">
-        <h3 className="text-xs text-gold mb-3 font-normal" style={{ fontFamily: 'var(--font-body)' }}>
-          {label}
-        </h3>
-        <OrnamentDivider className="mx-auto text-gold" width="w-28" />
-      </div>
-      <ul className="space-y-5 list-none p-0 m-0">
-        {dishes.map((dish) => (
-          <li key={dish.name.fr} className="flex items-end gap-2 text-sm">
-            <span className="text-black/75 leading-snug">{pick(dish.name)}</span>
-            <span className="border-b border-dotted border-black/20 flex-1 min-w-4 mb-1" aria-hidden="true" />
-            <span className="text-gold shrink-0">{dish.price == null ? t('restaurantPage.marketPrice') : formatEuro(dish.price, lang)}</span>
-          </li>
-        ))}
-      </ul>
-      {note && <p className="text-xs text-black/45 italic mt-6 text-center">{note}</p>}
-    </div>
-  );
-}
-
-/* ── Page ── */
 
 export default function Restaurant() {
   const { t } = useLang();
-  const subnav = t('restaurantPage.subnav');
-  const slides = t('restaurantPage.platsSlides');
-  const strip = t('restaurantPage.stripAlts');
+  const r = (k) => t(`restaurantPage.${k}`);
+  const nav = r('nav2');
+  const [tab, setTab] = useState('jour');
+
+  // Une carte « Formule » ouvre le bon onglet de la carte puis y fait défiler la page
+  const openMenu = (id) => {
+    setTab(id);
+    document.getElementById('menus')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
       <Seo page="restaurant" path="/restaurant" image="/images/photos/plat-1-1600.webp" />
 
-      {/* Hero */}
-      <section className="relative min-h-[540px] md:min-h-[680px] flex items-end overflow-hidden">
+      {/* ── En-tête ── */}
+      <section className="relative min-h-[540px] md:min-h-[640px] flex items-end overflow-hidden">
         <div className="absolute inset-0 bg-deepbrown">
-          <Photo name="salle-restaurant-1" alt={t('restaurantPage.heroImgAlt')} priority sizes="100vw" className="w-full h-full object-cover ken-burns" />
+          <Photo name="salle-restaurant-1" alt={r('heroImgAlt')} priority sizes="100vw" className="w-full h-full object-cover ken-burns" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14 pb-14 md:pb-20 pt-32 md:pt-40 hero-reveal">
-          <p className="text-xs text-offwhite/75 mb-5">{t('restaurantPage.heroOverline')}</p>
-          <h1 className="text-offwhite text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-5">
-            {t('restaurantPage.heroTitle1')}
+          <p className="overline text-gold-light mb-5">{r('heroOverline')}</p>
+          <h1 className="text-offwhite text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-6">
+            {r('heroTitle1')}
             <br />
-            <span className="text-gold-light">{t('restaurantPage.heroTitle2')}</span>
+            <span className="text-gold-light">{r('heroTitle2')}</span>
           </h1>
-          <div className="w-24 h-px bg-gold-light mb-6" />
-          <p className="text-offwhite/85 text-sm md:text-lg leading-relaxed max-w-xl mb-8">{t('restaurantPage.heroDesc')}</p>
+          <p className="text-offwhite/90 md:text-lg leading-relaxed max-w-xl mb-8">{r('heroDesc')}</p>
           <div className="flex flex-col sm:flex-row gap-3">
             <ButtonLink href={SITE.phone.href} variant="gold">
-              {t('restaurantPage.callToBook')} · {SITE.phone.display}
+              {r('callToBook')} · {SITE.phone.display}
             </ButtonLink>
-            <ButtonLink href="#menus" variant="outline-light">
-              {subnav.menus}
+            <ButtonLink href="#formules" variant="outline-light">
+              {nav.formules}
             </ButtonLink>
           </div>
 
-          <figure className="hidden lg:block absolute right-14 bottom-12 w-[340px] xl:w-[380px] m-0">
-            <div className="bg-offwhite/95 p-3 shadow-2xl border border-gold/30">
-              <Photo name="plat-1" alt={t('restaurantPage.heroCaption')} sizes="380px" className="w-full h-48 object-cover" />
-              <figcaption className="text-xs text-deepbrown/70 mt-3 text-center">{t('restaurantPage.heroCaption')}</figcaption>
-            </div>
+          <figure className="hidden lg:block absolute right-14 bottom-12 w-[300px] xl:w-[330px] m-0">
+            <ArchFrame className="aspect-[4/5]">
+              <Photo name="plat-1" alt={r('heroCaption')} sizes="330px" className="w-full h-full object-cover" />
+            </ArchFrame>
+            <figcaption className="text-offwhite/80 text-sm mt-4 text-center italic">{r('heroCaption')}</figcaption>
           </figure>
         </div>
       </section>
 
-      {/* Sous-navigation collante */}
-      <nav aria-label={t('restaurantPage.heroTitle1')} className="sticky top-16 lg:top-20 z-30 bg-offwhite/95 backdrop-blur border-y border-black/10">
+      {/* ── Aujourd'hui ── */}
+      <TodayBanner />
+
+      {/* ── Sous-navigation collante ── */}
+      <nav aria-label={r('heroTitle1')} className="sticky top-16 lg:top-20 z-30 bg-offwhite/95 backdrop-blur border-b border-black/10">
         <ul className="max-w-6xl mx-auto px-4 flex gap-1 overflow-x-auto list-none m-0 py-0 whitespace-nowrap justify-start md:justify-center">
-          {[
-            ['presentation', subnav.about],
-            ['horaires', subnav.hours],
-            ['menus', subnav.menus],
-            ['carte', subnav.carte],
-            ['photos', subnav.photos],
-          ].map(([id, label]) => (
+          {['formules', 'menus', 'estofinade', 'photos', 'infos'].map((id) => (
             <li key={id}>
-              <a href={`#${id}`} className="block px-4 py-3.5 text-xs text-black/60 hover:text-gold no-underline">
-                {label}
+              <a href={`#${id}`} className="block px-4 py-3.5 text-sm text-black/70 hover:text-gold no-underline">
+                {nav[id]}
               </a>
             </li>
           ))}
         </ul>
       </nav>
 
-      <SplitSection
-        id="presentation"
-        photo="terrasse"
-        photoAlt={t('restaurantPage.section1ImgAlt')}
-        overline={t('restaurantPage.section1Sub')}
-        title={t('restaurantPage.section1Title')}
-      >
-        <p>{t('restaurantPage.section1P1')}</p>
-        <p>{t('restaurantPage.section1P2')}</p>
-        <p>{t('restaurantPage.section1P3')}</p>
-        <ArrowLink to="/contact?sujet=table" className="mt-2">
-          {t('restaurantPage.section1Cta')}
-        </ArrowLink>
-      </SplitSection>
+      {/* ── 1. Les formules ── */}
+      <section id="formules" className="py-20 md:py-28 bg-offwhite">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <SectionHeading overline={r('formulesSub')} title={r('formulesTitle')} className="mb-14" />
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0 m-0">
+            {r('formules').map((f) => (
+              <li key={f.id}>
+                <button
+                  type="button"
+                  onClick={() => openMenu(f.id)}
+                  className="group relative w-full h-full bg-white p-4 pb-8 text-center cursor-pointer flex flex-col"
+                >
+                  <span className="pointer-events-none absolute inset-1.5 border border-gold/25 group-hover:border-gold/60 transition-colors" aria-hidden="true" />
+                  <span className="relative block aspect-[4/3] overflow-hidden rounded-t-[999px]">
+                    <Photo
+                      name={FORMULE_PHOTOS[f.id]}
+                      alt={f.photoAlt}
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </span>
+                  <span className="relative flex flex-col items-center flex-1 pt-6 px-2">
+                    <span className="block text-2xl text-black" style={{ fontFamily: 'var(--font-display)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      {f.title}
+                    </span>
+                    <span className="block text-3xl text-gold mt-2">{f.price}</span>
+                    <Bell className="w-4 h-4 text-gold my-3" />
+                    <span className="block text-black/85">{f.when}</span>
+                    <span className="block text-sm text-gray-mid mt-1 flex-1">{f.detail}</span>
+                    <span className="mt-5 inline-flex items-center gap-2 border-b border-black group-hover:border-gold group-hover:text-gold transition-colors">
+                      {r('seeMenu')} <span className="text-gold" aria-hidden="true">↓</span>
+                    </span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-      {/* Horaires & formules */}
-      <section id="horaires" className="py-20 md:py-28 bg-beige">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-16">
+      {/* ── 2. La carte, façon menu imprimé ── */}
+      <section id="menus" className="py-20 md:py-28 bg-beige">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading overline={r('nosMenusOverline')} title={r('menusTitle')} className="mb-12" />
+          <MenuBook tab={tab} onTabChange={setTab} />
+        </div>
+      </section>
+
+      {/* ── 4. L'estofinade ── */}
+      <section id="estofinade" className="py-20 md:py-28 bg-forest pattern-belle">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <div className="max-w-md w-full mx-auto">
+            <ArchFrame className="aspect-[4/5]">
+              <Photo name="veranda-banquet" alt={r('formules')[2].photoAlt} sizes="(min-width: 1024px) 40vw, 100vw" className="w-full h-full object-cover" />
+            </ArchFrame>
+          </div>
+          <div className="flex flex-col">
+            <SectionHeading overline={r('estofinadeSub')} title={r('estofinadeTitle')} tone="light" align="left" />
+            <div className="mt-8 space-y-4 text-offwhite/85">
+              <p className="dropcap dropcap-light">{r('estofinadeP1')}</p>
+              <p>{r('estofinadeP2')}</p>
+            </div>
+            <OrnateFrame tone="light" className="mt-8 p-7 md:p-8">
+              <p className="text-gold-light text-lg m-0">{r('stockfishTitle')} · {r('stockfishPrice')}</p>
+              <p className="text-offwhite/80 mt-2 m-0">{r('estofinadeMenu')}</p>
+            </OrnateFrame>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <ButtonLink href={SITE.phone.href} variant="gold">
+                {r('estofinadeCta')}
+              </ButtonLink>
+              <ButtonLink href="#menus" variant="outline-light" onClick={() => setTab('stockfish')}>
+                {r('seeMenu')}
+              </ButtonLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. Les assiettes en photos ── */}
+      <section id="photos" className="py-20 md:py-28 bg-offwhite">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <SectionHeading overline={r('photosSub')} title={r('photosTitle')} className="mb-12">
+            {r('photosDesc')}
+          </SectionHeading>
+          <PhotoGrid items={PLATS_PHOTOS.map((photo, i) => ({ photo, alt: r('platsSlides')[i] }))} />
+        </div>
+      </section>
+
+      {/* ── Horaires & réservation ── */}
+      <section id="infos" className="py-20 md:py-28 bg-beige">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
           <div>
-            <SectionHeading overline={t('restaurantPage.horairesSub')} title={t('restaurantPage.horairesTitle')} align="left" size="md" className="mb-8" />
+            <SectionHeading overline={r('infosSub')} title={r('infosTitle')} align="left" size="md" className="mb-8" />
             <dl className="space-y-4 m-0">
-              {t('restaurantPage.horaires').map((item) => (
-                <div key={item.label} className="flex gap-4 text-sm">
-                  <span className="w-4 h-px bg-gold block shrink-0 mt-2.5" aria-hidden="true" />
+              {r('horaires').map((item) => (
+                <div key={item.label} className="flex gap-3">
+                  <Bell className="w-4 h-4 text-gold shrink-0 mt-1.5" />
                   <div>
-                    <dt className="inline text-black">{item.label} — </dt>
-                    <dd className="inline text-gray-mid m-0">{item.value}</dd>
+                    <dt className="text-black">{item.label}</dt>
+                    <dd className="text-gray-mid m-0">{item.value}</dd>
                   </div>
                 </div>
               ))}
             </dl>
           </div>
-          <div>
-            <SectionHeading overline={t('restaurantPage.menusSub')} title={t('restaurantPage.menusTitle')} align="left" size="md" className="mb-8" />
-            <ul className="space-y-5 list-none p-0 m-0">
-              {t('restaurantPage.menus').map((item) => (
-                <li key={item.title}>
-                  <h3 className="text-sm font-normal text-black mb-1 normal-case tracking-normal" style={{ fontFamily: 'var(--font-body)' }}>
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-mid text-sm leading-relaxed">{item.desc}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <PhotoStrip
-        photos={[
-          { name: 'veranda-banquet', alt: strip[0] },
-          { name: 'bar-1', alt: strip[1] },
-          { name: 'salle-restaurant-2', alt: strip[2] },
-          { name: 'jardin-2', alt: strip[3] },
-        ]}
-      />
-
-      {/* Menus */}
-      <section id="menus" className="py-20 md:py-28 bg-beige">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={t('restaurantPage.nosMenusOverline')} title={t('restaurantPage.nosMenusTitle')} size="xl" className="mb-16">
-            <em>{t('restaurantPage.nosMenusDisclaimer')}</em>
-          </SectionHeading>
-
-          <div className="space-y-12 md:space-y-16">
-            <MenuCard
-              overline={t('restaurantPage.jourOverline')}
-              title={t('restaurantPage.jourTitle')}
-              price={t('restaurantPage.jourPrice')}
-              note={`${t('restaurantPage.jourNote')} ${t('restaurantPage.jourWinter')}`}
-            >
-              <div className="max-w-sm mx-auto">
-                <Label>{t('restaurantPage.thursdayLabel')}</Label>
-                <DishList dishes={THURSDAY_SPECIALS} />
-              </div>
-            </MenuCard>
-
-            <MenuCard
-              overline={t('restaurantPage.terroirOverline')}
-              title={t('restaurantPage.terroirTitle')}
-              price={t('restaurantPage.terroirPrice')}
-              note={t('restaurantPage.terroirDisclaimer')}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-                <div>
-                  <Label>{t('restaurantPage.entreesLabel')}</Label>
-                  <DishList dishes={MENU_TERROIR.starters} />
-                </div>
-                <div>
-                  <Label>{t('restaurantPage.platsLabel')}</Label>
-                  <DishList dishes={MENU_TERROIR.mains} />
-                  <p className="text-sm text-gray-mid italic mt-5 pl-5">{t('restaurantPage.platsNote')}</p>
-                </div>
-              </div>
-              <div className="border-t border-gold/15 mt-10 pt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-                <div>
-                  <Label>{t('restaurantPage.fromagesLabel')}</Label>
-                  <p className="text-gray-mid pl-5">{t('restaurantPage.fromagesDesc')}</p>
-                </div>
-                <div>
-                  <Label>{t('restaurantPage.dessertsLabel')}</Label>
-                  <DishList dishes={MENU_TERROIR.desserts} />
-                </div>
-              </div>
-            </MenuCard>
-
-            <MenuCard
-              overline={t('restaurantPage.stockfishOverline')}
-              title={t('restaurantPage.stockfishTitle')}
-              price={t('restaurantPage.stockfishPrice')}
-              note={t('restaurantPage.stockfishNote')}
-            >
-              <DishList dishes={MENU_STOCKFISH} className="max-w-sm mx-auto" />
-            </MenuCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Carte */}
-      <section id="carte" className="py-20 md:py-32 bg-offwhite">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={t('restaurantPage.carteOverline')} title={t('restaurantPage.carteTitle')} size="xl" className="mb-16" />
-          <div className="grid grid-cols-1 md:grid-cols-3 border border-black/10 divide-y md:divide-y-0 md:divide-x divide-black/10">
-            <CarteColumn label={t('restaurantPage.entreesLabel')} dishes={CARTE.starters} />
-            <CarteColumn label={t('restaurantPage.platsLabel')} dishes={CARTE.mains} note={t('restaurantPage.platsNote')} />
-            <CarteColumn label={t('restaurantPage.saladesLabel')} dishes={CARTE.salads} note={t('restaurantPage.saladesNote')} />
-          </div>
-        </div>
-      </section>
-
-      {/* Photos des plats */}
-      <section id="photos" className="py-20 md:py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={t('restaurantPage.galerieSub')} title={t('restaurantPage.galerieTitle')} className="mb-12">
-            {t('restaurantPage.galerieDesc')}
-          </SectionHeading>
-          <Carousel
-            slides={PLATS_PHOTOS.map((photo, i) => ({ photo, alt: slides[i], caption: slides[i] }))}
-            aspectRatio="4/3"
-            className="max-w-3xl mx-auto"
-            sizes="(min-width: 768px) 768px, 100vw"
-          />
-        </div>
-      </section>
-
-      {/* Réservation */}
-      <section className="py-16 md:py-20 bg-beige text-center px-6">
-        <SectionHeading title={t('restaurantPage.reserveTitle')} size="md">
-          {t('restaurantPage.reserveDesc')}
-        </SectionHeading>
-        <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
-          <ButtonLink href={SITE.phone.href} variant="dark" size="lg">
-            {SITE.phone.display}
-          </ButtonLink>
-          <ButtonLink to="/contact?sujet=table" variant="outline" size="lg">
-            {t('restaurantPage.reserveWrite')}
-          </ButtonLink>
+          <OrnateFrame className="bg-white p-10 md:p-12 text-center">
+            <h3 className="text-2xl text-black">{r('reserveTitle')}</h3>
+            <p className="text-gray-mid mt-4">{r('reserveDesc')}</p>
+            <a href={SITE.phone.href} className="block text-3xl text-gold hover:text-gold-dark no-underline mt-6">
+              {SITE.phone.display}
+            </a>
+            <p className="text-gray-mid mt-6">{r('section1P3')}</p>
+            <ArrowLink to="/contact?sujet=table" className="mt-4 mx-auto">
+              {r('reserveWrite')}
+            </ArrowLink>
+          </OrnateFrame>
         </div>
       </section>
     </>
