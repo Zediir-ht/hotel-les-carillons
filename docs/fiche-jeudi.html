@@ -67,7 +67,7 @@
 
 <div class="box">
 <b>But :</b> (1) que tu aies un accès gestionnaire à leur fiche Google, (2) récupérer le <b>Place ID</b>, (3) créer une clé API pour que le site affiche automatiquement la note et les avis Google.
-Le code est déjà prêt dans le projet (<code>api/reviews.js</code>) : il manque seulement 2 variables dans Vercel.
+Le code est déjà prêt dans le projet (<code>api/reviews.js</code>) : il manque seulement 2 variables dans Cloudflare (une fois le site adapté à Cloudflare Pages).
 </div>
 
 <h3>Étape A — Obtenir un accès à la fiche Google (sur place, avec le propriétaire)</h3>
@@ -103,17 +103,17 @@ Le code est déjà prêt dans le projet (<code>api/reviews.js</code>) : il manqu
       Idéalement le compte de facturation est celui de l'hôtel ; sinon le tien, à refacturer ou transférer plus tard.</li>
   <li>Menu ☰ → <b>API et services</b> → <b>Bibliothèque</b> → chercher <b>« Places API (New) »</b> → <b>Activer</b>. (Bien choisir « New », pas l'ancienne.)</li>
   <li>API et services → <b>Identifiants</b> → <b>Créer des identifiants</b> → <b>Clé API</b>. Copier la clé.</li>
-  <li><b>Restreindre la clé</b> : cliquer dessus → « Restrictions relatives aux API » → <b>Restreindre la clé</b> → cocher uniquement <b>Places API (New)</b> → Enregistrer. (Pas de restriction par site web : l'appel part du serveur Vercel, pas du navigateur.)</li>
+  <li><b>Restreindre la clé</b> : cliquer dessus → « Restrictions relatives aux API » → <b>Restreindre la clé</b> → cocher uniquement <b>Places API (New)</b> → Enregistrer. (Pas de restriction par site web : l'appel part du serveur Cloudflare, pas du navigateur.)</li>
   <li><b>Garde-fou budget</b> : Facturation → Budgets et alertes → créer un budget de 5 € avec alerte par e-mail à 50 % et 100 %.</li>
 </ol>
 <div class="box">Les avis sont mis en cache 24 h par le site : quelques dizaines d'appels par mois seulement, normalement dans le quota gratuit mensuel de Google. Vérifier la grille tarifaire actuelle sur <code>developers.google.com/maps/billing-and-pricing</code> (elle évolue).</div>
 
-<h3>Étape E — Brancher dans Vercel</h3>
+<h3>Étape E — Brancher dans Cloudflare</h3>
 <ol>
-  <li><code>vercel.com</code> → projet du site → <b>Settings</b> → <b>Environment Variables</b>.</li>
+  <li><code>dash.cloudflare.com</code> → <b>Workers &amp; Pages</b> → projet du site → <b>Settings</b> → <b>Variables and Secrets</b>.</li>
   <li>Ajouter <code>GOOGLE_PLACES_API_KEY</code> = la clé de l'étape D.</li>
   <li>Ajouter <code>GOOGLE_PLACE_ID</code> = le Place ID de l'étape C.</li>
-  <li>Cocher Production (et Preview si besoin) → Save → <b>Redeploy</b> le dernier déploiement.</li>
+  <li>Choisir le type <b>Secret</b> pour la clé API → Save → relancer un déploiement.</li>
   <li>Test : ouvrir <code>https://www.lescarillons.fr/api/reviews</code> → doit afficher du JSON avec <code>rating</code> et <code>reviews</code>. Une page vide (204) = variables absentes ou pas redéployé ; erreur 502 = clé non restreinte correctement ou API non activée.</li>
 </ol>
 <p>Ensuite la section « Avis Google » de l'accueil se remplit toute seule. La note fixe (4,4) dans <code>src/config/site.js</code> ne sert plus que de secours.</p>
@@ -123,7 +123,7 @@ Le code est déjà prêt dans le projet (<code>api/reviews.js</code>) : il manqu
 <h3>Domaine lescarillons.fr</h3>
 <ol>
   <li>Demander quel registrar le gère (OVH, Gandi, IONOS…) et qui a les identifiants. Idéalement : être ajouté en contact technique, ou obtenir un accès à la zone DNS.</li>
-  <li>Dans Vercel → Settings → <b>Domains</b> → ajouter <code>www.lescarillons.fr</code> et <code>lescarillons.fr</code> (Vercel indique alors les enregistrements DNS à créer chez le registrar).</li>
+  <li>Dans Cloudflare → projet → <b>Custom domains</b> → ajouter <code>www.lescarillons.fr</code> et <code>lescarillons.fr</code>. Cloudflare demande de gérer la zone DNS (changer les serveurs de noms chez le registrar) : <b>recopier d'abord tous les enregistrements existants, surtout MX et TXT</b>, sinon les e-mails coupent.</li>
   <li><b>Attention aux e-mails</b> : ne pas modifier les enregistrements MX existants (la messagerie contact@ doit continuer de fonctionner).</li>
 </ol>
 
@@ -131,7 +131,7 @@ Le code est déjà prêt dans le projet (<code>api/reviews.js</code>) : il manqu
 <ol>
   <li>Aller sur <code>web3forms.com</code> → saisir l'adresse de réception des demandes (ex. contact@lescarillons.fr).</li>
   <li>Une clé d'accès (Access Key) arrive par mail à cette adresse : quelqu'un de l'hôtel doit la lire <b>sur place jeudi</b>.</li>
-  <li>Vercel → Environment Variables → <code>VITE_WEB3FORMS_KEY</code> = cette clé → Redeploy.</li>
+  <li>Cloudflare → Variables → <code>VITE_WEB3FORMS_KEY</code> = cette clé, puis <b>rebuild</b> (variable lue à la construction du site).</li>
   <li>Test : envoyer le formulaire de contact du site et vérifier la réception.</li>
 </ol>
 
@@ -183,7 +183,6 @@ Le code est déjà prêt dans le projet (<code>api/reviews.js</code>) : il manqu
 <h2>8. Photos, identité, tourisme</h2>
 <ul class="check">
   <li>E1 · Portrait de Nathalie, Florian et Assia (photo à prendre ou à récupérer)</li>
-  <li>E2 · Séance photo professionnelle envisagée ? <span class="ans"></span></li>
   <li>E3 · Logo officiel en haute qualité (vectoriel : .svg, .ai, .eps ou .pdf)</li>
   <li>G1 · Distances des sites touristiques correctes ?</li>
   <li>G2 · Marchés (samedi 13h–15h30, producteurs le mardi) toujours d'actualité ?</li>
