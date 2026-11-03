@@ -24,7 +24,7 @@ export const GALLERY = [
   p('plat-7', 'restaurant', 'Viande et légumes de saison', 'Meat with seasonal vegetables'),
   p('veranda-banquet', 'evenements', 'La véranda dressée pour un banquet', 'The veranda set for a banquet'),
   p('petit-dejeuner-1', 'restaurant', 'Le buffet du petit-déjeuner', 'The breakfast buffet'),
-  p('suite-familiale', 'chambres', 'Suite familiale — lits superposés', 'Family suite — bunk beds'),
+  p('suite-familiale', 'chambres', 'Suite familiale avec lits superposés', 'Family suite with bunk beds'),
   p('piscine', 'exterieurs', 'La piscine extérieure', 'The outdoor pool'),
   p('piscine-fleurs', 'exterieurs', 'La piscine fleurie', 'The pool with flowers'),
   p('meuble-chambre-1', 'meubles', 'Chambre d’un meublé', 'Apartment bedroom'),

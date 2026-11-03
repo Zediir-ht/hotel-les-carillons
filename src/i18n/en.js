@@ -33,7 +33,7 @@ export default {
   // ── SEO ──
   seo: {
     home: {
-      title: 'Hotel Restaurant Les Carillons — Cransac-les-Thermes, Aveyron',
+      title: 'Hotel Restaurant Les Carillons | Cransac-les-Thermes, Aveyron',
       description:
         'Family-run Logis ★★ hotel-restaurant in Cransac-les-Thermes (Aveyron, France): 17 air-conditioned rooms, local cuisine, pool, self-catering apartments and a meeting room.',
     },
@@ -63,7 +63,7 @@ export default {
         'Air-conditioned meeting room for up to 40 people, wheelchair accessible, Wi-Fi and touchscreen. On-site accommodation, group meals and banquets.',
     },
     tourisme: {
-      title: 'Things to do around Cransac — Aveyron tourism',
+      title: 'Things to do around Cransac: Aveyron tourism',
       description:
         'Conques, Belcastel, Rodez, Figeac, Najac, Millau… The best places to visit from Cransac-les-Thermes, plus local markets and events.',
     },
@@ -226,7 +226,7 @@ export default {
     hours: 'Monday to Saturday\nDaily lunch menu on weekdays',
     directions: 'Directions',
     book: 'Book online',
-    copyright: 'Hotel Restaurant Les Carillons — All rights reserved.',
+    copyright: 'Hotel Restaurant Les Carillons. All rights reserved.',
     legal: 'Legal notice',
     logis: 'Logis Hotels member',
   },
@@ -234,7 +234,7 @@ export default {
   // ── Hotel page ──
   hotelPage: {
     heroTitle: 'The Hotel',
-    heroSub: '17 comfortable rooms, pool, terraces & garden — Logis Hotels ★★',
+    heroSub: '17 comfortable rooms, pool, terraces & garden · Logis Hotels ★★',
     section1Title: '17 comfortable rooms',
     section1Sub: 'Accommodation',
     section1P1: 'Hotel Les Carillons offers 17 air-conditioned, fully equipped rooms. Each has a private bathroom, quality bedding, TV and free Wi-Fi.',
@@ -307,9 +307,9 @@ export default {
     menusSub: 'Menus',
     menusTitle: 'Set menus & à la carte',
     menus: [
-      { title: 'Daily menu — €17', desc: 'Weekday lunchtime, ¼ wine and coffee included.' },
-      { title: 'Local menu — from €26', desc: 'Evenings and Saturdays, booking required.' },
-      { title: 'Stockfish menu — €30', desc: 'Our speciality, all year round, booking required. Groups and coaches welcome.' },
+      { title: 'Daily menu · €17', desc: 'Weekday lunchtime, ¼ wine and coffee included.' },
+      { title: 'Local menu · from €26', desc: 'Evenings and Saturdays, booking required.' },
+      { title: 'Stockfish menu · €30', desc: 'Our speciality, all year round, booking required. Groups and coaches welcome.' },
     ],
     stripAlts: ['The veranda set for a banquet', 'The bar', 'Round table in the restaurant', 'The covered terrace'],
     galerieSub: 'Les Carillons',
@@ -372,7 +372,7 @@ export default {
     },
     estofinadeSub: 'Our speciality',
     estofinadeTitle: 'Estofinade, the soul of the valley',
-    estofinadeP1: 'The signature dish of the Decazeville basin, estofinade is made from stockfish — cod air-dried in Norway. Tradition has it that it came up the river Lot on flat-bottomed gabarre boats, traded for the region’s coal and goods.',
+    estofinadeP1: 'The signature dish of the Decazeville basin, estofinade is made from stockfish, cod air-dried in Norway. Tradition has it that it came up the river Lot on flat-bottomed gabarre boats, traded for the region’s coal and goods.',
     estofinadeP2: 'Slowly desalted, then worked with potatoes, eggs, garlic, parsley and walnut oil, it makes a generous, fragrant dish that Florian and Assia prepare all year round.',
     estofinadeMenu: 'Full stockfish menu at €30, wine and coffee included. Groups and coaches welcome, booking required.',
     estofinadeCta: 'Book the stockfish menu',
@@ -520,7 +520,7 @@ export default {
     equipCta: 'Request a quote',
     carouselSub: 'Our spaces',
     carouselTitle: 'A room for every occasion',
-    carouselP1: 'Corporate seminar, association meeting, family meal, birthday or banquet — our rooms adapt to your project.',
+    carouselP1: 'Corporate seminar, association meeting, family meal, birthday or banquet: our rooms adapt to your project.',
     carouselP2: 'The large hall and the veranda host groups for celebrations and ceremonies. We also welcome coach groups, notably for our stockfish menu.',
     carouselCta: 'Plan my event',
     slides: ['Meeting room', 'Touchscreen', 'Coffee corner', 'Meeting layout', 'Group meal', 'Banquet under fairy lights', 'The veranda set for dinner'],
@@ -538,7 +538,7 @@ export default {
     introImgAlt: 'The green valley around Cransac-les-Thermes',
     sitesSub: 'Nearby',
     sitesTitle: 'Outstanding places to visit',
-    sitesDesc: 'The ideal base for visiting a wealth of outstanding sites — listed villages, historic towns, gorges and Aveyron landscapes. Approximate distances from the hotel.',
+    sitesDesc: 'The ideal base for visiting a wealth of outstanding sites: listed villages, historic towns, gorges and Aveyron landscapes. Approximate distances from the hotel.',
     seeMore: 'Visit website',
     agendaSub: 'Events',
     agendaTitle: 'Local life & events',
@@ -549,14 +549,14 @@ export default {
       { name: 'Conques', desc: 'A major landmark on the Way of St James. Its abbey church holds an unrivalled treasure of Romanesque sculpture.' },
       { name: 'Belcastel', desc: 'One of the most beautiful villages in France, tucked away in the Aveyron valley. Remarkable medieval heritage.' },
       { name: 'Rodez & Soulages Museum', desc: 'Founded over 2,000 years ago, Rodez and its cathedral welcome you. The Soulages Museum draws visitors from all over the world.' },
-      { name: 'Figeac — Champollion’s town', desc: 'A designated Town of Art and History, Figeac is the birthplace of Champollion, who deciphered hieroglyphs.' },
+      { name: 'Figeac, Champollion’s town', desc: 'A designated Town of Art and History, Figeac is the birthplace of Champollion, who deciphered hieroglyphs.' },
       { name: 'Aubin', desc: 'One of the oldest towns in Rouergue: the Fort, Old Aubin and the Mining Museum.' },
       { name: 'Millau', desc: 'Gateway to the Tarn Gorges, famous for its spectacular viaduct and breathtaking scenery.' },
       { name: 'Najac', desc: 'A hilltop village crowned by its royal fortress, with superb views and a well-preserved medieval atmosphere.' },
       { name: 'Villefranche-de-Rouergue', desc: 'A major Aveyron bastide town, with its Notre-Dame square, arcades and traditional market.' },
     ],
     agenda: [
-      { title: 'Weekly market', desc: 'Saturdays 1 pm – 3:30 pm, Place Jean-Jaurès — fruit and veg, cheese, butchers, clothing, flowers…' },
+      { title: 'Weekly market', desc: 'Saturdays 1 pm – 3:30 pm, Place Jean-Jaurès: fruit and veg, cheese, butchers, clothing, flowers…' },
       { title: 'Local producers’ markets', desc: 'June to September, every other Tuesday at 6 pm, Place Jean-Jaurès. Farm and artisan producers.' },
       { title: 'Fireworks festival', desc: 'In the former open-cast mine of Decazeville, the world’s best pyrotechnicians compete.' },
       { title: 'Hier un village, Flagnac', desc: 'A live show recreating rural Aveyron life of the last century, led by the character Jeannou.' },

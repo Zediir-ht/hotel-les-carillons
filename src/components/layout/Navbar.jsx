@@ -100,7 +100,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <Link to="/" className="absolute left-1/2 -translate-x-1/2 no-underline" aria-label={`${SITE.name} — ${t('nav.home')}`}>
+          <Link to="/" className="absolute left-1/2 -translate-x-1/2 no-underline" aria-label={`${SITE.name}, ${t('nav.home')}`}>
             <Logo scrolled={scrolled} />
           </Link>
 
@@ -139,7 +139,7 @@ export default function Navbar() {
                 <span key={i} className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${state}`} />
               ))}
             </button>
-            <Link to="/" className="no-underline flex items-baseline" aria-label={`${SITE.name} — ${t('nav.home')}`}>
+            <Link to="/" className="no-underline flex items-baseline" aria-label={`${SITE.name}, ${t('nav.home')}`}>
               <Logo scrolled={scrolled} size="sm" />
             </Link>
           </div>

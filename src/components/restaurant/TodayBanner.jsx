@@ -15,8 +15,8 @@ export default function TodayBanner() {
   if (!today) return null;
 
   const thursday = today.thursday && THURSDAY_SPECIALS[today.thursday.index];
-  // « 2e jeudi — Poule farcie » → « Poule farcie »
-  const thursdayDish = thursday ? pick(thursday.name).split(' — ').pop() : null;
+  // « 2e jeudi : Poule farcie » → « Poule farcie »
+  const thursdayDish = thursday ? pick(thursday.name).split(/\s?:\s/).pop() : null;
 
   return (
     <div className="bg-white border-b border-gold/25" role="status">

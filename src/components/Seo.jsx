@@ -10,7 +10,7 @@ import { SITE } from '../config/site';
 export default function Seo({ page, path = '/', image = '/images/og-default.jpg', noindex = false }) {
   const { t, lang } = useLang();
   const pageTitle = t(`seo.${page}.title`);
-  const title = page === 'home' ? pageTitle : `${pageTitle} — ${SITE.shortName}`;
+  const title = page === 'home' ? pageTitle : `${pageTitle} | ${SITE.shortName}`;
   const description = t(`seo.${page}.description`);
   const url = `${SITE.url}${path === '/' ? '' : path}`;
   const imageUrl = image.startsWith('http') ? image : `${SITE.url}${image}`;

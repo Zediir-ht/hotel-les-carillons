@@ -35,10 +35,11 @@ export default function Restaurant() {
         <div className="absolute inset-0 bg-deepbrown">
           <Photo name="salle-restaurant-1" alt={r('heroImgAlt')} priority sizes="100vw" className="w-full h-full object-cover ken-burns" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:hidden" />
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14 pb-14 md:pb-20 pt-32 md:pt-40 hero-reveal">
-          <p className="overline text-gold-light mb-5">{r('heroOverline')}</p>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14 pb-14 md:pb-20 pt-32 md:pt-40 hero-reveal text-on-photo">
+          <p className="eyebrow text-gold-light mb-5">{r('heroOverline')}</p>
           <h1 className="text-offwhite text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-6">
             {r('heroTitle1')}
             <br />

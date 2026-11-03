@@ -33,7 +33,7 @@ export default {
   // ── SEO : titre & description de chaque page ──
   seo: {
     home: {
-      title: 'Hôtel Restaurant Les Carillons — Cransac-les-Thermes, Aveyron',
+      title: 'Hôtel Restaurant Les Carillons | Cransac-les-Thermes, Aveyron',
       description:
         'Hôtel-restaurant familial Logis ★★ à Cransac-les-Thermes (Aveyron) : 17 chambres climatisées, restaurant du terroir, piscine, meublés pour curistes et salle de séminaire.',
     },
@@ -48,7 +48,7 @@ export default {
         'Cuisine familiale faite maison à Cransac-les-Thermes : menu du jour à 17 €, menu du terroir, spécialité estofinade (stockfish), carte et banquets.',
     },
     meubles: {
-      title: 'Meublés Les Cèdres — location pour curistes',
+      title: 'Meublés Les Cèdres : location pour curistes',
       description:
         '11 appartements meublés à la semaine à Cransac-les-Thermes, à deux pas des thermes. Cuisine équipée, linge fourni, piscine et parc. Dès 185 € / semaine.',
     },
@@ -226,7 +226,7 @@ export default {
     hours: 'Du lundi au samedi\nMenu du jour le midi en semaine',
     directions: 'Itinéraire',
     book: 'Réserver en ligne',
-    copyright: 'Hôtel Restaurant Les Carillons — Tous droits réservés.',
+    copyright: 'Hôtel Restaurant Les Carillons. Tous droits réservés.',
     legal: 'Mentions légales',
     logis: 'Membre Logis Hôtels',
   },
@@ -234,7 +234,7 @@ export default {
   // ── Page Hôtel ──
   hotelPage: {
     heroTitle: "L'Hôtel",
-    heroSub: '17 chambres confortables, piscine, terrasses & jardin — Logis Hôtels ★★',
+    heroSub: '17 chambres confortables, piscine, terrasses & jardin · Logis Hôtels ★★',
     section1Title: '17 chambres de confort',
     section1Sub: 'Hébergement',
     section1P1: "L'hôtel Les Carillons vous propose 17 chambres climatisées et parfaitement équipées. Chaque chambre dispose d'une salle de bain privative, d'une literie de qualité, de la TV et du Wi-Fi gratuit.",
@@ -307,9 +307,9 @@ export default {
     menusSub: 'Formules',
     menusTitle: 'Menus & carte',
     menus: [
-      { title: 'Menu du jour — 17 €', desc: 'Le midi en semaine, ¼ de vin et café compris.' },
-      { title: 'Menu du terroir — dès 26 €', desc: 'Le soir et le samedi, sur réservation.' },
-      { title: 'Menu stockfish — 30 €', desc: "Notre spécialité, toute l'année sur réservation. Groupes et cars bienvenus." },
+      { title: 'Menu du jour · 17 €', desc: 'Le midi en semaine, ¼ de vin et café compris.' },
+      { title: 'Menu du terroir · dès 26 €', desc: 'Le soir et le samedi, sur réservation.' },
+      { title: 'Menu stockfish · 30 €', desc: "Notre spécialité, toute l'année sur réservation. Groupes et cars bienvenus." },
     ],
     stripAlts: ['La véranda dressée pour un banquet', 'Le bar', 'Table ronde au restaurant', 'La terrasse couverte'],
     galerieSub: 'Les Carillons',
@@ -520,7 +520,7 @@ export default {
     equipCta: 'Demander un devis',
     carouselSub: 'Nos espaces',
     carouselTitle: 'Des salles pour chaque événement',
-    carouselP1: "Séminaire d'entreprise, réunion d'association, repas de famille, anniversaire ou banquet — nos salles s'adaptent à votre projet.",
+    carouselP1: "Séminaire d'entreprise, réunion d'association, repas de famille, anniversaire ou banquet : nos salles s'adaptent à votre projet.",
     carouselP2: 'La grande salle et la véranda accueillent les groupes pour les repas de fête et les cérémonies. Nous recevons aussi les groupes en car, notamment pour notre menu stockfish.',
     carouselCta: 'Organiser mon événement',
     slides: ['Salle de réunion', 'Écran tactile', 'Coin café de la salle', 'Configuration réunion', 'Repas de groupe', 'Banquet sous les guirlandes', 'La véranda dressée'],
@@ -538,7 +538,7 @@ export default {
     introImgAlt: 'La vallée verdoyante autour de Cransac-les-Thermes',
     sitesSub: 'À proximité',
     sitesTitle: 'Sites touristiques exceptionnels',
-    sitesDesc: "Point de départ idéal pour visiter une multitude de sites exceptionnels — villages classés, villes d'art, gorges et paysages d'Aveyron. Distances approximatives depuis l'hôtel.",
+    sitesDesc: "Point de départ idéal pour visiter une multitude de sites exceptionnels : villages classés, villes d'art, gorges et paysages d'Aveyron. Distances approximatives depuis l'hôtel.",
     seeMore: 'Voir le site',
     agendaSub: 'Animations',
     agendaTitle: 'Vie locale & animations',
@@ -549,14 +549,14 @@ export default {
       { name: 'Conques', desc: "Monument majeur sur le chemin de Saint-Jacques-de-Compostelle. Son abbatiale abrite un trésor incomparable de sculptures romanes." },
       { name: 'Belcastel', desc: "L'un des plus beaux villages de France, lové au fond de la vallée de l'Aveyron. Patrimoine médiéval d'une richesse rare." },
       { name: 'Rodez & musée Soulages', desc: 'Fondée il y a plus de 2 000 ans, Rodez et sa cathédrale vous accueillent. Le musée Soulages attire des visiteurs du monde entier.' },
-      { name: 'Figeac — cité de Champollion', desc: "Labellisée Ville d'art et d'histoire, Figeac est la patrie de Champollion, déchiffreur des hiéroglyphes." },
+      { name: 'Figeac, cité de Champollion', desc: "Labellisée Ville d'art et d'histoire, Figeac est la patrie de Champollion, déchiffreur des hiéroglyphes." },
       { name: 'Aubin', desc: "L'une des plus anciennes villes du Rouergue : le Fort, le Vieil Aubin et le musée de la Mine." },
       { name: 'Millau', desc: "Porte d'entrée des gorges du Tarn, connue pour son viaduc spectaculaire et ses paysages grandioses." },
       { name: 'Najac', desc: 'Village perché dominé par sa forteresse royale, avec des panoramas superbes et une atmosphère médiévale préservée.' },
       { name: 'Villefranche-de-Rouergue', desc: 'Bastide majeure de l’Aveyron, avec sa place Notre-Dame, ses arcades et son marché traditionnel.' },
     ],
     agenda: [
-      { title: 'Marché hebdomadaire', desc: 'Le samedi de 13 h à 15 h 30, place Jean-Jaurès — primeurs, fromagers, bouchers, vêtements, fleurs…' },
+      { title: 'Marché hebdomadaire', desc: 'Le samedi de 13 h à 15 h 30, place Jean-Jaurès : primeurs, fromagers, bouchers, vêtements, fleurs…' },
       { title: 'Marchés de producteurs de pays', desc: 'De juin à septembre, un mardi sur deux à 18 h, place Jean-Jaurès. Producteurs fermiers et artisanaux.' },
       { title: "Festival de feux d'artifice", desc: "Au cœur de l'ancienne mine à ciel ouvert de Decazeville, les meilleurs artificiers du monde s'affrontent." },
       { title: 'Hier un village à Flagnac', desc: 'Spectacle vivant retraçant la vie rurale aveyronnaise du siècle dernier, porté par le personnage de Jeannou.' },

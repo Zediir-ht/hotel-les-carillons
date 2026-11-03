@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLang } from '../../i18n/LanguageContext';
 import Photo from './Photo';
-import { OrnamentDivider } from './Ornaments';
 
 /** En-tête des pages intérieures : grande photo, fil d'Ariane, titre. */
 export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb = [], children }) {
@@ -12,12 +11,14 @@ export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb 
         {photo && (
           <Photo name={photo} alt={photoAlt || ''} priority sizes="100vw" className="w-full h-full object-cover ken-burns" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/45" />
+        {/* Voile : assombrit le bas et le côté gauche, là où se trouvent le titre et le texte */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
       </div>
 
-      <div className="relative z-10 w-full pt-28 pb-10 md:pb-14 px-6 md:px-16 max-w-6xl mx-auto hero-reveal">
+      <div className="relative z-10 w-full text-on-photo pt-28 pb-10 md:pb-14 px-6 md:px-16 max-w-6xl mx-auto hero-reveal">
         {breadcrumb.length > 0 && (
-          <nav aria-label="Fil d'Ariane" className="mb-3 text-xs text-white/60">
+          <nav aria-label="Fil d'Ariane" className="mb-3 text-xs text-white/75">
             <ol className="flex items-center gap-2 list-none p-0 m-0">
               <li>
                 <Link to="/" className="text-white/60 hover:text-white no-underline transition-colors">
@@ -42,8 +43,7 @@ export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb 
           </nav>
         )}
         <h1 className="text-3xl md:text-5xl font-normal text-white leading-tight">{title}</h1>
-        {subtitle && <p className="text-white/80 text-sm md:text-base mt-4 max-w-xl normal-case tracking-normal">{subtitle}</p>}
-        <OrnamentDivider className="mt-5 text-gold-light" width="w-40" align="left" />
+        {subtitle && <p className="text-white/90 text-sm md:text-base mt-4 max-w-xl normal-case tracking-normal">{subtitle}</p>}
         {children}
       </div>
     </section>

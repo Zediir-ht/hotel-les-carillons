@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useLang } from '../../i18n/LanguageContext';
 import { MENU_TERROIR, MENU_STOCKFISH, THURSDAY_SPECIALS, CARTE, MENU_TABS } from '../../data/menus';
 import { formatEuro } from '../../lib/format';
-import { OrnateFrame, OrnamentDivider } from '../ui/Ornaments';
+import { OrnateFrame } from '../ui/Ornaments';
 
 
 /* ── Mise en forme « menu imprimé » ── */
@@ -50,7 +50,6 @@ function MenuHeader({ title, price, note }) {
     <header className="text-center mb-10">
       <h3 className="text-3xl md:text-4xl text-black">{title}</h3>
       <p className="text-gold text-lg mt-3">{price}</p>
-      <OrnamentDivider className="mx-auto text-gold mt-4" width="w-40" />
       {note && <p className="text-gray-mid italic max-w-lg mx-auto mt-5">{note}</p>}
     </header>
   );

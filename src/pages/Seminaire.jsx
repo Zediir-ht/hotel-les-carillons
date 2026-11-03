@@ -45,11 +45,10 @@ export default function Seminaire() {
                 <h3 className="text-sm font-normal text-black mb-5 tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
                   {block.title}
                 </h3>
-                <div className="w-8 h-px bg-gold mb-5" />
                 <ul className="space-y-3 list-none p-0 m-0">
                   {block.items.map((item) => (
                     <li key={item} className="flex items-center gap-3 text-gray-mid text-sm">
-                      <span className="w-4 h-px bg-gold block shrink-0" />
+                      <span className="w-1.5 h-1.5 rotate-45 bg-gold block shrink-0" aria-hidden="true" />
                       {item}
                     </li>
                   ))}

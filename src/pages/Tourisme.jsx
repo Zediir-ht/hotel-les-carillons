@@ -64,7 +64,6 @@ export default function Tourisme() {
                       </h3>
                       <span className="text-xs text-gold shrink-0">~{site.distance} km</span>
                     </div>
-                    <div className="w-5 h-px bg-gold mb-3" />
                     <p className="text-gray-mid text-sm leading-relaxed flex-1">{sites[i].desc}</p>
                     <a
                       href={site.url}
@@ -73,7 +72,7 @@ export default function Tourisme() {
                       className="inline-flex items-center gap-1 mt-4 text-gold text-xs no-underline hover:text-gold-dark"
                     >
                       {t('tourismePage.seeMore')} <span aria-hidden="true">↗</span>
-                      <span className="sr-only"> — {sites[i].name}</span>
+                      <span className="sr-only">, {sites[i].name}</span>
                     </a>
                   </div>
                 </article>
@@ -92,7 +91,6 @@ export default function Tourisme() {
                 <h3 className="text-sm font-normal text-black mb-4 tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
                   {item.title}
                 </h3>
-                <div className="w-8 h-px bg-gold mb-4" />
                 <p className="text-gray-mid text-sm leading-relaxed">{item.desc}</p>
                 {AGENDA_URLS[i] && (
                   <a href={AGENDA_URLS[i]} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-3 text-gold text-xs no-underline hover:text-gold-dark">

@@ -19,7 +19,7 @@ export const MENU_TERROIR = {
   ],
   mains: [
     d('Pot au feu de canard et ses légumes', 'Duck pot-au-feu with vegetables'),
-    d('Notre spécialité — Estofinade aveyronnaise', 'Our speciality — Aveyron estofinade (stockfish)'),
+    d('Notre spécialité : l’estofinade aveyronnaise', 'Our speciality: Aveyron estofinade (stockfish)'),
     d(
       'Filet mignon de porc, farce fine de veau au chorizo, crémeux de patate douce',
       'Pork tenderloin, veal and chorizo stuffing, sweet potato cream',
@@ -61,17 +61,17 @@ export const MENU_STOCKFISH = [
   d('Kir', 'Kir'),
   d('Potage', 'Soup'),
   d('Poule farcie, tête de veau ou charcuterie', "Stuffed chicken, calf's head or charcuterie"),
-  d('Estofinade — notre spécialité', 'Estofinade — our speciality'),
+  d('Estofinade, notre spécialité', 'Estofinade, our speciality'),
   d('Plateau de fromages', 'Cheese platter'),
   d('Dessert', 'Dessert'),
   d('Vin et café compris', 'Wine and coffee included'),
 ];
 
 export const THURSDAY_SPECIALS = [
-  d('1er jeudi — Tête de veau', "1st Thursday — Calf's head"),
-  d('2e jeudi — Poule farcie', '2nd Thursday — Stuffed chicken'),
-  d('3e jeudi — Choux farcis', '3rd Thursday — Stuffed cabbage'),
-  d("4e jeudi — Aligot saucisse à l'ail des ours", '4th Thursday — Aligot with wild garlic sausage'),
+  d('1er jeudi : Tête de veau', "1st Thursday: Calf's head"),
+  d('2e jeudi : Poule farcie', '2nd Thursday: Stuffed chicken'),
+  d('3e jeudi : Choux farcis', '3rd Thursday: Stuffed cabbage'),
+  d("4e jeudi : Aligot saucisse à l'ail des ours", '4th Thursday: Aligot with wild garlic sausage'),
 ];
 
 export const CARTE = {
@@ -90,7 +90,7 @@ export const CARTE = {
   mains: [
     d('Confit de canard, légumes ou aligot', 'Duck confit, vegetables or aligot', { price: 16 }),
     d('Pot au feu de canard et ses légumes', 'Duck pot-au-feu with vegetables', { price: 18 }),
-    d('Estofinade — notre spécialité', 'Estofinade — our speciality', { price: 20 }),
+    d('Estofinade, notre spécialité', 'Estofinade, our speciality', { price: 20 }),
     d('Ris de veau sauce madère, légumes et aligot', 'Veal sweetbreads, Madeira sauce, vegetables and aligot', { price: 28 }),
     d(
       "Entrecôte d'Aubrac ou Charolaise, légumes ou aligot",

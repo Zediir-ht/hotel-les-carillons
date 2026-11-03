@@ -58,7 +58,7 @@ export default function Home() {
       >
         <p>{t('restaurantSection.p1')}</p>
         <p className="text-black">
-          <span className="text-gold" aria-hidden="true">◆</span> {t('restaurantSection.highlight')} — {formatEuro(17, lang)}
+          <span className="text-gold" aria-hidden="true">◆</span> {t('restaurantSection.highlight')} · {formatEuro(17, lang)}
         </p>
         <ArrowLink to="/restaurant#menus" className="mt-2">
           {t('restaurantSection.cta')}
@@ -79,7 +79,7 @@ export default function Home() {
         <ul className="space-y-2.5 list-none p-0">
           {t('meublesSection.features').map((item) => (
             <li key={item} className="flex items-center gap-3">
-              <span className="w-4 h-px bg-gold block shrink-0" />
+              <span className="w-1.5 h-1.5 rotate-45 bg-gold block shrink-0" aria-hidden="true" />
               {item}
             </li>
           ))}

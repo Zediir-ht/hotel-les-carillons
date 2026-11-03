@@ -5,7 +5,7 @@ import { useLang } from '../../i18n/LanguageContext';
 
 export default function TourismeTeaser() {
   const { t } = useLang();
-  const sites = t('tourismePage.sites').map((s) => s.name.split(' — ')[0].split(' & ')[0]);
+  const sites = t('tourismePage.sites').map((s) => s.name.split(', ')[0].split(' & ')[0]);
   return (
     <section className="relative flex items-center justify-center text-white text-center py-28 md:py-40 overflow-hidden">
       <div className="absolute inset-0 z-0">

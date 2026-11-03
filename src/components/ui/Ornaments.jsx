@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────
-// Ornements « Belle Époque thermale » : filets, cloche (clin d'œil aux Carillons),
+// Ornements « Belle Époque thermale » : cloche (clin d'œil aux Carillons),
 // coins ornés, monogramme. Tous en SVG fin, couleur héritée (currentColor).
 // ─────────────────────────────────────────────────────────────
 
@@ -12,31 +12,6 @@ export function Bell({ className = 'w-4 h-4' }) {
       <path d="M10.2 20.6a1.9 1.9 0 0 0 3.6 0" />
       <path d="M9 9.5c.5-1.3 1.6-2.1 3-2.1" opacity=".6" />
     </svg>
-  );
-}
-
-/**
- * Filet orné : trait — losange — cloche — losange — trait.
- * Remplace les simples traits sous les titres.
- */
-export function OrnamentDivider({ className = '', width = 'w-44', align = 'center' }) {
-  if (align === 'left') {
-    return (
-      <div className={`flex items-center gap-2 ${width} ${className}`} aria-hidden="true">
-        <Bell className="w-4 h-4 shrink-0 -ml-0.5" />
-        <span className="w-1.5 h-1.5 rotate-45 border border-current opacity-70" />
-        <span className="h-px flex-1 bg-gradient-to-r from-current to-transparent opacity-60" />
-      </div>
-    );
-  }
-  return (
-    <div className={`flex items-center justify-center gap-2 ${width} ${className}`} aria-hidden="true">
-      <span className="h-px flex-1 bg-gradient-to-r from-transparent to-current opacity-60" />
-      <span className="w-1.5 h-1.5 rotate-45 border border-current opacity-70" />
-      <Bell className="w-4 h-4 shrink-0" />
-      <span className="w-1.5 h-1.5 rotate-45 border border-current opacity-70" />
-      <span className="h-px flex-1 bg-gradient-to-l from-transparent to-current opacity-60" />
-    </div>
   );
 }
 

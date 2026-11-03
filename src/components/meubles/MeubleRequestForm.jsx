@@ -43,7 +43,7 @@ export default function MeubleRequestForm({ initialFloor = 'any', initialWeeks =
 
     setStatus('sending');
     try {
-      const subject = `[Site] ${r('subject')} — ${form.arrival} — ${form.name}`;
+      const subject = `[Site] ${r('subject')} - ${form.arrival} - ${form.name}`;
       const result = await sendMessage({ subject, name: form.name, email: form.email, body, isBot: e.target.botcheck.checked });
       setStatus(result === 'sent' ? 'sent' : 'idle');
     } catch {

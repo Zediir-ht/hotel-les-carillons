@@ -36,7 +36,7 @@ export default function ContactForm() {
     const isBot = e.target.botcheck.checked;
     setStatus('sending');
     try {
-      const subject = `[Site] ${subjectLabel} — ${form.name}`;
+      const subject = `[Site] ${subjectLabel} - ${form.name}`;
       const result = await sendMessage({ subject, name: form.name, email: form.email, body, isBot });
       setStatus(result === 'sent' ? 'sent' : 'idle');
     } catch {

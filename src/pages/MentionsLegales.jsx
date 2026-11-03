@@ -16,7 +16,7 @@ export default function MentionsLegales() {
   const { t } = useLang();
   const m = (key) => t(`mentionsLegales.${key}`);
   const legalLines = [
-    [m('companyLabel'), [LEGAL.company, LEGAL.legalForm].filter(Boolean).join(' — ')],
+    [m('companyLabel'), [LEGAL.company, LEGAL.legalForm].filter(Boolean).join(', ')],
     [m('siretLabel'), LEGAL.siret],
     [m('vatLabel'), LEGAL.vat],
     [m('directorLabel'), LEGAL.publicationDirector],
@@ -27,9 +27,8 @@ export default function MentionsLegales() {
       <Seo page="mentions" path="/mentions-legales" />
       <section className="pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <p className="overline text-gold mb-4">{m('overline')}</p>
+          <p className="eyebrow text-gold mb-4">{m('overline')}</p>
           <h1 className="text-3xl md:text-5xl text-black mb-6">{m('title')}</h1>
-          <div className="w-16 h-px bg-black mb-10" />
 
           <div className="space-y-10 text-gray-mid text-sm leading-relaxed">
             <Block title={m('editorTitle')}>
@@ -82,7 +81,7 @@ export default function MentionsLegales() {
               <ul className="space-y-1.5 list-none p-0">
                 {TOURISM_SITES.map((site, i) => (
                   <li key={site.slug}>
-                    {t('tourismePage.sites')[i].name} —{' '}
+                    {t('tourismePage.sites')[i].name} :{' '}
                     <a href={site.credit.source} target="_blank" rel="noopener noreferrer" className="text-gold no-underline">
                       {site.credit.author}
                     </a>

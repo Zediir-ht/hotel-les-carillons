@@ -29,7 +29,6 @@ function RoomCard({ room }) {
       <div className="p-6 md:p-8 flex flex-col flex-1">
         <h3 className="text-lg md:text-xl text-black leading-tight">{pick(room.name)}</h3>
         <p className="text-xs text-gold tracking-wide mt-2 mb-4">{pick(room.capacity)}</p>
-        <div className="w-10 h-px bg-gold mb-4" />
         <p className="text-gray-mid text-sm leading-relaxed mb-5">{pick(room.description)}</p>
 
         <dl className="mb-6 text-sm grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
@@ -58,7 +57,7 @@ function RoomCard({ room }) {
 
         <ArrowLink href={bookingUrl(lang)}>
           {t('rooms.book')}
-          <span className="sr-only"> — {pick(room.name)}</span>
+          <span className="sr-only">, {pick(room.name)}</span>
         </ArrowLink>
       </div>
     </article>
