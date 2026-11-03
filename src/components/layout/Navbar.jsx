@@ -65,7 +65,7 @@ export default function Navbar() {
           : 'text-white border-white/60'
         : scrolled
           ? 'text-black/60 hover:text-black border-transparent'
-          : 'text-white/85 hover:text-white border-transparent'
+          : 'text-white hover:text-white border-transparent'
     }`;
 
   const langButton = (extra) => (
@@ -73,7 +73,7 @@ export default function Navbar() {
       type="button"
       onClick={() => switchLang(otherLang)}
       className={`shrink-0 text-sm px-3 py-2 transition-colors cursor-pointer border ${
-        scrolled ? 'text-black/60 hover:text-black border-black/15' : 'text-white/85 hover:text-white border-white/30'
+        scrolled ? 'text-black/60 hover:text-black border-black/15' : 'text-white hover:text-white border-white/50'
       } ${extra}`}
       aria-label={t('nav.switchLang')}
       lang={otherLang}
@@ -87,7 +87,7 @@ export default function Navbar() {
       <nav
         aria-label="Navigation principale"
         className={`transition-all duration-300 ${
-          scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5' : 'bg-gradient-to-b from-black/35 to-transparent'
+          scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5' : 'bg-gradient-to-b from-black/70 via-black/35 to-transparent text-on-photo'
         }`}
       >
         {/* Bureau */}
