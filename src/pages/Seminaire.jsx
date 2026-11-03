@@ -18,8 +18,6 @@ export default function Seminaire() {
       <PageHero
         title={t('seminairePage.heroTitle')}
         subtitle={t('seminairePage.heroSub')}
-        photo="seminaire-1"
-        photoAlt={slides[4]}
         breadcrumb={[{ label: t('nav.seminaire') }]}
       />
 

@@ -37,8 +37,6 @@ export default function Hotel() {
       <PageHero
         title={t('hotelPage.heroTitle')}
         subtitle={t('hotelPage.heroSub')}
-        photo="piscine"
-        photoAlt={strip[0]}
         breadcrumb={[{ label: t('nav.hotel') }]}
       />
 

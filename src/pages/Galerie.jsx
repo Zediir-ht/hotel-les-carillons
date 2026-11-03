@@ -21,8 +21,6 @@ export default function Galerie() {
       <PageHero
         title={t('galeriePage.heroTitle')}
         subtitle={t('galeriePage.heroSub')}
-        photo="jardin-3"
-        photoAlt=""
         breadcrumb={[{ label: t('nav.galerie') }]}
       />
 

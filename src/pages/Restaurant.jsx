@@ -32,10 +32,10 @@ export default function Restaurant() {
 
       {/* ── En-tête ── */}
       <section className="bg-offwhite overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 pt-28 md:pt-36 pb-14 md:pb-20 grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 pt-32 md:pt-44 pb-14 md:pb-24">
           <div className="hero-reveal">
             <p className="eyebrow text-gold mb-5">{r('heroOverline')}</p>
-            <h1 className="text-black text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-6">
+            <h1 className="text-black text-[2.6rem] min-[400px]:text-5xl sm:text-6xl md:text-8xl lg:text-[8.5rem] leading-[0.95] mb-8">
               {r('heroTitle1')}
               <br />
               <span className="text-gold">{r('heroTitle2')}</span>
@@ -50,13 +50,6 @@ export default function Restaurant() {
               </ButtonLink>
             </div>
           </div>
-
-          <figure className="w-full max-w-sm mx-auto md:mx-0 md:w-[320px] lg:w-[360px] m-0">
-            <ArchFrame className="aspect-[4/3] md:aspect-[4/5]">
-              <Photo name="plat-1" alt={r('heroCaption')} priority sizes="(min-width: 768px) 360px, 100vw" className="w-full h-full object-cover" />
-            </ArchFrame>
-            <figcaption className="text-gray-mid text-sm mt-4 text-center italic">{r('heroCaption')}</figcaption>
-          </figure>
         </div>
       </section>
 

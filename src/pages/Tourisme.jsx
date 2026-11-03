@@ -18,8 +18,6 @@ export default function Tourisme() {
       <PageHero
         title={t('tourismePage.heroTitle')}
         subtitle={t('tourismePage.heroSub')}
-        photo="site-belcastel"
-        photoAlt="Belcastel"
         breadcrumb={[{ label: t('nav.tourisme') }]}
       />
 

@@ -26,8 +26,6 @@ export default function Contact() {
       <PageHero
         title={t('contactPage.heroTitle')}
         subtitle={t('contactPage.heroSub')}
-        photo="facade-1"
-        photoAlt=""
         breadcrumb={[{ label: t('nav.contact') }]}
       />
 

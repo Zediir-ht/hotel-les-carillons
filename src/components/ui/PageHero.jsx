@@ -1,18 +1,15 @@
 import { Link } from 'react-router-dom';
 import { useLang } from '../../i18n/LanguageContext';
-import Photo from './Photo';
-import { ArchFrame } from './Ornaments';
 
 /**
- * En-tête des pages intérieures, sur fond crème : fil d'Ariane, titre, sous-titre
- * et une photo en arche, montrée sans voile.
- * (Seule la page d'accueil a une grande photo plein écran.)
+ * En-tête des pages intérieures, sur fond crème : fil d'Ariane, très grand titre, sous-titre.
+ * Pas de photo : seule la page d'accueil a une grande image d'en-tête.
  */
-export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb = [], children }) {
+export default function PageHero({ title, subtitle, breadcrumb = [], children }) {
   const { t } = useLang();
   return (
     <section className="bg-offwhite overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-14 md:pb-20 grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 pt-32 md:pt-44 pb-14 md:pb-24">
         <div className="hero-reveal">
           {breadcrumb.length > 0 && (
             <nav aria-label="Fil d'Ariane" className="mb-4 text-xs text-gray-mid">
@@ -39,16 +36,10 @@ export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb 
               </ol>
             </nav>
           )}
-          <h1 className="text-4xl md:text-6xl font-normal text-black leading-[1.05]">{title}</h1>
-          {subtitle && <p className="text-gray-mid text-base md:text-lg mt-5 max-w-lg leading-relaxed">{subtitle}</p>}
+          <h1 className="text-[2.6rem] min-[400px]:text-5xl sm:text-6xl md:text-8xl lg:text-[8.5rem] font-normal text-black leading-[0.95] break-words">{title}</h1>
+          {subtitle && <p className="text-gray-mid text-base md:text-lg mt-8 max-w-xl leading-relaxed">{subtitle}</p>}
           {children}
         </div>
-
-        {photo && (
-          <ArchFrame className="w-full max-w-sm mx-auto md:mx-0 aspect-[4/3] md:aspect-[4/5] md:w-[340px] lg:w-[380px] md:max-w-none">
-            <Photo name={photo} alt={photoAlt || ''} priority sizes="(min-width: 768px) 380px, 100vw" className="w-full h-full object-cover" />
-          </ArchFrame>
-        )}
       </div>
     </section>
   );
