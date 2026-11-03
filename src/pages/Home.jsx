@@ -9,7 +9,6 @@ import TourismeTeaser from '../components/home/TourismeTeaser';
 import GoogleReviewsSection from '../components/home/GoogleReviewsSection';
 import SplitSection from '../components/ui/SplitSection';
 import EditorialCollage from '../components/ui/EditorialCollage';
-import FeatureBanner from '../components/ui/FeatureBanner';
 import { ArrowLink } from '../components/ui/Links';
 import { useLang } from '../i18n/LanguageContext';
 import { useGoogleReviews } from '../lib/useGoogleReviews';
@@ -49,12 +48,16 @@ export default function Home() {
         </ArrowLink>
       </EditorialCollage>
 
-      <FeatureBanner
-        photo="plat-7"
-        photoAlt={t('restaurantSection.imgAlt')}
-        side="right"
+      <EditorialCollage
+        reverse
+        bg="bg-offwhite"
         overline={t('restaurantSection.overline')}
         title={t('restaurantSection.title')}
+        photos={[
+          { name: 'plat-1', alt: t('restaurantSection.imgAlt') },
+          { name: 'plat-2', alt: '' },
+          { name: 'plat-3', alt: '' },
+        ]}
       >
         <p>{t('restaurantSection.p1')}</p>
         <p className="text-black">
@@ -63,7 +66,7 @@ export default function Home() {
         <ArrowLink to="/restaurant#menus" className="mt-2">
           {t('restaurantSection.cta')}
         </ArrowLink>
-      </FeatureBanner>
+      </EditorialCollage>
 
       <CuristesSection />
 
