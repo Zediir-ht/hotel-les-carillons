@@ -1,50 +1,54 @@
 import { Link } from 'react-router-dom';
 import { useLang } from '../../i18n/LanguageContext';
 import Photo from './Photo';
+import { ArchFrame } from './Ornaments';
 
-/** En-tête des pages intérieures : grande photo, fil d'Ariane, titre. */
+/**
+ * En-tête des pages intérieures, sur fond crème : fil d'Ariane, titre, sous-titre
+ * et une photo en arche, montrée sans voile.
+ * (Seule la page d'accueil a une grande photo plein écran.)
+ */
 export default function PageHero({ title, subtitle, photo, photoAlt, breadcrumb = [], children }) {
   const { t } = useLang();
   return (
-    <section className="relative min-h-80 md:min-h-[460px] flex items-end text-white">
-      <div className="absolute inset-0 z-0 overflow-hidden bg-deepbrown">
-        {photo && (
-          <Photo name={photo} alt={photoAlt || ''} priority sizes="100vw" className="w-full h-full object-cover ken-burns" />
-        )}
-        {/* Voile : assombrit le bas et le côté gauche, là où se trouvent le titre et le texte */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
-      </div>
-
-      <div className="relative z-10 w-full text-on-photo pt-28 pb-10 md:pb-14 px-6 md:px-16 max-w-6xl mx-auto hero-reveal">
-        {breadcrumb.length > 0 && (
-          <nav aria-label="Fil d'Ariane" className="mb-3 text-xs text-white/75">
-            <ol className="flex items-center gap-2 list-none p-0 m-0">
-              <li>
-                <Link to="/" className="text-white/60 hover:text-white no-underline transition-colors">
-                  {t('nav.home')}
-                </Link>
-              </li>
-              {breadcrumb.map((item) => (
-                <li key={item.label} className="flex items-center gap-2">
-                  <span aria-hidden="true">/</span>
-                  {item.to ? (
-                    <Link to={item.to} className="text-white/60 hover:text-white no-underline transition-colors">
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <span className="text-white/85" aria-current="page">
-                      {item.label}
-                    </span>
-                  )}
+    <section className="bg-offwhite overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-14 md:pb-20 grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
+        <div className="hero-reveal">
+          {breadcrumb.length > 0 && (
+            <nav aria-label="Fil d'Ariane" className="mb-4 text-xs text-gray-mid">
+              <ol className="flex items-center gap-2 list-none p-0 m-0">
+                <li>
+                  <Link to="/" className="text-gray-mid hover:text-gold no-underline transition-colors">
+                    {t('nav.home')}
+                  </Link>
                 </li>
-              ))}
-            </ol>
-          </nav>
+                {breadcrumb.map((item) => (
+                  <li key={item.label} className="flex items-center gap-2">
+                    <span aria-hidden="true">/</span>
+                    {item.to ? (
+                      <Link to={item.to} className="text-gray-mid hover:text-gold no-underline transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span className="text-gold" aria-current="page">
+                        {item.label}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
+          <h1 className="text-4xl md:text-6xl font-normal text-black leading-[1.05]">{title}</h1>
+          {subtitle && <p className="text-gray-mid text-base md:text-lg mt-5 max-w-lg leading-relaxed">{subtitle}</p>}
+          {children}
+        </div>
+
+        {photo && (
+          <ArchFrame className="w-full max-w-sm mx-auto md:mx-0 aspect-[4/3] md:aspect-[4/5] md:w-[340px] lg:w-[380px] md:max-w-none">
+            <Photo name={photo} alt={photoAlt || ''} priority sizes="(min-width: 768px) 380px, 100vw" className="w-full h-full object-cover" />
+          </ArchFrame>
         )}
-        <h1 className="text-3xl md:text-5xl font-normal text-white leading-tight">{title}</h1>
-        {subtitle && <p className="text-white/90 text-sm md:text-base mt-4 max-w-xl normal-case tracking-normal">{subtitle}</p>}
-        {children}
       </div>
     </section>
   );

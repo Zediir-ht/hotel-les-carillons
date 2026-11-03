@@ -31,35 +31,31 @@ export default function Restaurant() {
       <Seo page="restaurant" path="/restaurant" image="/images/photos/plat-1-1600.webp" />
 
       {/* ── En-tête ── */}
-      <section className="relative min-h-[540px] md:min-h-[640px] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-deepbrown">
-          <Photo name="salle-restaurant-1" alt={r('heroImgAlt')} priority sizes="100vw" className="w-full h-full object-cover ken-burns" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:hidden" />
-        </div>
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14 pb-14 md:pb-20 pt-32 md:pt-40 hero-reveal text-on-photo">
-          <p className="eyebrow text-gold-light mb-5">{r('heroOverline')}</p>
-          <h1 className="text-offwhite text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-6">
-            {r('heroTitle1')}
-            <br />
-            <span className="text-gold-light">{r('heroTitle2')}</span>
-          </h1>
-          <p className="text-offwhite/90 md:text-lg leading-relaxed max-w-xl mb-8">{r('heroDesc')}</p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <ButtonLink href={SITE.phone.href} variant="gold">
-              {r('callToBook')} · {SITE.phone.display}
-            </ButtonLink>
-            <ButtonLink href="#formules" variant="outline-light">
-              {nav.formules}
-            </ButtonLink>
+      <section className="bg-offwhite overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 pt-28 md:pt-36 pb-14 md:pb-20 grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
+          <div className="hero-reveal">
+            <p className="eyebrow text-gold mb-5">{r('heroOverline')}</p>
+            <h1 className="text-black text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-6">
+              {r('heroTitle1')}
+              <br />
+              <span className="text-gold">{r('heroTitle2')}</span>
+            </h1>
+            <p className="text-gray-mid md:text-lg leading-relaxed max-w-xl mb-8">{r('heroDesc')}</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <ButtonLink href={SITE.phone.href} variant="gold">
+                {r('callToBook')} · {SITE.phone.display}
+              </ButtonLink>
+              <ButtonLink href="#formules" variant="outline-gold">
+                {nav.formules}
+              </ButtonLink>
+            </div>
           </div>
 
-          <figure className="hidden lg:block absolute right-14 bottom-12 w-[300px] xl:w-[330px] m-0">
-            <ArchFrame className="aspect-[4/5]">
-              <Photo name="plat-1" alt={r('heroCaption')} sizes="330px" className="w-full h-full object-cover" />
+          <figure className="w-full max-w-sm mx-auto md:mx-0 md:w-[320px] lg:w-[360px] m-0">
+            <ArchFrame className="aspect-[4/3] md:aspect-[4/5]">
+              <Photo name="plat-1" alt={r('heroCaption')} priority sizes="(min-width: 768px) 360px, 100vw" className="w-full h-full object-cover" />
             </ArchFrame>
-            <figcaption className="text-offwhite/80 text-sm mt-4 text-center italic">{r('heroCaption')}</figcaption>
+            <figcaption className="text-gray-mid text-sm mt-4 text-center italic">{r('heroCaption')}</figcaption>
           </figure>
         </div>
       </section>

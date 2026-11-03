@@ -410,7 +410,7 @@ export default {
     detailItems: ['Cuisine équipée (plaques, réfrigérateur, vaisselle)', 'Salle de bain avec douche', 'Salon avec coin repas', 'Chambre', 'Linge de maison fourni'],
     detailCta: 'Vérifier les disponibilités',
     detailImgAlt: 'Chambre d’un appartement meublé',
-    heroImgAlt: 'Cuisine équipée d’un appartement meublé',
+    heroImgAlt: 'Jardin fleuri de la résidence Les Cèdres',
     apartmentsSub: 'Les appartements',
     apartmentsTitle: 'Un vrai chez-soi pendant votre séjour',
     apartmentsDesc: 'Séjour, cuisine équipée, chambre : quelques-uns des 11 appartements de la résidence. Cliquez pour agrandir.',

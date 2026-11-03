@@ -46,7 +46,7 @@ export default function Meubles() {
       <PageHero
         title={m('heroTitle')}
         subtitle={m('heroSub')}
-        photo="meuble-cuisine-1"
+        photo="cedres-jardin"
         photoAlt={m('heroImgAlt')}
         breadcrumb={[{ label: t('nav.meubles') }]}
       />

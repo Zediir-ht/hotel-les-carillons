@@ -34,8 +34,8 @@ export default function Navbar() {
   const links = NAV_ITEMS.map((n) => ({ to: n.to, label: t(`nav.${n.key}`), desktop: n.desktop }));
   const otherLang = lang === 'fr' ? 'en' : 'fr';
 
-  // Les pages sans grande photo d'en-tête (mentions légales, 404) ont toujours la barre claire.
-  const solidPage = pathname !== '/' && !NAV_ITEMS.some((n) => n.to === pathname);
+  // Seul l'accueil a une grande photo d'en-tête : partout ailleurs la barre est claire d'emblée.
+  const solidPage = pathname !== '/';
   const scrolled = scrolledDown || solidPage || menuOpen;
 
   useEffect(() => {

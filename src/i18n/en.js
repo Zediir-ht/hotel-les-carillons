@@ -410,7 +410,7 @@ export default {
     detailItems: ['Fitted kitchen (hob, fridge, crockery)', 'Bathroom with shower', 'Living room with dining area', 'Bedroom', 'Household linen provided'],
     detailCta: 'Check availability',
     detailImgAlt: 'Bedroom in a self-catering apartment',
-    heroImgAlt: 'Fitted kitchen in a self-catering apartment',
+    heroImgAlt: 'Flower garden at Les Cèdres residence',
     apartmentsSub: 'The apartments',
     apartmentsTitle: 'A real home from home',
     apartmentsDesc: 'Living room, fitted kitchen, bedroom: a few of the residence’s 11 apartments. Click to enlarge.',
