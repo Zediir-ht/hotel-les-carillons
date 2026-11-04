@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useLang } from '../../i18n/LanguageContext';
 import { MENU_TERROIR, MENU_STOCKFISH, THURSDAY_SPECIALS, CARTE, MENU_TABS } from '../../data/menus';
 import { formatEuro } from '../../lib/format';
@@ -136,6 +136,13 @@ function DishName({ dish }) {
 export default function MenuBook({ tab, onTabChange }) {
   const { t } = useLang();
   const tabRefs = useRef({});
+  // Le contenu ne s'anime qu'après un changement d'onglet (pas au chargement de la page)
+  const [shownTab, setShownTab] = useState(tab);
+  const [switched, setSwitched] = useState(false);
+  if (tab !== shownTab) {
+    setShownTab(tab);
+    setSwitched(true);
+  }
 
   const onKeyDown = (e) => {
     const i = MENU_TABS.indexOf(tab);
@@ -174,7 +181,9 @@ export default function MenuBook({ tab, onTabChange }) {
 
       <OrnateFrame className="bg-white shadow-[0_20px_50px_rgba(75,56,46,0.10)]">
         <div id="menu-panel" role="tabpanel" aria-labelledby={`tab-${tab}`} className="px-6 py-14 md:px-16 md:py-16">
-          <TabContent tab={tab} />
+          <div key={tab} className={switched ? 'tab-panel-in' : undefined}>
+            <TabContent tab={tab} />
+          </div>
           <p className="text-center text-sm text-gray-mid italic mt-10">{t('restaurantPage.nosMenusDisclaimer')}</p>
         </div>
       </OrnateFrame>

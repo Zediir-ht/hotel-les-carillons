@@ -46,8 +46,8 @@ export default function ContactForm() {
 
   if (status === 'sent') {
     return (
-      <div role="status" className="border border-gold/40 bg-white p-8 text-center">
-        <div className="text-gold text-3xl mb-3" aria-hidden="true">
+      <div role="status" className="form-sent border border-gold/40 bg-white p-8 text-center">
+        <div className="form-sent-check text-gold text-3xl mb-3" aria-hidden="true">
           ✓
         </div>
         <p className="text-black leading-relaxed">{f('sent')}</p>

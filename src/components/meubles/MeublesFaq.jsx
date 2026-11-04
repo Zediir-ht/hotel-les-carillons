@@ -31,10 +31,10 @@ export default function MeublesFaq() {
     <div className="max-w-3xl mx-auto">
       <div className="divide-y divide-gold/25 border-y border-gold/25">
         {items.map((item) => (
-          <details key={item.q} className="group py-1">
+          <details key={item.q} className="faq-item group py-1">
             <summary className="flex items-center justify-between gap-4 py-4 cursor-pointer list-none text-black text-lg [&::-webkit-details-marker]:hidden">
               {item.q}
-              <span className="text-gold text-2xl leading-none transition-transform group-open:rotate-45 shrink-0" aria-hidden="true">
+              <span className="faq-icon text-gold text-2xl leading-none group-open:rotate-45 shrink-0" aria-hidden="true">
                 +
               </span>
             </summary>

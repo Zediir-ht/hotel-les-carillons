@@ -155,6 +155,81 @@
     visibility 0s;
 }
 
+/* Fondu simple : version « mouvement réduit » des entrées ci-dessous */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Onglets de la carte : le contenu entre en 180 ms (fondu + 6 px), sans animation de sortie */
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.tab-panel-in {
+  animation: panelIn 180ms var(--ease-out) both;
+}
+
+/* Accordéon (FAQ) : la réponse se déploie en 250 ms. Propriétés récentes : ailleurs, elle apparaît d'un coup. */
+.faq-item {
+  interpolate-size: allow-keywords;
+}
+.faq-item::details-content {
+  height: 0;
+  opacity: 0;
+  overflow: clip;
+  transition:
+    height 250ms var(--ease-out),
+    opacity 200ms var(--ease-out),
+    content-visibility 250ms allow-discrete;
+}
+.faq-item[open]::details-content {
+  height: auto;
+  opacity: 1;
+}
+.faq-icon {
+  transition: transform 200ms var(--ease-out);
+}
+
+/* Visionneuse : fond 180 ms, photo 220 ms (depuis 96 %), sortie 140 ms en fondu.
+   L'entrée utilise @starting-style ; sans lui, la visionneuse apparaît d'un coup. */
+.lightbox {
+  opacity: 1;
+  transition: opacity 180ms var(--ease-out);
+}
+.lightbox[data-state='closed'] {
+  opacity: 0;
+  pointer-events: none;
+  transition-duration: 140ms;
+}
+.lightbox-photo {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 220ms var(--ease-out),
+    transform 220ms var(--ease-out);
+}
+@starting-style {
+  .lightbox { opacity: 0; }
+  .lightbox-photo { opacity: 0; transform: scale(0.96); }
+}
+
+/* Confirmation d'envoi d'un formulaire : la carte apparaît (250 ms), puis le ✓ (300 ms, léger rebond) */
+@keyframes sentIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes checkIn {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: none; }
+}
+.form-sent {
+  animation: sentIn 250ms var(--ease-out) both;
+}
+.form-sent-check {
+  animation: checkIn 300ms cubic-bezier(0.34, 1.4, 0.64, 1) 80ms both;
+}
+
 /* Respect du réglage système « réduire les animations » */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -172,6 +247,28 @@
   .press:active {
     transform: none;
     opacity: 0.85;
+  }
+  /* Entrées : fondu seul (plus doux que « zéro »), sans déplacement ni échelle */
+  .tab-panel-in,
+  .form-sent,
+  .form-sent-check {
+    animation-name: fadeIn;
+    animation-duration: 150ms !important;
+  }
+  .lightbox,
+  .lightbox-photo {
+    transition-duration: 150ms !important;
+  }
+  /* Accordéon : fondu seul, la hauteur change d'un coup */
+  .faq-item::details-content {
+    transition-property: opacity, content-visibility;
+    transition-duration: 150ms;
+  }
+  .faq-icon {
+    transition: none;
+  }
+  @starting-style {
+    .lightbox-photo { transform: none; }
   }
 }
 

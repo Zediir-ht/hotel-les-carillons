@@ -24,6 +24,15 @@ export default function Lightbox({ items, index, onClose, onIndexChange }) {
   const count = items.length;
   const go = (delta) => onIndexChange((index + delta + count) % count);
 
+  // La visionneuse reste affichée 140 ms après la fermeture pour pouvoir s'effacer en fondu
+  const [shown, setShown] = useState(index);
+  if (open && shown !== index) setShown(index);
+  useEffect(() => {
+    if (open || shown == null) return;
+    const id = setTimeout(() => setShown(null), 140);
+    return () => clearTimeout(id);
+  }, [open, shown]);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => {
@@ -47,12 +56,13 @@ export default function Lightbox({ items, index, onClose, onIndexChange }) {
     };
   }, [open]);
 
-  if (!open) return null;
-  const item = items[index];
+  if (shown == null) return null;
+  const item = items[open ? index : shown];
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[10000] bg-black/90 flex items-center justify-center"
+      className="lightbox fixed inset-0 z-[10000] bg-black/90 flex items-center justify-center"
+      data-state={open ? 'open' : 'closed'}
       role="dialog"
       aria-modal="true"
       aria-label={item.alt}
@@ -68,12 +78,12 @@ export default function Lightbox({ items, index, onClose, onIndexChange }) {
       <img
         src={photoSrc(item.photo, 1600)}
         alt={item.alt}
-        className="max-w-[94vw] max-h-[82vh] object-contain shadow-2xl"
+        className="lightbox-photo max-w-[94vw] max-h-[82vh] object-contain shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       />
 
       <p className="absolute bottom-5 left-0 right-0 text-center text-white/70 text-xs px-16">
-        {item.alt} · {index + 1} / {count}
+        {item.alt} · {(open ? index : shown) + 1} / {count}
       </p>
 
       <button

@@ -53,8 +53,8 @@ export default function MeubleRequestForm({ initialFloor = 'any', initialWeeks =
 
   if (status === 'sent') {
     return (
-      <div role="status" className="border border-gold/40 bg-white p-8 text-center max-w-2xl mx-auto">
-        <div className="text-gold text-3xl mb-3" aria-hidden="true">
+      <div role="status" className="form-sent border border-gold/40 bg-white p-8 text-center max-w-2xl mx-auto">
+        <div className="form-sent-check text-gold text-3xl mb-3" aria-hidden="true">
           ✓
         </div>
         <p className="text-black">{r('sent')}</p>
