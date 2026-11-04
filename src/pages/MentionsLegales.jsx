@@ -30,7 +30,7 @@ export default function MentionsLegales() {
           <p className="eyebrow text-gold mb-4">{m('overline')}</p>
           <h1 className="text-3xl md:text-5xl text-black mb-6">{m('title')}</h1>
 
-          <div className="space-y-10 text-gray-mid text-sm leading-relaxed">
+          <div className="space-y-10 max-w-[34rem] text-gray-mid text-sm leading-relaxed">
             <Block title={m('editorTitle')}>
               <p>
                 {SITE.name}

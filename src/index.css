@@ -7,7 +7,9 @@
 @theme {
   --color-gold: #8c6e47;
   --color-gold-dark: #6a4e30; /* survol des boutons dorés */
-  --color-gold-text: #7a5c3a; /* or pour le TEXTE sur fond clair : 5,5:1 sur crème, 4,6:1 sur beige */
+  --color-gold-text: #7a5c3a; /* or pour le TEXTE sur fond clair : 5,5:1 sur crème */
+  --color-gold-text-beige: #6f5333; /* or pour le TEXTE sur beige texturé : 5,3:1 (le grain fait perdre ~0,2) */
+  --color-placeholder: #6a645f; /* textes d'exemple des champs : 5,8:1 sur blanc, 5,2:1 sur crème */
   --color-gold-light: #d4b792; /* doré lisible sur fond sombre */
   --color-offwhite: #f5f2ee;
   --color-deepbrown: #4b382e;
@@ -40,6 +42,11 @@
   .text-gold {
     color: var(--color-gold-text);
   }
+  /* Sur beige (fond texturé), l'or de texte tombait à 4,4:1 mesuré sur les pixels */
+  .bg-beige .text-gold,
+  .bg-beige.text-gold {
+    color: var(--color-gold-text-beige);
+  }
 }
 
 /* Courbes d'animation partagées (à utiliser pour tout nouveau mouvement) */
@@ -54,6 +61,20 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+  }
+
+  /* Textes d'exemple lisibles (le gris par défaut du navigateur est à 3,3:1) */
+  ::placeholder {
+    color: var(--color-placeholder);
+    opacity: 1;
+  }
+
+  /* Pas de mot seul en fin de paragraphe, titres équilibrés (ignoré par les navigateurs trop anciens) */
+  p, li, dd, figcaption, blockquote {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4 {
+    text-wrap: balance;
   }
 
   body {
