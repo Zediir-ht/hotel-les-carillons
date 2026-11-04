@@ -8,7 +8,7 @@ function Logo({ scrolled, size = 'lg' }) {
   return (
     <>
       <span
-        className={`${size === 'lg' ? 'text-2xl xl:text-3xl' : 'text-lg'} whitespace-nowrap transition-colors duration-300 uppercase tracking-[0.08em] italic ${scrolled ? 'text-black' : 'text-white'}`}
+        className={`${size === 'lg' ? 'text-2xl xl:text-3xl' : 'text-[min(1.125rem,4.7vw)]'} whitespace-nowrap transition-colors duration-300 uppercase tracking-[0.08em] italic ${scrolled ? 'text-black' : 'text-white'}`}
         style={{ fontFamily: 'var(--font-logo)' }}
       >
         {SITE.shortName}
@@ -72,7 +72,7 @@ export default function Navbar() {
     <button
       type="button"
       onClick={() => switchLang(otherLang)}
-      className={`shrink-0 text-sm px-3 py-2 transition-colors cursor-pointer border ${
+      className={`shrink-0 px-3 py-2 transition-colors cursor-pointer border ${
         scrolled ? 'text-black/60 hover:text-black border-black/15' : 'text-white hover:text-white border-white/50'
       } ${extra}`}
       aria-label={t('nav.switchLang')}
@@ -87,7 +87,7 @@ export default function Navbar() {
       <nav
         aria-label="Navigation principale"
         className={`transition-all duration-300 ${
-          scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5' : 'bg-gradient-to-b from-black/70 via-black/35 to-transparent text-on-photo'
+          scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5' : 'bg-gradient-to-b from-black/80 via-black/50 to-transparent text-on-photo'
         }`}
       >
         {/* Bureau */}
@@ -120,7 +120,7 @@ export default function Navbar() {
             >
               {t('nav.book')}
             </a>
-            {langButton('')}
+            {langButton('text-sm')}
           </div>
         </div>
 
@@ -129,21 +129,21 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <button
               type="button"
-              className="flex flex-col justify-center gap-1.5 w-11 h-11 -ml-2 items-center shrink-0 cursor-pointer"
+              className="flex flex-col justify-center gap-[6px] w-[44px] h-[44px] -ml-2 items-center shrink-0 cursor-pointer"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={t('nav.menu')}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
             >
-              {[menuOpen ? 'rotate-45 translate-y-2' : '', menuOpen ? 'opacity-0' : '', menuOpen ? '-rotate-45 -translate-y-2' : ''].map((state, i) => (
-                <span key={i} className={`block w-6 h-0.5 transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${state}`} />
+              {[menuOpen ? 'rotate-45 translate-y-[8px]' : '', menuOpen ? 'opacity-0' : '', menuOpen ? '-rotate-45 -translate-y-[8px]' : ''].map((state, i) => (
+                <span key={i} className={`block w-[24px] h-[2px] transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${state}`} />
               ))}
             </button>
             <Link to="/" className="no-underline flex items-baseline" aria-label={`${SITE.name}, ${t('nav.home')}`}>
               <Logo scrolled={scrolled} size="sm" />
             </Link>
           </div>
-          {langButton('px-2.5')}
+          {langButton('px-2.5 text-[min(0.9375rem,3.9vw)]')}
         </div>
 
         <div
@@ -167,7 +167,7 @@ export default function Navbar() {
             <a href={SITE.phone.href} className="mt-6 text-base text-black/70 no-underline">
               {SITE.phone.display}
             </a>
-            <a href={`mailto:${SITE.email}`} className="text-sm text-black/50 no-underline">
+            <a href={`mailto:${SITE.email}`} className="text-sm text-black/65 no-underline">
               {SITE.email}
             </a>
           </div>

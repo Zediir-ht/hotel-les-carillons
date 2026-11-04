@@ -120,7 +120,7 @@ export default function MeubleRequestForm({ initialFloor = 'any', initialWeeks =
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       {status === 'error' && (
-        <p role="alert" className="text-red-700">
+        <p role="alert" className="text-error">
           {r('error')}{' '}
           <a href={SITE.phone.href} className="underline">
             {SITE.phone.display}

@@ -92,11 +92,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
+        <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/65">
           <p>
             &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </p>
-          <Link to="/mentions-legales" className="text-white/40 hover:text-white/70 no-underline transition-colors">
+          <Link to="/mentions-legales" className="text-white/65 hover:text-white no-underline transition-colors">
             {t('footer.legal')}
           </Link>
         </div>

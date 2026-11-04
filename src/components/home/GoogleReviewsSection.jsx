@@ -8,7 +8,7 @@ import { OrnateFrame } from '../ui/Ornaments';
 function Stars({ rating, size = 'h-4 w-4' }) {
   const rounded = Math.round(rating);
   return (
-    <span className="inline-flex items-center gap-0.5 text-[#d8a93b]" role="img" aria-label={`${rating} / 5`}>
+    <span className="inline-flex items-center gap-0.5 text-star" role="img" aria-label={`${rating} / 5`}>
       {Array.from({ length: 5 }, (_, i) => (
         <svg key={i} viewBox="0 0 20 20" fill="currentColor" className={`${size} ${i < rounded ? '' : 'opacity-25'}`} aria-hidden="true">
           <path d="M10 1.75l2.55 5.16 5.7.83-4.13 4.03.98 5.68L10 14.77l-5.1 2.68.98-5.68L1.75 7.74l5.7-.83L10 1.75z" />

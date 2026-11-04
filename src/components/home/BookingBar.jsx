@@ -31,7 +31,7 @@ export default function BookingBar() {
     <section className="relative z-20 px-4 sm:px-6 -mt-16 md:-mt-14">
       <form
         onSubmit={submit}
-        className="relative max-w-4xl mx-auto bg-white shadow-[0_20px_50px_rgba(43,32,25,0.18)] p-6 md:p-8 pt-9 md:pt-10 grid grid-cols-2 md:grid-cols-[1.3fr_1fr_auto] gap-x-5 gap-y-4 items-end"
+        className="relative max-w-4xl mx-auto bg-white shadow-raised p-6 md:p-8 pt-9 md:pt-10 grid grid-cols-2 md:grid-cols-[1.3fr_1fr_auto] gap-x-5 gap-y-4 items-end"
         aria-label={t('booking.title')}
       >
         <span className="pointer-events-none absolute inset-1.5 border border-gold/30" aria-hidden="true" />

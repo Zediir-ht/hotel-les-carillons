@@ -11,21 +11,23 @@ const icons = {
 /** Bandeau de réassurance : label, note Google, chambres, équipements. */
 export default function TrustBar({ rating }) {
   const { t, lang } = useLang();
-  const value = (rating ?? SITE.googleRating.value).toLocaleString(lang === 'en' ? 'en-GB' : 'fr-FR', {
+  // Note en direct de l'API Google ; la note figée du site n'est utilisée que si on l'a explicitement autorisée.
+  const shown = rating ?? (SITE.googleRating.useFallback ? SITE.googleRating.value : null);
+  const value = shown?.toLocaleString(lang === 'en' ? 'en-GB' : 'fr-FR', {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   });
 
   const items = [
     { key: 'logis', content: t('trust.logis'), href: logisPageUrl(lang) },
-    { key: 'google', content: `${value}/5 ${t('trust.google')}`, href: LINKS.googleMaps },
+    shown != null && { key: 'google', content: `${value}/5 ${t('trust.google')}`, href: LINKS.googleMaps },
     { key: 'rooms', content: t('trust.rooms') },
     { key: 'parking', content: t('trust.parking') },
-  ];
+  ].filter(Boolean);
 
   return (
     <section className="bg-offwhite pt-12 pb-4 md:pt-14">
-      <ul className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 list-none m-0">
+      <ul className={`max-w-5xl mx-auto px-6 grid grid-cols-2 ${items.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3'} gap-x-6 gap-y-5 list-none m-0`}>
         {items.map((item) => {
           const inner = (
             <span className="flex items-center gap-3 text-sm text-black/80">

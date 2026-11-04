@@ -32,11 +32,11 @@ function RoomCard({ room }) {
         <p className="text-gray-mid text-sm leading-relaxed mb-5">{pick(room.description)}</p>
 
         <dl className="mb-6 text-sm grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
-          <dt className="text-black/50">{t('rooms.ratesLabel')}</dt>
+          <dt className="text-black/65">{t('rooms.ratesLabel')}</dt>
           <dd className="text-black m-0">{priceLabel}</dd>
           {halfBoard.map(([persons, price]) => (
             <div key={persons} className="contents">
-              <dt className="text-black/50">
+              <dt className="text-black/65">
                 {t('rooms.halfBoardLabel')} {persons} {t('rooms.persons')}
               </dt>
               <dd className="text-black/80 m-0">{price} €</dd>

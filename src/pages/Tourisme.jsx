@@ -51,7 +51,7 @@ export default function Tourisme() {
                       sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                       className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <figcaption className="absolute bottom-0 right-0 bg-black/45 text-white/80 text-xs px-2 py-0.5 max-w-full truncate">
+                    <figcaption className="absolute bottom-0 right-0 bg-black/70 text-white text-xs px-2 py-0.5 max-w-full truncate">
                       {t('tourismePage.photoCredit')} : {site.credit.author} · {site.credit.license}
                     </figcaption>
                   </figure>

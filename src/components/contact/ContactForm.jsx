@@ -101,7 +101,7 @@ export default function ContactForm() {
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       {status === 'error' && (
-        <p role="alert" className="text-sm text-red-700">
+        <p role="alert" className="text-sm text-error">
           {f('error')}{' '}
           <a href={SITE.phone.href} className="underline">
             {SITE.phone.display}

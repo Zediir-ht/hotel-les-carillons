@@ -36,7 +36,7 @@ export default function Restaurant() {
           <div className="hero-reveal">
             <p className="eyebrow text-gold mb-5">{r('heroOverline')}</p>
             <h1 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6">
-              {r('heroTitle1')}
+              {r('heroTitle1')}{' '}
               <br />
               <span className="text-gold">{r('heroTitle2')}</span>
             </h1>

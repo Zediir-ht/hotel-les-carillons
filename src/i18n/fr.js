@@ -20,6 +20,8 @@ export default {
     prev: 'Photo précédente',
     next: 'Photo suivante',
     photo: 'Photo',
+    pause: 'Mettre le diaporama en pause',
+    play: 'Reprendre le diaporama',
     close: 'Fermer',
     enlarge: 'Agrandir la photo',
   },

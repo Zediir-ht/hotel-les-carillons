@@ -179,7 +179,7 @@ export default function MenuBook({ tab, onTabChange }) {
         ))}
       </div>
 
-      <OrnateFrame className="bg-white shadow-[0_20px_50px_rgba(75,56,46,0.10)]">
+      <OrnateFrame className="bg-white shadow-card">
         <div id="menu-panel" role="tabpanel" aria-labelledby={`tab-${tab}`} className="px-6 py-14 md:px-16 md:py-16">
           <div key={tab} className={switched ? 'tab-panel-in' : undefined}>
             <TabContent tab={tab} />

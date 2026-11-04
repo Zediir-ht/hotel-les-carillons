@@ -12,30 +12,34 @@ import { useLang } from '../../i18n/LanguageContext';
 export default function Carousel({ slides = [], autoPlay = true, interval = 4500, className = '', aspectRatio = '16/9', sizes = '(min-width: 768px) 60vw, 100vw' }) {
   const { t } = useLang();
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [paused, setPaused] = useState(false); // survol / focus
+  const [userPaused, setUserPaused] = useState(false); // bouton pause, ou navigation à la main
   const touchX = useRef(null);
   const count = slides.length;
 
   const next = useCallback(() => setCurrent((c) => (c + 1) % count), [count]);
   const prev = useCallback(() => setCurrent((c) => (c - 1 + count) % count), [count]);
+  // Dès que le visiteur navigue lui-même, le défilement automatique s'arrête (bouton ▶ pour le reprendre)
+  const userNext = () => { setUserPaused(true); next(); };
+  const userPrev = () => { setUserPaused(true); prev(); };
 
   useEffect(() => {
-    if (!autoPlay || paused || count <= 1 || prefersReducedMotion()) return;
+    if (!autoPlay || paused || userPaused || count <= 1 || prefersReducedMotion()) return;
     const id = setInterval(next, interval);
     return () => clearInterval(id);
-  }, [autoPlay, paused, next, interval, count]);
+  }, [autoPlay, paused, userPaused, next, interval, count]);
 
   if (!count) return null;
 
   const onKeyDown = (e) => {
-    if (e.key === 'ArrowRight') next();
-    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') userNext();
+    if (e.key === 'ArrowLeft') userPrev();
   };
   const onTouchStart = (e) => (touchX.current = e.touches[0].clientX);
   const onTouchEnd = (e) => {
     if (touchX.current == null) return;
     const dx = e.changedTouches[0].clientX - touchX.current;
-    if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+    if (Math.abs(dx) > 40) (dx < 0 ? userNext : userPrev)();
     touchX.current = null;
   };
 
@@ -73,8 +77,8 @@ export default function Carousel({ slides = [], autoPlay = true, interval = 4500
       {count > 1 && (
         <>
           {[
-            { fn: prev, label: t('ui.prev'), side: 'left-3 md:left-4', d: 'M15 19l-7-7 7-7' },
-            { fn: next, label: t('ui.next'), side: 'right-3 md:right-4', d: 'M9 5l7 7-7 7' },
+            { fn: userPrev, label: t('ui.prev'), side: 'left-3 md:left-4', d: 'M15 19l-7-7 7-7' },
+            { fn: userNext, label: t('ui.next'), side: 'right-3 md:right-4', d: 'M9 5l7 7-7 7' },
           ].map((b) => (
             <button
               key={b.label}
@@ -89,13 +93,27 @@ export default function Carousel({ slides = [], autoPlay = true, interval = 4500
             </button>
           ))}
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1">
+          {autoPlay && (
+            <button
+              type="button"
+              onClick={() => setUserPaused((v) => !v)}
+              className="motion-reduce:hidden absolute top-3 right-3 z-20 w-11 h-11 flex items-center justify-center bg-black/35 hover:bg-black/55 text-white border border-white/25 hover:border-gold transition-colors cursor-pointer"
+              aria-label={userPaused ? t('ui.play') : t('ui.pause')}
+              aria-pressed={userPaused}
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                {userPaused ? <path d="M7 4.5v15l13-7.5z" /> : <path d="M6 4h4v16H6zM14 4h4v16h-4z" />}
+              </svg>
+            </button>
+          )}
+
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 flex items-center">
             {slides.map((s, i) => (
               <button
                 key={s.photo}
                 type="button"
-                onClick={() => setCurrent(i)}
-                className="p-1.5 cursor-pointer"
+                onClick={() => { setUserPaused(true); setCurrent(i); }}
+                className="h-11 min-w-7 px-1 flex items-center justify-center cursor-pointer"
                 aria-label={`${t('ui.photo')} ${i + 1} / ${count}`}
                 aria-current={i === current}
               >

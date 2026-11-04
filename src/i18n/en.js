@@ -20,6 +20,8 @@ export default {
     prev: 'Previous photo',
     next: 'Next photo',
     photo: 'Photo',
+    pause: 'Pause slideshow',
+    play: 'Resume slideshow',
     close: 'Close',
     enlarge: 'Enlarge photo',
   },

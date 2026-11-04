@@ -20,7 +20,7 @@ export default function CureCalculator({ floor, weeks, onChange, onRequest }) {
     `px-4 py-3 border text-left transition-colors cursor-pointer ${active ? 'bg-deepbrown text-offwhite border-deepbrown' : 'bg-white text-black/80 border-gold/30 hover:border-gold'}`;
 
   return (
-    <OrnateFrame className="bg-white shadow-[0_20px_50px_rgba(75,56,46,0.10)] max-w-4xl mx-auto">
+    <OrnateFrame className="bg-white shadow-card max-w-4xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-10 p-8 md:p-12">
         <div className="space-y-8">
           <fieldset>

@@ -23,9 +23,10 @@ export const SITE = {
   },
   geo: { lat: 44.5225, lng: 2.2814 },
 
-  // Note Google affichée tant que l'API Google Places n'est pas configurée.
-  // À mettre à jour de temps en temps (fiche Google Maps de l'hôtel).
-  googleRating: { value: 4.4 },
+  // Note Google de secours, affichée seulement si useFallback vaut true ET que l'API Google Places
+  // n'est pas configurée. Laisser false tant que la note n'a pas été vérifiée sur la fiche Google
+  // (une note figée finit par devenir fausse) ; la vraie note s'affiche seule dès que l'API est branchée.
+  googleRating: { value: 4.4, useFallback: false },
 
   checkIn: '15:00',
   checkOut: '11:00',
