@@ -28,3 +28,8 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Skill Impeccable : fichiers locaux (consentement, cache et file d'attente du hook)
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/hook.pending.json
