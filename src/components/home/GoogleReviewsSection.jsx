@@ -24,10 +24,11 @@ function Stars({ rating, size = 'h-4 w-4' }) {
  */
 export default function GoogleReviewsSection({ data }) {
   const { t, lang } = useLang();
-  const rating = data?.rating ?? SITE.googleRating.value;
+  // Note en direct de l'API ; la note figée du site n'est utilisée que si on l'a explicitement autorisée
+  const rating = data?.rating ?? (SITE.googleRating.useFallback ? SITE.googleRating.value : null);
   const reviews = data?.reviews ?? [];
   const mapsUrl = data?.url ?? LINKS.googleMaps;
-  const ratingText = rating.toLocaleString(lang === 'en' ? 'en-GB' : 'fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const ratingText = rating?.toLocaleString(lang === 'en' ? 'en-GB' : 'fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return (
     <section className="bg-offwhite py-20 md:py-28">
@@ -38,18 +39,20 @@ export default function GoogleReviewsSection({ data }) {
 
         <OrnateFrame className="mt-10 mx-auto w-fit bg-white px-12 md:px-16 py-10">
         <div className="flex flex-col items-center gap-3">
-          <p className="flex items-center gap-3">
-            <span className="text-5xl text-black" style={{ fontFamily: 'var(--font-display)' }}>
-              {ratingText}
-            </span>
-            <span className="flex flex-col items-start">
-              <Stars rating={rating} />
-              <span className="text-xs text-gray-mid mt-1">
-                {t('googleReviews.ratingOf')}
-                {data?.count ? ` · ${data.count} ${t('googleReviews.basedOn')}` : ` · ${t('googleReviews.reviewsLabel')}`}
+          {rating != null && (
+            <p className="flex items-center gap-3">
+              <span className="text-5xl text-black" style={{ fontFamily: 'var(--font-display)' }}>
+                {ratingText}
               </span>
-            </span>
-          </p>
+              <span className="flex flex-col items-start">
+                <Stars rating={rating} />
+                <span className="text-xs text-gray-mid mt-1">
+                  {t('googleReviews.ratingOf')}
+                  {data?.count ? ` · ${data.count} ${t('googleReviews.basedOn')}` : ` · ${t('googleReviews.reviewsLabel')}`}
+                </span>
+              </span>
+            </p>
+          )}
           <ul className="flex flex-wrap justify-center gap-2 list-none p-0 m-0 mt-2">
             {t('googleReviews.pillars').map((pillar) => (
               <li key={pillar} className="border border-black/10 bg-white px-3 py-1.5 text-xs text-black/70 tracking-wide">
