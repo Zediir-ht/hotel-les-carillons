@@ -1,0 +1,3 @@
+Skills d'Emil Kowalski (MIT), installées depuis https://emilkowal.ski/skill
+Source : https://github.com/emilkowalski/skill (commit f1090be)
+Pour mettre à jour : recopier le dossier skills/ du dépôt dans .claude/skills/.
