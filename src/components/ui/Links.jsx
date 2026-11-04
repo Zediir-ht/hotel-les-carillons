@@ -53,7 +53,7 @@ export function ButtonLink({ variant = 'gold', size = 'md', className = '', chil
   return (
     <SmartLink
       {...props}
-      className={`inline-flex items-center justify-center gap-2 text-base no-underline transition-colors ${pad} ${variants[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 text-base no-underline press ${pad} ${variants[variant]} ${className}`}
     >
       {children}
     </SmartLink>

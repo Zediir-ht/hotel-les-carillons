@@ -27,6 +27,13 @@
   --font-logo: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
 }
 
+/* Courbes d'animation partagées (à utiliser pour tout nouveau mouvement) */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
 /* Styles de base dans la couche « base » : les classes Tailwind peuvent les surcharger */
 @layer base {
   html {
@@ -113,6 +120,41 @@
   transform: scale(1);
 }
 
+/* Retour d'action : le bouton s'enfonce légèrement quand on appuie (toucher ou clic) */
+.press {
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 150ms,
+    border-color 150ms,
+    color 150ms;
+}
+.press:active {
+  transform: scale(0.97);
+}
+
+/* Menu mobile : entrée 200 ms (fondu + léger glissement), sortie 150 ms (fondu seul).
+   Reste dans la page, masqué, pour pouvoir s'animer à la fermeture. */
+.mobile-menu {
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 150ms var(--ease-out),
+    transform 0s linear 150ms,
+    visibility 0s linear 150ms;
+}
+.mobile-menu[data-open='true'] {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 200ms var(--ease-out),
+    transform 200ms var(--ease-out),
+    visibility 0s;
+}
+
 /* Respect du réglage système « réduire les animations » */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -120,6 +162,16 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  /* Plus doux que « zéro » : on garde le fondu du menu, on retire les déplacements */
+  .mobile-menu,
+  .mobile-menu[data-open='true'] {
+    transform: none !important;
+    transition-duration: 150ms !important;
+  }
+  .press:active {
+    transform: none;
+    opacity: 0.85;
   }
 }
 

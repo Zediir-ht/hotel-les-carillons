@@ -53,7 +53,7 @@ export default function BookingBar() {
             ))}
           </select>
         </label>
-        <button type="submit" className="col-span-2 md:col-span-1 bg-gold hover:bg-gold-dark text-white text-base px-7 py-3.5 transition-colors cursor-pointer whitespace-nowrap">
+        <button type="submit" className="col-span-2 md:col-span-1 bg-gold hover:bg-gold-dark text-white text-base px-7 py-3.5 press cursor-pointer whitespace-nowrap">
           {t('booking.submit')}
         </button>
         <p className="col-span-2 md:col-span-3 text-sm text-gray-mid -mt-1">

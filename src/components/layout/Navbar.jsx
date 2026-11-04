@@ -146,30 +146,32 @@ export default function Navbar() {
           {langButton('px-2.5')}
         </div>
 
-        {menuOpen && (
-          <div id="mobile-menu" className="lg:hidden bg-offwhite border-t border-black/10 h-[calc(100dvh-4rem)] overflow-y-auto">
-            <div className="flex flex-col py-6 px-6 gap-1">
-              {[{ to: '/', label: t('nav.home') }, ...links].map((link) => (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  end
-                  className={({ isActive }) =>
-                    `text-lg py-3.5 border-b border-black/5 no-underline ${isActive ? 'text-gold' : 'text-black/70'}`
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              ))}
-              <a href={SITE.phone.href} className="mt-6 text-base text-black/70 no-underline">
-                {SITE.phone.display}
-              </a>
-              <a href={`mailto:${SITE.email}`} className="text-sm text-black/50 no-underline">
-                {SITE.email}
-              </a>
-            </div>
+        <div
+          id="mobile-menu"
+          data-open={menuOpen}
+          className="mobile-menu lg:hidden absolute top-full inset-x-0 bg-offwhite border-t border-black/10 h-[calc(100dvh-4rem)] overflow-y-auto"
+        >
+          <div className="flex flex-col py-6 px-6 gap-1">
+            {[{ to: '/', label: t('nav.home') }, ...links].map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end
+                className={({ isActive }) =>
+                  `text-lg py-3.5 border-b border-black/5 no-underline ${isActive ? 'text-gold' : 'text-black/70'}`
+                }
+              >
+                {link.label}
+              </NavLink>
+            ))}
+            <a href={SITE.phone.href} className="mt-6 text-base text-black/70 no-underline">
+              {SITE.phone.display}
+            </a>
+            <a href={`mailto:${SITE.email}`} className="text-sm text-black/50 no-underline">
+              {SITE.email}
+            </a>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );
