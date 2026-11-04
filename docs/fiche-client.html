@@ -4,35 +4,37 @@
 <meta charset="utf-8">
 <title>Votre nouveau site — Hôtel Restaurant Les Carillons</title>
 <style>
-  @page { size: A4; margin: 14mm 16mm 14mm; }
+  @page { size: A4; margin: 14mm 16mm 15mm; }
   * { box-sizing: border-box; }
-  body { font: 10.5pt/1.42 "Helvetica Neue", Arial, sans-serif; color: #1c1c1c; margin: 0; }
-  .cover { text-align: center; padding: 8mm 0 6mm; border-bottom: 2px solid #6b2d3a; margin-bottom: 8mm; }
+  body { font: 10.3pt/1.42 "Helvetica Neue", Arial, sans-serif; color: #1c1c1c; margin: 0; }
+  .cover { text-align: center; padding: 8mm 0 6mm; border-bottom: 2px solid #6b2d3a; margin-bottom: 6mm; }
   .cover .small { letter-spacing: .18em; text-transform: uppercase; font-size: 9.5pt; color: #6b2d3a; }
   h1 { font-size: 25pt; margin: 4mm 0 2mm; color: #6b2d3a; font-weight: 600; }
   .cover p { margin: 1mm 0; color: #555; }
   h2 { font-size: 14pt; margin: 6mm 0 2mm; padding-bottom: 1.2mm; border-bottom: 1.5px solid #6b2d3a; color: #6b2d3a; break-after: avoid; }
-  h3 { font-size: 11.5pt; margin: 4mm 0 1mm; break-after: avoid; }
-  p { margin: 1mm 0 2.5mm; }
+  h3 { font-size: 11.3pt; margin: 4mm 0 1mm; break-after: avoid; color: #3b1f27; }
+  p { margin: 1mm 0 2.4mm; }
   ul, ol { margin: 1mm 0 3mm; padding-left: 6mm; }
   li { margin-bottom: 1mm; }
   table { break-inside: avoid; width: 100%; border-collapse: collapse; margin: 2mm 0 3mm; }
-  td, th { border: 1px solid #bbb; padding: 1.8mm 2.5mm; text-align: left; vertical-align: top; }
+  td, th { border: 1px solid #bbb; padding: 1.7mm 2.4mm; text-align: left; vertical-align: top; }
   th { background: #f1ece4; }
   td.r, th.r { text-align: right; white-space: nowrap; }
   .box { border: 1px solid #6b2d3a; background: #faf5ef; padding: 3mm 4mm; margin: 3mm 0; break-inside: avoid; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin: 2mm 0 3mm; }
   .grid .box { margin: 0; }
   .grid h3 { margin-top: 0; }
+  .feat { border: 1px solid #d9cfc2; border-left: 3px solid #6b2d3a; padding: 2.4mm 3.5mm; margin: 2.2mm 0; break-inside: avoid; }
+  .feat h3 { margin: 0 0 1mm; }
+  .feat p { margin: 0 0 1.2mm; }
+  .feat .tag { display: inline-block; font-size: 8.4pt; text-transform: uppercase; letter-spacing: .06em; color: #6b2d3a; margin-right: 1.5mm; font-weight: 700; }
   .q { break-inside: avoid; margin-bottom: 3mm; }
   .q b { color: #6b2d3a; }
   .check { list-style: none; padding: 0; }
   .check li { padding-left: 7mm; position: relative; border-bottom: 0.5px dotted #bbb; padding-top: 1.2mm; padding-bottom: 1.2mm; break-inside: avoid; }
   .check li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 3.8mm; height: 3.8mm; border: 1.2px solid #333; }
   .pb { break-before: page; }
-  .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; margin-top: 4mm; }
-  .sign div { border: 1px solid #999; height: 32mm; padding: 2mm 3mm; font-size: 9.5pt; color: #555; }
-  .foot { margin-top: 8mm; text-align: center; color: #555; font-size: 10pt; }
+  .muted { color: #666; font-size: 9.4pt; }
 </style>
 </head>
 <body>
@@ -40,16 +42,16 @@
 <div class="cover">
   <div class="small">Hôtel Restaurant Les Carillons · Cransac-les-Thermes</div>
   <h1>Votre nouveau site internet</h1>
-  <p>Ce que contient le site, comment il fonctionne, ce que prévoit le devis et l'abonnement</p>
+  <p>Ce que contient le site, ce qu'il fait pour vous, ce que prévoient le devis et l'abonnement</p>
   <p>Document remis à Nathalie, Florian et Assia · par Corentin Mayrand</p>
-  <p>Rendez-vous du ____ / ____ / 2026</p>
+  <p>Rendez-vous du jeudi 5 novembre 2026</p>
 </div>
 
 <h2 style="margin-top:0">Sommaire</h2>
 <ol>
   <li>Le site en bref</li>
   <li>Page par page : ce que vos clients y trouvent</li>
-  <li>Les fonctionnalités</li>
+  <li>Les fonctionnalités en détail</li>
   <li>Ce que vous pouvez faire changer, et comment</li>
   <li>Le devis, poste par poste</li>
   <li>L'abonnement « Sérénité »</li>
@@ -61,51 +63,93 @@
 </ol>
 
 <h2>1. Le site en bref</h2>
-<p>Le nouveau site remplace l'ancien. Il a été entièrement repensé pour mettre en valeur l'hôtel, le restaurant et les meublés, et pour donner envie de réserver.</p>
+<p>Le nouveau site remplace l'ancien. Il a été entièrement repensé pour mettre en valeur l'hôtel, le restaurant et les meublés, et pour donner envie de réserver, en particulier depuis un téléphone.</p>
 <div class="grid">
-  <div class="box"><h3>Une identité à votre image</h3>Style « Belle Époque thermale » : une palette de couleurs chaleureuse, des ornements inspirés de l'architecture thermale, un monogramme « LC », et des photos présentées en forme d'arche.</div>
-  <div class="box"><h3>Français et anglais</h3>Chaque page existe en deux langues, avec un bouton pour passer de l'une à l'autre. Utile pour les voyageurs de passage.</div>
-  <div class="box"><h3>Pensé pour le téléphone</h3>La plupart de vos visiteurs viennent de leur mobile. Le site s'adapte aussi aux tablettes et aux ordinateurs. Sur téléphone, une barre fixe propose trois gestes : Appeler, Itinéraire, Réserver.</div>
-  <div class="box"><h3>Rapide et facile à trouver</h3>Images allégées, pages préparées à l'avance pour que Google les lise bien, informations structurées pour l'hôtel et le restaurant. Cela aide à être bien présenté dans les recherches, sans garantie de position précise.</div>
+  <div class="box"><h3>Une identité à votre image</h3>Style « Belle Époque thermale » : couleurs chaudes (crème, brun, doré), ornements inspirés de l'architecture thermale, monogramme « LC », photos en arche, grands titres élégants. Le même monogramme sert d'icône du site dans l'onglet du navigateur et, à terme, dans Google.</div>
+  <div class="box"><h3>Français et anglais</h3>Chaque page existe dans les deux langues, avec un bouton pour passer de l'une à l'autre. Le choix du visiteur est mémorisé.</div>
+  <div class="box"><h3>Pensé pour le téléphone</h3>La plupart de vos visiteurs viennent de leur mobile. Le site s'adapte au téléphone, à la tablette et à l'ordinateur. Une barre toujours visible en bas du téléphone propose trois gestes : Appeler, Itinéraire, Réserver.</div>
+  <div class="box"><h3>Rapide, lisible, bien rangé</h3>Images allégées et chargées au fur et à mesure, textes d'une taille confortable pour tous les âges, contrastes vérifiés, pages préparées à l'avance pour que Google les lise bien.</div>
 </div>
 
 <h2>2. Page par page</h2>
 <table>
-  <tr><th style="width:24%">Page</th><th>Ce qu'on y trouve</th></tr>
-  <tr><td><b>Accueil</b></td><td>Présentation de la maison et de la famille, barre de réservation, aperçu des chambres, du restaurant et des meublés, avis Google, informations pratiques.</td></tr>
-  <tr><td><b>Hôtel</b></td><td>Les chambres, leurs tarifs, les services, la formule « soirée étape », les informations pratiques (petit-déjeuner, arrivée…).</td></tr>
-  <tr><td><b>Restaurant</b></td><td>La carte à onglets (menus, carte, formules), un bandeau « Aujourd'hui » qui indique ce qui est proposé ce jour-là, et une présentation de l'estofinade, spécialité de la région.</td></tr>
-  <tr><td><b>Meublés</b></td><td>Les appartements Les Cèdres pour les curistes : calculateur de cure (le client estime son séjour), comparatif avec l'hôtel, questions fréquentes, formulaire de demande de réservation.</td></tr>
-  <tr><td><b>Séminaires</b></td><td>Les salles et possibilités d'accueil pour les groupes et les repas d'entreprise.</td></tr>
-  <tr><td><b>Galerie</b></td><td>Les photos de la maison, avec une visionneuse pour les voir en grand.</td></tr>
-  <tr><td><b>Tourisme</b></td><td>Les sites à visiter autour de Cransac, l'agenda local, les marchés.</td></tr>
-  <tr><td><b>Contact</b></td><td>Téléphone, e-mail, adresse, plan d'accès, formulaire de contact.</td></tr>
-  <tr><td><b>Mentions légales</b></td><td>Page obligatoire : identité de l'entreprise, éditeur et hébergeur du site.</td></tr>
+  <tr><th style="width:21%">Page</th><th>Ce qu'on y trouve</th></tr>
+  <tr><td><b>Accueil</b></td><td>Grande photo d'accueil, barre de réservation, bandeau de réassurance (Logis, chambres climatisées, piscine et parking gratuit), présentation de la maison et de la famille, mosaïque « Un établissement complet », chambres, restaurant, section des curistes, meublés, tourisme, avis Google.</td></tr>
+  <tr><td><b>Hôtel</b></td><td>Les 7 types de chambres avec capacité et tarifs 2026, services et équipements, petit-déjeuner, formule « soirée étape », informations pratiques (arrivée, départ, demi-pension, taxe de séjour, parking).</td></tr>
+  <tr><td><b>Restaurant</b></td><td>Carte à quatre onglets (menu du jour, menu du terroir, menu stockfish, à la carte), bandeau « Aujourd'hui », horaires, estofinade, photos des plats.</td></tr>
+  <tr><td><b>Meublés</b></td><td>Les 11 appartements Les Cèdres : calculateur de cure, comparatif avec l'hôtel, photos, infos pratiques, questions fréquentes, formulaire de demande.</td></tr>
+  <tr><td><b>Séminaires</b></td><td>La salle jusqu'à 40 personnes, ses équipements, les autres salles (grande salle, véranda), demande de devis.</td></tr>
+  <tr><td><b>Galerie</b></td><td>Les photos de la maison, classées par catégorie, avec une visionneuse plein écran.</td></tr>
+  <tr><td><b>Tourisme</b></td><td>Huit sites à visiter autour de Cransac, agenda local (marchés, animations), crédits des photos.</td></tr>
+  <tr><td><b>Contact</b></td><td>Formulaire, coordonnées, plan d'accès, itinéraire, réservation en ligne.</td></tr>
+  <tr><td><b>Mentions légales</b></td><td>Page obligatoire : identité de l'entreprise, éditeur et hébergeur du site, cookies, propriété intellectuelle.</td></tr>
 </table>
+<p class="muted">Le site compte donc 9 pages, comme prévu au devis, plus une page d'erreur (404) aux couleurs de l'hôtel si un visiteur tape une mauvaise adresse.</p>
 
-<h2>3. Les fonctionnalités</h2>
-<ul>
-  <li><b>Réservation :</b> la barre de réservation envoie le client vers votre moteur de réservation Logis, que vous utilisez déjà. Rien ne change dans votre façon de gérer vos réservations.</li>
-  <li><b>Calculateur de cure :</b> un curiste voit tout de suite le coût d'une semaine ou trois semaines en meublé, selon l'étage. Moins de questions au téléphone.</li>
-  <li><b>Formulaires :</b> demande de réservation d'un meublé et contact. Les messages arrivent directement sur l'adresse e-mail que vous choisissez.</li>
-  <li><b>Carte du restaurant à onglets :</b> lisible sur téléphone, plus agréable qu'un PDF.</li>
-  <li><b>Bandeau « Aujourd'hui » :</b> le client voit si le restaurant est ouvert et ce qui est proposé.</li>
-  <li><b>Avis Google :</b> la note et les derniers avis de votre fiche Google s'affichent sur le site et se mettent à jour d'eux-mêmes (voir §9).</li>
-  <li><b>Galerie :</b> photos agrandissables d'un geste.</li>
-  <li><b>Accessibilité :</b> textes lisibles, contrastes, navigation possible au clavier.</li>
-</ul>
+<h2 class="pb">3. Les fonctionnalités en détail</h2>
+<p>Pour chaque fonction : ce que voit votre client, et ce que cela change pour vous.</p>
+
+<div class="feat"><h3>3.1 Réserver une chambre</h3>
+  <p><span class="tag">Client</span>Sur l'accueil, la barre de réservation demande une date d'arrivée et un nombre de nuits (de 1 à 21, dont 18 et 21 nuits, durées de cure). Un clic ouvre votre moteur de réservation Logis, déjà rempli, avec les chambres disponibles et leurs prix en direct. Tous les boutons « Réserver » du site mènent au même moteur, dans la langue du visiteur.</p>
+  <p><span class="tag">Pour vous</span>Rien ne change dans votre façon de gérer vos réservations : elles arrivent comme aujourd'hui par Logis. Le site ne gère pas lui-même les disponibilités.</p></div>
+
+<div class="feat"><h3>3.2 Le téléphone, toujours à portée de pouce</h3>
+  <p><span class="tag">Client</span>Sur mobile, une barre fixe en bas de l'écran propose « Appeler », « Itinéraire » (ouvre Google Maps) et « Réserver ». C'est le moyen le plus rapide de vous joindre, quelle que soit la page.</p></div>
+
+<div class="feat"><h3>3.3 Meublés : calculateur de cure et demande de dates</h3>
+  <p><span class="tag">Client</span>Le curiste choisit l'étage (rez-de-chaussée 195 €, 1<sup>er</sup> étage 190 €, 2<sup>e</sup> étage 185 € la semaine) et la durée (1 à 4 semaines, trois semaines étant la durée d'une cure). Le total s'affiche aussitôt : par exemple 585 € pour trois semaines au rez-de-chaussée, taxe de séjour en sus. Un bouton « Demander ces dates » ouvre un formulaire déjà pré-rempli (étage, durée), avec arrivée, nombre de personnes et une case « sans escalier ».</p>
+  <p><span class="tag">Client</span>Un tableau « Hôtel ou meublé ? » compare les deux formules, et six questions fréquentes répondent aux interrogations habituelles (prix pour trois semaines, durée minimale, linge, piscine, repas au restaurant, comment réserver).</p>
+  <p><span class="tag">Pour vous</span>Moins de questions au téléphone : le client voit le prix avant de vous contacter, et vous recevez par e-mail une demande complète.</p></div>
+
+<div class="feat"><h3>3.4 Restaurant : la carte, et le bandeau « Aujourd'hui »</h3>
+  <p><span class="tag">Client</span>La carte est organisée en quatre onglets : menu du jour (17 €, ¼ de vin et café compris), menu du terroir (dès 26 €), menu stockfish (30 €) et plats à la carte. Elle se lit confortablement sur téléphone, bien mieux qu'un fichier PDF.</p>
+  <p><span class="tag">Client</span>Un bandeau « Aujourd'hui » se met à jour tout seul chaque jour : ouvert le midi et le soir, ouvert le samedi (menu du terroir et carte sur réservation), fermé le dimanche (sauf curistes et randonneurs), jour férié (pas de menu du jour). Il annonce aussi le jeudi à thème : 1<sup>er</sup> jeudi tête de veau, 2<sup>e</sup> poule farcie, 3<sup>e</sup> choux farcis, 4<sup>e</sup> aligot saucisse à l'ail des ours, pas de thème le 5<sup>e</sup> jeudi.</p>
+  <p><span class="tag">Pour vous</span>Les jours fériés (dont Pâques, l'Ascension et la Pentecôte) sont calculés automatiquement. Vos fermetures exceptionnelles (congés annuels) sont à me communiquer : je les ajoute dans l'heure mensuelle comprise.</p></div>
+
+<div class="feat"><h3>3.5 Hôtel : chambres, soirée étape, séminaires</h3>
+  <p><span class="tag">Client</span>Chaque type de chambre (simple, petite double, double, triple ou twin, suite familiale, familiale, PMR) est présenté avec sa capacité, ses équipements et son tarif 2026 par nuit, avec le prix de la demi-pension. La formule « soirée étape » (dîner, nuit, petit-déjeuner) et la page des séminaires (salle jusqu'à 40 personnes, écran tactile, Wi-Fi, accessible PMR) proposent chacune un bouton de demande de devis.</p>
+  <p><span class="tag">Pour vous</span>Les demandes de groupe, de soirée étape et de banquet arrivent par e-mail, avec le sujet déjà indiqué.</p></div>
+
+<div class="feat"><h3>3.6 Galerie et visionneuse</h3>
+  <p><span class="tag">Client</span>51 photos, filtrables par catégorie (chambres, restaurant et bar, piscine et extérieurs, meublés, salles et banquets). Un clic ouvre la photo en grand : on passe à la suivante avec les flèches du clavier ou en balayant du doigt, et on ferme avec Échap ou en touchant le fond.</p></div>
+
+<div class="feat"><h3>3.7 Tourisme : donner envie de rester</h3>
+  <p><span class="tag">Client</span>Huit sites à visiter autour de Cransac (Conques, Belcastel, Rodez, Figeac, Aubin, Millau, Najac, Villefranche-de-Rouergue) avec distance et lien, un agenda local (marché du samedi, marchés de producteurs, animations) et les crédits photo exigés par les licences.</p></div>
+
+<div class="feat"><h3>3.8 Formulaire de contact</h3>
+  <p><span class="tag">Client</span>Cinq motifs au choix (chambre, table, meublé, groupe ou banquet, autre), nom, e-mail, téléphone, dates, nombre de personnes et message. Un message de confirmation s'affiche à l'envoi. Un piège invisible écarte les robots.</p>
+  <p><span class="tag">Pour vous</span>Le message arrive directement dans la boîte e-mail que vous choisirez. Tant que cette adresse n'est pas branchée, le formulaire ouvre la messagerie du visiteur avec le message pré-rempli : il fonctionne dans tous les cas.</p></div>
+
+<div class="feat"><h3>3.9 Français / anglais</h3>
+  <p><span class="tag">Client</span>Un bouton « EN / FR » en haut de chaque page traduit tout le site, y compris les menus, les tarifs, les formulaires et les messages. Le moteur de réservation s'ouvre aussi dans la langue choisie.</p></div>
+
+<div class="feat"><h3>3.10 Avis Google</h3>
+  <p><span class="tag">Client</span>Une section affiche la note de l'hôtel et ses derniers avis, avec les boutons « Lire tous les avis » et « Laisser un avis » vers votre fiche Google. Les avis sont ceux de Google, jamais inventés.</p>
+  <p><span class="tag">Pour vous</span>Ce branchement demande un accès gestionnaire à votre fiche Google (voir §9). En attendant, la section n'affiche aucune note : je préfère ne rien montrer plutôt qu'un chiffre qui deviendrait faux. Une fois branchée, la note et les trois derniers avis se mettent à jour une fois par jour.</p></div>
+
+<div class="feat"><h3>3.11 Être trouvé sur Google</h3>
+  <p><span class="tag">Pour vous</span>Chaque page a son titre et sa description pour les résultats de recherche. Des « données structurées » décrivent l'hôtel, le restaurant et les questions fréquentes dans le langage de Google. Un plan du site liste les 9 pages, et les anciennes adresses importantes sont redirigées vers les nouvelles. L'icône du site (le monogramme « LC ») apparaîtra dans Google après la mise en ligne, avec un délai qui dépend de Google (souvent quelques jours, parfois plusieurs semaines). Je ne peux garantir aucune position précise dans les résultats.</p></div>
+
+<div class="feat"><h3>3.12 Confort de lecture et accessibilité</h3>
+  <p><span class="tag">Client</span>Textes d'une taille confortable pour la clientèle senior, contrastes vérifiés selon la norme d'accessibilité (WCAG AA), navigation possible au clavier, compatibilité avec les lecteurs d'écran, respect du réglage « réduire les animations » du téléphone ou de l'ordinateur, texte agrandissable.</p></div>
+
+<div class="feat"><h3>3.13 Respect de la vie privée</h3>
+  <p><span class="tag">Client</span>Le site n'utilise ni cookie publicitaire ni outil de mesure d'audience : pas de bandeau de consentement à cliquer. Seule la langue choisie est mémorisée. La carte Google de la page Contact ne se charge que si le visiteur clique sur « Afficher la carte ».</p>
+  <p><span class="tag">Pour vous</span>Contrepartie : le site ne vous donne pas de statistiques de fréquentation. Si cela vous intéresse, c'est un ajout possible, sur devis.</p></div>
+
+<div class="box"><h3>Ce que le site ne fait pas (aujourd'hui)</h3>
+  <p style="margin:0">Il ne prend pas de paiement en ligne, n'a pas son propre moteur de réservation (il utilise celui de Logis), n'a pas d'espace d'administration pour que vous le modifiiez vous-mêmes, et n'inclut ni lettre d'information, ni blog, ni messagerie instantanée, ni statistiques de fréquentation. Chacun de ces points peut être ajouté plus tard, sur devis.</p></div>
 
 <h2>4. Ce que vous pouvez faire changer</h2>
 <p>Vous n'avez rien à apprendre : vous me dites ce qui change, je mets le site à jour.</p>
 <table>
-  <tr><th style="width:42%">Vous voulez changer…</th><th>Comment</th></tr>
+  <tr><th style="width:44%">Vous voulez changer…</th><th>Comment</th></tr>
   <tr><td>Menus, carte, prix du restaurant</td><td>Vous m'écrivez ou m'appelez : inclus dans l'heure mensuelle de l'abonnement</td></tr>
   <tr><td>Tarifs des chambres et des meublés, horaires, fermetures</td><td>Idem</td></tr>
   <tr><td>Une photo, un texte</td><td>Idem</td></tr>
   <tr><td>Une nouvelle page, une nouvelle fonction</td><td>Je vous fais un devis avant de commencer</td></tr>
 </table>
-<div class="box"><b>Exemple concret :</b> changer la carte du restaurant pour la saison prend en général une vingtaine de minutes. Vous pouvez donc faire plusieurs petites modifications dans le mois sans dépasser l'heure comprise.</div>
-<p>Il n'y a pas d'espace d'administration à manipuler : c'est un choix de simplicité et de sécurité. Vous n'avez rien à craindre d'une fausse manipulation.</p>
+<div class="box"><b>Exemple concret :</b> changer la carte du restaurant pour la saison prend en général une vingtaine de minutes : vous pouvez faire plusieurs petites modifications dans le mois sans dépasser l'heure comprise. Le site n'a pas d'outil d'édition à manipuler : c'est un choix de simplicité et de sécurité, et vous ne risquez aucune fausse manipulation.</div>
 
 <h2>5. Le devis, poste par poste</h2>
 <p>Devis n° D-2026-012, établi le 20 octobre 2026, valable jusqu'au <b>19 novembre 2026</b>.</p>
@@ -120,8 +164,6 @@
   <tr><th colspan="2">Total de la création du site</th><th class="r">950 €</th></tr>
 </table>
 <p><b>Pas de TVA :</b> je suis en micro-entreprise (TVA non applicable, article 293 B du CGI). Le prix indiqué est le prix que vous payez.</p>
-
-<h3>Comment se paie la création</h3>
 <table>
   <tr><td>À la signature : acompte de 30 %</td><td class="r"><b>285 €</b></td></tr>
   <tr><td>À la mise en ligne : solde</td><td class="r"><b>665 €</b></td></tr>
@@ -148,8 +190,6 @@
     </ul></div>
 </div>
 <p><b>Sans engagement :</b> vous pouvez arrêter à tout moment, l'abonnement s'arrête à la fin du mois en cours. Vous récupérez alors <b>tous les fichiers de votre site</b>. L'abonnement démarre à la mise en ligne, et se paie par virement ou prélèvement.</p>
-
-<h3>Ce que cela représente sur une année</h3>
 <table>
   <tr><th></th><th class="r">1<sup>re</sup> année</th><th class="r">Années suivantes</th></tr>
   <tr><td>Création du site</td><td class="r">950 €</td><td class="r">—</td></tr>
@@ -161,7 +201,7 @@
 <h2>7. À qui appartient quoi</h2>
 <ul>
   <li><b>Le site, ses textes et sa conception</b> deviennent votre propriété après paiement intégral.</li>
-  <li><b>Les photos</b> restent la propriété de leurs auteurs. Vous m'avez fourni les vôtres : assurez-vous simplement d'avoir le droit de les publier.</li>
+  <li><b>Les photos</b> restent la propriété de leurs auteurs. Vous m'avez fourni les vôtres : assurez-vous simplement d'avoir le droit de les publier. Les photos des sites touristiques viennent de sources libres, créditées sur la page des mentions légales.</li>
   <li><b>Le nom de domaine</b> doit rester à votre nom. Je m'occupe de la partie technique, vous gardez la main sur le contrat avec le registrar.</li>
   <li><b>La fiche Google</b> reste la vôtre. J'ai seulement besoin d'un accès « gestionnaire » pour la connecter au site.</li>
   <li><b>En cas d'arrêt</b> de l'abonnement, vous repartez avec tous les fichiers du site, que n'importe quel développeur pourra reprendre.</li>
@@ -169,22 +209,20 @@
 
 <h2>8. Calendrier et ce dont j'ai besoin de vous</h2>
 <p>Le site est prêt à être mis en ligne dès que j'ai reçu les éléments ci-dessous. Date de mise en ligne visée : <b>____ / ____ / 2026</b>. Pour tout recevoir avant le : <b>____ / ____ / 2026</b>.</p>
-
 <h3>Indispensable pour la mise en ligne</h3>
 <ul class="check">
-  <li><b>Informations légales :</b> raison sociale et forme juridique, SIRET, numéro de TVA, nom du directeur de la publication (obligatoires sur la page « Mentions légales »)</li>
+  <li><b>Informations légales :</b> raison sociale et forme juridique, SIRET, numéro de TVA, nom du directeur de la publication (obligatoires sur la page « Mentions légales », qui reste incomplète tant qu'ils manquent)</li>
   <li><b>Nom de domaine lescarillons.fr :</b> qui le gère, chez quel prestataire, accès</li>
   <li><b>Adresse e-mail</b> qui recevra les demandes du site (par exemple contact@lescarillons.fr)</li>
   <li><b>Fiche Google :</b> un accès « gestionnaire » pour me connecter (voir §9)</li>
 </ul>
-
 <h3>Pour que les pages soient exactes</h3>
 <ul class="check">
   <li><b>Restaurant :</b> origine de la viande bovine, allergènes, heures de service, fermetures annuelles, menus et prix à jour</li>
-  <li><b>Hôtel :</b> tarifs 2026, horaires du petit-déjeuner, arrivée tardive, animaux acceptés ?</li>
-  <li><b>Meublés :</b> surface, couchage, jour d'arrivée et de départ, parking, ménage, caution, taxe de séjour, tarifs 2026</li>
+  <li><b>Hôtel :</b> tarifs 2026 à confirmer, horaires du petit-déjeuner, arrivée tardive, animaux acceptés ?</li>
+  <li><b>Meublés :</b> surface, couchage, jour d'arrivée et de départ, parking, ménage, caution, taxe de séjour (ces rubriques s'afficheront d'elles-mêmes dès que vous me les donnez)</li>
+  <li><b>Logo officiel</b> de l'hôtel en haute qualité (fichier vectoriel si possible) : l'icône actuelle est faite à partir du monogramme du site, à remplacer par votre vrai logo si vous en avez un</li>
   <li><b>Réseaux sociaux :</b> adresses de vos pages Facebook / Instagram, si vous en avez</li>
-  <li><b>Logo</b> en haute qualité (fichier vectoriel si possible)</li>
 </ul>
 
 <h2>9. La fiche Google de l'hôtel</h2>
@@ -192,30 +230,22 @@
 <h3>Ce que je vous propose</h3>
 <ul>
   <li><b>Vérifier ensemble</b> que les informations sont à jour : horaires, téléphone, adresse du site, catégories, photos, description.</li>
-  <li><b>Me donner un accès « gestionnaire »</b> à la fiche (vous gardez le rôle de propriétaire). Depuis business.google.com, onglet des utilisateurs, ajouter mon adresse e-mail.</li>
+  <li><b>Me donner un accès « gestionnaire »</b> à la fiche (vous gardez le rôle de propriétaire) : depuis business.google.com, onglet des utilisateurs, ajouter mon adresse e-mail.</li>
   <li><b>Afficher vos avis Google sur le site</b> automatiquement : la note et les derniers avis, mis à jour une fois par jour.</li>
 </ul>
 <div class="box"><b>Bon réflexe :</b> répondre aux avis, même brièvement et même aux critiques, montre aux futurs clients que la maison est attentive. Décidons ensemble qui s'en charge chez vous.</div>
 <p>Le branchement des avis demande une clé technique gratuite chez Google (un compte avec une carte bancaire est exigé par Google, mais l'usage prévu reste dans le quota gratuit). Je m'occupe des démarches, nous choisirons ensemble le compte à utiliser.</p>
 
 <h2>10. Questions fréquentes</h2>
-
 <div class="q"><b>Pourquoi un abonnement en plus de la création ?</b><br>La création est un travail ponctuel. L'abonnement couvre ce qui est continu : l'hébergement, la sécurité, les sauvegardes, la surveillance et les petites modifications. Il est sans engagement.</div>
-
 <div class="q"><b>Et si je n'utilise pas mon heure du mois ?</b><br>Elle est prévue pour les modifications courantes. Si vous n'avez rien à changer un mois-là, vous n'avez rien à faire.</div>
-
 <div class="q"><b>Pourrons-nous modifier le site nous-mêmes ?</b><br>Non, il n'y a pas d'outil d'édition à manipuler : vous me transmettez vos changements et je m'en charge. C'est plus simple et plus sûr.</div>
-
 <div class="q"><b>Les réservations changent-elles ?</b><br>Non. Les clients sont dirigés vers votre moteur de réservation Logis, comme aujourd'hui.</div>
-
+<div class="q"><b>Pourquoi la note Google n'apparaît-elle pas encore ?</b><br>Parce qu'elle doit venir de Google en direct, pas d'un chiffre écrit à la main. Elle s'affichera dès que votre fiche sera connectée au site.</div>
 <div class="q"><b>Que devient l'ancien site ?</b><br>Les anciennes adresses importantes sont redirigées vers les nouvelles pages, pour ne pas perdre vos visiteurs ni votre place sur Google.</div>
-
 <div class="q"><b>Et si je veux arrêter ?</b><br>Vous prévenez, l'abonnement s'arrête à la fin du mois. Vous récupérez tous les fichiers de votre site.</div>
-
 <div class="q"><b>Et si je veux ajouter une page ou une fonction plus tard ?</b><br>Je vous établis un devis avant de commencer, sans surprise.</div>
-
 <div class="q"><b>Le site sera-t-il premier sur Google ?</b><br>Personne ne peut le garantir. Le site est construit pour être bien compris par Google, et une fiche Google à jour renforce encore votre visibilité locale.</div>
-
 <div class="q"><b>Comment accepter le devis ?</b><br>Sur la dernière page du devis : date, nom, signature, cachet et mention manuscrite « Bon pour accord ». La signature vaut acceptation de la création <b>et</b> de l'abonnement. Le devis est valable jusqu'au 19 novembre 2026.</div>
 
 <h2>11. Pour me joindre</h2>
@@ -226,10 +256,9 @@ Téléphone : 06 32 91 53 77 · E-mail : corentin.mayrand@gmail.com<br>
 Réponse sous 48 h ouvrées.
 </div>
 
-<p style="margin-top:6mm"><b>Vos remarques, souhaits et questions :</b></p>
+<p style="margin-top:5mm"><b>Vos remarques, souhaits et questions :</b></p>
 <div style="border-bottom:0.7px solid #888;height:7mm"></div>
 <div style="border-bottom:0.7px solid #888;height:7mm"></div>
-
-
+<div style="border-bottom:0.7px solid #888;height:7mm"></div>
 </body>
 </html>

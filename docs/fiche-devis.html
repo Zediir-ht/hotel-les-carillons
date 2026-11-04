@@ -28,7 +28,7 @@
 <body>
 
 <h1>Devis D-2026-012 — anticiper les questions</h1>
-<p class="sub">Refonte du site + abonnement « Sérénité » · établi le 20/10/2026 · valable jusqu'au <b>19/11/2026</b></p>
+<p class="sub">Refonte du site + abonnement « Sérénité » · établi le 20/10/2026 · valable jusqu'au <b>19/11/2026</b> · pour le rendez-vous du jeudi 5 novembre 2026 · mise à jour du 4 novembre</p>
 
 <h2>1. Le devis en un coup d'œil</h2>
 <table>
@@ -91,6 +91,27 @@
 <div class="q"><b class="qq">« On pourra modifier le site nous-mêmes ? »</b>
 <div class="a">Non, pas de back-office : toute modification passe par moi (dans l'heure mensuelle incluse). C'est un choix de simplicité et de sécurité ; à dire clairement pour éviter un malentendu.</div></div>
 
+<div class="q"><b class="qq">« Pourquoi la note Google n'apparaît-elle pas sur le site ? »</b>
+<div class="a">Parce qu'un chiffre écrit à la main finit par devenir faux. La note et les avis viennent de Google en direct et s'afficheront dès que leur fiche sera connectée (accès gestionnaire + clé Google, que je mets en place). D'ici là, la section ne montre que les boutons « Lire les avis » et « Laisser un avis ».</div></div>
+
+<div class="q"><b class="qq">« Peut-on voir combien de personnes visitent le site ? »</b>
+<div class="a">Pas dans la version actuelle : le site n'utilise aucun outil de mesure d'audience, donc pas de bandeau cookies à cliquer. C'est un choix de simplicité et de respect de la vie privée. Si l'hôtel veut des statistiques, c'est un ajout possible, sur devis.</div></div>
+
+<h3 style="margin:4mm 0 1mm;font-size:11.5pt;color:#6b2d3a;break-after:avoid">Fonctionnalités : qu'est-ce qui est inclus dans le devis ?</h3>
+<table>
+  <tr><th style="width:42%">Fonctionnalité</th><th style="width:16%">Dans le devis ?</th><th>Précision à donner</th></tr>
+  <tr><td>Barre de réservation + boutons « Réserver » (moteur Logis)</td><td>Oui</td><td>Ligne « Fonctionnalités ». Ils continuent de gérer leurs réservations dans Logis.</td></tr>
+  <tr><td>Calculateur de cure et demande de dates (meublés)</td><td>Oui</td><td>Ligne « Fonctionnalités ».</td></tr>
+  <tr><td>Carte du restaurant à onglets, bandeau « Aujourd'hui »</td><td>Oui</td><td>Les fermetures exceptionnelles sont ajoutées dans l'heure mensuelle.</td></tr>
+  <tr><td>Galerie avec visionneuse</td><td>Oui</td><td></td></tr>
+  <tr><td>Avis Google sur le site</td><td>Oui</td><td>Demande un accès à leur fiche et une clé Google (démarches par moi, coût Google normalement nul).</td></tr>
+  <tr><td>Français / anglais, mobile et tablette, accessibilité</td><td>Oui</td><td>Ligne « Développement du site » et « Intégration des contenus » (traduction anglaise).</td></tr>
+  <tr><td>Formulaires de contact et de demande</td><td>Oui</td><td>Branchés sur l'adresse e-mail qu'ils choisissent.</td></tr>
+  <tr><td>Référencement de base (données structurées, plan du site, redirections)</td><td>Oui</td><td>Aucune promesse de position dans Google.</td></tr>
+  <tr><td>Icône du site (favicon)</td><td>Oui, provisoire</td><td>Faite avec le monogramme « LC ». Avec un logo officiel, je la refais. <b>À toi de décider si c'est inclus.</b></td></tr>
+  <tr><td>Paiement en ligne, moteur de réservation propre, espace d'administration, lettre d'information, blog, messagerie instantanée, statistiques de visites, autre langue, nouvelles pages</td><td>Non</td><td>Sur devis, chiffré avant de commencer.</td></tr>
+</table>
+
 <h2>4. Calendrier et signature</h2>
 <div class="q"><b class="qq">« Quand le site est-il en ligne ? »</b>
 <div class="a">Le devis dit « dès la signature ». En pratique, ça dépend de ce qu'ils me fournissent : informations légales (SIRET, TVA…), accès domaine, e-mail des formulaires, accès fiche Google, réponses restaurant / meublés. <b>Proposer une date de mise en ligne jeudi</b> et un délai limite pour ces éléments.</div></div>
@@ -117,7 +138,7 @@
 <div class="warn">
 <b>Points sur lesquels le devis peut te mettre en difficulté :</b>
 <ul>
-  <li><b>Hébergement Cloudflare :</b> l'offre gratuite de Cloudflare Pages permet en principe un usage commercial (à confirmer sur leur page de tarifs et leurs conditions). Le site actuel est configuré pour Vercel : il faut l'adapter à Cloudflare (redirections, en-têtes, fonction des avis Google) et le tester <b>avant</b> la mise en ligne. Prévois ce temps de travail.</li>
+  <li><b>Hébergement (Vercel ou Cloudflare) :</b> le site est aujourd'hui configuré pour <b>Vercel</b> (redirections, en-têtes, fonction des avis Google). À ma connaissance, l'offre gratuite de Vercel (« Hobby ») est réservée à un usage non commercial : à vérifier sur leur page de tarifs. Si une formule payante est nécessaire, son coût doit rentrer dans les 19 €/mois, sinon tu travailles à perte. L'alternative Cloudflare Pages (gratuite, usage commercial en principe autorisé, à confirmer) demande d'adapter le code et de le tester avant la mise en ligne : environ une demi-journée. <b>Décide avant jeudi ou dis que tu tranches sous quelques jours.</b></li>
   <li><b>Cohérence des dates :</b> « mise en ligne dès la signature » et « solde à la mise en ligne » : décide si le site est mis en ligne avant ou après réception du solde, et dis-le.</li>
   <li><b>Heure mensuelle non reportable ?</b> Le devis ne le précise pas : décide ta règle avant qu'ils posent la question.</li>
   <li><b>Photos du tourisme :</b> certaines viennent de Wikimedia Commons ; vérifie les licences / mentions d'auteur à afficher avant la mise en ligne.</li>
@@ -134,9 +155,5 @@
   <li>« Pour mettre en ligne, j'ai besoin de quatre accès : fiche Google, domaine, e-mail des formulaires, informations légales. »</li>
 </ul>
 
-<p style="margin-top:5mm"><b>Notes pendant le rendez-vous :</b></p>
-<div style="border-bottom:0.7px solid #888;height:7mm"></div>
-<div style="border-bottom:0.7px solid #888;height:7mm"></div>
-<div style="border-bottom:0.7px solid #888;height:7mm"></div>
 </body>
 </html>

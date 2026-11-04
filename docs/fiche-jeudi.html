@@ -6,7 +6,7 @@
 <style>
   @page { size: A4; margin: 14mm 14mm 16mm; }
   * { box-sizing: border-box; }
-  body { font: 10.5pt/1.4 "Helvetica Neue", Arial, sans-serif; color: #1c1c1c; margin: 0; }
+  body { font: 10.3pt/1.4 "Helvetica Neue", Arial, sans-serif; color: #1c1c1c; margin: 0; }
   h1 { font-size: 20pt; margin: 0 0 2mm; color: #6b2d3a; }
   h2 { font-size: 13pt; margin: 6mm 0 2mm; padding-bottom: 1mm; border-bottom: 1.5px solid #6b2d3a; color: #6b2d3a; break-after: avoid; }
   h3 { font-size: 11pt; margin: 4mm 0 1mm; break-after: avoid; }
@@ -19,10 +19,11 @@
   .ans { display: inline-block; min-width: 45mm; border-bottom: 0.7px solid #888; height: 4mm; vertical-align: bottom; margin-left: 2mm; }
   ol { margin: 1mm 0 2mm; padding-left: 6mm; }
   ol li { margin-bottom: 1.2mm; }
+  ul { margin: 1mm 0 2mm; padding-left: 5mm; }
   code { background: #f1ece4; padding: 0 1mm; border-radius: 1mm; font-size: 9.5pt; }
   .box { border: 1px solid #6b2d3a; background: #faf5ef; padding: 2.5mm 3.5mm; margin: 2mm 0 3mm; break-inside: avoid; }
   .warn { border-left: 3px solid #c0392b; background: #fdf0ee; padding: 2mm 3mm; margin: 2mm 0; break-inside: avoid; }
-  table { width: 100%; border-collapse: collapse; margin: 1mm 0 3mm; }
+  table { width: 100%; border-collapse: collapse; margin: 1mm 0 3mm; break-inside: avoid; }
   td, th { border: 1px solid #bbb; padding: 1.5mm 2mm; text-align: left; vertical-align: top; }
   th { background: #f1ece4; }
   .pb { break-before: page; }
@@ -32,20 +33,52 @@
 </head>
 <body>
 
-<h1>Rendez-vous Les Carillons — jeudi</h1>
-<p class="sub">Hôtel Restaurant Les Carillons, Cransac-les-Thermes · Date : ____ / ____ / 2026 · Heure : ______ · Avec : ____________________</p>
+<h1>Rendez-vous Les Carillons : jeudi 5 novembre 2026</h1>
+<p class="sub">Hôtel Restaurant Les Carillons, Cransac-les-Thermes · Heure : ______ · Avec : ____________________ · Fiche mise à jour le 4 novembre 2026</p>
 
 <h2>0. À apporter</h2>
 <ul class="check two">
   <li>Ordinateur chargé + chargeur</li>
-  <li>Le site en local (<code>npm run dev</code>) ou en ligne, pour montrer les arches</li>
-  <li>Téléphone (photos de l'estofinade et de la chambre triple)</li>
-  <li>Clé USB / accès cloud pour récupérer photos et documents</li>
+  <li><b>Téléphone chargé</b> : la démo se fait surtout sur mobile</li>
+  <li>Le site ouvert et testé la veille (accueil, restaurant, meublés)</li>
+  <li><b>La fiche explicative</b> (9 pages) en 2 exemplaires</li>
+  <li><b>Le devis D-2026-012</b> en 2 exemplaires, signable sur place</li>
   <li>Cette fiche + un stylo</li>
+  <li>Clé USB / accès cloud pour récupérer photos et documents</li>
   <li>Un Kbis ou une facture de l'hôtel sous la main (SIRET, TVA)</li>
 </ul>
 
-<h2>1. Les 4 accès à obtenir en priorité</h2>
+<h2>1. Déroulé conseillé (environ 45 minutes)</h2>
+<table>
+  <tr><th style="width:22%">Étape</th><th>Quoi faire / dire</th></tr>
+  <tr><td><b>1. Accueil</b><br>2 min</td><td>Rappeler le but : montrer le site, répondre aux questions sur le devis, récupérer les accès et les informations manquantes.</td></tr>
+  <tr><td><b>2. Démonstration</b><br>15 min</td><td>Voir §2 ci-dessous : montrer le site <b>sur téléphone</b>, dans l'ordre. Laisser Nathalie, Florian ou Assia manipuler elle-même ou lui-même.</td></tr>
+  <tr><td><b>3. Fiche et devis</b><br>8 min</td><td>Remettre la fiche explicative. Parcourir §5 (devis) et §6 (abonnement). Insister sur : sans engagement, fichiers récupérables, 1 h de modifications par mois, propriété du site.</td></tr>
+  <tr><td><b>4. Accès et informations</b><br>15 min</td><td>Dans l'ordre de priorité : accès Google, domaine, e-mail des formulaires, informations légales (§3 à §6 de cette fiche).</td></tr>
+  <tr><td><b>5. Conclusion</b><br>5 min</td><td>Fixer la date de mise en ligne, la date limite pour recevoir ce qui manque, l'interlocuteur. Signature du devis si possible.</td></tr>
+</table>
+
+<h2>2. La démonstration, étape par étape</h2>
+<table>
+  <tr><th style="width:22%">Page</th><th>À montrer et à dire</th></tr>
+  <tr><td><b>Accueil</b></td><td>Photo d'accueil, <b>barre de réservation</b> (choisir une date et 21 nuits : le moteur Logis s'ouvre déjà rempli), bandeau Logis, <b>mosaïque « Un établissement complet »</b> (survol : la tuile se soulève). Sur téléphone : la <b>barre Appeler / Itinéraire / Réserver</b> en bas.</td></tr>
+  <tr><td><b>Restaurant</b></td><td>Le <b>bandeau « Aujourd'hui »</b> (il change tout seul, calcule les jours fériés et annonce le jeudi à thème), les <b>4 onglets</b> de la carte, le bouton « Réserver par téléphone ».</td></tr>
+  <tr><td><b>Meublés</b></td><td>Le <b>calculateur de cure</b> : changer l'étage et les semaines, le total bouge (195 / 190 / 185 € la semaine ; 585 € pour 3 semaines au rez-de-chaussée). « Demander ces dates » pré-remplit le formulaire. Montrer le comparatif « Hôtel ou meublé ? » et la FAQ (accordéon).</td></tr>
+  <tr><td><b>Hôtel</b></td><td>Les 7 types de chambres avec tarifs, le petit-déjeuner, la soirée étape.</td></tr>
+  <tr><td><b>Séminaires</b></td><td>Salle jusqu'à 40 personnes, diaporama (bouton pause), demande de devis.</td></tr>
+  <tr><td><b>Galerie</b></td><td>Les filtres, puis la visionneuse plein écran (flèches, balayage).</td></tr>
+  <tr><td><b>Contact</b></td><td>Le formulaire (5 motifs), le bouton « Afficher la carte » (la carte Google ne se charge qu'au clic : pas de cookie).</td></tr>
+  <tr><td><b>Bouton EN</b></td><td>Tout le site passe en anglais, y compris le moteur de réservation.</td></tr>
+</table>
+<div class="box"><b>Les questions qu'ils vont probablement poser :</b>
+<ul>
+  <li><b>« Où est la note Google ? »</b> Elle n'apparaît pas volontairement : je ne veux pas afficher un chiffre écrit à la main qui deviendrait faux. Elle s'affichera dès que la fiche Google sera connectée (§4).</li>
+  <li><b>« Pourquoi des rubriques vides dans les meublés ? »</b> Les informations pratiques (surface, ménage, caution…) s'afficheront d'elles-mêmes dès qu'ils me les donneront.</li>
+  <li><b>« Les tarifs sont-ils à jour ? »</b> Ils viennent de l'ancien site : à faire confirmer pour 2026.</li>
+  <li><b>« Peut-on modifier nous-mêmes ? »</b> Non, tout passe par vous, dans l'heure mensuelle de l'abonnement.</li>
+</ul></div>
+
+<h2 class="pb">3. Les 4 accès à obtenir en priorité</h2>
 <p>Sans eux le site ne peut pas être finalisé. À demander <b>avant</b> de parler du reste.</p>
 <table>
   <tr><th style="width:36%">Accès</th><th>Qui le gère ? / Réponse</th></tr>
@@ -55,7 +88,7 @@
   <tr><td><b>Facebook / Instagram</b> (adresses des pages)</td><td>&nbsp;<br>&nbsp;</td></tr>
 </table>
 
-<h2>2. Informations légales — obligatoires</h2>
+<h3>Informations légales : obligatoires, la page « Mentions légales » en dépend</h3>
 <ul class="check">
   <li>A1 · Raison sociale et forme juridique (ex. SARL, capital) <span class="ans"></span></li>
   <li>A2 · Numéro SIRET <span class="ans"></span></li>
@@ -63,23 +96,26 @@
   <li>A4 · Directeur / directrice de la publication <span class="ans"></span></li>
 </ul>
 
-<h2 class="pb">3. Google Business — tuto pas à pas</h2>
+<h3>Logo officiel</h3>
+<ul class="check">
+  <li>E3 · Ont-ils un <b>logo officiel</b> (idéalement en SVG, carré ou facile à recadrer) ? <small>L'icône du site (favicon) est faite avec le monogramme « LC » du site : à remplacer par leur vrai logo si besoin.</small> <span class="ans"></span></li>
+</ul>
 
+<h2>4. Google Business : tuto pas à pas</h2>
 <div class="box">
-<b>But :</b> (1) que tu aies un accès gestionnaire à leur fiche Google, (2) récupérer le <b>Place ID</b>, (3) créer une clé API pour que le site affiche automatiquement la note et les avis Google.
-Le code est déjà prêt dans le projet (<code>api/reviews.js</code>) : il manque seulement 2 variables dans Cloudflare (une fois le site adapté à Cloudflare Pages).
+<b>But :</b> (1) un accès gestionnaire à leur fiche Google, (2) le <b>Place ID</b>, (3) une clé API pour afficher automatiquement la note et les avis. Le code est prêt (<code>api/reviews.js</code>) : il manque 2 variables chez l'hébergeur.
 </div>
 
-<h3>Étape A — Obtenir un accès à la fiche Google (sur place, avec le propriétaire)</h3>
+<h3>Étape A : obtenir un accès à la fiche (sur place, avec le propriétaire)</h3>
 <ol>
-  <li>Le propriétaire se connecte avec le compte Google qui gère la fiche, sur <code>business.google.com</code>.</li>
-  <li>Il ouvre la fiche « Hôtel Restaurant Les Carillons » → <b>Paramètres de l'établissement</b> (ou « Autorisations ») → <b>Utilisateurs / Accès</b> → <b>Ajouter</b>.</li>
-  <li>Il saisit ton adresse Gmail, choisit le rôle <b>Gestionnaire</b> (pas besoin de « Propriétaire »), puis envoie l'invitation.</li>
+  <li>Le propriétaire se connecte avec le compte Google de la fiche, sur <code>business.google.com</code>.</li>
+  <li>Fiche « Hôtel Restaurant Les Carillons » → <b>Paramètres de l'établissement</b> (ou « Autorisations ») → <b>Utilisateurs</b> → <b>Ajouter</b>.</li>
+  <li>Il saisit ton adresse Gmail, choisit le rôle <b>Gestionnaire</b>, envoie l'invitation.</li>
   <li>Tu acceptes l'invitation depuis le mail reçu ou depuis <code>business.google.com</code>.</li>
 </ol>
-<div class="warn"><b>Si personne ne sait qui gère la fiche :</b> chercher l'hôtel sur Google Maps → « Gérer cet établissement » / « Revendiquer » → Google propose une validation (téléphone, courrier, vidéo). Prévoir quelques jours : à lancer dès jeudi.</div>
+<div class="warn"><b>Si personne ne sait qui gère la fiche :</b> chercher l'hôtel sur Google Maps → « Gérer cet établissement » / « Revendiquer » → validation par téléphone, courrier ou vidéo. Prévoir quelques jours : à lancer dès jeudi.</div>
 
-<h3>Étape B — Vérifier la fiche avec eux (5 min)</h3>
+<h3>Étape B : vérifier la fiche avec eux (5 min)</h3>
 <ul class="check">
   <li>Nom exact de la fiche : <span class="ans" style="min-width:80mm"></span></li>
   <li>Horaires à jour (hôtel / restaurant) · jours de fermeture annuelle</li>
@@ -89,76 +125,84 @@ Le code est déjà prêt dans le projet (<code>api/reviews.js</code>) : il manqu
   <li>Qui répond aux avis ? <span class="ans"></span></li>
 </ul>
 
-<h3>Étape C — Trouver le Place ID</h3>
+<h3>Étape C : trouver le Place ID</h3>
 <ol>
   <li>Aller sur <code>developers.google.com/maps/documentation/places/web-service/place-id</code> (outil « Place ID Finder »).</li>
-  <li>Taper « Hôtel Restaurant Les Carillons Cransac » dans la carte et cliquer sur la bonne fiche.</li>
+  <li>Taper « Hôtel Restaurant Les Carillons Cransac », cliquer sur la bonne fiche.</li>
   <li>Noter le <b>Place ID</b> (commence par <code>ChIJ…</code>) : <span class="ans" style="min-width:90mm"></span></li>
 </ol>
 
-<h3>Étape D — Créer la clé API Google (à faire chez toi, avec le compte Google de ton choix)</h3>
+<h3>Étape D : créer la clé API Google (chez toi, avec le compte Google de ton choix)</h3>
 <ol>
-  <li>Aller sur <code>console.cloud.google.com</code> → menu en haut → <b>Nouveau projet</b> → nom : « Les Carillons » → Créer.</li>
-  <li><b>Facturation</b> : menu ☰ → Facturation → associer une carte bancaire (Google l'exige pour activer l'API, même avec un usage gratuit).
-      Idéalement le compte de facturation est celui de l'hôtel ; sinon le tien, à refacturer ou transférer plus tard.</li>
-  <li>Menu ☰ → <b>API et services</b> → <b>Bibliothèque</b> → chercher <b>« Places API (New) »</b> → <b>Activer</b>. (Bien choisir « New », pas l'ancienne.)</li>
-  <li>API et services → <b>Identifiants</b> → <b>Créer des identifiants</b> → <b>Clé API</b>. Copier la clé.</li>
-  <li><b>Restreindre la clé</b> : cliquer dessus → « Restrictions relatives aux API » → <b>Restreindre la clé</b> → cocher uniquement <b>Places API (New)</b> → Enregistrer. (Pas de restriction par site web : l'appel part du serveur Cloudflare, pas du navigateur.)</li>
-  <li><b>Garde-fou budget</b> : Facturation → Budgets et alertes → créer un budget de 5 € avec alerte par e-mail à 50 % et 100 %.</li>
+  <li><code>console.cloud.google.com</code> → <b>Nouveau projet</b> → nom : « Les Carillons ».</li>
+  <li><b>Facturation</b> : associer une carte bancaire (exigée par Google même pour un usage gratuit). Idéalement le compte de l'hôtel ; sinon le tien, à transférer plus tard.</li>
+  <li><b>API et services</b> → <b>Bibliothèque</b> → <b>« Places API (New) »</b> → <b>Activer</b> (pas l'ancienne).</li>
+  <li><b>Identifiants</b> → <b>Créer des identifiants</b> → <b>Clé API</b>. Copier la clé.</li>
+  <li><b>Restreindre la clé</b> : « Restrictions relatives aux API » → cocher uniquement <b>Places API (New)</b>. (Pas de restriction par site web : l'appel part du serveur de l'hébergeur.)</li>
+  <li><b>Garde-fou</b> : Facturation → Budgets et alertes → budget de 5 € avec alerte à 50 % et 100 %.</li>
 </ol>
-<div class="box">Les avis sont mis en cache 24 h par le site : quelques dizaines d'appels par mois seulement, normalement dans le quota gratuit mensuel de Google. Vérifier la grille tarifaire actuelle sur <code>developers.google.com/maps/billing-and-pricing</code> (elle évolue).</div>
+<div class="box">Les avis sont mis en cache 24 h : quelques dizaines d'appels par mois, normalement dans le quota gratuit de Google. Vérifier la grille tarifaire actuelle sur <code>developers.google.com/maps/billing-and-pricing</code>.</div>
 
-<h3>Étape E — Brancher dans Cloudflare</h3>
+<h3>Étape E : brancher chez l'hébergeur</h3>
+<p>Le site est aujourd'hui configuré pour <b>Vercel</b> : c'est là que se mettent les variables.</p>
 <ol>
-  <li><code>dash.cloudflare.com</code> → <b>Workers &amp; Pages</b> → projet du site → <b>Settings</b> → <b>Variables and Secrets</b>.</li>
-  <li>Ajouter <code>GOOGLE_PLACES_API_KEY</code> = la clé de l'étape D.</li>
-  <li>Ajouter <code>GOOGLE_PLACE_ID</code> = le Place ID de l'étape C.</li>
-  <li>Choisir le type <b>Secret</b> pour la clé API → Save → relancer un déploiement.</li>
-  <li>Test : ouvrir <code>https://www.lescarillons.fr/api/reviews</code> → doit afficher du JSON avec <code>rating</code> et <code>reviews</code>. Une page vide (204) = variables absentes ou pas redéployé ; erreur 502 = clé non restreinte correctement ou API non activée.</li>
+  <li><code>vercel.com</code> → projet du site → <b>Settings</b> → <b>Environment Variables</b>.</li>
+  <li>Ajouter <code>GOOGLE_PLACES_API_KEY</code> (clé de l'étape D) et <code>GOOGLE_PLACE_ID</code> (Place ID de l'étape C).</li>
+  <li>Cocher Production → Save → <b>Redeploy</b>.</li>
+  <li>Test : ouvrir <code>https://www.lescarillons.fr/api/reviews</code> : du JSON avec <code>rating</code> et <code>reviews</code>. Page vide (204) = variables absentes ou pas redéployé ; erreur 502 = clé mal restreinte ou API non activée.</li>
 </ol>
-<p>Ensuite la section « Avis Google » de l'accueil se remplit toute seule. La note fixe (4,4) dans <code>src/config/site.js</code> ne sert plus que de secours.</p>
 
-<h2>4. Autres accès (si disponibles jeudi)</h2>
+<h2 class="pb">5. Décisions à prendre (avec eux ou seul)</h2>
+<table>
+  <tr><th style="width:26%">Sujet</th><th>Situation réelle et ce qu'il faut trancher</th><th style="width:18%">Décision</th></tr>
+  <tr><td><b>Hébergeur : Vercel ou Cloudflare ?</b></td><td>Le site est configuré pour <b>Vercel</b> (redirections, en-têtes, fonction des avis Google). Passer sur Cloudflare demande une adaptation du code (environ une demi-journée, à ma charge) et un test avant la mise en ligne. À vérifier : l'offre gratuite de Vercel (« Hobby ») est, à ma connaissance, réservée à un usage non commercial ; Cloudflare Pages gratuit autorise en principe l'usage commercial. Voir les pages de tarifs actuelles.</td><td>&nbsp;</td></tr>
+  <tr><td><b>Mentions légales : hébergeur</b></td><td>La page indique « Vercel Inc. ». À changer si l'hébergeur change.</td><td>&nbsp;</td></tr>
+  <tr><td><b>Date de mise en ligne</b></td><td>Dépend des 4 accès et des informations légales. Le devis dit « dès la signature » et « solde à la mise en ligne » : décider si le site passe en ligne avant ou après le solde.</td><td>&nbsp;</td></tr>
+  <tr><td><b>Note Google de secours</b></td><td>Masquée tant que l'API n'est pas branchée. Si l'hôtel vérifie la note et veut l'afficher en attendant : <code>useFallback: true</code> dans <code>src/config/site.js</code> (à refaire à la main de temps en temps).</td><td>&nbsp;</td></tr>
+  <tr><td><b>Retouches avant livraison</b></td><td>Le devis n'en fixe pas le nombre : décider combien tu en inclus.</td><td>&nbsp;</td></tr>
+  <tr><td><b>Heure mensuelle</b></td><td>Reportable d'un mois sur l'autre ? Le devis ne le dit pas.</td><td>&nbsp;</td></tr>
+</table>
 
+<h2>6. Autres accès (si disponibles jeudi)</h2>
 <h3>Domaine lescarillons.fr</h3>
 <ol>
-  <li>Demander quel registrar le gère (OVH, Gandi, IONOS…) et qui a les identifiants. Idéalement : être ajouté en contact technique, ou obtenir un accès à la zone DNS.</li>
-  <li>Dans Cloudflare → projet → <b>Custom domains</b> → ajouter <code>www.lescarillons.fr</code> et <code>lescarillons.fr</code>. Cloudflare demande de gérer la zone DNS (changer les serveurs de noms chez le registrar) : <b>recopier d'abord tous les enregistrements existants, surtout MX et TXT</b>, sinon les e-mails coupent.</li>
-  <li><b>Attention aux e-mails</b> : ne pas modifier les enregistrements MX existants (la messagerie contact@ doit continuer de fonctionner).</li>
+  <li>Demander chez quel registrar il est (OVH, Gandi, IONOS…) et qui a les identifiants. Idéal : être ajouté en contact technique, ou obtenir un accès à la zone DNS.</li>
+  <li>Chez l'hébergeur (Vercel : Settings → <b>Domains</b>) : ajouter <code>www.lescarillons.fr</code> et <code>lescarillons.fr</code> ; l'hébergeur indique les enregistrements DNS à créer chez le registrar.</li>
+  <li><b>Attention aux e-mails :</b> ne jamais toucher aux enregistrements MX et TXT existants. Si l'hôtel utilise un jour Cloudflare pour le DNS, recopier d'abord <b>tous</b> les enregistrements.</li>
 </ol>
-
 <h3>Formulaires (Web3Forms)</h3>
 <ol>
-  <li>Aller sur <code>web3forms.com</code> → saisir l'adresse de réception des demandes (ex. contact@lescarillons.fr).</li>
-  <li>Une clé d'accès (Access Key) arrive par mail à cette adresse : quelqu'un de l'hôtel doit la lire <b>sur place jeudi</b>.</li>
-  <li>Cloudflare → Variables → <code>VITE_WEB3FORMS_KEY</code> = cette clé, puis <b>rebuild</b> (variable lue à la construction du site).</li>
-  <li>Test : envoyer le formulaire de contact du site et vérifier la réception.</li>
+  <li><code>web3forms.com</code> → saisir l'adresse de réception (ex. contact@lescarillons.fr).</li>
+  <li>Une clé d'accès arrive par mail à cette adresse : quelqu'un de l'hôtel doit la lire <b>sur place jeudi</b>.</li>
+  <li>Chez l'hébergeur : variable <code>VITE_WEB3FORMS_KEY</code> = cette clé, puis <b>redéployer</b> (la clé est lue à la construction du site).</li>
+  <li>Test : envoyer le formulaire de contact du site et vérifier la réception. Sans clé, le formulaire ouvre la messagerie du visiteur : il marche, mais moins bien.</li>
 </ol>
 
-<h2>5. Restaurant</h2>
+<h2>7. Restaurant</h2>
 <ul class="check">
   <li>C1 · Origine de la viande bovine (obligatoire) <span class="ans"></span></li>
   <li>C2 · Liste des 14 allergènes disponible ? <span class="ans"></span></li>
   <li>C3 · Heures de service midi / soir <span class="ans"></span></li>
-  <li>C4 · Fermetures annuelles, congés <span class="ans"></span></li>
+  <li>C4 · Fermetures annuelles, congés (le bandeau « Aujourd'hui » peut les afficher) <span class="ans"></span></li>
   <li>C5 · Menus et prix à jour (17 € / dès 26 € / 30 € / carte) ? <span class="ans"></span></li>
   <li>C6 · Relire le texte sur l'estofinade (sur mon ordinateur)</li>
   <li>C7 · <b>Photographier</b> l'estofinade</li>
   <li>C8 · Capacités : restaurant / véranda / grande salle en banquet <span class="ans"></span></li>
 </ul>
 
-<h2>6. Hôtel</h2>
+<h2>8. Hôtel</h2>
 <ul class="check">
   <li>D1 · Animaux acceptés ? conditions <span class="ans"></span></li>
   <li>D2 · Horaires du petit-déjeuner <span class="ans"></span></li>
   <li>D3 · Arrivée tardive possible, jusqu'à quelle heure ? <span class="ans"></span></li>
-  <li>D4 · Tarifs des chambres 2026 confirmés ? <span class="ans"></span></li>
+  <li>D4 · Tarifs des chambres 2026 confirmés (de 54 € à 110 €) ? <span class="ans"></span></li>
   <li>D5 · Tarif de la formule soirée étape <span class="ans"></span></li>
   <li>D6 · <b>Photographier</b> la chambre triple (le site montre la salle de bain)</li>
   <li>D7 · Séminaire : tarifs journée / demi-journée, location de salle <span class="ans"></span></li>
 </ul>
 
-<h2>7. Meublés Les Cèdres</h2>
+<h2 class="pb">9. Meublés Les Cèdres</h2>
+<p>Chaque information obtenue s'affichera d'elle-même sur la page (rubrique « Infos pratiques » et FAQ).</p>
 <ul class="check two">
   <li>B1 · Surface (fourchette) <span class="ans" style="min-width:25mm"></span></li>
   <li>B2 · Personnes max par appart <span class="ans" style="min-width:20mm"></span></li>
@@ -180,21 +224,17 @@ Le code est déjà prêt dans le projet (<code>api/reviews.js</code>) : il manqu
   <li>B18 · Photos 2017-2019 encore valables ?</li>
 </ul>
 
-<h2>8. Photos, identité, tourisme</h2>
+<h2>10. Photos, tourisme, conclusion</h2>
 <ul class="check">
   <li>E1 · Portrait de Nathalie, Florian et Assia (photo à prendre ou à récupérer)</li>
-  <li>E3 · Logo officiel en haute qualité (vectoriel : .svg, .ai, .eps ou .pdf)</li>
   <li>G1 · Distances des sites touristiques correctes ?</li>
   <li>G2 · Marchés (samedi 13h–15h30, producteurs le mardi) toujours d'actualité ?</li>
   <li>G3 · Festival de feux d'artifice de Decazeville : existe-t-il encore ?</li>
-</ul>
-
-<h2>9. Pour conclure le rendez-vous</h2>
-<ul class="check">
-  <li>Valider avec eux la nouvelle apparence du site (arches, couleurs) et noter leurs retours : <span class="ans" style="min-width:90mm"></span></li>
-  <li>Convenir de la date de mise en ligne : <span class="ans"></span></li>
-  <li>Qui est mon interlocuteur pour les réponses manquantes ? <span class="ans"></span></li>
+  <li>Valider avec eux l'apparence du site et noter leurs retours : <span class="ans" style="min-width:90mm"></span></li>
+  <li>Date de mise en ligne convenue : <span class="ans"></span></li>
+  <li>Interlocuteur pour les réponses manquantes : <span class="ans"></span></li>
   <li>Date limite pour recevoir ce qui manque : <span class="ans"></span></li>
+  <li>Devis signé (« Bon pour accord » + date + cachet) ?</li>
 </ul>
 
 <p style="margin-top:6mm"><b>Notes :</b></p>
