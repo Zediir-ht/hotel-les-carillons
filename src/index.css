@@ -70,11 +70,13 @@
   }
 
   /* Pas de mot seul en fin de paragraphe, titres équilibrés (ignoré par les navigateurs trop anciens) */
+  /* text-wrap-style (et non le raccourci text-wrap) : le raccourci remet aussi « retour à la ligne
+     autorisé » et annulerait les whitespace-nowrap du site (bandeaux de navigation, titre du hero) */
   p, li, dd, figcaption, blockquote {
-    text-wrap: pretty;
+    text-wrap-style: pretty;
   }
   h1, h2, h3, h4 {
-    text-wrap: balance;
+    text-wrap-style: balance;
   }
 
   body {
