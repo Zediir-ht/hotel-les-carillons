@@ -75,7 +75,7 @@ Dès qu'un champ est rempli, il apparaît dans « Infos pratiques » et, si une 
 |----|----------|------------------------|--------|
 | E1 | Portrait de Nathalie, Florian et Assia ? | `photos-src/famille.jpg` → section `IntroSection` (accueil) à la place de la façade, ou à côté | ☐ |
 | E2 | Séance photo professionnelle envisagée ? | Remplacer les photos dans `photos-src/` (mêmes noms) puis `npm run images` | ☐ |
-| E3 | Logo officiel en haute qualité (vectoriel) | `public/` + favicon + JSON-LD `logo` | ☐ |
+| E3 | Logo officiel en haute qualité (vectoriel) | Le favicon actuel (`public/favicon.svg`, `favicon.ico`, `icon-192/512.png`, `apple-touch-icon.png`) est fait avec le monogramme « LC » du site, **faute de logo officiel**. À remplacer par le vrai logo (carré, fond uni, idéalement en SVG) + JSON-LD `logo` dans `index.html`. Note : `logolescarillons.png` à la racine est une photo de graminées, pas un logo. | ☐ (provisoire) |
 | E4 | Polices Classy Vogue / Gotham / Goudy Titling : licences ? | **Réglé** : pas de licence → remplacées par Bodoni Moda / Libre Franklin / Sorts Mill Goudy (OFL, paquets @fontsource). Question retirée du questionnaire. | ☑ 20/10/2026 |
 
 ## F. Comptes en ligne & accès
