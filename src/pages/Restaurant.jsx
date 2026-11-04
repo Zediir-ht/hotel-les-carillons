@@ -32,10 +32,10 @@ export default function Restaurant() {
 
       {/* ── En-tête ── */}
       <section className="bg-offwhite overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 md:px-10 pt-32 md:pt-44 pb-14 md:pb-24">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-10 md:pb-16">
           <div className="hero-reveal">
             <p className="eyebrow text-gold mb-5">{r('heroOverline')}</p>
-            <h1 className="text-black text-[2.6rem] min-[400px]:text-5xl sm:text-6xl md:text-8xl lg:text-[8.5rem] leading-[0.95] mb-8">
+            <h1 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6">
               {r('heroTitle1')}
               <br />
               <span className="text-gold">{r('heroTitle2')}</span>

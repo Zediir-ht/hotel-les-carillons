@@ -9,7 +9,7 @@ export default function PageHero({ title, subtitle, breadcrumb = [], children })
   const { t } = useLang();
   return (
     <section className="bg-offwhite overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 md:px-10 pt-32 md:pt-44 pb-14 md:pb-24">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-10 md:pb-16">
         <div className="hero-reveal">
           {breadcrumb.length > 0 && (
             <nav aria-label="Fil d'Ariane" className="mb-4 text-xs text-gray-mid">
@@ -36,8 +36,8 @@ export default function PageHero({ title, subtitle, breadcrumb = [], children })
               </ol>
             </nav>
           )}
-          <h1 className="text-[2.6rem] min-[400px]:text-5xl sm:text-6xl md:text-8xl lg:text-[8.5rem] font-normal text-black leading-[0.95] break-words">{title}</h1>
-          {subtitle && <p className="text-gray-mid text-base md:text-lg mt-8 max-w-xl leading-relaxed">{subtitle}</p>}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-black leading-[1.05] break-words">{title}</h1>
+          {subtitle && <p className="text-gray-mid text-base md:text-lg mt-6 max-w-xl leading-relaxed">{subtitle}</p>}
           {children}
         </div>
       </div>
