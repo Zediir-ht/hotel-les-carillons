@@ -1,0 +1,5 @@
+Skill Impeccable (Apache 2.0) par Paul Bakaus, installée depuis https://github.com/pbakaus/impeccable
+Commit source : 695cea5 · version de la skill : 4.8.0
+Installée SANS le hook automatique (.claude/settings.json du dépôt source non copié).
+Au premier usage, scripts/impeccable télécharge un binaire depuis GitHub Releases (vérifié par SHA-256, voir scripts/engine-checksums.txt).
+Mise à jour : recopier .claude/skills/impeccable et .claude/agents du dépôt source.
