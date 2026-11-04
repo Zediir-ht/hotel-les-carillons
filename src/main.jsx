@@ -2,8 +2,8 @@ import { StrictMode, startTransition } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 // Polices libres (licence SIL OFL) auto-hébergées, sous-ensemble latin (accents, œ, €)
-import '@fontsource/montserrat/latin-400.css';
-import '@fontsource/montserrat/latin-500.css';
+import '@fontsource/libre-franklin/latin-400.css';
+import '@fontsource/libre-franklin/latin-500.css';
 import '@fontsource/sorts-mill-goudy/latin-400.css';
 import '@fontsource/bodoni-moda/latin-400-italic.css';
 import './index.css';
