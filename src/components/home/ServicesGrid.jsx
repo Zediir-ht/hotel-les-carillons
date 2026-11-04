@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import Photo from '../ui/Photo';
 import SectionHeading from '../ui/SectionHeading';
-import { Bell } from '../ui/Ornaments';
 import { useLang } from '../../i18n/LanguageContext';
 
 // Une photo et une page de destination par service (même ordre que services.items dans i18n)
@@ -22,26 +21,27 @@ export default function ServicesGrid() {
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <SectionHeading overline={t('services.overline')} title={t('services.title')} className="mb-14" />
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 list-none p-0 m-0">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 md:gap-y-16 list-none p-0 m-0">
           {items.map((service, i) => (
             <li key={service.title}>
-              <Link to={SERVICES[i].to} className="group relative block h-full bg-white no-underline p-4 pb-7 text-center">
-                <span className="pointer-events-none absolute inset-1.5 border border-gold/25 group-hover:border-gold/60 transition-colors" aria-hidden="true" />
-                <div className="relative aspect-[4/3] overflow-hidden rounded-t-[999px]">
+              <Link to={SERVICES[i].to} className="group block no-underline text-center">
+                <div className="aspect-[4/5] max-w-xs mx-auto overflow-hidden rounded-t-[999px] bg-white">
                   <Photo
                     name={SERVICES[i].photo}
                     alt=""
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 80vw"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="relative pt-5 px-3">
-                  <Bell className="w-4 h-4 text-gold mx-auto mb-2" />
-                  <h3 className="text-lg text-black mb-2 normal-case tracking-normal font-normal group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-body)' }}>
+                <h3 className="mt-7 text-xl md:text-2xl text-black transition-colors group-hover:text-gold">
+                  <span className="relative">
                     {service.title}
-                  </h3>
-                  <p className="text-gray-mid text-sm leading-relaxed">{service.desc}</p>
-                </div>
+                    <span className="absolute left-full top-0 ml-2 text-gold opacity-0 -translate-x-1 transition-[opacity,translate] duration-300 group-hover:opacity-100 group-hover:translate-x-0" aria-hidden="true">
+                      →
+                    </span>
+                  </span>
+                </h3>
+                <p className="mt-3 max-w-xs mx-auto text-gray-mid text-sm leading-relaxed">{service.desc}</p>
               </Link>
             </li>
           ))}
