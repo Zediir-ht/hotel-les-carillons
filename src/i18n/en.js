@@ -368,7 +368,6 @@ export default {
       holiday: 'Public holiday: no daily menu, local menu and à la carte by reservation',
       thursdayToday: 'Themed Thursday:',
       thursdayNext: 'Next Thursday:',
-      call: 'Book',
     },
     estofinadeSub: 'Our speciality',
     estofinadeTitle: 'Estofinade, the soul of the valley',

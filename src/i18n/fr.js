@@ -368,7 +368,6 @@ export default {
       holiday: "Jour férié : pas de menu du jour, menu du terroir et carte sur réservation",
       thursdayToday: 'Jeudi à thème :',
       thursdayNext: 'Jeudi prochain :',
-      call: 'Réserver',
     },
     estofinadeSub: 'Notre spécialité',
     estofinadeTitle: "L'estofinade, l'âme du bassin",

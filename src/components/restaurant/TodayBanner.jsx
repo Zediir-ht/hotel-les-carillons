@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useLang } from '../../i18n/LanguageContext';
-import { SITE } from '../../config/site';
 import { THURSDAY_SPECIALS } from '../../data/menus';
 import { restaurantToday } from '../../lib/restaurantToday';
 import { Bell } from '../ui/Ornaments';
@@ -33,11 +32,6 @@ export default function TodayBanner() {
             )}
           </span>
         </p>
-        {today.status !== 'sunday' && (
-          <a href={SITE.phone.href} className="self-start md:self-auto text-gold hover:text-gold-dark no-underline whitespace-nowrap">
-            {t('restaurantPage.today.call')} · {SITE.phone.display}
-          </a>
-        )}
       </div>
     </div>
   );
