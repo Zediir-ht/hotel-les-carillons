@@ -48,7 +48,7 @@ function DishList({ dishes }) {
 function MenuHeader({ title, price, note }) {
   return (
     <header className="text-center mb-10">
-      <h3 className="text-3xl md:text-4xl text-black">{title}</h3>
+      <h3 className="text-2xl min-[480px]:text-3xl md:text-4xl text-black break-words">{title}</h3>
       <p className="text-gold text-lg mt-3">{price}</p>
       {note && <p className="text-gray-mid italic max-w-lg mx-auto mt-5">{note}</p>}
     </header>
