@@ -13,7 +13,7 @@ const files = {
   villefranche: 'Villefranche-de-Rouergue_place_Notre-Dame.jpg',
 };
 
-const UA = { 'User-Agent': 'LesCarillonsSite/1.0 (contact@lescarillons.fr)' };
+const UA = { 'User-Agent': 'LesCarillonsSite/1.0 (lescarillons12@orange.fr)' };
 const strip = (html = '') => html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 const credits = {};
 

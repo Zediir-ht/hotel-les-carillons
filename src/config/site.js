@@ -12,7 +12,7 @@ export const SITE = {
   hosts: 'Nathalie, Florian & Assia',
 
   phone: { display: '05\u00a065\u00a063\u00a014\u00a075' /* espaces insécables : le numéro ne se coupe jamais en fin de ligne */, href: 'tel:+33565631475', intl: '+33 5 65 63 14 75' },
-  email: 'contact@lescarillons.fr',
+  email: 'lescarillons12@orange.fr',
 
   address: {
     street: 'Route de Figeac',
