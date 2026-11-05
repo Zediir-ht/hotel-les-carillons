@@ -144,7 +144,7 @@
 <div class="box">Les avis sont mis en cache 24 h : quelques dizaines d'appels par mois, normalement dans le quota gratuit de Google. Vérifier la grille tarifaire actuelle sur <code>developers.google.com/maps/billing-and-pricing</code>.</div>
 
 <h3>Étape E : brancher chez l'hébergeur</h3>
-<p>Le site est aujourd'hui configuré pour <b>Vercel</b> : c'est là que se mettent les variables.</p>
+<p>Le site de démonstration est sur <b>Vercel</b> ; à la mise en ligne il passera chez OVH. Les étapes ci-dessous valent pour Vercel (démo) ; chez OVH, la clé et le Place ID vont dans le fichier <code>api/config.php</code> sur le serveur (voir <code>docs/HEBERGEMENT-OVH.md</code>).</p>
 <ol>
   <li><code>vercel.com</code> → projet du site → <b>Settings</b> → <b>Environment Variables</b>.</li>
   <li>Ajouter <code>GOOGLE_PLACES_API_KEY</code> (clé de l'étape D) et <code>GOOGLE_PLACE_ID</code> (Place ID de l'étape C).</li>
@@ -155,8 +155,8 @@
 <h2 class="pb">5. Décisions à prendre (avec eux ou seul)</h2>
 <table>
   <tr><th style="width:26%">Sujet</th><th>Situation réelle et ce qu'il faut trancher</th><th style="width:18%">Décision</th></tr>
-  <tr><td><b>Hébergeur : Vercel ou Cloudflare ?</b></td><td>Le site est configuré pour <b>Vercel</b> (redirections, en-têtes, fonction des avis Google). Passer sur Cloudflare demande une adaptation du code (environ une demi-journée, à ma charge) et un test avant la mise en ligne. À vérifier : l'offre gratuite de Vercel (« Hobby ») est, à ma connaissance, réservée à un usage non commercial ; Cloudflare Pages gratuit autorise en principe l'usage commercial. Voir les pages de tarifs actuelles.</td><td>&nbsp;</td></tr>
-  <tr><td><b>Mentions légales : hébergeur</b></td><td>La page indique « Vercel Inc. ». À changer si l'hébergeur change.</td><td>&nbsp;</td></tr>
+  <tr><td><b>Hébergeur</b></td><td><b>Décidé : OVH</b>, à leur nom et à leur charge (le domaine y est déjà). Le site de démonstration reste sur Vercel jusqu'à la mise en ligne. Offre minimum : « Perso » (PHP 8 + SSL gratuit). Faire souscrire l'offre par l'hôtel et se faire donner l'accès FTP (voir <code>docs/HEBERGEMENT-OVH.md</code>).</td><td>&nbsp;</td></tr>
+  <tr><td><b>Mentions légales : hébergeur</b></td><td>La page indique « Vercel Inc. » (démo). À remplacer par OVH (OVH SAS, 2 rue Kellermann, 59100 Roubaix) à la mise en ligne.</td><td>&nbsp;</td></tr>
   <tr><td><b>Date de mise en ligne</b></td><td>Dépend des 4 accès et des informations légales. Le devis dit « dès la signature » et « solde à la mise en ligne » : décider si le site passe en ligne avant ou après le solde.</td><td>&nbsp;</td></tr>
   <tr><td><b>Note Google de secours</b></td><td>Masquée tant que l'API n'est pas branchée. Si l'hôtel vérifie la note et veut l'afficher en attendant : <code>useFallback: true</code> dans <code>src/config/site.js</code> (à refaire à la main de temps en temps).</td><td>&nbsp;</td></tr>
   <tr><td><b>Retouches avant livraison</b></td><td>Le devis n'en fixe pas le nombre : décider combien tu en inclus.</td><td>&nbsp;</td></tr>
@@ -167,7 +167,7 @@
 <h3>Domaine lescarillons.fr</h3>
 <ol>
   <li>Demander chez quel registrar il est (OVH, Gandi, IONOS…) et qui a les identifiants. Idéal : être ajouté en contact technique, ou obtenir un accès à la zone DNS.</li>
-  <li>Chez l'hébergeur (Vercel : Settings → <b>Domains</b>) : ajouter <code>www.lescarillons.fr</code> et <code>lescarillons.fr</code> ; l'hébergeur indique les enregistrements DNS à créer chez le registrar.</li>
+  <li>Le domaine est déjà chez OVH : rattacher <code>www.lescarillons.fr</code> et <code>lescarillons.fr</code> à l'hébergement OVH (Hébergements → Multisite), puis activer le SSL. Aucun enregistrement MX/TXT à modifier.</li>
   <li><b>Attention aux e-mails :</b> ne jamais toucher aux enregistrements MX et TXT existants. Si l'hôtel utilise un jour Cloudflare pour le DNS, recopier d'abord <b>tous</b> les enregistrements.</li>
 </ol>
 <h3>Formulaires (Web3Forms)</h3>

@@ -84,7 +84,7 @@ Dès qu'un champ est rempli, il apparaît dans « Infos pratiques » et, si une 
 |----|----------|------------------------|--------|
 | F1 | Pages Facebook / Instagram | **À créer** : `SITE.social` dans `src/config/site.js` → icônes dans `layout/Footer.jsx` + `sameAs` du JSON-LD | ☐ |
 | F2 | Fiche Google : qui la gère ? Place ID / accès | Variables Vercel `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` ; mettre à jour `SITE.googleRating` | ☐ |
-| F3 | Nom de domaine lescarillons.fr : qui le gère ? Accès | Vercel → Domains (www + redirection de lescarillons.fr) ; `SITE.url` | ☐ |
+| F3 | Nom de domaine lescarillons.fr : **chez OVH**. Accès à l'espace client ? Offre d'hébergement OVH « Perso » à souscrire à leur nom (à leur charge) | Rattacher le domaine à l'hébergement + SSL ; `SITE.url` ; guide `docs/HEBERGEMENT-OVH.md` | ☐ |
 | F4 | E-mail de réception des formulaires (lescarillons12@orange.fr, à confirmer) | `SITE.email` ; créer la clé Web3Forms sur cette adresse → variable Vercel `VITE_WEB3FORMS_KEY` | ☐ |
 
 ## G. Tourisme — vérifications
