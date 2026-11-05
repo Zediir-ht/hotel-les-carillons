@@ -104,17 +104,17 @@ export default function MeubleRequestForm({ initialFloor = 'any', initialWeeks =
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Field id="m-name" label={r('name')} {...req}>
-          <input id="m-name" name="name" required autoComplete="name" value={form.name} onChange={update} className={inputClass} />
+          <input id="m-name" name="name" required autoComplete="name" maxLength={120} value={form.name} onChange={update} className={inputClass} />
         </Field>
         <Field id="m-email" label={r('email')} {...req}>
-          <input id="m-email" type="email" name="email" required autoComplete="email" value={form.email} onChange={update} className={inputClass} />
+          <input id="m-email" type="email" name="email" required autoComplete="email" autoCapitalize="none" autoCorrect="off" spellCheck={false} maxLength={254} value={form.email} onChange={update} className={inputClass} />
         </Field>
       </div>
       <Field id="m-phone" label={r('phone')}>
-        <input id="m-phone" type="tel" name="phone" autoComplete="tel" value={form.phone} onChange={update} className={inputClass} />
+        <input id="m-phone" type="tel" name="phone" autoComplete="tel" inputMode="tel" maxLength={30} value={form.phone} onChange={update} className={inputClass} />
       </Field>
       <Field id="m-message" label={r('message')}>
-        <textarea id="m-message" name="message" rows={3} value={form.message} onChange={update} className={`${inputClass} resize-y`} />
+        <textarea id="m-message" name="message" rows={3} maxLength={canSendDirectly ? 4000 : 1200} value={form.message} onChange={update} className={`${inputClass} resize-y`} />
       </Field>
 
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />

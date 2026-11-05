@@ -62,6 +62,27 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    /* Pas de rectangle gris au toucher (le retour visuel vient de .press / :active) */
+    -webkit-tap-highlight-color: transparent;
+    /* Pas d'agrandissement automatique du texte en paysage */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Réponse immédiate au toucher (pas de délai de double-tap) ; le libellé d'un bouton n'est pas sélectionnable
+     à l'appui long. Le contenu (adresses, tarifs…) reste sélectionnable. */
+  button, a, summary, [role='button'], select, label {
+    touch-action: manipulation;
+  }
+  button, [role='button'], summary {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Champs : 16 px minimum, sinon iOS zoome la page à la saisie */
+  input, select, textarea {
+    font-size: max(1rem, 16px);
+    min-width: 0;
   }
 
   /* Textes d'exemple lisibles (le gris par défaut du navigateur est à 3,3:1) */
@@ -177,6 +198,7 @@
 /* Menu mobile : entrée 200 ms (fondu + léger glissement), sortie 150 ms (fondu seul).
    Reste dans la page, masqué, pour pouvoir s'animer à la fermeture. */
 .mobile-menu {
+  overscroll-behavior: contain;
   opacity: 0;
   transform: translateY(-8px);
   visibility: hidden;
@@ -236,6 +258,8 @@
 /* Visionneuse : fond 180 ms, photo 220 ms (depuis 96 %), sortie 140 ms en fondu.
    L'entrée utilise @starting-style ; sans lui, la visionneuse apparaît d'un coup. */
 .lightbox {
+  overscroll-behavior: contain;
+  touch-action: pan-y pinch-zoom;
   opacity: 1;
   transition: opacity 180ms var(--ease-out);
 }

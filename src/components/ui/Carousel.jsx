@@ -45,7 +45,7 @@ export default function Carousel({ slides = [], autoPlay = true, interval = 4500
 
   return (
     <div
-      className={`relative overflow-hidden bg-black/5 ${className}`}
+      className={`relative overflow-hidden bg-black/5 touch-pan-y ${className}`}
       style={{ aspectRatio }}
       role="region"
       aria-roledescription="carousel"

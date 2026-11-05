@@ -69,20 +69,20 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Field id="name" label={f('name')} required requiredLabel={f('required')}>
-          <input type="text" id="name" name="name" required autoComplete="name" value={form.name} onChange={update} className={inputClass} />
+          <input type="text" id="name" name="name" required autoComplete="name" maxLength={120} value={form.name} onChange={update} className={inputClass} />
         </Field>
         <Field id="email" label={f('email')} required requiredLabel={f('required')}>
-          <input type="email" id="email" name="email" required autoComplete="email" value={form.email} onChange={update} className={inputClass} />
+          <input type="email" id="email" name="email" required autoComplete="email" autoCapitalize="none" autoCorrect="off" spellCheck={false} maxLength={254} value={form.email} onChange={update} className={inputClass} />
         </Field>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Field id="phone" label={f('phone')}>
-          <input type="tel" id="phone" name="phone" autoComplete="tel" value={form.phone} onChange={update} className={inputClass} />
+          <input type="tel" id="phone" name="phone" autoComplete="tel" inputMode="tel" maxLength={30} value={form.phone} onChange={update} className={inputClass} />
         </Field>
         {needsDates && (
           <Field id="dates" label={f('dates')}>
-            <input type="text" id="dates" name="dates" placeholder={f('datesPlaceholder')} value={form.dates} onChange={update} className={inputClass} />
+            <input type="text" id="dates" name="dates" maxLength={80} placeholder={f('datesPlaceholder')} value={form.dates} onChange={update} className={inputClass} />
           </Field>
         )}
       </div>
@@ -94,7 +94,7 @@ export default function ContactForm() {
       )}
 
       <Field id="message" label={f('message')} required requiredLabel={f('required')}>
-        <textarea id="message" name="message" required rows={5} value={form.message} onChange={update} className={`${inputClass} resize-y`} />
+        <textarea id="message" name="message" required rows={5} maxLength={canSendDirectly ? 4000 : 1200} value={form.message} onChange={update} className={`${inputClass} resize-y`} />
       </Field>
 
       {/* Piège à robots : invisible pour les visiteurs */}
