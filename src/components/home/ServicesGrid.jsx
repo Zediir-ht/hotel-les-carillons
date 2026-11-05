@@ -32,8 +32,12 @@ export default function ServicesGrid() {
               <li key={service.title} className={s.tile}>
                 <Link
                   to={s.to}
-                  className="group relative block h-full overflow-hidden bg-deepbrown no-underline shadow-card transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-raised focus-visible:-translate-y-1"
+                  className="group relative block h-full no-underline shadow-card transition-[translate] duration-300 ease-(--ease-out) hover:-translate-y-1 focus-visible:-translate-y-1"
                 >
+                  {/* Ombre du survol : superposée et révélée en fondu (opacity), plutôt que d'animer box-shadow
+                      qui forcerait un nouveau dessin de la tuile à chaque image */}
+                  <span className="absolute inset-0 shadow-raised opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100" aria-hidden="true" />
+                  <div className="absolute inset-0 overflow-hidden bg-deepbrown">
                   <Photo
                     name={s.photo}
                     alt=""
@@ -55,6 +59,7 @@ export default function ServicesGrid() {
                   <div className="absolute inset-x-0 bottom-0 p-5 md:p-7 text-on-photo">
                     <h3 className={`text-white ${s.big ? 'text-2xl md:text-4xl' : 'text-xl md:text-2xl'}`}>{service.title}</h3>
                     <p className={`mt-2 text-white/90 leading-relaxed ${s.big ? 'max-w-md text-sm md:text-base' : 'text-sm line-clamp-2'}`}>{service.desc}</p>
+                  </div>
                   </div>
                 </Link>
               </li>
