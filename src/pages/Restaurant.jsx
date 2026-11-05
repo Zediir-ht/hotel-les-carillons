@@ -33,7 +33,6 @@ export default function Restaurant() {
       {/* ── En-tête ── */}
       <section className="bg-offwhite overflow-hidden">
         <div className="relative max-w-6xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-10 md:pb-16">
-          <Bell className="hidden md:block absolute right-10 top-24 lg:top-28 w-44 lg:w-60 h-auto text-gold opacity-[0.12] pointer-events-none" />
           <div className="hero-reveal relative">
             <h1 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6">
               {r('heroTitle1')}{' '}

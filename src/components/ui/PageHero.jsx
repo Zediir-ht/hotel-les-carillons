@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Bell, OrnamentRule } from './Ornaments';
+import { OrnamentRule } from './Ornaments';
 import { useLang } from '../../i18n/LanguageContext';
 
 /**
@@ -11,8 +11,6 @@ export default function PageHero({ title, subtitle, breadcrumb = [], children })
   return (
     <section className="bg-offwhite overflow-hidden">
       <div className="relative max-w-6xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-10 md:pb-16">
-        {/* Cloche en filigrane : le clin d'œil Belle Époque des Carillons */}
-        <Bell className="hidden md:block absolute right-10 top-24 lg:top-28 w-44 lg:w-60 h-auto text-gold opacity-[0.12] pointer-events-none" />
         <div className="hero-reveal relative">
           {breadcrumb.length > 0 && (
             <nav aria-label="Fil d'Ariane" className="mb-4 text-xs text-gray-mid">
