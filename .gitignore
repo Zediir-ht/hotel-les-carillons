@@ -33,3 +33,4 @@ dist-ssr
 .impeccable/config.local.json
 .impeccable/hook.cache.json
 .impeccable/hook.pending.json
+public/api/config.php

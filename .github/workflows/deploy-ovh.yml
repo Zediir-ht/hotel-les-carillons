@@ -1,0 +1,35 @@
+# Mise en ligne sur l'hébergement OVH (mutualisé), à la demande : onglet « Actions » du dépôt → « Mise en ligne OVH » → Run workflow.
+# Réglages à faire une fois dans GitHub : Settings → Secrets and variables → Actions → New repository secret
+#   OVH_FTP_SERVER     ex. ftp.cluster0XX.hosting.ovh.net (visible dans l'espace client OVH → Hébergements → FTP-SSH)
+#   OVH_FTP_USER       identifiant FTP
+#   OVH_FTP_PASSWORD   mot de passe FTP
+#   VITE_WEB3FORMS_KEY (facultatif) clé des formulaires, voir src/lib/sendMessage.js
+# Le fichier api/config.php (clé Google) vit uniquement sur le serveur : il n'est jamais écrasé ni supprimé.
+name: Mise en ligne OVH
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          VITE_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.OVH_FTP_SERVER }}
+          username: ${{ secrets.OVH_FTP_USER }}
+          password: ${{ secrets.OVH_FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./dist/
+          server-dir: ./www/
+          exclude: |
+            **/api/config.php
+            **/api/config.example.php
