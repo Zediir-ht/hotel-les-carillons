@@ -42,7 +42,12 @@ export default function Restaurant() {
             <p className="text-gray-mid md:text-lg leading-relaxed max-w-xl mb-8">{r('heroDesc')}</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <ButtonLink href={SITE.phone.href} variant="gold">
-                {r('callToBook')} · {SITE.phone.display}
+                <span className="text-center">
+                  {r('callToBook')}
+                  <span className="hidden sm:inline"> · </span>
+                  <br className="sm:hidden" />
+                  {SITE.phone.display}
+                </span>
               </ButtonLink>
               <ButtonLink href="#formules" variant="outline-gold">
                 {nav.formules}

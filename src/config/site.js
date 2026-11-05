@@ -11,7 +11,7 @@ export const SITE = {
   stars: 2,
   hosts: 'Nathalie, Florian & Assia',
 
-  phone: { display: '05 65 63 14 75', href: 'tel:+33565631475', intl: '+33 5 65 63 14 75' },
+  phone: { display: '05\u00a065\u00a063\u00a014\u00a075' /* espaces insécables : le numéro ne se coupe jamais en fin de ligne */, href: 'tel:+33565631475', intl: '+33 5 65 63 14 75' },
   email: 'contact@lescarillons.fr',
 
   address: {
