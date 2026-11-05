@@ -15,7 +15,7 @@ export default function PageHero({ title, subtitle, breadcrumb = [], children })
             <nav aria-label="Fil d'Ariane" className="mb-4 text-xs text-gray-mid">
               <ol className="flex items-center gap-2 list-none p-0 m-0">
                 <li>
-                  <Link to="/" className="text-gray-mid hover:text-gold no-underline transition-colors">
+                  <Link to="/" className="inline-block py-2 -my-2 text-gray-mid hover:text-gold no-underline transition-colors">
                     {t('nav.home')}
                   </Link>
                 </li>

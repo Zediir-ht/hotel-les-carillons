@@ -273,6 +273,7 @@ export default {
     title: 'The rooms',
     subtitle: '17 air-conditioned rooms for 1 to 5 guests, with private bathroom and WC. 2026 rates per night per room.',
     fromPrice: 'from',
+    inAllRooms: 'In every room',
     ratesLabel: 'Room rate / night',
     halfBoardLabel: 'Half board',
     persons: 'pers.',

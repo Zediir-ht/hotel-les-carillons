@@ -273,6 +273,7 @@ export default {
     title: 'Les chambres',
     subtitle: '17 chambres climatisées de 1 à 5 personnes, avec salle de bain et WC privés. Tarifs 2026 par nuit et par chambre.',
     fromPrice: 'dès',
+    inAllRooms: 'Dans toutes les chambres',
     ratesLabel: 'Tarif chambre / nuit',
     halfBoardLabel: 'Demi-pension',
     persons: 'pers.',

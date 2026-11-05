@@ -51,7 +51,7 @@ export default function Tourisme() {
                       sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                       className="w-full h-44 object-cover transition-transform duration-500 ease-(--ease-out) group-hover:scale-[1.03]"
                     />
-                    <figcaption className="absolute bottom-0 right-0 bg-black/70 text-white text-xs px-2 py-0.5 max-w-full truncate">
+                    <figcaption className="px-5 py-1.5 text-[0.8125rem] leading-snug text-gray-mid border-b border-black/5">
                       {t('tourismePage.photoCredit')} : {site.credit.author} · {site.credit.license}
                     </figcaption>
                   </figure>
@@ -67,7 +67,7 @@ export default function Tourisme() {
                       href={site.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 mt-4 text-gold text-xs no-underline hover:text-gold-dark"
+                      className="inline-flex items-center gap-1 mt-2 py-2 text-gold text-xs no-underline hover:text-gold-dark"
                     >
                       {t('tourismePage.seeMore')} <span aria-hidden="true">↗</span>
                       <span className="sr-only">, {sites[i].name}</span>

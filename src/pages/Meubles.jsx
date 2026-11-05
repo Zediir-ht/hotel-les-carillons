@@ -50,7 +50,7 @@ export default function Meubles() {
       />
 
       <nav aria-label={m('heroTitle')} className="sticky top-16 lg:top-20 z-30 bg-offwhite/95 backdrop-blur border-b border-black/10">
-        <ul className="max-w-6xl mx-auto px-4 flex gap-1 overflow-x-auto list-none m-0 py-0 whitespace-nowrap justify-start md:justify-center">
+        <ul className="max-w-6xl mx-auto pl-4 pr-10 md:px-4 flex gap-1 overflow-x-auto list-none m-0 py-0 whitespace-nowrap justify-start md:justify-center [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)] md:[mask-image:none]">
           {[
             ['tarifs', nav.calc],
             ['appartements', nav.photos],

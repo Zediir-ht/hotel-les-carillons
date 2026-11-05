@@ -6,14 +6,19 @@ import { bookingUrl } from '../../config/site';
 import { ROOMS } from '../../data/rooms';
 import { formatEuro } from '../../lib/format';
 
+// Équipements présents dans TOUTES les chambres : affichés une seule fois au-dessus de la grille
+const COMMON = ROOMS[0].features.filter((f) => ROOMS.every((r) => r.features.some((g) => g.fr === f.fr)));
+const isCommon = (f) => COMMON.some((c) => c.fr === f.fr);
+
 function RoomCard({ room }) {
   const { t, pick, lang } = useLang();
   const { from, to } = room.price;
   const priceLabel = to ? `${formatEuro(from, lang)} – ${formatEuro(to, lang)}` : formatEuro(from, lang);
   const halfBoard = Object.entries(room.halfBoard);
+  const features = room.features.filter((f) => !isCommon(f));
 
   return (
-    <article className="bg-white border border-black/5 overflow-hidden group hover:border-gold/30 transition-colors flex flex-col">
+    <article className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white border border-black/5 overflow-hidden group hover:border-gold/30 transition-colors flex flex-col">
       <div className="relative aspect-[16/10] overflow-hidden bg-beige">
         <Photo
           name={room.photo}
@@ -45,7 +50,7 @@ function RoomCard({ room }) {
         </dl>
 
         <ul className="space-y-1.5 mb-6 list-none p-0 flex-1">
-          {room.features.map((f) => (
+          {features.map((f) => (
             <li key={f.fr} className="flex items-center gap-2 text-sm text-black/60">
               <span className="text-gold text-xs" aria-hidden="true">
                 ✦
@@ -65,7 +70,7 @@ function RoomCard({ room }) {
 }
 
 export default function RoomsSection() {
-  const { t } = useLang();
+  const { t, pick } = useLang();
   return (
     <section id="chambres" className="py-20 md:py-28 bg-offwhite">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -73,7 +78,14 @@ export default function RoomsSection() {
           {t('rooms.subtitle')}
         </SectionHeading>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {COMMON.length > 0 && (
+          <p className="-mt-6 mb-10 text-center text-sm text-gray-mid">
+            <span className="text-black">{t('rooms.inAllRooms')}</span> : {COMMON.map((f) => pick(f)).join(' · ')}
+          </p>
+        )}
+
+        {/* flex + centrage : la dernière rangée (7 chambres) reste centrée au lieu d'une carte orpheline à gauche */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {ROOMS.map((room) => (
             <RoomCard key={room.id} room={room} />
           ))}

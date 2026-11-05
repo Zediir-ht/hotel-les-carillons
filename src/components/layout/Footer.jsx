@@ -15,7 +15,7 @@ function ColumnTitle({ children }) {
 
 export default function Footer() {
   const { t, lang } = useLang();
-  const linkClass = 'text-white/60 hover:text-white no-underline transition-colors';
+  const linkClass = 'inline-block py-1.5 text-white/60 hover:text-white no-underline transition-colors';
 
   return (
     <footer className="bg-deepbrown pattern-belle text-white pb-20 lg:pb-0">
@@ -40,7 +40,7 @@ export default function Footer() {
 
           <nav aria-label={t('footer.navTitle')}>
             <ColumnTitle>{t('footer.navTitle')}</ColumnTitle>
-            <ul className="list-none p-0 m-0 space-y-3 text-sm">
+            <ul className="list-none p-0 m-0 text-sm">
               {NAV_ITEMS.map((item) => (
                 <li key={item.to}>
                   <Link to={item.to} className={linkClass}>
