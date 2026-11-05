@@ -1,7 +1,7 @@
 import Seo from '../components/Seo';
 import PageHero from '../components/ui/PageHero';
 import SectionHeading from '../components/ui/SectionHeading';
-import { ArrowLink, ButtonLink } from '../components/ui/Links';
+import { TextLink, ButtonLink } from '../components/ui/Links';
 import ContactForm from '../components/contact/ContactForm';
 import MapEmbed from '../components/contact/MapEmbed';
 import { useLang } from '../i18n/LanguageContext';
@@ -58,9 +58,9 @@ export default function Contact() {
                   <br />
                   {SITE.address.region}, {SITE.address.country}
                 </p>
-                <ArrowLink href={LINKS.directions} className="mt-3">
+                <TextLink href={LINKS.directions} className="mt-3">
                   {t('contactPage.directions')}
-                </ArrowLink>
+                </TextLink>
               </InfoBlock>
               <InfoBlock title={t('contactPage.onlineBooking')}>
                 <ButtonLink href={bookingUrl(lang)} className="mt-1">

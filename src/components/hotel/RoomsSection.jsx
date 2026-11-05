@@ -1,6 +1,6 @@
 import Photo from '../ui/Photo';
 import SectionHeading from '../ui/SectionHeading';
-import { ArrowLink } from '../ui/Links';
+import { TextLink } from '../ui/Links';
 import { useLang } from '../../i18n/LanguageContext';
 import { bookingUrl } from '../../config/site';
 import { ROOMS } from '../../data/rooms';
@@ -60,10 +60,10 @@ function RoomCard({ room }) {
           ))}
         </ul>
 
-        <ArrowLink href={bookingUrl(lang)}>
+        <TextLink href={bookingUrl(lang)}>
           {t('rooms.book')}
           <span className="sr-only">, {pick(room.name)}</span>
-        </ArrowLink>
+        </TextLink>
       </div>
     </article>
   );

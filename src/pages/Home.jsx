@@ -9,7 +9,7 @@ import TourismeTeaser from '../components/home/TourismeTeaser';
 import GoogleReviewsSection from '../components/home/GoogleReviewsSection';
 import SplitSection from '../components/ui/SplitSection';
 import EditorialCollage from '../components/ui/EditorialCollage';
-import { ArrowLink } from '../components/ui/Links';
+import { TextLink } from '../components/ui/Links';
 import { useLang } from '../i18n/LanguageContext';
 import { useGoogleReviews } from '../lib/useGoogleReviews';
 import { ROOMS } from '../data/rooms';
@@ -42,9 +42,9 @@ export default function Home() {
         <p className="text-black">
           {t('hotelSection.fromPrice')} <span className="text-gold text-3xl">{formatEuro(minRoomPrice, lang)}</span>
         </p>
-        <ArrowLink to="/hotel#chambres" className="mt-2">
+        <TextLink to="/hotel#chambres" className="mt-2">
           {t('hotelSection.cta')}
-        </ArrowLink>
+        </TextLink>
       </EditorialCollage>
 
       <EditorialCollage
@@ -61,9 +61,9 @@ export default function Home() {
         <p className="text-black">
           <span className="text-gold" aria-hidden="true">◆</span> {t('restaurantSection.highlight')} · {formatEuro(17, lang)}
         </p>
-        <ArrowLink to="/restaurant#menus" className="mt-2">
+        <TextLink to="/restaurant#menus" className="mt-2">
           {t('restaurantSection.cta')}
-        </ArrowLink>
+        </TextLink>
       </EditorialCollage>
 
       <CuristesSection />
@@ -84,9 +84,9 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <ArrowLink to="/meubles" className="mt-4">
+        <TextLink to="/meubles" className="mt-4">
           {t('meublesSection.cta')}
-        </ArrowLink>
+        </TextLink>
       </SplitSection>
 
       <TourismeTeaser />

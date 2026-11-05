@@ -23,18 +23,18 @@ function SmartLink({ to, href, className, children, ...rest }) {
   );
 }
 
-/** Lien texte souligné avec flèche dorée (« Voir les chambres → »). */
-export function ArrowLink({ tone = 'dark', className = '', children, ...props }) {
+/** Lien texte : souligné d'un filet doré qui s'épaissit au survol (c'est le soulignement qui dit « lien »). */
+export function TextLink({ tone = 'dark', className = '', children, ...props }) {
   const color =
     tone === 'light'
-      ? 'text-offwhite border-offwhite/60 hover:text-gold-light hover:border-gold-light'
-      : 'text-black border-black hover:text-gold hover:border-gold';
+      ? 'text-offwhite decoration-gold-light hover:text-gold-light'
+      : 'text-black decoration-gold hover:text-gold';
   return (
     <SmartLink
       {...props}
-      className={`self-start inline-flex items-center gap-2 text-base no-underline transition-colors border-b pb-0.5 ${color} ${className}`}
+      className={`self-start inline-block text-base underline decoration-1 underline-offset-[7px] hover:decoration-2 transition-colors ${color} ${className}`}
     >
-      {children} <span className={tone === 'light' ? 'text-gold-light' : 'text-gold'} aria-hidden="true">→</span>
+      {children}
     </SmartLink>
   );
 }

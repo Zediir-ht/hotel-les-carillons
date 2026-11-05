@@ -27,7 +27,7 @@ export default function TourismeTeaser() {
         </ul>
 
         <ButtonLink to="/tourisme" variant="gold" size="lg">
-          {t('tourTeaser.cta')} <span aria-hidden="true">→</span>
+          {t('tourTeaser.cta')}
         </ButtonLink>
       </div>
     </section>

@@ -4,7 +4,7 @@ import SplitSection from '../components/ui/SplitSection';
 import SectionHeading from '../components/ui/SectionHeading';
 import Carousel from '../components/ui/Carousel';
 import PhotoStrip from '../components/ui/PhotoStrip';
-import { ArrowLink } from '../components/ui/Links';
+import { TextLink } from '../components/ui/Links';
 import RoomsSection from '../components/hotel/RoomsSection';
 import { useLang } from '../i18n/LanguageContext';
 
@@ -112,9 +112,9 @@ export default function Hotel() {
         title={t('hotelPage.etapeTitle')}
       >
         <p>{t('hotelPage.etapeP')}</p>
-        <ArrowLink to="/contact?sujet=chambre" className="mt-2">
+        <TextLink to="/contact?sujet=chambre" className="mt-2">
           {t('hotelPage.etapeCta')}
-        </ArrowLink>
+        </TextLink>
       </SplitSection>
     </>
   );

@@ -1,7 +1,7 @@
 import Reveal from '../ui/Reveal';
 import Photo from '../ui/Photo';
 import SectionHeading from '../ui/SectionHeading';
-import { ArrowLink } from '../ui/Links';
+import { TextLink } from '../ui/Links';
 import { ArchFrame, Monogram } from '../ui/Ornaments';
 import { useLang } from '../../i18n/LanguageContext';
 import { logisPageUrl } from '../../config/site';
@@ -17,9 +17,9 @@ export default function IntroSection() {
             <p className="dropcap">{t('intro.p1')}</p>
             <p>{t('intro.p2')}</p>
           </div>
-          <ArrowLink href={logisPageUrl(lang)} className="mt-8">
+          <TextLink href={logisPageUrl(lang)} className="mt-8">
             {t('intro.cta')}
-          </ArrowLink>
+          </TextLink>
         </Reveal>
 
         <Reveal delay={150} className="relative max-w-md w-full mx-auto md:mr-4">

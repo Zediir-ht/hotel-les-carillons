@@ -3,7 +3,7 @@ import PageHero from '../components/ui/PageHero';
 import SplitSection from '../components/ui/SplitSection';
 import SectionHeading from '../components/ui/SectionHeading';
 import Carousel from '../components/ui/Carousel';
-import { ArrowLink, ButtonLink } from '../components/ui/Links';
+import { TextLink, ButtonLink } from '../components/ui/Links';
 import { useLang } from '../i18n/LanguageContext';
 
 const SALLES_PHOTOS = ['seminaire-reunion', 'seminaire-4', 'seminaire-cafe', 'salle-reception-1', 'seminaire-1', 'salle-reception-2', 'veranda-banquet'];
@@ -28,9 +28,9 @@ export default function Seminaire() {
       >
         <p>{t('seminairePage.section1P1')}</p>
         <p>{t('seminairePage.section1P2')}</p>
-        <ArrowLink to="/contact?sujet=groupe" className="mt-2">
+        <TextLink to="/contact?sujet=groupe" className="mt-2">
           {t('seminairePage.section1Cta')}
-        </ArrowLink>
+        </TextLink>
       </SplitSection>
 
       <section className="py-20 md:py-28 bg-beige">
@@ -68,9 +68,9 @@ export default function Seminaire() {
             <SectionHeading title={t('seminairePage.carouselTitle')} align="left" />
             <p className="text-gray-mid leading-relaxed mt-6 mb-4">{t('seminairePage.carouselP1')}</p>
             <p className="text-gray-mid leading-relaxed">{t('seminairePage.carouselP2')}</p>
-            <ArrowLink to="/contact?sujet=groupe" className="mt-6">
+            <TextLink to="/contact?sujet=groupe" className="mt-6">
               {t('seminairePage.carouselCta')}
-            </ArrowLink>
+            </TextLink>
           </div>
         </div>
       </section>

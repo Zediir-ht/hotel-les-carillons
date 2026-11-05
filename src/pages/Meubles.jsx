@@ -4,7 +4,7 @@ import PageHero from '../components/ui/PageHero';
 import SplitSection from '../components/ui/SplitSection';
 import SectionHeading from '../components/ui/SectionHeading';
 import PhotoGrid from '../components/ui/PhotoGrid';
-import { ArrowLink } from '../components/ui/Links';
+import { TextLink } from '../components/ui/Links';
 import { Bell } from '../components/ui/Ornaments';
 import CureCalculator from '../components/meubles/CureCalculator';
 import CompareTable from '../components/meubles/CompareTable';
@@ -70,9 +70,9 @@ export default function Meubles() {
       <SplitSection photo="cedres-facade" photoAlt={residenceAlts[0]} title={m('section1Title')}>
         <p>{m('section1P1')}</p>
         <p>{m('section1P2')}</p>
-        <ArrowLink href="#tarifs" className="mt-2">
+        <TextLink href="#tarifs" className="mt-2">
           {m('calcTitle')}
-        </ArrowLink>
+        </TextLink>
       </SplitSection>
 
       {/* 1. Calculateur */}

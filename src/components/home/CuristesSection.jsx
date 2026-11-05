@@ -1,6 +1,6 @@
 import Reveal from '../ui/Reveal';
 import SectionHeading from '../ui/SectionHeading';
-import { ArrowLink } from '../ui/Links';
+import { TextLink } from '../ui/Links';
 import { OrnateFrame } from '../ui/Ornaments';
 import { useLang } from '../../i18n/LanguageContext';
 import { LINKS } from '../../config/site';
@@ -40,18 +40,18 @@ export default function CuristesSection() {
                   {t('curistes.weekFrom')} {formatEuro(minWeek, lang)} {t('curistes.week')}
                 </p>
               )}
-              <ArrowLink to={targets[i]} tone="light" className="mt-6">
+              <TextLink to={targets[i]} tone="light" className="mt-6">
                 {card.cta}
-              </ArrowLink>
+              </TextLink>
               </OrnateFrame>
             </Reveal>
           ))}
         </div>
 
         <p className="text-center mt-12">
-          <ArrowLink href={LINKS.thermes} tone="light">
+          <TextLink href={LINKS.thermes} tone="light">
             {t('curistes.thermesCta')}
-          </ArrowLink>
+          </TextLink>
         </p>
       </div>
     </section>

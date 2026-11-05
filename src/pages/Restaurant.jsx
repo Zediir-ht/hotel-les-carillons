@@ -3,7 +3,7 @@ import Seo from '../components/Seo';
 import Photo from '../components/ui/Photo';
 import SectionHeading from '../components/ui/SectionHeading';
 import PhotoGrid from '../components/ui/PhotoGrid';
-import { ArrowLink, ButtonLink } from '../components/ui/Links';
+import { TextLink, ButtonLink } from '../components/ui/Links';
 import { ArchFrame, Bell, OrnamentRule, OrnateFrame } from '../components/ui/Ornaments';
 import TodayBanner from '../components/restaurant/TodayBanner';
 import MenuBook from '../components/restaurant/MenuBook';
@@ -181,9 +181,9 @@ export default function Restaurant() {
               {SITE.phone.display}
             </a>
             <p className="text-gray-mid mt-6">{r('section1P3')}</p>
-            <ArrowLink to="/contact?sujet=table" className="mt-4 mx-auto">
+            <TextLink to="/contact?sujet=table" className="mt-4 mx-auto">
               {r('reserveWrite')}
-            </ArrowLink>
+            </TextLink>
           </OrnateFrame>
         </div>
       </section>

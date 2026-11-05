@@ -3,7 +3,7 @@ import PageHero from '../components/ui/PageHero';
 import SplitSection from '../components/ui/SplitSection';
 import SectionHeading from '../components/ui/SectionHeading';
 import Photo from '../components/ui/Photo';
-import { ArrowLink } from '../components/ui/Links';
+import { TextLink } from '../components/ui/Links';
 import { useLang } from '../i18n/LanguageContext';
 import { LINKS } from '../config/site';
 import { TOURISM_SITES, AGENDA_URLS } from '../data/tourism';
@@ -28,9 +28,9 @@ export default function Tourisme() {
       >
         <p>{t('tourismePage.introP1')}</p>
         <p>{t('tourismePage.introP2')}</p>
-        <ArrowLink href={LINKS.thermes} className="mt-2">
+        <TextLink href={LINKS.thermes} className="mt-2">
           {t('tourismePage.introCta')}
-        </ArrowLink>
+        </TextLink>
       </SplitSection>
 
       <section className="py-20 md:py-28 bg-beige">

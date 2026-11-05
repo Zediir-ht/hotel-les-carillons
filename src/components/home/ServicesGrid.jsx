@@ -47,18 +47,11 @@ export default function ServicesGrid() {
                   {/* Voile : assombrit le bas de la tuile, là où se lit le texte */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 via-55% md:via-black/45 md:via-40% to-transparent" aria-hidden="true" />
 
-                  <span
-                    className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 text-black opacity-0 -translate-y-1 transition-[opacity,translate] duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
-                    aria-hidden="true"
-                  >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </span>
-
                   <div className="absolute inset-x-0 bottom-0 p-5 md:p-7 text-on-photo">
                     <h3 className={`text-white ${s.big ? 'text-2xl md:text-4xl' : 'text-xl md:text-2xl'}`}>{service.title}</h3>
                     <p className={`mt-2 text-white/90 leading-relaxed ${s.big ? 'max-w-md text-sm md:text-base' : 'text-sm line-clamp-2'}`}>{service.desc}</p>
+                    {/* Filet doré : il s'allonge au survol, et signale que la tuile est un lien (aussi au toucher) */}
+                    <span className="mt-4 block h-px w-10 origin-left bg-gold-light transition-[scale] duration-300 ease-(--ease-out) group-hover:scale-x-[2.4] group-focus-visible:scale-x-[2.4]" aria-hidden="true" />
                   </div>
                   </div>
                 </Link>
