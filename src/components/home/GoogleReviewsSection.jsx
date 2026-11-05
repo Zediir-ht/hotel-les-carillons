@@ -31,37 +31,39 @@ export default function GoogleReviewsSection({ data }) {
   const ratingText = rating?.toLocaleString(lang === 'en' ? 'en-GB' : 'fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return (
-    <section className="bg-offwhite py-20 md:py-28">
+    <section className={`bg-offwhite ${rating != null || reviews.length > 0 ? 'py-20 md:py-28' : 'py-16 md:py-20'}`}>
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <SectionHeading overline={t('googleReviews.overline')} title={t('googleReviews.title')}>
           {t('googleReviews.desc')}
         </SectionHeading>
 
-        <OrnateFrame className="mt-10 mx-auto w-fit bg-white px-12 md:px-16 py-10">
-        <div className="flex flex-col items-center gap-3">
-          {rating != null && (
-            <p className="flex items-center gap-3">
-              <span className="text-5xl text-black" style={{ fontFamily: 'var(--font-display)' }}>
-                {ratingText}
-              </span>
-              <span className="flex flex-col items-start">
-                <Stars rating={rating} />
-                <span className="text-xs text-gray-mid mt-1">
-                  {t('googleReviews.ratingOf')}
-                  {data?.count ? ` · ${data.count} ${t('googleReviews.basedOn')}` : ` · ${t('googleReviews.reviewsLabel')}`}
+        {rating != null && (
+          <OrnateFrame className="mt-10 mx-auto w-fit bg-white px-12 md:px-16 py-10">
+          <div className="flex flex-col items-center gap-3">
+            {rating != null && (
+              <p className="flex items-center gap-3">
+                <span className="text-5xl text-black" style={{ fontFamily: 'var(--font-display)' }}>
+                  {ratingText}
                 </span>
-              </span>
-            </p>
-          )}
-          <ul className="flex flex-wrap justify-center gap-2 list-none p-0 m-0 mt-2">
-            {t('googleReviews.pillars').map((pillar) => (
-              <li key={pillar} className="border border-black/10 bg-white px-3 py-1.5 text-xs text-black/70 tracking-wide">
-                {pillar}
-              </li>
-            ))}
-          </ul>
-        </div>
-        </OrnateFrame>
+                <span className="flex flex-col items-start">
+                  <Stars rating={rating} />
+                  <span className="text-xs text-gray-mid mt-1">
+                    {t('googleReviews.ratingOf')}
+                    {data?.count ? ` · ${data.count} ${t('googleReviews.basedOn')}` : ` · ${t('googleReviews.reviewsLabel')}`}
+                  </span>
+                </span>
+              </p>
+            )}
+            <ul className="flex flex-wrap justify-center gap-2 list-none p-0 m-0 mt-2">
+              {t('googleReviews.pillars').map((pillar) => (
+                <li key={pillar} className="border border-black/10 bg-white px-3 py-1.5 text-xs text-black/70 tracking-wide">
+                  {pillar}
+                </li>
+              ))}
+            </ul>
+          </div>
+          </OrnateFrame>
+        )}
 
         {reviews.length > 0 && (
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -87,7 +89,7 @@ export default function GoogleReviewsSection({ data }) {
           </div>
         )}
 
-        <div className="mt-12 flex flex-col sm:flex-row justify-center gap-3">
+        <div className={`${rating != null || reviews.length > 0 ? 'mt-12' : 'mt-8'} flex flex-col sm:flex-row justify-center gap-3`}>
           <ButtonLink href={mapsUrl} variant="dark">
             {t('googleReviews.readCta')}
           </ButtonLink>
