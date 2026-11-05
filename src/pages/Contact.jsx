@@ -1,6 +1,7 @@
 import Seo from '../components/Seo';
 import PageHero from '../components/ui/PageHero';
 import SectionHeading from '../components/ui/SectionHeading';
+import { OrnateFrame } from '../components/ui/Ornaments';
 import { TextLink, ButtonLink } from '../components/ui/Links';
 import ContactForm from '../components/contact/ContactForm';
 import MapEmbed from '../components/contact/MapEmbed';
@@ -39,7 +40,7 @@ export default function Contact() {
 
           <div>
             <SectionHeading title={t('contactPage.findTitle')} align="left" size="md" className="mb-8" />
-            <address className="not-italic space-y-6 mb-8">
+            <OrnateFrame className="bg-white p-8 md:p-10 mb-8"><address className="not-italic space-y-6">
               <InfoBlock title={t('contactPage.phone')}>
                 <a href={SITE.phone.href} className="text-2xl text-gold hover:text-gold-dark no-underline">
                   {SITE.phone.display}
@@ -67,7 +68,7 @@ export default function Contact() {
                   {t('contactPage.bookCta')}
                 </ButtonLink>
               </InfoBlock>
-            </address>
+            </address></OrnateFrame>
             <MapEmbed title={t('contactPage.mapTitle')} />
           </div>
         </div>

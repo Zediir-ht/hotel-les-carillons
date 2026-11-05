@@ -2,6 +2,7 @@ import Seo from '../components/Seo';
 import PageHero from '../components/ui/PageHero';
 import SplitSection from '../components/ui/SplitSection';
 import SectionHeading from '../components/ui/SectionHeading';
+import { OrnateFrame } from '../components/ui/Ornaments';
 import Carousel from '../components/ui/Carousel';
 import { TextLink, ButtonLink } from '../components/ui/Links';
 import { useLang } from '../i18n/LanguageContext';
@@ -38,7 +39,7 @@ export default function Seminaire() {
           <SectionHeading title={t('seminairePage.equipTitle')} className="mb-12" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {t('seminairePage.equipBlocks').map((block) => (
-              <div key={block.title} className="bg-white p-6 md:p-8 border border-black/5">
+              <OrnateFrame key={block.title} className="bg-white p-8 md:p-10">
                 <h3 className="text-sm font-normal text-black mb-5 tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
                   {block.title}
                 </h3>
@@ -50,7 +51,7 @@ export default function Seminaire() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </OrnateFrame>
             ))}
           </div>
           <div className="text-center mt-10">

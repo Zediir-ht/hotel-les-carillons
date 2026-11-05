@@ -2,6 +2,7 @@ import Seo from '../components/Seo';
 import PageHero from '../components/ui/PageHero';
 import SplitSection from '../components/ui/SplitSection';
 import SectionHeading from '../components/ui/SectionHeading';
+import { OrnateFrame } from '../components/ui/Ornaments';
 import Carousel from '../components/ui/Carousel';
 import PhotoStrip from '../components/ui/PhotoStrip';
 import { TextLink } from '../components/ui/Links';
@@ -64,14 +65,14 @@ export default function Hotel() {
 
           <div id="infos-pratiques">
             <SectionHeading title={t('hotelPage.infosTitle')} align="left" size="md" className="mb-10" />
-            <dl className="bg-white border border-black/5 divide-y divide-black/5 m-0">
+            <OrnateFrame className="bg-white p-6 md:p-7"><dl className="divide-y divide-gold/20 m-0">
               {t('hotelPage.infos').map((info) => (
                 <div key={info.label} className="flex justify-between gap-4 px-5 py-3.5 text-sm">
                   <dt className="text-black/55">{info.label}</dt>
                   <dd className="text-black text-right m-0">{info.value}</dd>
                 </div>
               ))}
-            </dl>
+            </dl></OrnateFrame>
           </div>
         </div>
       </section>

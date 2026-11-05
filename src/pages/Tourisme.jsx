@@ -2,6 +2,7 @@ import Seo from '../components/Seo';
 import PageHero from '../components/ui/PageHero';
 import SplitSection from '../components/ui/SplitSection';
 import SectionHeading from '../components/ui/SectionHeading';
+import { OrnateFrame } from '../components/ui/Ornaments';
 import Photo from '../components/ui/Photo';
 import { TextLink } from '../components/ui/Links';
 import { useLang } from '../i18n/LanguageContext';
@@ -84,7 +85,7 @@ export default function Tourisme() {
           <SectionHeading title={t('tourismePage.agendaTitle')} className="mb-12" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {t('tourismePage.agenda').map((item, i) => (
-              <div key={item.title} className="bg-beige p-6 md:p-8 border border-black/5">
+              <OrnateFrame key={item.title} className="bg-beige p-8 md:p-10">
                 <h3 className="text-sm font-normal text-black mb-4 tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
                   {item.title}
                 </h3>
@@ -94,7 +95,7 @@ export default function Tourisme() {
                     {t('tourismePage.seeMore')} <span aria-hidden="true">↗</span>
                   </a>
                 )}
-              </div>
+              </OrnateFrame>
             ))}
           </div>
           <p className="text-center text-gray-mid text-xs mt-10">
