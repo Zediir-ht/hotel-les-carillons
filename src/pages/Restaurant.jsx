@@ -87,7 +87,7 @@ export default function Restaurant() {
                       name={FORMULE_PHOTOS[f.id]}
                       alt={f.photoAlt}
                       sizes="(min-width: 768px) 33vw, 100vw"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-(--ease-out) group-hover:scale-[1.03]"
                     />
                   </span>
                   <span className="relative flex flex-col items-center flex-1 pt-6 px-2">

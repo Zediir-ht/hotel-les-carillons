@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import MobileActionBar from './MobileActionBar';
@@ -22,16 +22,26 @@ function ScrollManager() {
 }
 
 function ScrollProgress() {
-  const [pct, setPct] = useState(0);
+  const bar = useRef(null);
   useEffect(() => {
+    let frame = 0;
     const update = () => {
+      frame = 0;
       const h = document.documentElement.scrollHeight - window.innerHeight;
-      setPct(h > 0 ? (window.scrollY / h) * 100 : 0);
+      // transform (et non width) : pas de recalcul de mise en page, et aucun re-rendu React par défilement
+      if (bar.current) bar.current.style.transform = `scaleX(${h > 0 ? Math.min(1, window.scrollY / h) : 0})`;
     };
-    window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
-  return <div className="fixed top-0 left-0 z-[9999] h-[2px] bg-gold" style={{ width: `${pct}%` }} aria-hidden="true" />;
+  return <div ref={bar} className="fixed top-0 left-0 z-[9999] h-[2px] w-full origin-left bg-gold" style={{ transform: 'scaleX(0)' }} aria-hidden="true" />;
 }
 
 export default function Layout() {

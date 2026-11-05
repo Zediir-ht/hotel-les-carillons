@@ -33,7 +33,7 @@ export default function Galerie() {
                 type="button"
                 onClick={() => setCategory(cat)}
                 aria-pressed={category === cat}
-                className={`px-5 py-2.5 text-sm border transition-colors cursor-pointer ${
+                className={`px-5 py-2.5 text-sm border press cursor-pointer ${
                   category === cat ? 'bg-deepbrown text-offwhite border-deepbrown' : 'bg-white text-black/75 border-black/10 hover:border-gold hover:text-gold'
                 }`}
               >

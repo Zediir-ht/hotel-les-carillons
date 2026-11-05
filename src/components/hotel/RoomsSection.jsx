@@ -19,7 +19,7 @@ function RoomCard({ room }) {
           name={room.photo}
           alt={pick(room.name)}
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 ease-(--ease-out) group-hover:scale-[1.03]"
         />
         <p className="absolute top-4 right-4 bg-white/95 px-3 py-1.5 text-gold text-sm tracking-wide">
           {t('rooms.fromPrice')} {formatEuro(from, lang)}

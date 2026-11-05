@@ -170,7 +170,7 @@ export default function MenuBook({ tab, onTabChange }) {
             aria-controls="menu-panel"
             tabIndex={tab === id ? 0 : -1}
             onClick={() => onTabChange(id)}
-            className={`px-5 py-2.5 border transition-colors cursor-pointer ${
+            className={`px-5 py-2.5 border press cursor-pointer ${
               tab === id ? 'bg-deepbrown text-offwhite border-deepbrown' : 'bg-white text-black/75 border-gold/30 hover:border-gold hover:text-gold'
             }`}
           >

@@ -153,10 +153,13 @@
 
 .img-card img {
   transform: scale(1.05);
-  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.5s var(--ease-out);
 }
-.img-card:hover img {
-  transform: scale(1);
+/* Survol : seulement sur un appareil à souris (sur tactile, le « survol » se déclenche au toucher) */
+@media (hover: hover) and (pointer: fine) {
+  .img-card:hover img {
+    transform: scale(1);
+  }
 }
 
 /* Retour d'action : le bouton s'enfonce légèrement quand on appuie (toucher ou clic) */

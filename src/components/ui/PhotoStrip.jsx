@@ -17,7 +17,7 @@ export default function PhotoStrip({ photos }) {
               name={p.name}
               alt={p.alt}
               sizes="(min-width: 1024px) 25vw, 50vw"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-500 ease-(--ease-out) group-hover:scale-[1.03]"
             />
           </div>
         ))}

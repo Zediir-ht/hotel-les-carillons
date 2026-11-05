@@ -38,7 +38,7 @@ export default function ServicesGrid() {
                     name={s.photo}
                     alt=""
                     sizes={s.big ? '(min-width: 1024px) 770px, 100vw' : '(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw'}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-(--ease-out) group-hover:scale-[1.03]"
                   />
                   {/* Voile : assombrit le bas de la tuile, là où se lit le texte */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 via-55% md:via-black/45 md:via-40% to-transparent" aria-hidden="true" />

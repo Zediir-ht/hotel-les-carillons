@@ -90,7 +90,7 @@ export default function Lightbox({ items, index, onClose, onIndexChange }) {
         ref={closeRef}
         type="button"
         onClick={onClose}
-        className="absolute top-4 right-4 w-11 h-11 flex items-center justify-center text-white border border-white/25 hover:border-gold cursor-pointer"
+        className="absolute top-4 right-4 w-11 h-11 flex items-center justify-center text-white border border-white/25 hover:border-gold cursor-pointer press"
         aria-label={t('ui.close')}
       >
         <ArrowIcon d="M6 6l12 12M18 6L6 18" />
@@ -104,7 +104,7 @@ export default function Lightbox({ items, index, onClose, onIndexChange }) {
               e.stopPropagation();
               go(-1);
             }}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 hidden sm:flex items-center justify-center text-white border border-white/25 hover:border-gold bg-black/30 cursor-pointer"
+            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 hidden sm:flex items-center justify-center text-white border border-white/25 hover:border-gold bg-black/30 cursor-pointer press"
             aria-label={t('ui.prev')}
           >
             <ArrowIcon d="M15 19l-7-7 7-7" />
@@ -115,7 +115,7 @@ export default function Lightbox({ items, index, onClose, onIndexChange }) {
               e.stopPropagation();
               go(1);
             }}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 hidden sm:flex items-center justify-center text-white border border-white/25 hover:border-gold bg-black/30 cursor-pointer"
+            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 hidden sm:flex items-center justify-center text-white border border-white/25 hover:border-gold bg-black/30 cursor-pointer press"
             aria-label={t('ui.next')}
           >
             <ArrowIcon d="M9 5l7 7-7 7" />

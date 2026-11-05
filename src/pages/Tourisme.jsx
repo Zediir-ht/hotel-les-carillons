@@ -49,7 +49,7 @@ export default function Tourisme() {
                       name={site.photo}
                       alt={sites[i].name}
                       sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                      className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-44 object-cover transition-transform duration-500 ease-(--ease-out) group-hover:scale-[1.03]"
                     />
                     <figcaption className="absolute bottom-0 right-0 bg-black/70 text-white text-xs px-2 py-0.5 max-w-full truncate">
                       {t('tourismePage.photoCredit')} : {site.credit.author} · {site.credit.license}

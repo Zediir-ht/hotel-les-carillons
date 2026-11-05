@@ -23,7 +23,7 @@ export default function PhotoGrid({ items, columns = 'columns-2 md:columns-3 lg:
               className="group relative block w-full overflow-hidden cursor-zoom-in bg-beige"
               aria-label={`${t('ui.enlarge')} : ${item.alt}`}
             >
-              <Photo name={item.photo} alt="" sizes={sizes} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+              <Photo name={item.photo} alt="" sizes={sizes} className="w-full h-auto transition-transform duration-500 ease-(--ease-out) group-hover:scale-[1.03]" />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-3 pt-8 pb-3 text-left text-sm text-white opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">
                 {item.alt}
               </span>

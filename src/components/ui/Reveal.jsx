@@ -33,7 +33,7 @@ export default function Reveal({ children, className = '', delay = 0, as: Tag = 
     <Tag
       ref={ref}
       data-reveal
-      className={`transition-[opacity,transform] duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} ${className}`}
+      className={`transition-[opacity,transform] duration-500 ease-(--ease-out) ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} ${className}`}
       style={{ transitionDelay: visible ? `${delay}ms` : '0ms' }}
     >
       {children}

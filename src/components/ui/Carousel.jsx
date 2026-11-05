@@ -84,7 +84,7 @@ export default function Carousel({ slides = [], autoPlay = true, interval = 4500
               key={b.label}
               type="button"
               onClick={b.fn}
-              className={`absolute ${b.side} top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center bg-black/25 hover:bg-black/45 backdrop-blur-sm text-white border border-white/20 hover:border-gold transition-all duration-200 cursor-pointer`}
+              className={`absolute ${b.side} top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center bg-black/25 hover:bg-black/45 backdrop-blur-sm text-white border border-white/20 hover:border-gold press cursor-pointer`}
               aria-label={b.label}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5} aria-hidden="true">
@@ -97,7 +97,7 @@ export default function Carousel({ slides = [], autoPlay = true, interval = 4500
             <button
               type="button"
               onClick={() => setUserPaused((v) => !v)}
-              className="motion-reduce:hidden absolute top-3 right-3 z-20 w-11 h-11 flex items-center justify-center bg-black/35 hover:bg-black/55 text-white border border-white/25 hover:border-gold transition-colors cursor-pointer"
+              className="motion-reduce:hidden absolute top-3 right-3 z-20 w-11 h-11 flex items-center justify-center bg-black/35 hover:bg-black/55 text-white border border-white/25 hover:border-gold press cursor-pointer"
               aria-label={userPaused ? t('ui.play') : t('ui.pause')}
               aria-pressed={userPaused}
             >
@@ -117,7 +117,7 @@ export default function Carousel({ slides = [], autoPlay = true, interval = 4500
                 aria-label={`${t('ui.photo')} ${i + 1} / ${count}`}
                 aria-current={i === current}
               >
-                <span className={`block h-[3px] transition-all duration-300 ${i === current ? 'w-6 bg-gold' : 'w-2 bg-white/50 hover:bg-white/80'}`} />
+                <span className={`block h-[3px] w-6 transition-[scale,background-color] duration-300 ease-(--ease-out) ${i === current ? 'bg-gold scale-x-100' : 'bg-white/50 hover:bg-white/80 scale-x-[0.33]'}`} />
               </button>
             ))}
           </div>

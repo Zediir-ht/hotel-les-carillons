@@ -129,7 +129,7 @@ export default function MeubleRequestForm({ initialFloor = 'any', initialWeeks =
       )}
 
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-        <button type="submit" disabled={status === 'sending'} className="bg-gold hover:bg-gold-dark disabled:opacity-60 text-white px-8 py-3.5 transition-colors cursor-pointer">
+        <button type="submit" disabled={status === 'sending'} className="bg-gold hover:bg-gold-dark disabled:opacity-60 text-white px-8 py-3.5 press cursor-pointer">
           {status === 'sending' ? r('sending') : r('submit')}
         </button>
         {!canSendDirectly && <p className="text-sm text-gray-mid m-0">{r('mailtoNote')}</p>}

@@ -72,7 +72,7 @@ export default function Navbar() {
     <button
       type="button"
       onClick={() => switchLang(otherLang)}
-      className={`shrink-0 px-3 py-2 transition-colors cursor-pointer border ${
+      className={`shrink-0 px-3 py-2 press cursor-pointer border ${
         scrolled ? 'text-black/60 hover:text-black border-black/15' : 'text-white hover:text-white border-white/50'
       } ${extra}`}
       aria-label={t('nav.switchLang')}
@@ -86,7 +86,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav
         aria-label="Navigation principale"
-        className={`transition-all duration-300 ${
+        className={`transition-[background-color,box-shadow,border-color] duration-300 ${
           scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5' : 'bg-gradient-to-b from-black/80 via-black/50 to-transparent text-on-photo'
         }`}
       >
@@ -114,7 +114,7 @@ export default function Navbar() {
               href={bookingUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className={`shrink-0 text-[0.9375rem] px-5 py-2 transition-colors no-underline border ${
+              className={`shrink-0 text-[0.9375rem] px-5 py-2 press no-underline border ${
                 scrolled ? 'bg-gold border-gold hover:bg-gold-dark text-white' : 'border-white/50 text-white hover:bg-white/10'
               }`}
             >
@@ -136,7 +136,7 @@ export default function Navbar() {
               aria-controls="mobile-menu"
             >
               {[menuOpen ? 'rotate-45 translate-y-[8px]' : '', menuOpen ? 'opacity-0' : '', menuOpen ? '-rotate-45 -translate-y-[8px]' : ''].map((state, i) => (
-                <span key={i} className={`block w-[24px] h-[2px] transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-white'} ${state}`} />
+                <span key={i} className={`block w-[24px] h-[2px] transition-[translate,rotate,opacity,background-color] duration-300 ease-(--ease-out) ${scrolled ? 'bg-black' : 'bg-white'} ${state}`} />
               ))}
             </button>
             <Link to="/" className="no-underline flex items-baseline" aria-label={`${SITE.name}, ${t('nav.home')}`}>

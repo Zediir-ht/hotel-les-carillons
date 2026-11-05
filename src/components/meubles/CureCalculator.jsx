@@ -17,7 +17,7 @@ export default function CureCalculator({ floor, weeks, onChange, onRequest }) {
   const weekLabel = (n) => `${n} ${n > 1 ? m('weeksPlural') : m('weekSingular')}`;
 
   const choiceClass = (active) =>
-    `px-4 py-3 border text-left transition-colors cursor-pointer ${active ? 'bg-deepbrown text-offwhite border-deepbrown' : 'bg-white text-black/80 border-gold/30 hover:border-gold'}`;
+    `px-4 py-3 border text-left press cursor-pointer ${active ? 'bg-deepbrown text-offwhite border-deepbrown' : 'bg-white text-black/80 border-gold/30 hover:border-gold'}`;
 
   return (
     <OrnateFrame className="bg-white shadow-card max-w-4xl mx-auto">
@@ -58,7 +58,7 @@ export default function CureCalculator({ floor, weeks, onChange, onRequest }) {
           </p>
           <p className="text-5xl text-gold my-4 m-0">{formatEuro(rate.price * weeks, lang)}</p>
           <p className="text-sm text-gray-mid m-0">{m('calcTax')}</p>
-          <button type="button" onClick={onRequest} className="mt-6 bg-gold hover:bg-gold-dark text-white px-7 py-3 transition-colors cursor-pointer">
+          <button type="button" onClick={onRequest} className="mt-6 bg-gold hover:bg-gold-dark text-white px-7 py-3 press cursor-pointer">
             {m('calcCta')}
           </button>
         </div>

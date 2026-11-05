@@ -56,7 +56,7 @@ export default function CompareTable({ onRequest }) {
               </ButtonLink>
             </td>
             <td className="p-5 bg-forest/5">
-              <button type="button" onClick={onRequest} className="bg-gold hover:bg-gold-dark text-white px-7 py-3 transition-colors cursor-pointer">
+              <button type="button" onClick={onRequest} className="bg-gold hover:bg-gold-dark text-white px-7 py-3 press cursor-pointer">
                 {m('compareMeubleCta')}
               </button>
             </td>
