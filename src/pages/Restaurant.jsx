@@ -4,7 +4,7 @@ import Photo from '../components/ui/Photo';
 import SectionHeading from '../components/ui/SectionHeading';
 import PhotoGrid from '../components/ui/PhotoGrid';
 import { ArrowLink, ButtonLink } from '../components/ui/Links';
-import { ArchFrame, Bell, OrnateFrame } from '../components/ui/Ornaments';
+import { ArchFrame, Bell, OrnamentRule, OrnateFrame } from '../components/ui/Ornaments';
 import TodayBanner from '../components/restaurant/TodayBanner';
 import MenuBook from '../components/restaurant/MenuBook';
 import { useLang } from '../i18n/LanguageContext';
@@ -32,9 +32,9 @@ export default function Restaurant() {
 
       {/* ── En-tête ── */}
       <section className="bg-offwhite overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-10 md:pb-16">
-          <div className="hero-reveal">
-            <p className="eyebrow text-gold mb-5">{r('heroOverline')}</p>
+        <div className="relative max-w-6xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-10 md:pb-16">
+          <Bell className="hidden md:block absolute right-10 top-24 lg:top-28 w-44 lg:w-60 h-auto text-gold opacity-[0.12] pointer-events-none" />
+          <div className="hero-reveal relative">
             <h1 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6">
               {r('heroTitle1')}{' '}
               <br />
@@ -49,6 +49,7 @@ export default function Restaurant() {
                 {nav.formules}
               </ButtonLink>
             </div>
+            <OrnamentRule className="mt-10 md:mt-14 max-w-sm" />
           </div>
         </div>
       </section>
@@ -72,7 +73,7 @@ export default function Restaurant() {
       {/* ── 1. Les formules ── */}
       <section id="formules" className="py-20 md:py-28 bg-offwhite">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={r('formulesSub')} title={r('formulesTitle')} className="mb-14" />
+          <SectionHeading title={r('formulesTitle')} className="mb-14" />
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0 m-0">
             {r('formules').map((f) => (
               <li key={f.id}>
@@ -112,7 +113,7 @@ export default function Restaurant() {
       {/* ── 2. La carte, façon menu imprimé ── */}
       <section id="menus" className="py-20 md:py-28 bg-beige">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading overline={r('nosMenusOverline')} title={r('menusTitle')} className="mb-12" />
+          <SectionHeading title={r('menusTitle')} className="mb-12" />
           <MenuBook tab={tab} onTabChange={setTab} />
         </div>
       </section>
@@ -126,7 +127,7 @@ export default function Restaurant() {
             </ArchFrame>
           </div>
           <div className="flex flex-col">
-            <SectionHeading overline={r('estofinadeSub')} title={r('estofinadeTitle')} tone="light" align="left" />
+            <SectionHeading title={r('estofinadeTitle')} tone="light" align="left" />
             <div className="mt-8 space-y-4 text-offwhite/85">
               <p className="dropcap dropcap-light">{r('estofinadeP1')}</p>
               <p>{r('estofinadeP2')}</p>
@@ -150,7 +151,7 @@ export default function Restaurant() {
       {/* ── 5. Les assiettes en photos ── */}
       <section id="photos" className="py-20 md:py-28 bg-offwhite">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={r('photosSub')} title={r('photosTitle')} className="mb-12">
+          <SectionHeading title={r('photosTitle')} className="mb-12">
             {r('photosDesc')}
           </SectionHeading>
           <PhotoGrid items={PLATS_PHOTOS.map((photo, i) => ({ photo, alt: r('platsSlides')[i] }))} />
@@ -161,7 +162,7 @@ export default function Restaurant() {
       <section id="infos" className="py-20 md:py-28 bg-beige">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
           <div>
-            <SectionHeading overline={r('infosSub')} title={r('infosTitle')} align="left" size="md" className="mb-8" />
+            <SectionHeading title={r('infosTitle')} align="left" size="md" className="mb-8" />
             <dl className="space-y-4 m-0">
               {r('horaires').map((item) => (
                 <div key={item.label} className="flex gap-3">

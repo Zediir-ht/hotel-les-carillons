@@ -12,7 +12,7 @@ export default function IntroSection() {
     <section id="bienvenue" className="py-20 md:py-32 bg-offwhite">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-center">
         <Reveal className="flex flex-col">
-          <SectionHeading overline={t('intro.overline')} title={t('intro.title')} align="left" />
+          <SectionHeading title={t('intro.title')} align="left" />
           <div className="mt-8 space-y-4 text-gray-mid">
             <p className="dropcap">{t('intro.p1')}</p>
             <p>{t('intro.p2')}</p>

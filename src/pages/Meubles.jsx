@@ -67,7 +67,7 @@ export default function Meubles() {
         </ul>
       </nav>
 
-      <SplitSection photo="cedres-facade" photoAlt={residenceAlts[0]} overline={m('section1Sub')} title={m('section1Title')}>
+      <SplitSection photo="cedres-facade" photoAlt={residenceAlts[0]} title={m('section1Title')}>
         <p>{m('section1P1')}</p>
         <p>{m('section1P2')}</p>
         <ArrowLink href="#tarifs" className="mt-2">
@@ -78,7 +78,7 @@ export default function Meubles() {
       {/* 1. Calculateur */}
       <section id="tarifs" className="py-20 md:py-28 bg-beige">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading overline={m('calcSub')} title={m('calcTitle')} className="mb-12">
+          <SectionHeading title={m('calcTitle')} className="mb-12">
             {m('calcDesc')}
           </SectionHeading>
           <CureCalculator floor={calc.floor} weeks={calc.weeks} onChange={setCalc} onRequest={() => goToRequest(true)} />
@@ -88,7 +88,7 @@ export default function Meubles() {
       {/* Photos des appartements */}
       <section id="appartements" className="py-20 md:py-28 bg-offwhite">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={m('apartmentsSub')} title={m('apartmentsTitle')} className="mb-12">
+          <SectionHeading title={m('apartmentsTitle')} className="mb-12">
             {m('apartmentsDesc')}
           </SectionHeading>
           <PhotoGrid items={APARTMENT_PHOTOS.map((photo, i) => ({ photo, alt: m('photos')[i] }))} />
@@ -99,7 +99,7 @@ export default function Meubles() {
       <section id="infos" className="py-20 md:py-28 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           <div>
-            <SectionHeading overline={m('detailSub')} title={m('detailTitle')} align="left" size="md" className="mb-8" />
+            <SectionHeading title={m('detailTitle')} align="left" size="md" className="mb-8" />
             <p className="text-gray-mid">{m('detailP')}</p>
             <ul className="space-y-3 list-none p-0 mt-6">
               {m('detailItems').map((item) => (
@@ -111,7 +111,7 @@ export default function Meubles() {
             </ul>
           </div>
           <div>
-            <SectionHeading overline={m('infosSub')} title={m('infosTitle')} align="left" size="md" className="mb-8" />
+            <SectionHeading title={m('infosTitle')} align="left" size="md" className="mb-8" />
             <dl className="divide-y divide-gold/20 border-y border-gold/20 m-0">
               {infos.map((info) => (
                 <div key={info.label} className="flex justify-between gap-4 py-3">
@@ -133,7 +133,7 @@ export default function Meubles() {
       {/* 3. Hôtel ou meublé ? */}
       <section id="comparatif" className="py-20 md:py-28 bg-offwhite">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading overline={m('compareSub')} title={m('compareTitle')} className="mb-12" />
+          <SectionHeading title={m('compareTitle')} className="mb-12" />
           <CompareTable onRequest={() => goToRequest(false)} />
         </div>
       </section>
@@ -141,7 +141,7 @@ export default function Meubles() {
       {/* Cadre */}
       <section className="py-20 md:py-28 bg-forest pattern-belle">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={m('extSub')} title={m('extTitle')} tone="light" className="mb-12">
+          <SectionHeading title={m('extTitle')} tone="light" className="mb-12">
             {m('extP1')} {m('extP2')}
           </SectionHeading>
           <PhotoGrid
@@ -159,7 +159,7 @@ export default function Meubles() {
       {/* 5. FAQ */}
       <section id="questions" className="py-20 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={m('faqSub')} title={m('faqTitle')} className="mb-12" />
+          <SectionHeading title={m('faqTitle')} className="mb-12" />
           <MeublesFaq />
         </div>
       </section>
@@ -167,7 +167,7 @@ export default function Meubles() {
       {/* 2. Demande de réservation */}
       <section id="demande" className="py-20 md:py-28 bg-beige">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading overline={m('requestSub')} title={m('requestTitle')} className="mb-12">
+          <SectionHeading title={m('requestTitle')} className="mb-12">
             {m('requestDesc')}
           </SectionHeading>
           <MeubleRequestForm key={request.key} initialFloor={request.floor} initialWeeks={request.weeks} />

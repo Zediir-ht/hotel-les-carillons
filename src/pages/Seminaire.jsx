@@ -24,7 +24,6 @@ export default function Seminaire() {
       <SplitSection
         photo="seminaire-reunion"
         photoAlt={t('seminairePage.section1ImgAlt')}
-        overline={t('seminairePage.section1Sub')}
         title={t('seminairePage.section1Title')}
       >
         <p>{t('seminairePage.section1P1')}</p>
@@ -36,7 +35,7 @@ export default function Seminaire() {
 
       <section className="py-20 md:py-28 bg-beige">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={t('seminairePage.equipSub')} title={t('seminairePage.equipTitle')} className="mb-12" />
+          <SectionHeading title={t('seminairePage.equipTitle')} className="mb-12" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {t('seminairePage.equipBlocks').map((block) => (
               <div key={block.title} className="bg-white p-6 md:p-8 border border-black/5">
@@ -66,7 +65,7 @@ export default function Seminaire() {
             <Carousel slides={SALLES_PHOTOS.map((photo, i) => ({ photo, alt: slides[i], caption: slides[i] }))} aspectRatio="4/3" interval={4800} />
           </div>
           <div className="w-full md:w-2/5 flex flex-col">
-            <SectionHeading overline={t('seminairePage.carouselSub')} title={t('seminairePage.carouselTitle')} align="left" />
+            <SectionHeading title={t('seminairePage.carouselTitle')} align="left" />
             <p className="text-gray-mid leading-relaxed mt-6 mb-4">{t('seminairePage.carouselP1')}</p>
             <p className="text-gray-mid leading-relaxed">{t('seminairePage.carouselP2')}</p>
             <ArrowLink to="/contact?sujet=groupe" className="mt-6">

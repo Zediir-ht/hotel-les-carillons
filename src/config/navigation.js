@@ -5,8 +5,8 @@ export const NAV_ITEMS = [
   { to: '/hotel', key: 'hotel', desktop: 'left' },
   { to: '/restaurant', key: 'restaurant', desktop: 'left' },
   { to: '/meubles', key: 'meubles', desktop: 'left' },
-  { to: '/galerie', key: 'galerie', desktop: null },
+  { to: '/galerie', key: 'galerie', desktop: 'left', wide: true },
   { to: '/seminaire', key: 'seminaire', desktop: 'right' },
-  { to: '/tourisme', key: 'tourisme', desktop: null },
+  { to: '/tourisme', key: 'tourisme', desktop: 'right', wide: true },
   { to: '/contact', key: 'contact', desktop: 'right' },
 ];

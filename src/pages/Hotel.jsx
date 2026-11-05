@@ -40,7 +40,7 @@ export default function Hotel() {
         breadcrumb={[{ label: t('nav.hotel') }]}
       />
 
-      <SplitSection photo="chambre-double-2" photoAlt={t('rooms.title')} overline={t('hotelPage.section1Sub')} title={t('hotelPage.section1Title')}>
+      <SplitSection photo="chambre-double-2" photoAlt={t('rooms.title')} title={t('hotelPage.section1Title')}>
         <p>{t('hotelPage.section1P1')}</p>
         <p>{t('hotelPage.section1P2')}</p>
       </SplitSection>
@@ -51,7 +51,7 @@ export default function Hotel() {
       <section className="py-20 md:py-28 bg-beige">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-14 lg:gap-16">
           <div>
-            <SectionHeading overline={t('hotelPage.equipSub')} title={t('hotelPage.equipTitle')} align="left" size="md" className="mb-10" />
+            <SectionHeading title={t('hotelPage.equipTitle')} align="left" size="md" className="mb-10" />
             <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3 list-none p-0 m-0">
               {t('hotelPage.equipItems').map((label, i) => (
                 <li key={label} className="bg-white p-5 text-center border border-black/5">
@@ -63,7 +63,7 @@ export default function Hotel() {
           </div>
 
           <div id="infos-pratiques">
-            <SectionHeading overline={t('hotelPage.infosSub')} title={t('hotelPage.infosTitle')} align="left" size="md" className="mb-10" />
+            <SectionHeading title={t('hotelPage.infosTitle')} align="left" size="md" className="mb-10" />
             <dl className="bg-white border border-black/5 divide-y divide-black/5 m-0">
               {t('hotelPage.infos').map((info) => (
                 <div key={info.label} className="flex justify-between gap-4 px-5 py-3.5 text-sm">
@@ -87,7 +87,6 @@ export default function Hotel() {
       <SplitSection
         imageSide="right"
         bg="beige"
-        overline={t('hotelPage.petitDejSub')}
         title={t('hotelPage.petitDejTitle')}
         media={
           <Carousel
@@ -110,7 +109,6 @@ export default function Hotel() {
         id="soiree-etape"
         photo="salle-restaurant-1"
         photoAlt={t('hotelPage.etapeImgAlt')}
-        overline={t('hotelPage.etapeSub')}
         title={t('hotelPage.etapeTitle')}
       >
         <p>{t('hotelPage.etapeP')}</p>

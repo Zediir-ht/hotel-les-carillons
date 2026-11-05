@@ -23,7 +23,7 @@ export default function ServicesGrid() {
   return (
     <section className="py-20 md:py-28 bg-beige">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <SectionHeading overline={t('services.overline')} title={t('services.title')} className="mb-14" />
+        <SectionHeading title={t('services.title')} className="mb-14" />
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-[260px] sm:auto-rows-[280px] lg:auto-rows-[300px] gap-4 md:gap-5 list-none p-0 m-0">
           {items.map((service, i) => {

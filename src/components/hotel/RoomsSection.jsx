@@ -74,7 +74,7 @@ export default function RoomsSection() {
   return (
     <section id="chambres" className="py-20 md:py-28 bg-offwhite">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionHeading overline={t('rooms.overline')} title={t('rooms.title')} className="mb-14">
+        <SectionHeading title={t('rooms.title')} className="mb-14">
           {t('rooms.subtitle')}
         </SectionHeading>
 

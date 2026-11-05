@@ -33,7 +33,7 @@ export default function GoogleReviewsSection({ data }) {
   return (
     <section className={`bg-offwhite ${rating != null || reviews.length > 0 ? 'py-20 md:py-28' : 'py-16 md:py-20'}`}>
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <SectionHeading overline={t('googleReviews.overline')} title={t('googleReviews.title')}>
+        <SectionHeading title={t('googleReviews.title')}>
           {t('googleReviews.desc')}
         </SectionHeading>
 

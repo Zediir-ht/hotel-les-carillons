@@ -30,7 +30,6 @@ export default function Home() {
       <ServicesGrid />
 
       <EditorialCollage
-        overline={t('hotelSection.overline')}
         title={t('hotelSection.title')}
         photos={[
           { name: 'chambre-double', alt: t('hotelSection.imgAlt') },
@@ -51,7 +50,6 @@ export default function Home() {
       <EditorialCollage
         reverse
         bg="bg-offwhite"
-        overline={t('restaurantSection.overline')}
         title={t('restaurantSection.title')}
         photos={[
           { name: 'plat-1', alt: t('restaurantSection.imgAlt') },
@@ -75,7 +73,6 @@ export default function Home() {
         photoAlt={t('meublesSection.imgAlt')}
         imageSide="right"
         bg="offwhite"
-        overline={t('meublesSection.overline')}
         title={t('meublesSection.title')}
       >
         <p>{t('meublesSection.p1')}</p>

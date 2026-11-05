@@ -80,3 +80,14 @@ export function ArchFrame({ children, className = '', offset = 'right' }) {
     </div>
   );
 }
+
+/** Filet orné : deux traits fins et une cloche au centre, pour clore un en-tête de page. */
+export function OrnamentRule({ className = '' }) {
+  return (
+    <div className={`flex items-center gap-4 text-gold/70 ${className}`} aria-hidden="true">
+      <span className="h-px flex-1 bg-current opacity-40" />
+      <Bell className="w-6 h-6" />
+      <span className="h-px flex-1 bg-current opacity-40" />
+    </div>
+  );
+}

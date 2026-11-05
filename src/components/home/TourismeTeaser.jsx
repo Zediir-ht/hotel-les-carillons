@@ -14,7 +14,7 @@ export default function TourismeTeaser() {
       </div>
 
       <div className="relative z-10 max-w-3xl px-6">
-        <SectionHeading overline={t('tourTeaser.overline')} title={t('tourTeaser.title')} tone="light">
+        <SectionHeading title={t('tourTeaser.title')} tone="light">
           {t('tourTeaser.desc')}
         </SectionHeading>
 

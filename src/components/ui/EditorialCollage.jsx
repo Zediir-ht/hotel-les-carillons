@@ -6,13 +6,13 @@ import SectionHeading from './SectionHeading';
  *   photos : [{ name, alt }] × 3
  *   reverse : photos à gauche, texte à droite
  */
-export default function EditorialCollage({ photos, overline, title, children, bg = 'bg-white', reverse = false }) {
+export default function EditorialCollage({ photos, title, children, bg = 'bg-white', reverse = false }) {
   const [big, small1, small2] = photos;
   return (
     <section className={`${bg} py-20 md:py-28 overflow-hidden`}>
       <div className={`max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 ${reverse ? 'lg:grid-cols-[1.25fr_1fr]' : 'lg:grid-cols-[1fr_1.25fr]'} gap-14 lg:gap-16 items-center`}>
         <div className={`flex flex-col order-2 ${reverse ? 'lg:order-2' : 'lg:order-1'}`}>
-          <SectionHeading overline={overline} title={title} align="left" />
+          <SectionHeading title={title} align="left" />
           <div className="mt-7 space-y-4 text-gray-mid flex flex-col">{children}</div>
         </div>
 

@@ -24,7 +24,6 @@ export default function Tourisme() {
       <SplitSection
         photo="vallee-cransac"
         photoAlt={t('tourismePage.introImgAlt')}
-        overline={t('tourismePage.introSub')}
         title={t('tourismePage.introTitle')}
       >
         <p>{t('tourismePage.introP1')}</p>
@@ -36,7 +35,7 @@ export default function Tourisme() {
 
       <section className="py-20 md:py-28 bg-beige">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={t('tourismePage.sitesSub')} title={t('tourismePage.sitesTitle')} className="mb-12">
+          <SectionHeading title={t('tourismePage.sitesTitle')} className="mb-12">
             {t('tourismePage.sitesDesc')}
           </SectionHeading>
 
@@ -82,7 +81,7 @@ export default function Tourisme() {
 
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <SectionHeading overline={t('tourismePage.agendaSub')} title={t('tourismePage.agendaTitle')} className="mb-12" />
+          <SectionHeading title={t('tourismePage.agendaTitle')} className="mb-12" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {t('tourismePage.agenda').map((item, i) => (
               <div key={item.title} className="bg-beige p-6 md:p-8 border border-black/5">

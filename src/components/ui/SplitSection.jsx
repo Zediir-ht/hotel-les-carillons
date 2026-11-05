@@ -18,7 +18,6 @@ export default function SplitSection({
   media,
   imageSide = 'left',
   bg = 'white',
-  overline,
   title,
   children,
   id,
@@ -41,7 +40,7 @@ export default function SplitSection({
         className={`md:w-1/2 flex flex-col justify-center px-6 sm:px-10 py-14 md:px-16 md:py-20 ${backgrounds[bg]}`}
         from={imageLeft ? 'left' : 'right'}
       >
-        <SectionHeading overline={overline} title={title} align="left" size="md" />
+        <SectionHeading title={title} align="left" size="md" />
         <div className="mt-7 text-gray-mid leading-relaxed space-y-4 text-base max-w-md flex flex-col">{children}</div>
       </div>
     </section>

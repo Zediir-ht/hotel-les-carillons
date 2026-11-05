@@ -20,7 +20,7 @@ export default function CuristesSection() {
   return (
     <section className="py-20 md:py-28 bg-forest pattern-belle">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <SectionHeading overline={t('curistes.overline')} title={t('curistes.title')} tone="light" className="mb-14">
+        <SectionHeading title={t('curistes.title')} tone="light" className="mb-14">
           {t('curistes.desc')}
         </SectionHeading>
 

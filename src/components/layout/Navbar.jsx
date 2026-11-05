@@ -31,7 +31,7 @@ export default function Navbar() {
   const [menuOpenOn, setMenuOpenOn] = useState(null);
   const menuOpen = menuOpenOn === pathname;
   const setMenuOpen = (open) => setMenuOpenOn(open ? pathname : null);
-  const links = NAV_ITEMS.map((n) => ({ to: n.to, label: t(`nav.${n.key}`), desktop: n.desktop }));
+  const links = NAV_ITEMS.map((n) => ({ to: n.to, label: t(`nav.${n.key}`), desktop: n.desktop, wide: n.wide }));
   const otherLang = lang === 'fr' ? 'en' : 'fr';
 
   // Seul l'accueil a une grande photo d'en-tête : partout ailleurs la barre est claire d'emblée.
@@ -94,7 +94,7 @@ export default function Navbar() {
         <div className="hidden lg:flex h-20 items-center px-6 xl:px-12">
           <div className="flex-1 flex items-center justify-end gap-6 xl:gap-10 pr-32 xl:pr-44">
             {links.filter((l) => l.desktop === 'left').map((link) => (
-              <NavLink key={link.to} to={link.to} className={linkClass}>
+              <NavLink key={link.to} to={link.to} className={(state) => `${linkClass(state)}${link.wide ? ' max-2xl:hidden' : ''}`}>
                 {link.label}
               </NavLink>
             ))}
@@ -106,7 +106,7 @@ export default function Navbar() {
 
           <div className="flex-1 flex items-center justify-start gap-6 xl:gap-10 pl-32 xl:pl-44">
             {links.filter((l) => l.desktop === 'right').map((link) => (
-              <NavLink key={link.to} to={link.to} className={linkClass}>
+              <NavLink key={link.to} to={link.to} className={(state) => `${linkClass(state)}${link.wide ? ' max-2xl:hidden' : ''}`}>
                 {link.label}
               </NavLink>
             ))}
