@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Devis D-2026-012 — Hôtel Restaurant Les Carillons</title>
+<style>
+  @font-face { font-family: "Libre Franklin"; font-weight: 400; src: url("../node_modules/@fontsource/libre-franklin/files/libre-franklin-latin-400-normal.woff2"); }
+  @font-face { font-family: "Libre Franklin"; font-weight: 500; src: url("../node_modules/@fontsource/libre-franklin/files/libre-franklin-latin-500-normal.woff2"); }
+  @font-face { font-family: "Libre Franklin"; font-weight: 600; src: url("../node_modules/@fontsource/libre-franklin/files/libre-franklin-latin-600-normal.woff2"); }
+  @font-face { font-family: "Sorts Mill Goudy"; font-weight: 400; src: url("../node_modules/@fontsource/sorts-mill-goudy/files/sorts-mill-goudy-latin-400-normal.woff2"); }
+  @page { size: A4; margin: 13mm 15mm 12mm; }
+  :root { --gold: #8c6e47; --ink: #1c1a18; --muted: #5a534d; --line: #e5ddd2; --cream: #f5f2ee; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 9pt/1.42 "Libre Franklin", Arial, sans-serif; color: var(--ink); }
+  h2 { font: 400 13pt "Sorts Mill Goudy", Georgia, serif; margin: 0 0 2.5mm; display: flex; align-items: center; gap: 3mm; }
+  h2::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
+  .page { break-after: page; height: 269mm; display: flex; flex-direction: column; }
+  .page:last-child { break-after: auto; }
+  .head { display: flex; justify-content: space-between; align-items: flex-start; }
+  .head .who b { font-size: 11pt; }
+  .head .who, .head .meta { color: var(--muted); line-height: 1.55; }
+  .head .meta { text-align: right; }
+  .title { font: 400 25pt "Sorts Mill Goudy", Georgia, serif; color: var(--ink); line-height: 1; }
+  .num { color: var(--gold); font-weight: 600; margin: 1.5mm 0 1mm; }
+  .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin: 4mm 0 3mm; }
+  .box { border: 1px solid var(--line); padding: 2.4mm 4mm; line-height: 1.5; }
+  .box.cream { background: var(--cream); }
+  .box small { display: block; font-size: 7pt; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1mm; }
+  .objet { margin: 0 0 3mm; } .objet b { color: var(--gold); }
+  table { width: 100%; border-collapse: collapse; }
+  th { font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 400; text-align: left; padding: 0 0 2mm; border-bottom: 1px solid var(--ink); }
+  th.r, td.r { text-align: right; white-space: nowrap; }
+  td { padding: 1.4mm 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td .t { font-weight: 600; font-size: 9.6pt; }
+  td .d { color: var(--muted); font-size: 8pt; margin-top: .8mm; max-width: 112mm; }
+  .totals { margin: 2mm 0 0 auto; width: 76mm; }
+  .totals div { display: flex; justify-content: space-between; padding: 1mm 0; }
+  .totals .big { border-top: 1px solid var(--ink); margin-top: 1mm; padding-top: 2mm; font: 400 14pt "Sorts Mill Goudy", Georgia, serif; }
+  .totals .big b { color: var(--gold); font-weight: 400; }
+  .totals .note { color: var(--muted); font-size: 8pt; justify-content: flex-end; text-align: right; }
+  ul { margin: 0; padding-left: 5mm; } li { margin: 0 0 .8mm; }
+  .cond { margin-top: 3.5mm; }
+  .price { display: flex; justify-content: space-between; align-items: center; gap: 8mm; }
+  .price .amt { font: 400 28pt "Sorts Mill Goudy", Georgia, serif; color: var(--gold); line-height: 1; text-align: right; }
+  .price .amt small { display: block; font: 400 7.6pt "Libre Franklin", sans-serif; color: var(--muted); margin-top: 1.5mm; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; margin: 6mm 0 5mm; }
+  .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 4mm; }
+  .sign .box { height: 38mm; }
+  .foot { margin-top: auto; padding-top: 3mm; border-top: 1px solid var(--line); text-align: center; font-size: 7.4pt; color: var(--muted); }
+  .sec { margin-top: 6mm; }
+
+  body { font-size: 10.5pt; line-height: 1.5; }
+  h1 { font: 400 22pt "Sorts Mill Goudy", Georgia, serif; margin: 0 0 1mm; }
+  .sub { color: var(--muted); margin: 0 0 6mm; }
+  h2 { font-size: 15pt; margin: 7mm 0 3mm; }
+  ol { margin: 0 0 3mm; padding-left: 6mm; } ol li { margin: 0 0 2mm; padding-left: 1mm; }
+  .tip { border-left: 3px solid var(--gold); background: var(--cream); padding: 3mm 4mm; margin: 3mm 0; }
+  .alt { border: 1px solid var(--line); padding: 3mm 4mm; margin: 3mm 0; }
+  code { background: var(--cream); padding: 0 1.2mm; }
+  .page { height: auto; min-height: 0; }
+  .pb { break-before: page; }
+</style></head><body><section class="page">
+<h1>Me donner accès : fiche Google et OVH</h1>
+<p class="sub">Pour que je puisse mettre le site en ligne et le tenir à jour, sans que vous ayez à me communiquer le moindre mot de passe.</p>
+<div class="tip"><b>Important :</b> ne m'envoyez jamais votre mot de passe, ni par e-mail ni par SMS. Les deux accès ci-dessous sont des invitations : vous gardez la propriété de tout, et vous pouvez me retirer à tout moment.</div>
+
+<h2>1. Fiche Google (Google Business Profile)</h2>
+<p>Elle sert à gérer les informations de l'hôtel sur Google (horaires, photos, avis). Il faut vous connecter avec le compte Google qui gère la fiche.</p>
+<ol>
+  <li>Allez sur <b>business.google.com</b> et connectez-vous avec le compte Google de l'hôtel.</li>
+  <li>Choisissez la fiche <b>Hôtel Restaurant Les Carillons</b> si plusieurs fiches s'affichent.</li>
+  <li>Cliquez sur les trois points <b>⋮</b> (ou sur « Paramètres »), puis sur <b>« Paramètres de la fiche »</b>, puis sur <b>« Accès des utilisateurs »</b> (ou « Gestionnaires »).</li>
+  <li>Cliquez sur <b>« Ajouter »</b> (le bouton avec le signe +).</li>
+  <li>Saisissez cette adresse : <b>corentin.mayrand@gmail.com</b></li>
+  <li>Choisissez le rôle <b>« Gestionnaire »</b> (pas « Propriétaire »), puis cliquez sur <b>« Inviter »</b>.</li>
+</ol>
+<p>Je reçois l'invitation par e-mail et je l'accepte de mon côté. Les intitulés peuvent légèrement changer d'une version à l'autre : cherchez toujours « Accès » ou « Gestionnaires » dans les paramètres.</p>
+<div class="alt"><b>Vous ne savez pas quel compte gère la fiche ?</b> Cherchez « Les Carillons Cransac » sur Google, en étant connecté. Si un bouton « Gérer cet établissement » ou « Revendiquer cet établissement » apparaît, la fiche existe sur votre compte ou n'est pas encore revendiquée : appelez-moi, je vous guide au téléphone.</div>
+
+<h2 class="pb">2. OVH (nom de domaine et hébergement)</h2>
+<p>Votre nom de domaine <b>lescarillons.fr</b> est chez OVH. Il me faut deux choses : pouvoir relier le domaine au site, et pouvoir envoyer le site sur l'hébergement. Je vous communique par ailleurs mon <b>identifiant OVH personnel</b> (de la forme <code>xx12345-ovh</code>).</p>
+<p><b>Vous n'avez pas ou plus votre mot de passe OVH ?</b> Sur ovh.com, cliquez sur « Mot de passe oublié » : OVH envoie un lien à l'adresse du compte. L'identifiant du compte figure dans les e-mails de facturation d'OVH (cherchez « OVHcloud » dans votre boîte).</p>
+
+<h3>A. Me nommer contact technique du domaine</h3>
+<ol>
+  <li>Connectez-vous à votre <b>espace client OVHcloud</b> (ovh.com → « Espace client »).</li>
+  <li>Ouvrez <b>« Noms de domaine »</b>, puis <b>lescarillons.fr</b>.</li>
+  <li>Dans l'onglet <b>« Informations générales »</b>, repérez le bloc <b>« Contacts »</b> et cliquez sur <b>« Gérer les contacts »</b>.</li>
+  <li>Pour le <b>contact technique</b>, cliquez sur « Modifier » et saisissez mon identifiant OVH. Validez.</li>
+  <li>OVH m'envoie un e-mail de confirmation que je valide de mon côté.</li>
+</ol>
+
+<h3>B. Hébergement : créer un accès pour envoyer le site</h3>
+<ol>
+  <li>Dans l'espace client, ouvrez <b>« Hébergements »</b> puis votre hébergement. S'il n'existe pas encore, nous le souscrirons ensemble : offre <b>« Perso »</b> ou supérieure (à votre nom, à votre charge).</li>
+  <li>Ouvrez l'onglet <b>« FTP - SSH »</b> et cliquez sur <b>« Créer un utilisateur FTP »</b>.</li>
+  <li>Choisissez un identifiant et un mot de passe, puis validez. <b>Envoyez-moi ces deux informations séparément</b> (identifiant par e-mail, mot de passe par SMS ou par téléphone).</li>
+</ol>
+<div class="alt"><b>Plus simple :</b> si vous préférez, nous faisons ces étapes ensemble, en visio ou chez vous, en une trentaine de minutes. Vous restez aux commandes et je ne vois que ce que vous me montrez.</div>
+<p style="margin-top:6mm;color:var(--muted)">Corentin Mayrand · 06 32 91 53 77 · corentin.mayrand@gmail.com</p>
+</section></body></html>
