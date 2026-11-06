@@ -72,7 +72,7 @@ export default {
     contact: {
       title: 'Contact & accès',
       description:
-        "Contactez l'Hôtel Restaurant Les Carillons : téléphone, e-mail, formulaire, plan d'accès. Route de Figeac, 12110 Cransac-les-Thermes.",
+        "Contactez l'Hôtel Restaurant Les Carillons : téléphone, e-mail, formulaire, plan d'accès. 229 avenue Jean Jaurès, 12110 Cransac-les-Thermes.",
     },
     mentions: {
       title: 'Mentions légales',

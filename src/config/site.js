@@ -15,7 +15,7 @@ export const SITE = {
   email: 'lescarillons12@orange.fr',
 
   address: {
-    street: 'Route de Figeac',
+    street: '229 avenue Jean Jaurès',
     postalCode: '12110',
     city: 'Cransac-les-Thermes',
     region: 'Aveyron',
@@ -73,8 +73,8 @@ export function bookingUrl(lang = 'fr', { arrival, nights = 1 } = {}) {
 // Mentions légales obligatoires (loi LCEN, art. 6).
 // ⚠️ À COMPLÉTER par l'exploitant : tant qu'un champ vaut null, il n'est pas affiché.
 export const LEGAL = {
-  company: null, // ex. 'SARL Les Carillons'
-  legalForm: null, // ex. 'SARL au capital de 10 000 €'
+  company: 'SARL SN LES CARILLONS',
+  legalForm: 'SARL', // ex. 'SARL au capital de 10 000 €' : compléter avec le capital
   siret: null, // ex. '123 456 789 00012'
   vat: null, // n° TVA intracommunautaire
   publicationDirector: null, // ex. 'Nathalie X'
