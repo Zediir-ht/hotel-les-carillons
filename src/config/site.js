@@ -32,11 +32,12 @@ export const SITE = {
   checkOut: '11:00',
 };
 
+// Adresse complète pour Google Maps (nom + rue + commune) : l'itinéraire arrive à la bonne porte
+const MAPS_QUERY = encodeURIComponent(`${SITE.name}, ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}`);
+
 export const LINKS = {
-  googleMaps:
-    'https://www.google.com/maps/search/?api=1&query=Hotel+Restaurant+Les+Carillons+Cransac-les-Thermes',
-  directions:
-    'https://www.google.com/maps/dir/?api=1&destination=Hotel+Restaurant+Les+Carillons+Cransac-les-Thermes',
+  googleMaps: `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`,
+  directions: `https://www.google.com/maps/dir/?api=1&destination=${MAPS_QUERY}`,
   thermes: 'https://www.chainethermale.fr/cransac-les-thermes',
   aveyronTourisme: 'https://www.tourisme-aveyron.com',
   cransac: 'https://www.cransac-les-thermes.fr',
